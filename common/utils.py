@@ -155,15 +155,23 @@ def normalize_skill(skill_name: str) -> str:
     if not skill_name:
         return ""
     
-    # 공백 제거 및 소문자 변환
-    normalized_key = skill_name.strip().lower()
+    # 공백 제거
+    cleaned = skill_name.strip()
     
-    # 매핑 딕셔너리에서 찾기
+    # 소문자 변환하여 매핑 딕셔너리에서 찾기
+    normalized_key = cleaned.lower()
+    
     if normalized_key in SKILL_NORMALIZATION_MAP:
         return SKILL_NORMALIZATION_MAP[normalized_key]
     
-    # 매핑에 없는 경우 title case로 반환
-    return skill_name.strip().title()
+    # 매핑에 없는 경우: 이미 정규화된 값인지 확인 (멱등성 보장)
+    # 정규화된 값들 중에 일치하는 것이 있으면 그대로 반환
+    for normalized_value in SKILL_NORMALIZATION_MAP.values():
+        if cleaned == normalized_value:
+            return normalized_value
+    
+    # 완전히 새로운 스킬인 경우에만 title case 적용
+    return cleaned.title()
 
 
 def normalize_skills(skill_names: List[str]) -> List[str]:

@@ -26,6 +26,7 @@ resource "aws_dynamodb_table" "employees" {
   
   tags = {
     Team        = "Team2"
+    EmployeeID  = "524956"
     Project     = "HR-Resource-Optimization"
     Environment = var.environment
   }
@@ -54,6 +55,7 @@ resource "aws_dynamodb_table" "projects" {
   
   tags = {
     Team        = "Team2"
+    EmployeeID  = "524956"
     Project     = "HR-Resource-Optimization"
     Environment = var.environment
   }
@@ -82,6 +84,7 @@ resource "aws_dynamodb_table" "employee_affinity" {
   
   tags = {
     Team        = "Team2"
+    EmployeeID  = "524956"
     Project     = "HR-Resource-Optimization"
     Environment = var.environment
   }
@@ -116,6 +119,7 @@ resource "aws_dynamodb_table" "messenger_logs" {
   
   tags = {
     Team        = "Team2"
+    EmployeeID  = "524956"
     Project     = "HR-Resource-Optimization"
     Environment = var.environment
   }
@@ -144,6 +148,7 @@ resource "aws_dynamodb_table" "company_events" {
   
   tags = {
     Team        = "Team2"
+    EmployeeID  = "524956"
     Project     = "HR-Resource-Optimization"
     Environment = var.environment
   }
@@ -161,6 +166,7 @@ resource "aws_dynamodb_table" "tech_trends" {
   
   tags = {
     Team        = "Team2"
+    EmployeeID  = "524956"
     Project     = "HR-Resource-Optimization"
     Environment = var.environment
   }

@@ -68,3 +68,18 @@ output "employees_stream_arn" {
   description = "Employees table DynamoDB stream ARN"
   value       = aws_dynamodb_table.employees.stream_arn
 }
+
+# Lambda Function Names
+output "lambda_functions" {
+  description = "Lambda function names"
+  value = {
+    resume_parser          = aws_lambda_function.resume_parser.function_name
+    affinity_calculator    = aws_lambda_function.affinity_calculator.function_name
+    recommendation_engine  = aws_lambda_function.recommendation_engine.function_name
+    domain_analysis        = aws_lambda_function.domain_analysis.function_name
+    quantitative_analysis  = aws_lambda_function.quantitative_analysis.function_name
+    qualitative_analysis   = aws_lambda_function.qualitative_analysis.function_name
+    tech_trend_collector   = aws_lambda_function.tech_trend_collector.function_name
+    vector_embedding       = aws_lambda_function.vector_embedding.function_name
+  }
+}

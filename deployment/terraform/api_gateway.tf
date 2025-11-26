@@ -10,6 +10,7 @@ resource "aws_api_gateway_rest_api" "hr_api" {
   
   tags = {
     Team        = "Team2"
+    EmployeeID  = "524956"
     Project     = "HR-Resource-Optimization"
     Environment = var.environment
   }
@@ -246,6 +247,7 @@ resource "aws_api_gateway_stage" "prod" {
   
   tags = {
     Team        = "Team2"
+    EmployeeID  = "524956"
     Project     = "HR-Resource-Optimization"
     Environment = var.environment
   }

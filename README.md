@@ -165,12 +165,62 @@ cd deployment
 - 최소 권한 원칙 적용
 - PII 데이터 익명화 처리
 
-## 모니터링
+## 모니터링 및 알림
 
-- CloudWatch Logs: Lambda 함수 로그
-- CloudWatch Metrics: 성능 메트릭
-- CloudWatch Alarms: 임계값 알림
-- CloudWatch Dashboards: 시각화 대시보드
+시스템은 포괄적인 모니터링 및 알림 기능을 제공합니다:
+
+### CloudWatch 대시보드
+
+자동으로 생성되는 3개의 대시보드:
+
+1. **HR-Lambda-Metrics-Team2**
+   - Lambda 함수 호출 수
+   - 에러 발생 건수
+   - 실행 시간 (Duration)
+   - 스로틀링 이벤트
+
+2. **HR-API-Gateway-Metrics-Team2**
+   - API 요청 수
+   - 4XX/5XX 에러
+   - 레이턴시 (Latency)
+   - 통합 레이턴시 (Integration Latency)
+
+3. **HR-DynamoDB-Metrics-Team2**
+   - 읽기/쓰기 용량 단위 소비량
+   - 사용자 에러
+   - 시스템 에러
+   - 읽기/쓰기 스로틀링 이벤트
+
+### CloudWatch 알람
+
+자동으로 설정되는 알람:
+
+- **Lambda 에러 알람** (8개): 각 Lambda 함수별 에러율 모니터링
+- **API Gateway 레이턴시 알람**: 평균 응답 시간 > 5초
+- **API Gateway 5XX 에러 알람**: 서버 에러 > 10건
+- **DynamoDB 스로틀링 알람** (6개): 주요 테이블별 읽기/쓰기 스로틀링
+
+### SNS 알림
+
+- 알람 발생 시 이메일 알림
+- `terraform.tfvars`에서 이메일 주소 설정:
+  ```hcl
+  alarm_email_addresses = ["admin@example.com"]
+  ```
+
+### 로그 모니터링
+
+```bash
+# Lambda 함수 로그 확인
+aws logs tail /aws/lambda/ResumeParser --follow
+
+# 에러 로그 필터링
+aws logs filter-log-events \
+  --log-group-name /aws/lambda/ResumeParser \
+  --filter-pattern "ERROR"
+```
+
+자세한 내용은 [배포 가이드의 모니터링 섹션](deployment/DEPLOYMENT_GUIDE.md#모니터링-및-알림-설정)을 참조하세요.
 
 ## 문서
 

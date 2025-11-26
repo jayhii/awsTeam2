@@ -17,6 +17,7 @@ aws-lambda-powertools>=2.30.0
 
 # OpenSearch client
 opensearch-py>=2.4.0
+requests-aws4auth>=1.2.3
 
 # HTTP requests
 requests>=2.31.0

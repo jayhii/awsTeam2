@@ -5,6 +5,7 @@ resource "aws_s3_bucket" "frontend_hosting" {
   
   tags = {
     Team        = "Team2"
+    EmployeeID  = "524956"
     Project     = "HR-Resource-Optimization"
     Environment = var.environment
     Purpose     = "Frontend Static Website Hosting"
@@ -48,6 +49,7 @@ resource "aws_s3_bucket" "resumes" {
   
   tags = {
     Team        = "Team2"
+    EmployeeID  = "524956"
     Project     = "HR-Resource-Optimization"
     Environment = var.environment
     Purpose     = "Resume Storage"
@@ -106,6 +108,7 @@ resource "aws_s3_bucket" "reports" {
   
   tags = {
     Team        = "Team2"
+    EmployeeID  = "524956"
     Project     = "HR-Resource-Optimization"
     Environment = var.environment
     Purpose     = "Reports and Dashboard Data"
@@ -142,6 +145,7 @@ resource "aws_s3_bucket" "data_lake" {
   
   tags = {
     Team        = "Team2"
+    EmployeeID  = "524956"
     Project     = "HR-Resource-Optimization"
     Environment = var.environment
     Purpose     = "Raw Data and Logs"

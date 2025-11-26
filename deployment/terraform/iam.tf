@@ -23,8 +23,9 @@ resource "aws_iam_role" "lambda_execution_team2" {
   })
   
   tags = {
-    Team    = "Team2"
-    Project = "HR-Resource-Optimization"
+    Team       = "Team2"
+    EmployeeID = "524956"
+    Project    = "HR-Resource-Optimization"
   }
 }
 
@@ -193,8 +194,9 @@ resource "aws_iam_role" "api_gateway_execution_team2" {
   })
   
   tags = {
-    Team    = "Team2"
-    Project = "HR-Resource-Optimization"
+    Team       = "Team2"
+    EmployeeID = "524956"
+    Project    = "HR-Resource-Optimization"
   }
 }
 

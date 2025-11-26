@@ -48,7 +48,7 @@ class TestTerraformStructure:
         
         for file_name in terraform_files:
             file_path = terraform_dir / file_name
-            content = file_path.read_text()
+            content = file_path.read_text(encoding='utf-8')
             assert len(content) > 0, f"{file_name} 파일이 비어있습니다"
 
 
@@ -59,7 +59,7 @@ class TestDynamoDBConfiguration:
     def dynamodb_config(self):
         """DynamoDB Terraform 설정 읽기"""
         config_path = Path("deployment/terraform/dynamodb.tf")
-        return config_path.read_text()
+        return config_path.read_text(encoding='utf-8')
     
     def test_all_tables_defined(self, dynamodb_config):
         """모든 필수 테이블이 정의되어 있는지 테스트"""
@@ -112,7 +112,7 @@ class TestS3Configuration:
     def s3_config(self):
         """S3 Terraform 설정 읽기"""
         config_path = Path("deployment/terraform/s3.tf")
-        return config_path.read_text()
+        return config_path.read_text(encoding='utf-8')
     
     def test_all_buckets_defined(self, s3_config):
         """모든 필수 버킷이 정의되어 있는지 테스트"""
@@ -162,7 +162,7 @@ class TestIAMConfiguration:
     def iam_config(self):
         """IAM Terraform 설정 읽기"""
         config_path = Path("deployment/terraform/iam.tf")
-        return config_path.read_text()
+        return config_path.read_text(encoding='utf-8')
     
     def test_lambda_execution_role_exists(self, iam_config):
         """Lambda 실행 역할이 정의되어 있는지 테스트"""
@@ -210,7 +210,7 @@ class TestMainConfiguration:
     def main_config(self):
         """Main Terraform 설정 읽기"""
         config_path = Path("deployment/terraform/main.tf")
-        return config_path.read_text()
+        return config_path.read_text(encoding='utf-8')
     
     def test_terraform_version_specified(self, main_config):
         """Terraform 버전이 지정되어 있는지 테스트"""
@@ -252,7 +252,7 @@ class TestOutputsConfiguration:
     def outputs_config(self):
         """Outputs Terraform 설정 읽기"""
         config_path = Path("deployment/terraform/outputs.tf")
-        return config_path.read_text()
+        return config_path.read_text(encoding='utf-8')
     
     def test_outputs_file_exists(self):
         """outputs.tf 파일이 존재하는지 테스트"""

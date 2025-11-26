@@ -14,9 +14,10 @@ provider "aws" {
   
   default_tags {
     tags = {
-      Team    = "Team2"
-      Project = "HR-Resource-Optimization"
-      ManagedBy = "Terraform"
+      Team       = "Team2"
+      EmployeeID = "524956"
+      Project    = "HR-Resource-Optimization"
+      ManagedBy  = "Terraform"
     }
   }
 }

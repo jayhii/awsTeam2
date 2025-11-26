@@ -34,6 +34,7 @@ resource "aws_lambda_function" "resume_parser" {
   
   tags = {
     Team        = "Team2"
+    EmployeeID  = "524956"
     Project     = "HR-Resource-Optimization"
     Environment = var.environment
   }
@@ -70,6 +71,7 @@ resource "aws_lambda_function" "affinity_calculator" {
   
   tags = {
     Team        = "Team2"
+    EmployeeID  = "524956"
     Project     = "HR-Resource-Optimization"
     Environment = var.environment
   }
@@ -82,8 +84,9 @@ resource "aws_cloudwatch_event_rule" "daily_affinity_calculation" {
   schedule_expression = "rate(1 day)"
   
   tags = {
-    Team    = "Team2"
-    Project = "HR-Resource-Optimization"
+    Team       = "Team2"
+    EmployeeID = "524956"
+    Project    = "HR-Resource-Optimization"
   }
 }
 
@@ -126,6 +129,7 @@ resource "aws_lambda_function" "recommendation_engine" {
   
   tags = {
     Team        = "Team2"
+    EmployeeID  = "524956"
     Project     = "HR-Resource-Optimization"
     Environment = var.environment
   }
@@ -154,6 +158,7 @@ resource "aws_lambda_function" "domain_analysis" {
   
   tags = {
     Team        = "Team2"
+    EmployeeID  = "524956"
     Project     = "HR-Resource-Optimization"
     Environment = var.environment
   }
@@ -180,6 +185,7 @@ resource "aws_lambda_function" "quantitative_analysis" {
   
   tags = {
     Team        = "Team2"
+    EmployeeID  = "524956"
     Project     = "HR-Resource-Optimization"
     Environment = var.environment
   }
@@ -207,6 +213,7 @@ resource "aws_lambda_function" "qualitative_analysis" {
   
   tags = {
     Team        = "Team2"
+    EmployeeID  = "524956"
     Project     = "HR-Resource-Optimization"
     Environment = var.environment
   }
@@ -234,6 +241,7 @@ resource "aws_lambda_function" "tech_trend_collector" {
   
   tags = {
     Team        = "Team2"
+    EmployeeID  = "524956"
     Project     = "HR-Resource-Optimization"
     Environment = var.environment
   }
@@ -246,8 +254,9 @@ resource "aws_cloudwatch_event_rule" "weekly_tech_trends" {
   schedule_expression = "rate(7 days)"
   
   tags = {
-    Team    = "Team2"
-    Project = "HR-Resource-Optimization"
+    Team       = "Team2"
+    EmployeeID = "524956"
+    Project    = "HR-Resource-Optimization"
   }
 }
 
@@ -288,6 +297,7 @@ resource "aws_lambda_function" "vector_embedding" {
   
   tags = {
     Team        = "Team2"
+    EmployeeID  = "524956"
     Project     = "HR-Resource-Optimization"
     Environment = var.environment
   }

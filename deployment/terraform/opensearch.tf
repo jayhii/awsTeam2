@@ -58,6 +58,7 @@ resource "aws_opensearch_domain" "hr_search" {
   
   tags = {
     Team        = "Team2"
+    EmployeeID  = "524956"
     Project     = "HR-Resource-Optimization"
     Environment = var.environment
   }
