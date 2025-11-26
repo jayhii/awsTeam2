@@ -1,0 +1,93 @@
+{
+  "bedrock_models": [
+    {
+      "ModelId": "anthropic.claude-v2",
+      "Purpose": "텍스트 분석, 이력서 파싱, 정성적 평가",
+      "UseCases": [
+        "이력서에서 기술 스택 및 경력 추출",
+        "프로젝트 설명 분석 및 요약",
+        "직원 자기소개서 분석",
+        "신규 도메인 확장 가능성 평가",
+        "정성적 인력 평가 수행"
+      ],
+      "InferenceConfiguration": {
+        "MaxTokens": 4096,
+        "Temperature": 0.7,
+        "TopP": 0.9
+      }
+    },
+    {
+      "ModelId": "amazon.titan-embed-text-v1",
+      "Purpose": "텍스트 벡터 임베딩 생성",
+      "UseCases": [
+        "직원 프로필 벡터화",
+        "프로젝트 요구사항 벡터화",
+        "유사도 검색을 위한 임베딩 생성"
+      ],
+      "InferenceConfiguration": {
+        "Dimensions": 1536
+      }
+    }
+  ],
+  "integration_patterns": [
+    {
+      "Pattern": "Resume Parsing Pipeline",
+      "Flow": [
+        "S3 이력서 업로드",
+        "Textract 텍스트 추출",
+        "Lambda 트리거",
+        "Bedrock Claude로 구조화된 데이터 추출",
+        "DynamoDB 저장"
+      ]
+    },
+    {
+      "Pattern": "Similarity Search Pipeline",
+      "Flow": [
+        "직원 프로필 업데이트",
+        "Lambda 트리거 (DynamoDB Stream)",
+        "Bedrock Titan으로 벡터 임베딩 생성",
+        "OpenSearch 인덱싱",
+        "유사도 검색 가능"
+      ]
+    },
+    {
+      "Pattern": "Recommendation Pipeline",
+      "Flow": [
+        "API Gateway 추천 요청",
+        "Lambda 추천 엔진 실행",
+        "OpenSearch 벡터 검색",
+        "DynamoDB 친밀도 데이터 조회",
+        "Bedrock Claude로 최종 추천 생성",
+        "결과 반환"
+      ]
+    },
+    {
+      "Pattern": "Domain Analysis Pipeline",
+      "Flow": [
+        "전체 프로젝트 이력 수집",
+        "Lambda 도메인 분석 엔진 실행",
+        "Bedrock Claude로 도메인 분류 및 신규 도메인 식별",
+        "DynamoDB 결과 저장",
+        "대시보드 업데이트"
+      ]
+    }
+  ],
+  "prompt_templates": {
+    "resume_parsing": {
+      "system": "당신은 이력서 분석 전문가입니다. 주어진 이력서 텍스트에서 구조화된 정보를 추출하세요.",
+      "user_template": "다음 이력서에서 이름, 연락처, 학력, 경력, 기술 스택을 JSON 형식으로 추출해주세요:\n\n{resume_text}"
+    },
+    "qualitative_evaluation": {
+      "system": "당신은 인사 평가 전문가입니다. 직원의 프로젝트 경험과 자기소개를 바탕으로 정성적 평가를 수행하세요.",
+      "user_template": "다음 직원 정보를 바탕으로 강점, 약점, 적합한 프로젝트 유형을 분석해주세요:\n\n이름: {name}\n경력: {years_of_experience}년\n자기소개: {self_introduction}\n프로젝트 이력: {work_experience}"
+    },
+    "domain_analysis": {
+      "system": "당신은 비즈니스 전략 분석가입니다. 조직의 프로젝트 이력을 분석하여 신규 도메인 확장 기회를 식별하세요.",
+      "user_template": "다음 프로젝트 이력을 분석하여 현재 보유하지 않은 잠재적 신규 도메인과 진입 전략을 제안해주세요:\n\n{project_history}"
+    },
+    "recommendation_reasoning": {
+      "system": "당신은 팀 구성 전문가입니다. 프로젝트 요구사항과 후보자 정보를 바탕으로 추천 근거를 설명하세요.",
+      "user_template": "프로젝트: {project_name}\n요구 기술: {required_skills}\n\n후보자: {candidate_name}\n보유 기술: {candidate_skills}\n친밀도 점수: {affinity_score}\n\n이 후보자를 추천하는 이유를 설명해주세요."
+    }
+  }
+}

@@ -1,0 +1,241 @@
+{
+  "iam_roles": [
+    {
+      "RoleName": "LambdaExecutionRole-Team2",
+      "Description": "Team2 Lambda 함수 실행 역할",
+      "AssumeRolePolicyDocument": {
+        "Version": "2012-10-17",
+        "Statement": [
+          {
+            "Effect": "Allow",
+            "Principal": {
+              "Service": "lambda.amazonaws.com"
+            },
+            "Action": "sts:AssumeRole",
+            "Condition": {
+              "StringEquals": {
+                "aws:RequestedRegion": "ap-northeast-2"
+              }
+            }
+          }
+        ]
+      },
+      "Tags": [
+        {
+          "Key": "Team",
+          "Value": "Team2"
+        },
+        {
+          "Key": "Project",
+          "Value": "HR-Resource-Optimization"
+        }
+      ],
+      "ManagedPolicyArns": [
+        "arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
+      ],
+      "InlinePolicies": [
+        {
+          "PolicyName": "Team2-DynamoDB-Access",
+          "PolicyDocument": {
+            "Version": "2012-10-17",
+            "Statement": [
+              {
+                "Effect": "Allow",
+                "Action": [
+                  "dynamodb:GetItem",
+                  "dynamodb:PutItem",
+                  "dynamodb:UpdateItem",
+                  "dynamodb:DeleteItem",
+                  "dynamodb:Query",
+                  "dynamodb:Scan"
+                ],
+                "Resource": "arn:aws:dynamodb:*:*:table/*",
+                "Condition": {
+                  "StringEquals": {
+                    "aws:ResourceTag/Team": "Team2"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "PolicyName": "Team2-S3-Access",
+          "PolicyDocument": {
+            "Version": "2012-10-17",
+            "Statement": [
+              {
+                "Effect": "Allow",
+                "Action": [
+                  "s3:GetObject",
+                  "s3:PutObject",
+                  "s3:DeleteObject"
+                ],
+                "Resource": "arn:aws:s3:::*/*",
+                "Condition": {
+                  "StringEquals": {
+                    "aws:ResourceTag/Team": "Team2"
+                  }
+                }
+              },
+              {
+                "Effect": "Allow",
+                "Action": [
+                  "s3:ListBucket"
+                ],
+                "Resource": "arn:aws:s3:::*",
+                "Condition": {
+                  "StringEquals": {
+                    "aws:ResourceTag/Team": "Team2"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "PolicyName": "Team2-Bedrock-Access",
+          "PolicyDocument": {
+            "Version": "2012-10-17",
+            "Statement": [
+              {
+                "Effect": "Allow",
+                "Action": [
+                  "bedrock:InvokeModel",
+                  "bedrock:InvokeModelWithResponseStream"
+                ],
+                "Resource": [
+                  "arn:aws:bedrock:*::foundation-model/anthropic.claude-v2",
+                  "arn:aws:bedrock:*::foundation-model/amazon.titan-embed-text-v1"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "PolicyName": "Team2-Textract-Access",
+          "PolicyDocument": {
+            "Version": "2012-10-17",
+            "Statement": [
+              {
+                "Effect": "Allow",
+                "Action": [
+                  "textract:DetectDocumentText",
+                  "textract:AnalyzeDocument"
+                ],
+                "Resource": "*"
+              }
+            ]
+          }
+        },
+        {
+          "PolicyName": "Team2-OpenSearch-Access",
+          "PolicyDocument": {
+            "Version": "2012-10-17",
+            "Statement": [
+              {
+                "Effect": "Allow",
+                "Action": [
+                  "es:ESHttpGet",
+                  "es:ESHttpPut",
+                  "es:ESHttpPost",
+                  "es:ESHttpDelete"
+                ],
+                "Resource": "arn:aws:es:*:*:domain/*",
+                "Condition": {
+                  "StringEquals": {
+                    "aws:ResourceTag/Team": "Team2"
+                  }
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "RoleName": "APIGatewayExecutionRole-Team2",
+      "Description": "Team2 API Gateway 실행 역할",
+      "AssumeRolePolicyDocument": {
+        "Version": "2012-10-17",
+        "Statement": [
+          {
+            "Effect": "Allow",
+            "Principal": {
+              "Service": "apigateway.amazonaws.com"
+            },
+            "Action": "sts:AssumeRole"
+          }
+        ]
+      },
+      "Tags": [
+        {
+          "Key": "Team",
+          "Value": "Team2"
+        },
+        {
+          "Key": "Project",
+          "Value": "HR-Resource-Optimization"
+        }
+      ],
+      "InlinePolicies": [
+        {
+          "PolicyName": "Team2-Lambda-Invoke",
+          "PolicyDocument": {
+            "Version": "2012-10-17",
+            "Statement": [
+              {
+                "Effect": "Allow",
+                "Action": "lambda:InvokeFunction",
+                "Resource": "arn:aws:lambda:*:*:function:*",
+                "Condition": {
+                  "StringEquals": {
+                    "aws:ResourceTag/Team": "Team2"
+                  }
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "resource_tagging_policy": {
+    "Description": "모든 Team2 리소스에 적용되는 태그 정책",
+    "RequiredTags": [
+      {
+        "Key": "Team",
+        "Value": "Team2"
+      },
+      {
+        "Key": "Project",
+        "Value": "HR-Resource-Optimization"
+      },
+      {
+        "Key": "Environment",
+        "AllowedValues": ["dev", "staging", "prod"]
+      }
+    ]
+  },
+  "tag_based_access_control": {
+    "Description": "태그 기반 접근 제어 정책",
+    "Enforcement": [
+      {
+        "ResourceType": "Lambda",
+        "Policy": "Lambda 함수는 Team=Team2 태그가 있어야만 실행 가능"
+      },
+      {
+        "ResourceType": "DynamoDB",
+        "Policy": "DynamoDB 테이블은 Team=Team2 태그가 있어야만 접근 가능"
+      },
+      {
+        "ResourceType": "S3",
+        "Policy": "S3 버킷은 Team=Team2 태그가 있어야만 접근 가능"
+      },
+      {
+        "ResourceType": "OpenSearch",
+        "Policy": "OpenSearch 도메인은 Team=Team2 태그가 있어야만 접근 가능"
+      }
+    ]
+  }
+}

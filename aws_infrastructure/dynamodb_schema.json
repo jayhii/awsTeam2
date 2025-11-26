@@ -1,0 +1,216 @@
+{
+  "tables": [
+    {
+      "TableName": "Employees",
+      "KeySchema": [
+        {
+          "AttributeName": "user_id",
+          "KeyType": "HASH"
+        }
+      ],
+      "AttributeDefinitions": [
+        {
+          "AttributeName": "user_id",
+          "AttributeType": "S"
+        },
+        {
+          "AttributeName": "role",
+          "AttributeType": "S"
+        }
+      ],
+      "GlobalSecondaryIndexes": [
+        {
+          "IndexName": "RoleIndex",
+          "KeySchema": [
+            {
+              "AttributeName": "role",
+              "KeyType": "HASH"
+            }
+          ],
+          "Projection": {
+            "ProjectionType": "ALL"
+          }
+        }
+      ],
+      "BillingMode": "PAY_PER_REQUEST"
+    },
+    {
+      "TableName": "Projects",
+      "KeySchema": [
+        {
+          "AttributeName": "project_id",
+          "KeyType": "HASH"
+        }
+      ],
+      "AttributeDefinitions": [
+        {
+          "AttributeName": "project_id",
+          "AttributeType": "S"
+        },
+        {
+          "AttributeName": "client_industry",
+          "AttributeType": "S"
+        }
+      ],
+      "GlobalSecondaryIndexes": [
+        {
+          "IndexName": "IndustryIndex",
+          "KeySchema": [
+            {
+              "AttributeName": "client_industry",
+              "KeyType": "HASH"
+            }
+          ],
+          "Projection": {
+            "ProjectionType": "ALL"
+          }
+        }
+      ],
+      "BillingMode": "PAY_PER_REQUEST"
+    },
+    {
+      "TableName": "EmployeeAffinity",
+      "KeySchema": [
+        {
+          "AttributeName": "affinity_id",
+          "KeyType": "HASH"
+        }
+      ],
+      "AttributeDefinitions": [
+        {
+          "AttributeName": "affinity_id",
+          "AttributeType": "S"
+        },
+        {
+          "AttributeName": "employee_1",
+          "AttributeType": "S"
+        }
+      ],
+      "GlobalSecondaryIndexes": [
+        {
+          "IndexName": "Employee1Index",
+          "KeySchema": [
+            {
+              "AttributeName": "employee_1",
+              "KeyType": "HASH"
+            }
+          ],
+          "Projection": {
+            "ProjectionType": "ALL"
+          }
+        }
+      ],
+      "BillingMode": "PAY_PER_REQUEST"
+    },
+    {
+      "TableName": "MessengerLogs",
+      "KeySchema": [
+        {
+          "AttributeName": "log_id",
+          "KeyType": "HASH"
+        }
+      ],
+      "AttributeDefinitions": [
+        {
+          "AttributeName": "log_id",
+          "AttributeType": "S"
+        },
+        {
+          "AttributeName": "sender_id",
+          "AttributeType": "S"
+        },
+        {
+          "AttributeName": "timestamp",
+          "AttributeType": "S"
+        }
+      ],
+      "GlobalSecondaryIndexes": [
+        {
+          "IndexName": "SenderTimestampIndex",
+          "KeySchema": [
+            {
+              "AttributeName": "sender_id",
+              "KeyType": "HASH"
+            },
+            {
+              "AttributeName": "timestamp",
+              "KeyType": "RANGE"
+            }
+          ],
+          "Projection": {
+            "ProjectionType": "ALL"
+          }
+        }
+      ],
+      "BillingMode": "PAY_PER_REQUEST"
+    },
+    {
+      "TableName": "CompanyEvents",
+      "KeySchema": [
+        {
+          "AttributeName": "event_id",
+          "KeyType": "HASH"
+        }
+      ],
+      "AttributeDefinitions": [
+        {
+          "AttributeName": "event_id",
+          "AttributeType": "S"
+        },
+        {
+          "AttributeName": "event_date",
+          "AttributeType": "S"
+        }
+      ],
+      "GlobalSecondaryIndexes": [
+        {
+          "IndexName": "DateIndex",
+          "KeySchema": [
+            {
+              "AttributeName": "event_date",
+              "KeyType": "HASH"
+            }
+          ],
+          "Projection": {
+            "ProjectionType": "ALL"
+          }
+        }
+      ],
+      "BillingMode": "PAY_PER_REQUEST"
+    },
+    {
+      "TableName": "TechTrends",
+      "KeySchema": [
+        {
+          "AttributeName": "tech_name",
+          "KeyType": "HASH"
+        }
+      ],
+      "AttributeDefinitions": [
+        {
+          "AttributeName": "tech_name",
+          "AttributeType": "S"
+        },
+        {
+          "AttributeName": "trend_score",
+          "AttributeType": "N"
+        }
+      ],
+      "GlobalSecondaryIndexes": [
+        {
+          "IndexName": "TrendScoreIndex",
+          "KeySchema": [
+            {
+              "AttributeName": "trend_score",
+              "KeyType": "HASH"
+            }
+          ],
+          "Projection": {
+            "ProjectionType": "ALL"
+          }
+        }
+      ],
+      "BillingMode": "PAY_PER_REQUEST"
+    }
+  ]
+}

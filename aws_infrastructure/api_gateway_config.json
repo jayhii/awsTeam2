@@ -1,0 +1,155 @@
+{
+  "ApiName": "HR-Resource-Optimization-API",
+  "Description": "인력 배치 최적화 시스템 REST API",
+  "ProtocolType": "REST",
+  "EndpointConfiguration": {
+    "Types": ["REGIONAL"]
+  },
+  "Resources": [
+    {
+      "Path": "/employees",
+      "Methods": [
+        {
+          "HttpMethod": "GET",
+          "Integration": {
+            "Type": "AWS_PROXY",
+            "IntegrationHttpMethod": "POST",
+            "Uri": "arn:aws:apigateway:REGION:lambda:path/2015-03-31/functions/arn:aws:lambda:REGION:ACCOUNT_ID:function:GetEmployees/invocations"
+          },
+          "Authorization": "AWS_IAM",
+          "Description": "전체 직원 목록 조회"
+        },
+        {
+          "HttpMethod": "POST",
+          "Integration": {
+            "Type": "AWS_PROXY",
+            "IntegrationHttpMethod": "POST",
+            "Uri": "arn:aws:apigateway:REGION:lambda:path/2015-03-31/functions/arn:aws:lambda:REGION:ACCOUNT_ID:function:CreateEmployee/invocations"
+          },
+          "Authorization": "AWS_IAM",
+          "Description": "신규 직원 등록"
+        }
+      ]
+    },
+    {
+      "Path": "/employees/{user_id}",
+      "Methods": [
+        {
+          "HttpMethod": "GET",
+          "Integration": {
+            "Type": "AWS_PROXY",
+            "IntegrationHttpMethod": "POST",
+            "Uri": "arn:aws:apigateway:REGION:lambda:path/2015-03-31/functions/arn:aws:lambda:REGION:ACCOUNT_ID:function:GetEmployee/invocations"
+          },
+          "Authorization": "AWS_IAM",
+          "Description": "특정 직원 정보 조회"
+        }
+      ]
+    },
+    {
+      "Path": "/recommendations",
+      "Methods": [
+        {
+          "HttpMethod": "POST",
+          "Integration": {
+            "Type": "AWS_PROXY",
+            "IntegrationHttpMethod": "POST",
+            "Uri": "arn:aws:apigateway:REGION:lambda:path/2015-03-31/functions/arn:aws:lambda:REGION:ACCOUNT_ID:function:ProjectRecommendationEngine/invocations"
+          },
+          "Authorization": "AWS_IAM",
+          "Description": "프로젝트 투입 인력 추천",
+          "RequestBody": {
+            "project_id": "string",
+            "required_skills": ["string"],
+            "team_size": "number"
+          }
+        }
+      ]
+    },
+    {
+      "Path": "/domain-analysis",
+      "Methods": [
+        {
+          "HttpMethod": "POST",
+          "Integration": {
+            "Type": "AWS_PROXY",
+            "IntegrationHttpMethod": "POST",
+            "Uri": "arn:aws:apigateway:REGION:lambda:path/2015-03-31/functions/arn:aws:lambda:REGION:ACCOUNT_ID:function:DomainAnalysisEngine/invocations"
+          },
+          "Authorization": "AWS_IAM",
+          "Description": "신규 도메인 확장 분석"
+        }
+      ]
+    },
+    {
+      "Path": "/affinity",
+      "Methods": [
+        {
+          "HttpMethod": "GET",
+          "Integration": {
+            "Type": "AWS_PROXY",
+            "IntegrationHttpMethod": "POST",
+            "Uri": "arn:aws:apigateway:REGION:lambda:path/2015-03-31/functions/arn:aws:lambda:REGION:ACCOUNT_ID:function:GetAffinityScore/invocations"
+          },
+          "Authorization": "AWS_IAM",
+          "Description": "직원 간 친밀도 조회",
+          "QueryParameters": {
+            "employee_1": "string",
+            "employee_2": "string"
+          }
+        }
+      ]
+    },
+    {
+      "Path": "/quantitative-analysis",
+      "Methods": [
+        {
+          "HttpMethod": "POST",
+          "Integration": {
+            "Type": "AWS_PROXY",
+            "IntegrationHttpMethod": "POST",
+            "Uri": "arn:aws:apigateway:REGION:lambda:path/2015-03-31/functions/arn:aws:lambda:REGION:ACCOUNT_ID:function:QuantitativeAnalysis/invocations"
+          },
+          "Authorization": "AWS_IAM",
+          "Description": "정량적 인력 평가"
+        }
+      ]
+    },
+    {
+      "Path": "/qualitative-analysis",
+      "Methods": [
+        {
+          "HttpMethod": "POST",
+          "Integration": {
+            "Type": "AWS_PROXY",
+            "IntegrationHttpMethod": "POST",
+            "Uri": "arn:aws:apigateway:REGION:lambda:path/2015-03-31/functions/arn:aws:lambda:REGION:ACCOUNT_ID:function:QualitativeAnalysis/invocations"
+          },
+          "Authorization": "AWS_IAM",
+          "Description": "정성적 인력 평가"
+        }
+      ]
+    }
+  ],
+  "Stages": [
+    {
+      "StageName": "dev",
+      "Description": "개발 환경",
+      "Variables": {
+        "environment": "development"
+      }
+    },
+    {
+      "StageName": "prod",
+      "Description": "운영 환경",
+      "Variables": {
+        "environment": "production"
+      }
+    }
+  ],
+  "Cors": {
+    "AllowOrigins": ["*"],
+    "AllowMethods": ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+    "AllowHeaders": ["Content-Type", "Authorization"]
+  }
+}

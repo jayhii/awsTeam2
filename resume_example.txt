@@ -1,0 +1,74 @@
+[
+  {
+    "user_id": "U_001",
+    "basic_info": {
+      "name": "최정우",
+      "role": "Principal Software Engineer",
+      "years_of_experience": 13,
+      "email": "jw.choi@tech-resume.com"
+    },
+    "self_introduction": "금융권 차세대 프로젝트 경험을 다수 보유한 안정성 지향형 아키텍트입니다. 화려한 최신 기술의 도입보다는, 운영 단계에서의 유지보수성과 데이터 무결성을 최우선 가치로 둡니다. 레거시 시스템을 분석하여 마이크로서비스(MSA)로 전환하는 과정에서 발생하는 기술적 부채를 해결하는 데 능숙하며, 기술적인 의사결정 과정에서 유관 부서와의 논리적인 커뮤니케이션을 주도합니다.",
+    "skills": [
+      {"name": "Java", "level": "Expert", "years": 13},
+      {"name": "Spring Boot", "level": "Expert", "years": 8},
+      {"name": "Oracle Database", "level": "Expert", "years": 10},
+      {"name": "System Architecture", "level": "Expert", "years": 6},
+      {"name": "Red Hat OpenShift", "level": "Intermediate", "years": 4}
+    ],
+    "work_experience": [
+      {
+        "project_id": "P_001",
+        "project_name": "차세대 금융 코어 뱅킹 시스템 구축 (The Next-Gen Core Banking)",
+        "role": "Lead Application Architect (AA)",
+        "period": "2024-01 ~ 2025-07",
+        "main_tasks": [
+          "메인프레임 COBOL 로직을 Java 기반의 도메인 주도 설계(DDD)로 전환하는 마이그레이션 총괄",
+          "대용량 트랜잭션 처리를 위한 DB 파티셔닝 전략 수립 및 Query 튜닝",
+          "금융보안원 컴플라이언스 대응을 위한 데이터 암호화 및 감사 로그 시스템 구축"
+        ],
+        "performance_result": "일 평균 2,000만 건의 트랜잭션을 처리하는 환경에서 응답 속도를 평균 0.8초에서 0.3초로 60% 이상 개선하였으며, 오픈 후 3개월간 장애 발생률 0%를 달성함."
+      }
+    ],
+    "education": {
+      "degree": "Computer Science, MS",
+      "university": "KAIST"
+    },
+    "certifications": ["Oracle Certified Master (OCM)", "AWS Certified Solutions Architect - Professional"]
+  },
+  {
+    "user_id": "U_002",
+    "basic_info": {
+      "name": "김소연",
+      "role": "Senior Backend Developer",
+      "years_of_experience": 6,
+      "email": "sy.kim@dev-career.com"
+    },
+    "self_introduction": "비즈니스 임팩트를 창출하는 데 집중하는 문제 해결 중심의 풀스택 개발자입니다. 급격한 트래픽 변화에도 유연하게 대처할 수 있는 탄력적인 시스템 설계를 선호하며, 새로운 언어나 프레임워크(Kotlin, GraphQL 등)를 습득하여 실무 효율을 높이는 데 주저함이 없습니다. 기획 단계부터 적극적으로 참여하여 사용자 경험(UX)을 기술적으로 개선하는 제안을 자주 하는 편입니다.",
+    "skills": [
+      {"name": "Kotlin", "level": "Advanced", "years": 3},
+      {"name": "Java", "level": "Advanced", "years": 6},
+      {"name": "Spring Boot", "level": "Advanced", "years": 5},
+      {"name": "Elasticsearch", "level": "Intermediate", "years": 2},
+      {"name": "AWS (EKS, Lambda)", "level": "Intermediate", "years": 4}
+    ],
+    "work_experience": [
+      {
+        "project_id": "P_003",
+        "project_name": "대형 유통사 온/오프라인 통합 옴니채널 커머스 플랫폼",
+        "role": "Core Backend Developer",
+        "period": "2023-09 ~ 2024-05",
+        "main_tasks": [
+          "블랙 프라이데이 등 대규모 이벤트 대응을 위한 AWS EKS 오토스케일링 정책 설계 및 구현",
+          "기존 RDB 기반의 상품 검색을 Elasticsearch로 이관하여 검색 엔진 고도화",
+          "온/오프라인 재고 데이터 정합성을 위한 분산 락(Distributed Lock) 적용"
+        ],
+        "performance_result": "동시 접속자 10만 명 상황에서도 서버 다운타임 없이 안정적으로 운영하였으며, 검색 쿼리 성능을 1.2초에서 0.2초로 단축하여 구매 전환율을 15% 상승시키는 데 기여함."
+      }
+    ],
+    "education": {
+      "degree": "Software Engineering, BS",
+      "university": "Hongik University"
+    },
+    "certifications": ["CKA (Certified Kubernetes Administrator)", "SQLD"]
+  }
+]

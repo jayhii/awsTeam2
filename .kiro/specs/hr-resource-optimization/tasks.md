@@ -1,0 +1,663 @@
+# Implementation Plan
+
+- [x] 1. Set up project structure and development environment
+
+
+
+
+
+  - Create directory structure for Lambda functions, tests, and infrastructure code
+  - Set up Python virtual environment with required dependencies
+  - Configure AWS CLI and Terraform
+  - Initialize Git repository with .gitignore
+  - _Requirements: All_
+
+- [x] 2. Implement core data models and utilities
+
+
+
+  - _Requirements: 1.2, 2.1, 3.1_
+
+
+- [x] 2.1 Create Python data models for Employee, Project, Affinity
+
+
+
+  - Define Pydantic models with validation
+  - Implement serialization/deserialization methods
+  - _Requirements: 1.2, 2.1_
+
+- [ ]* 2.2 Write property test for data model round trip
+  - **Property 5: Project Data Round Trip**
+  - **Validates: Requirements 2.1**
+
+
+- [x] 2.3 Implement skill normalization utility
+
+  - Create skill name mapping dictionary
+  - Implement normalization function
+  - _Requirements: 1.2, 10.4_
+
+- [ ]* 2.4 Write property test for skill normalization consistency
+  - **Property 2: Skill Normalization Consistency**
+  - **Validates: Requirements 1.2**
+
+
+- [x] 3. Set up AWS infrastructure with Terraform
+
+
+  - _Requirements: 9.1, 9.2, 9-1.1_
+
+
+
+- [x] 3.1 Deploy DynamoDB tables
+
+  - Create Terraform configuration for 6 tables
+  - Apply Team2 tags
+
+  - Enable streams on Employees table
+  - _Requirements: 7.1, 9-1.1_
+
+- [x] 3.2 Deploy S3 buckets
+
+  - Create 4 buckets with lifecycle policies
+  - Configure encryption and versioning
+  - Apply Team2 tags
+  - _Requirements: 9.4, 9-1.1_
+
+
+- [x] 3.3 Create IAM roles and policies
+
+  - Implement LambdaExecutionRole-Team2
+  - Implement tag-based access control policies
+  - _Requirements: 9-1.2, 9-1.3, 9-1.4, 9-1.6_
+
+- [ ]* 3.4 Write property test for resource tagging
+  - **Property 41: Resource Tagging Enforcement**
+  - **Validates: Requirements 9-1.1**
+
+- [ ]* 3.5 Write property test for tag-based access control
+  - **Property 42-45: Tag-Based Access Control**
+  - **Validates: Requirements 9-1.2, 9-1.3, 9-1.4, 9-1.5**
+
+- [ ] 4. Implement DynamoDB data access layer
+  - _Requirements: 2.1, 2.3, 7.1_
+
+- [ ] 4.1 Create DynamoDB client wrapper
+  - Implement connection management
+  - Add retry logic and error handling
+  - _Requirements: 7.1_
+
+- [ ] 4.2 Implement Employee repository
+  - CRUD operations for employee profiles
+  - Query by skills
+  - _Requirements: 1.1, 1.2_
+
+- [ ]* 4.3 Write property test for skill query completeness
+  - **Property 1: Skill Query Completeness**
+  - **Validates: Requirements 1.1**
+
+- [ ] 4.3 Implement Project repository
+  - CRUD operations for projects
+  - Query by industry
+  - _Requirements: 2.1_
+
+- [ ] 4.4 Implement Affinity repository
+  - CRUD operations for affinity scores
+  - Query by employee pair
+  - _Requirements: 2.3, 2-1.7**
+
+- [ ]* 4.5 Write property test for affinity score persistence
+  - **Property 7: Affinity Score Persistence**
+  - **Validates: Requirements 2.3**
+
+- [ ] 5. Implement Resume Parser Lambda function
+  - _Requirements: 10.1, 10.2, 10.3, 10.4_
+
+- [ ] 5.1 Create Lambda handler for S3 trigger
+  - Parse S3 event
+  - Download PDF from S3
+  - _Requirements: 10.1_
+
+- [ ]* 5.2 Write property test for resume upload pipeline trigger
+  - **Property 47: Resume Upload Pipeline Trigger**
+  - **Validates: Requirements 10.1**
+
+- [ ] 5.3 Integrate Textract for text extraction
+  - Call Textract API
+  - Handle extraction results
+  - _Requirements: 10.1, 10.2_
+
+- [ ]* 5.4 Write property test for Textract to Lambda pipeline
+  - **Property 48: Textract to Lambda Pipeline**
+  - **Validates: Requirements 10.2**
+
+- [ ] 5.5 Integrate Bedrock Claude for structured extraction
+  - Create prompt template for resume parsing
+  - Call Bedrock API
+  - Parse Claude response into structured data
+  - _Requirements: 10.3_
+
+- [ ]* 5.6 Write property test for resume field extraction completeness
+  - **Property 49: Resume Field Extraction Completeness**
+  - **Validates: Requirements 10.3**
+
+- [ ] 5.7 Store parsed data to DynamoDB
+  - Normalize skills
+  - Save to Employees table
+  - _Requirements: 10.4_
+
+- [ ]* 5.8 Write property test for skill normalization and storage
+  - **Property 50: Skill Normalization and Storage**
+  - **Validates: Requirements 10.4**
+
+- [ ] 6. Implement Vector Embedding Generator Lambda function
+  - _Requirements: 11.1, 11.2_
+
+- [ ] 6.1 Create Lambda handler for DynamoDB Stream
+  - Parse stream events
+  - Extract employee profile data
+  - _Requirements: 11.1_
+
+- [ ] 6.2 Integrate Bedrock Titan for embedding generation
+  - Call Titan Embeddings API
+  - Handle embedding response
+  - _Requirements: 11.1_
+
+- [ ]* 6.3 Write property test for profile vector embedding generation
+  - **Property 52: Profile Vector Embedding Generation**
+  - **Validates: Requirements 11.1**
+
+- [ ] 6.4 Index embeddings in OpenSearch
+  - Create OpenSearch client
+  - Index vector with metadata
+  - _Requirements: 11.2_
+
+- [ ]* 6.5 Write property test for vector embedding indexing
+  - **Property 53: Vector Embedding Indexing**
+  - **Validates: Requirements 11.2**
+
+- [ ] 7. Deploy OpenSearch domain
+  - _Requirements: 11.2, 11.3_
+
+- [ ] 7.1 Create Terraform configuration for OpenSearch
+  - Configure cluster with 2 nodes
+  - Enable encryption
+  - Apply Team2 tags
+  - _Requirements: 9-1.1, 9-1.4_
+
+- [ ] 7.2 Create OpenSearch indices
+  - Define mappings for employee_profiles
+  - Define mappings for project_requirements
+  - Configure knn_vector fields
+  - _Requirements: 11.2_
+
+- [ ] 8. Implement Affinity Score Calculator Lambda function
+  - _Requirements: 2-1.1, 2-1.2, 2-1.3, 2-1.4, 2-1.5, 2-1.6, 2-1.7_
+
+- [ ] 8.1 Create Lambda handler for EventBridge trigger
+  - Set up daily schedule
+  - Fetch all employee pairs
+  - _Requirements: 2-1.7_
+
+- [ ] 8.2 Implement project collaboration analysis
+  - Calculate overlap periods
+  - Compute collaboration score
+  - _Requirements: 2-1.1_
+
+- [ ]* 8.3 Write property test for project overlap calculation
+  - **Property 10: Project Overlap Calculation**
+  - **Validates: Requirements 2-1.1**
+
+- [ ] 8.4 Implement messenger communication analysis
+  - Anonymize PII
+  - Calculate message frequency
+  - Compute response time metrics
+  - _Requirements: 2-1.2, 2-1.3_
+
+- [ ]* 8.5 Write property test for messenger data anonymization
+  - **Property 11: Messenger Data Anonymization**
+  - **Validates: Requirements 2-1.2**
+
+- [ ]* 8.6 Write property test for communication score multi-factor
+  - **Property 12: Communication Score Multi-Factor**
+  - **Validates: Requirements 2-1.3**
+
+- [ ] 8.7 Implement event participation analysis
+  - Find shared events
+  - Calculate social score
+  - _Requirements: 2-1.4_
+
+- [ ]* 8.8 Write property test for event participation scoring
+  - **Property 13: Event Participation Scoring**
+  - **Validates: Requirements 2-1.4**
+
+- [ ] 8.9 Implement special day contact analysis
+  - Identify paydays and vacation days
+  - Calculate contact frequency
+  - _Requirements: 2-1.5_
+
+- [ ]* 8.10 Write property test for special day contact analysis
+  - **Property 14: Special Day Contact Analysis**
+  - **Validates: Requirements 2-1.5**
+
+- [ ] 8.11 Implement weighted average calculation
+  - Combine all component scores
+  - Apply weights
+  - _Requirements: 2-1.6_
+
+- [ ]* 8.12 Write property test for affinity score weighted average
+  - **Property 15: Affinity Score Weighted Average**
+  - **Validates: Requirements 2-1.6**
+
+- [ ] 8.13 Store affinity scores to DynamoDB
+  - Save to EmployeeAffinity table
+  - _Requirements: 2-1.7_
+
+- [ ]* 8.14 Write property test for affinity score update persistence
+  - **Property 16: Affinity Score Update Persistence**
+  - **Validates: Requirements 2-1.7**
+
+- [ ] 9. Implement Project Recommendation Engine Lambda function
+  - _Requirements: 2.2, 2.4, 2.5_
+
+- [ ] 9.1 Create Lambda handler for API Gateway
+  - Parse request body
+  - Validate input
+  - _Requirements: 2.2_
+
+- [ ] 9.2 Implement skill matching algorithm
+  - Query employees by skills
+  - Calculate skill match scores
+  - _Requirements: 1.3, 2.2_
+
+- [ ]* 9.3 Write property test for skill match score ordering
+  - **Property 3: Skill Match Score Ordering**
+  - **Validates: Requirements 1.3**
+
+- [ ] 9.4 Implement vector similarity search
+  - Query OpenSearch with project requirements
+  - Retrieve similar employee profiles
+  - _Requirements: 11.3, 11.4_
+
+- [ ]* 9.5 Write property test for vector similarity search
+  - **Property 54: Vector Similarity Search**
+  - **Validates: Requirements 11.3**
+
+- [ ]* 9.6 Write property test for similarity score inclusion
+  - **Property 55: Similarity Score Inclusion**
+  - **Validates: Requirements 11.4**
+
+- [ ] 9.7 Fetch affinity scores from DynamoDB
+  - Query EmployeeAffinity table
+  - _Requirements: 2.2_
+
+- [ ] 9.8 Implement multi-factor scoring algorithm
+  - Combine skill, history, and affinity scores
+  - Rank candidates
+  - _Requirements: 2.2, 2.4_
+
+- [ ]* 9.9 Write property test for recommendation multi-factor scoring
+  - **Property 6: Recommendation Multi-Factor Scoring**
+  - **Validates: Requirements 2.2**
+
+- [ ] 9.10 Check employee availability
+  - Query current project assignments
+  - Include availability in results
+  - _Requirements: 2.5_
+
+- [ ]* 9.11 Write property test for availability information inclusion
+  - **Property 9: Availability Information Inclusion**
+  - **Validates: Requirements 2.5**
+
+- [ ] 9.12 Generate recommendation reasoning with Claude
+  - Create prompt with candidate details
+  - Call Bedrock API
+  - Parse reasoning
+  - _Requirements: 2.4_
+
+- [ ]* 9.13 Write property test for recommendation reasoning completeness
+  - **Property 8: Recommendation Reasoning Completeness**
+  - **Validates: Requirements 2.4**
+
+- [ ] 9.14 Format and return response
+  - Include all required fields
+  - _Requirements: 1.4, 2.4_
+
+- [ ]* 9.15 Write property test for recommendation output completeness
+  - **Property 4: Recommendation Output Completeness**
+  - **Validates: Requirements 1.4**
+
+- [ ] 10. Implement Domain Analysis Engine Lambda function
+  - _Requirements: 4.1, 4.2, 4.3, 4.4_
+
+- [ ] 10.1 Create Lambda handler for API Gateway
+  - Parse request
+  - Fetch all project history
+  - _Requirements: 4.1_
+
+- [ ] 10.2 Implement domain classification with Claude
+  - Create prompt for domain analysis
+  - Call Bedrock API
+  - Parse classification results
+  - _Requirements: 4.1_
+
+- [ ]* 10.3 Write property test for domain classification completeness
+  - **Property 22: Domain Classification Completeness**
+  - **Validates: Requirements 4.1**
+
+- [ ] 10.4 Implement gap identification
+  - Compare current vs potential domains
+  - Identify missing domains
+  - _Requirements: 4.2_
+
+- [ ]* 10.5 Write property test for domain gap identification
+  - **Property 23: Domain Gap Identification**
+  - **Validates: Requirements 4.2**
+
+- [ ] 10.6 Analyze skill gaps and transition feasibility
+  - Identify required skills for new domains
+  - Assess current employee skills
+  - _Requirements: 4.3_
+
+- [ ]* 10.7 Write property test for domain entry analysis
+  - **Property 24: Domain Entry Analysis**
+  - **Validates: Requirements 4.3**
+
+- [ ] 10.8 Update domain portfolio on new hire
+  - Trigger on new employee creation
+  - Add domains to portfolio
+  - _Requirements: 4.4_
+
+- [ ]* 10.9 Write property test for portfolio update on new hire
+  - **Property 25: Portfolio Update on New Hire**
+  - **Validates: Requirements 4.4**
+
+- [ ] 11. Implement Quantitative Analysis Lambda function
+  - _Requirements: 3.2, 3.3_
+
+- [ ] 11.1 Create Lambda handler for API Gateway
+  - Parse employee ID from request
+  - Fetch employee data
+  - _Requirements: 3.2_
+
+- [ ] 11.2 Calculate experience metrics
+  - Years of experience
+  - Project count
+  - Skill diversity
+  - _Requirements: 3.2_
+
+- [ ] 11.3 Integrate tech trend data
+  - Fetch from TechTrends table
+  - Assess skill recency and demand
+  - _Requirements: 3.2, 12.3_
+
+- [ ]* 11.4 Write property test for tech stack evaluation factors
+  - **Property 18: Tech Stack Evaluation Factors**
+  - **Validates: Requirements 3.2**
+
+- [ ] 11.5 Calculate project experience scores
+  - Evaluate scale, role, performance
+  - _Requirements: 3.3_
+
+- [ ]* 11.6 Write property test for project experience multi-factor evaluation
+  - **Property 19: Project Experience Multi-Factor Evaluation**
+  - **Validates: Requirements 3.3**
+
+- [ ] 11.7 Return quantitative evaluation
+  - Format response with all scores
+  - _Requirements: 3.2, 3.3_
+
+- [ ] 12. Implement Qualitative Analysis Lambda function
+  - _Requirements: 3.1, 3.4, 3.5_
+
+- [ ] 12.1 Create Lambda handler for API Gateway
+  - Parse employee ID
+  - Fetch employee profile
+  - _Requirements: 3.1_
+
+- [ ] 12.2 Analyze resume with Claude
+  - Create evaluation prompt
+  - Call Bedrock API
+  - Parse strengths, weaknesses, recommendations
+  - _Requirements: 3.1, 3.4_
+
+- [ ]* 12.3 Write property test for resume extraction completeness
+  - **Property 17: Resume Extraction Completeness**
+  - **Validates: Requirements 3.1**
+
+- [ ]* 12.4 Write property test for evaluation output completeness
+  - **Property 20: Evaluation Output Completeness**
+  - **Validates: Requirements 3.4**
+
+- [ ] 12.5 Implement suspicious content detection
+  - Identify questionable claims
+  - Flag for verification
+  - _Requirements: 3.5_
+
+- [ ]* 12.6 Write property test for suspicious content flagging
+  - **Property 21: Suspicious Content Flagging**
+  - **Validates: Requirements 3.5**
+
+- [ ] 13. Implement Tech Trend Collector Lambda function
+  - _Requirements: 12.1, 12.2, 12.4, 12.5_
+
+- [ ] 13.1 Create Lambda handler for EventBridge trigger
+  - Set up weekly schedule
+  - _Requirements: 12.1_
+
+- [ ]* 13.2 Write property test for scheduled trend collection
+  - **Property 57: Scheduled Trend Collection**
+  - **Validates: Requirements 12.1**
+
+- [ ] 13.3 Call external API for tech trends
+  - Implement API client
+  - Handle authentication
+  - _Requirements: 12.1_
+
+- [ ] 13.4 Parse and store trend data
+  - Extract relevant fields
+  - Save to TechTrends table
+  - _Requirements: 12.2_
+
+- [ ]* 13.5 Write property test for trend data persistence
+  - **Property 58: Trend Data Persistence**
+  - **Validates: Requirements 12.2**
+
+- [ ] 13.6 Implement fallback for API failures
+  - Use cached data
+  - Implement retry logic
+  - _Requirements: 12.4_
+
+- [ ]* 13.7 Write property test for API failure fallback
+  - **Property 60: API Failure Fallback**
+  - **Validates: Requirements 12.4**
+
+- [ ] 13.8 Trigger score recalculation on update
+  - Invoke quantitative analysis for all employees
+  - _Requirements: 12.5_
+
+- [ ]* 13.9 Write property test for cascading score recalculation
+  - **Property 61: Cascading Score Recalculation**
+  - **Validates: Requirements 12.5**
+
+- [ ] 14. Set up API Gateway
+  - _Requirements: 9.2, 9-1.1_
+
+- [ ] 14.1 Create REST API with Terraform
+  - Define API Gateway resource
+  - Apply Team2 tags
+  - _Requirements: 9.2, 9-1.1_
+
+- [ ] 14.2 Create API endpoints
+  - /recommendations (POST)
+  - /domain-analysis (POST)
+  - /quantitative-analysis (POST)
+  - /qualitative-analysis (POST)
+  - _Requirements: 9.2_
+
+- [ ] 14.3 Configure IAM authentication
+  - Set authorization type to AWS_IAM
+  - _Requirements: 9.2_
+
+- [ ]* 14.4 Write property test for API authentication enforcement
+  - **Property 39: API Authentication Enforcement**
+  - **Validates: Requirements 9.2**
+
+- [ ] 14.5 Configure CORS
+  - Add OPTIONS methods
+  - Set CORS headers
+  - _Requirements: 9.2_
+
+- [ ] 14.6 Deploy API stage
+  - Create prod stage
+  - _Requirements: 9.2_
+
+- [ ] 15. Implement data encryption and access control
+  - _Requirements: 7.1, 7.5_
+
+- [ ] 15.1 Enable DynamoDB encryption
+  - Configure server-side encryption
+  - _Requirements: 7.1_
+
+- [ ]* 15.2 Write property test for data encryption at rest
+  - **Property 33: Data Encryption at Rest**
+  - **Validates: Requirements 7.1**
+
+- [ ] 15.3 Implement role-based access control
+  - Define user roles
+  - Implement permission checks
+  - _Requirements: 7.5_
+
+- [ ]* 15.4 Write property test for role-based access control
+  - **Property 34: Role-Based Access Control**
+  - **Validates: Requirements 7.5**
+
+- [ ] 16. Implement visualization and reporting features
+  - _Requirements: 8.1, 8.2, 8.3, 8.4_
+
+- [ ] 16.1 Create data aggregation functions
+  - Aggregate skill distribution
+  - Calculate domain coverage
+  - Summarize team composition
+  - _Requirements: 8.1_
+
+- [ ]* 16.2 Write property test for visualization data completeness
+  - **Property 35: Visualization Data Completeness**
+  - **Validates: Requirements 8.1**
+
+- [ ] 16.3 Implement dashboard metrics endpoint
+  - Return availability, project status, pending recommendations
+  - _Requirements: 8.2_
+
+- [ ]* 16.4 Write property test for dashboard metrics completeness
+  - **Property 36: Dashboard Metrics Completeness**
+  - **Validates: Requirements 8.2**
+
+- [ ] 16.5 Implement date range filtering
+  - Add query parameters for date range
+  - Filter results by date
+  - _Requirements: 8.3_
+
+- [ ]* 16.6 Write property test for date range filtering accuracy
+  - **Property 37: Date Range Filtering Accuracy**
+  - **Validates: Requirements 8.3**
+
+- [ ] 16.7 Implement report export
+  - Generate PDF reports
+  - Generate Excel reports
+  - _Requirements: 8.4_
+
+- [ ]* 16.8 Write property test for export format support
+  - **Property 38: Export Format Support**
+  - **Validates: Requirements 8.4**
+
+- [ ] 17. Load test data into DynamoDB
+  - _Requirements: All_
+
+- [ ] 17.1 Create data loading script
+  - Read test data files
+  - Batch write to DynamoDB
+  - _Requirements: All_
+
+- [ ] 17.2 Load employee test data
+  - Load from employees_extended.json
+  - _Requirements: 1.1, 1.2_
+
+- [ ] 17.3 Load project test data
+  - Load from project_example.txt
+  - _Requirements: 2.1_
+
+- [ ] 17.4 Load affinity test data
+  - Load from employee_affinity_data.json
+  - _Requirements: 2.3_
+
+- [ ] 17.5 Load messenger logs
+  - Load from messenger_logs_anonymized.json
+  - _Requirements: 2-1.2_
+
+- [ ] 17.6 Load company events
+  - Load from company_events.json
+  - _Requirements: 2-1.4_
+
+- [ ] 18. Create deployment automation scripts
+  - _Requirements: 9.1_
+
+- [ ] 18.1 Create Lambda packaging script
+  - Package Python code with dependencies
+  - Create ZIP files
+  - _Requirements: 9.1_
+
+- [ ] 18.2 Create deployment script
+  - Automate terraform init, plan, apply
+  - Handle AWS credentials
+  - _Requirements: 9.1_
+
+- [ ] 18.3 Create data loading script
+  - Automate test data upload
+  - Create OpenSearch indices
+  - _Requirements: 9.1_
+
+- [ ] 19. Checkpoint - Ensure all tests pass
+  - Ensure all tests pass, ask the user if questions arise.
+
+- [ ] 20. Create monitoring and alerting
+  - _Requirements: 9.5_
+
+- [ ] 20.1 Set up CloudWatch dashboards
+  - Create dashboard for Lambda metrics
+  - Create dashboard for API Gateway metrics
+  - Create dashboard for DynamoDB metrics
+  - _Requirements: 9.5_
+
+- [ ] 20.2 Configure CloudWatch alarms
+  - Lambda error rate alarm
+  - API Gateway latency alarm
+  - DynamoDB throttling alarm
+  - _Requirements: 9.5_
+
+- [ ] 20.3 Set up SNS notifications
+  - Create SNS topic
+  - Subscribe email addresses
+  - _Requirements: 9.5_
+
+- [ ] 21. Create documentation
+  - _Requirements: All_
+
+- [ ] 21.1 Write API documentation
+  - Document all endpoints
+  - Include request/response examples
+  - _Requirements: 9.2_
+
+- [ ] 21.2 Write deployment guide
+  - Step-by-step deployment instructions
+  - Troubleshooting section
+  - _Requirements: 9.1_
+
+- [ ] 21.3 Write operations runbook
+  - Common issues and solutions
+  - Monitoring and alerting guide
+  - _Requirements: 9.5_
+
+- [ ] 22. Final Checkpoint - Ensure all tests pass
+  - Ensure all tests pass, ask the user if questions arise.

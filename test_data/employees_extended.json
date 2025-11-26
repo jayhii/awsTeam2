@@ -1,0 +1,182 @@
+[
+  {
+    "user_id": "U_003",
+    "basic_info": {
+      "name": "박민수",
+      "role": "Senior System Architect",
+      "years_of_experience": 11,
+      "email": "ms.park@tech-resume.com"
+    },
+    "self_introduction": "대규모 엔터프라이즈 시스템 설계 및 레거시 마이그레이션 전문가입니다. 금융권 차세대 프로젝트에서 시스템 아키텍처를 총괄하며 안정성과 확장성을 동시에 확보하는 설계를 추구합니다.",
+    "skills": [
+      {"name": "Java", "level": "Expert", "years": 11},
+      {"name": "Spring Framework", "level": "Expert", "years": 10},
+      {"name": "MSA", "level": "Advanced", "years": 5},
+      {"name": "Oracle", "level": "Expert", "years": 9},
+      {"name": "Kubernetes", "level": "Intermediate", "years": 3}
+    ],
+    "work_experience": [
+      {
+        "project_id": "P_001",
+        "project_name": "차세대 금융 코어 뱅킹 시스템 구축",
+        "role": "System Architect",
+        "period": "2024-01 ~ 2025-07",
+        "main_tasks": [
+          "MSA 기반 시스템 아키텍처 설계",
+          "도메인 주도 설계(DDD) 적용 및 바운디드 컨텍스트 정의",
+          "성능 테스트 및 튜닝"
+        ],
+        "performance_result": "시스템 응답 시간 60% 개선 및 TPS 5000 달성"
+      }
+    ],
+    "education": {
+      "degree": "Computer Engineering, MS",
+      "university": "Seoul National University"
+    },
+    "certifications": ["AWS Solutions Architect Professional", "CKAD"]
+  },
+  {
+    "user_id": "U_004",
+    "basic_info": {
+      "name": "이지은",
+      "role": "Frontend Developer",
+      "years_of_experience": 5,
+      "email": "je.lee@dev-career.com"
+    },
+    "self_introduction": "사용자 경험을 최우선으로 생각하는 프론트엔드 개발자입니다. React와 Vue.js를 활용한 SPA 개발에 능숙하며, 디자이너와의 협업을 통해 직관적인 UI/UX를 구현합니다.",
+    "skills": [
+      {"name": "React", "level": "Advanced", "years": 4},
+      {"name": "Next.js", "level": "Advanced", "years": 3},
+      {"name": "TypeScript", "level": "Advanced", "years": 4},
+      {"name": "Vue.js", "level": "Intermediate", "years": 2},
+      {"name": "Tailwind CSS", "level": "Advanced", "years": 3}
+    ],
+    "work_experience": [
+      {
+        "project_id": "P_003",
+        "project_name": "대형 유통사 온/오프라인 통합 옴니채널 커머스 플랫폼",
+        "role": "Frontend Lead Developer",
+        "period": "2023-09 ~ 2024-05",
+        "main_tasks": [
+          "Next.js 기반 SSR 구현",
+          "반응형 UI 컴포넌트 라이브러리 구축",
+          "성능 최적화 및 SEO 개선"
+        ],
+        "performance_result": "페이지 로딩 속도 40% 개선 및 전환율 15% 향상"
+      }
+    ],
+    "education": {
+      "degree": "Design & Technology, BS",
+      "university": "Ewha Womans University"
+    },
+    "certifications": ["Google UX Design Certificate"]
+  },
+  {
+    "user_id": "U_005",
+    "basic_info": {
+      "name": "정현우",
+      "role": "DevOps Engineer",
+      "years_of_experience": 7,
+      "email": "hw.jung@tech-ops.com"
+    },
+    "self_introduction": "클라우드 인프라 자동화 및 CI/CD 파이프라인 구축 전문가입니다. AWS와 Kubernetes를 활용한 컨테이너 오케스트레이션과 모니터링 시스템 구축에 강점이 있습니다.",
+    "skills": [
+      {"name": "AWS", "level": "Expert", "years": 7},
+      {"name": "Kubernetes", "level": "Expert", "years": 5},
+      {"name": "Docker", "level": "Expert", "years": 6},
+      {"name": "Terraform", "level": "Advanced", "years": 4},
+      {"name": "Jenkins", "level": "Advanced", "years": 5}
+    ],
+    "work_experience": [
+      {
+        "project_id": "P_003",
+        "project_name": "대형 유통사 온/오프라인 통합 옴니채널 커머스 플랫폼",
+        "role": "DevOps Engineer",
+        "period": "2023-09 ~ 2024-05",
+        "main_tasks": [
+          "AWS EKS 클러스터 구축 및 관리",
+          "CI/CD 파이프라인 자동화",
+          "모니터링 및 알림 시스템 구축"
+        ],
+        "performance_result": "배포 시간 70% 단축 및 시스템 가용성 99.9% 달성"
+      }
+    ],
+    "education": {
+      "degree": "Information Systems, BS",
+      "university": "Yonsei University"
+    },
+    "certifications": ["CKA", "AWS DevOps Engineer Professional"]
+  },
+  {
+    "user_id": "U_006",
+    "basic_info": {
+      "name": "강서현",
+      "role": "AI/ML Engineer",
+      "years_of_experience": 4,
+      "email": "sh.kang@ai-lab.com"
+    },
+    "self_introduction": "제조업 및 산업 현장의 AI 솔루션 개발 경험이 있는 머신러닝 엔지니어입니다. 컴퓨터 비전과 시계열 데이터 분석을 통한 예측 모델 구축에 전문성을 가지고 있습니다.",
+    "skills": [
+      {"name": "Python", "level": "Expert", "years": 4},
+      {"name": "TensorFlow", "level": "Advanced", "years": 3},
+      {"name": "PyTorch", "level": "Advanced", "years": 3},
+      {"name": "Scikit-learn", "level": "Expert", "years": 4},
+      {"name": "Computer Vision", "level": "Advanced", "years": 3}
+    ],
+    "work_experience": [
+      {
+        "project_id": "P_002",
+        "project_name": "전기차 배터리 생산 공장 MES 고도화",
+        "role": "AI Engineer",
+        "period": "2023-06 ~ 2024-02",
+        "main_tasks": [
+          "불량 예측 AI 모델 개발",
+          "비전 검사 시스템 구축",
+          "시계열 데이터 분석 및 이상 탐지"
+        ],
+        "performance_result": "불량률 예측 정확도 92% 달성 및 검사 시간 50% 단축"
+      }
+    ],
+    "education": {
+      "degree": "Artificial Intelligence, MS",
+      "university": "KAIST"
+    },
+    "certifications": ["TensorFlow Developer Certificate"]
+  },
+  {
+    "user_id": "U_007",
+    "basic_info": {
+      "name": "윤태영",
+      "role": "Data Engineer",
+      "years_of_experience": 6,
+      "email": "ty.yoon@data-eng.com"
+    },
+    "self_introduction": "대용량 데이터 파이프라인 구축 및 데이터 웨어하우스 설계 전문가입니다. 실시간 데이터 처리와 배치 처리를 결합한 람다 아키텍처 구현 경험이 풍부합니다.",
+    "skills": [
+      {"name": "Apache Spark", "level": "Expert", "years": 5},
+      {"name": "Apache Kafka", "level": "Advanced", "years": 4},
+      {"name": "Python", "level": "Advanced", "years": 6},
+      {"name": "SQL", "level": "Expert", "years": 6},
+      {"name": "AWS Glue", "level": "Intermediate", "years": 3}
+    ],
+    "work_experience": [
+      {
+        "project_id": "P_001",
+        "project_name": "차세대 금융 코어 뱅킹 시스템 구축",
+        "role": "Data Engineer",
+        "period": "2024-01 ~ 2025-07",
+        "main_tasks": [
+          "실시간 데이터 파이프라인 구축",
+          "데이터 웨어하우스 설계",
+          "ETL 프로세스 최적화"
+        ],
+        "performance_result": "데이터 처리 속도 3배 향상 및 저장 비용 40% 절감"
+      }
+    ],
+    "education": {
+      "degree": "Statistics, MS",
+      "university": "Korea University"
+    },
+    "certifications": ["AWS Certified Data Analytics"]
+  }
+]

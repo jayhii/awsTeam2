@@ -1,0 +1,230 @@
+{
+  "lambda_functions": [
+    {
+      "FunctionName": "ResumeParser",
+      "Runtime": "python3.11",
+      "Handler": "index.handler",
+      "Role": "arn:aws:iam::ACCOUNT_ID:role/LambdaExecutionRole-Team2",
+      "Description": "이력서 파싱 및 데이터 추출",
+      "Timeout": 300,
+      "MemorySize": 1024,
+      "Environment": {
+        "Variables": {
+          "DYNAMODB_TABLE": "Employees",
+          "BEDROCK_MODEL_ID": "anthropic.claude-v2"
+        }
+      },
+      "Tags": {
+        "Team": "Team2",
+        "Project": "HR-Resource-Optimization",
+        "Environment": "prod"
+      },
+      "Layers": [
+        "arn:aws:lambda:REGION:ACCOUNT_ID:layer:boto3-layer:1"
+      ],
+      "Triggers": [
+        {
+          "Type": "S3",
+          "Bucket": "hr-resumes-bucket",
+          "Events": ["s3:ObjectCreated:*"],
+          "Prefix": "uploads/",
+          "Suffix": ".pdf"
+        }
+      ]
+    },
+    {
+      "FunctionName": "AffinityScoreCalculator",
+      "Runtime": "python3.11",
+      "Handler": "index.handler",
+      "Role": "arn:aws:iam::ACCOUNT_ID:role/LambdaExecutionRole-Team2",
+      "Description": "직원 간 친밀도 점수 계산",
+      "Timeout": 180,
+      "MemorySize": 512,
+      "Environment": {
+        "Variables": {
+          "DYNAMODB_AFFINITY_TABLE": "EmployeeAffinity",
+          "DYNAMODB_MESSENGER_TABLE": "MessengerLogs",
+          "DYNAMODB_EVENTS_TABLE": "CompanyEvents"
+        }
+      },
+      "Tags": {
+        "Team": "Team2",
+        "Project": "HR-Resource-Optimization",
+        "Environment": "prod"
+      },
+      "Triggers": [
+        {
+          "Type": "EventBridge",
+          "Schedule": "rate(1 day)",
+          "Description": "매일 친밀도 점수 업데이트"
+        }
+      ]
+    },
+    {
+      "FunctionName": "ProjectRecommendationEngine",
+      "Runtime": "python3.11",
+      "Handler": "index.handler",
+      "Role": "arn:aws:iam::ACCOUNT_ID:role/LambdaExecutionRole-Team2",
+      "Description": "프로젝트 투입 인력 추천",
+      "Timeout": 300,
+      "MemorySize": 2048,
+      "Environment": {
+        "Variables": {
+          "DYNAMODB_EMPLOYEES_TABLE": "Employees",
+          "DYNAMODB_PROJECTS_TABLE": "Projects",
+          "DYNAMODB_AFFINITY_TABLE": "EmployeeAffinity",
+          "OPENSEARCH_ENDPOINT": "https://opensearch-domain.REGION.es.amazonaws.com",
+          "BEDROCK_MODEL_ID": "anthropic.claude-v2"
+        }
+      },
+      "Tags": {
+        "Team": "Team2",
+        "Project": "HR-Resource-Optimization",
+        "Environment": "prod"
+      },
+      "Triggers": [
+        {
+          "Type": "API Gateway",
+          "Path": "/api/recommendations",
+          "Method": "POST"
+        }
+      ]
+    },
+    {
+      "FunctionName": "DomainAnalysisEngine",
+      "Runtime": "python3.11",
+      "Handler": "index.handler",
+      "Role": "arn:aws:iam::ACCOUNT_ID:role/LambdaExecutionRole-Team2",
+      "Description": "신규 도메인 확장 분석",
+      "Timeout": 300,
+      "MemorySize": 1024,
+      "Environment": {
+        "Variables": {
+          "DYNAMODB_EMPLOYEES_TABLE": "Employees",
+          "DYNAMODB_PROJECTS_TABLE": "Projects",
+          "BEDROCK_MODEL_ID": "anthropic.claude-v2"
+        }
+      },
+      "Tags": {
+        "Team": "Team2",
+        "Project": "HR-Resource-Optimization",
+        "Environment": "prod"
+      },
+      "Triggers": [
+        {
+          "Type": "API Gateway",
+          "Path": "/api/domain-analysis",
+          "Method": "POST"
+        }
+      ]
+    },
+    {
+      "FunctionName": "QuantitativeAnalysis",
+      "Runtime": "python3.11",
+      "Handler": "index.handler",
+      "Role": "arn:aws:iam::ACCOUNT_ID:role/LambdaExecutionRole-Team2",
+      "Description": "정량적 인력 평가",
+      "Timeout": 120,
+      "MemorySize": 512,
+      "Environment": {
+        "Variables": {
+          "DYNAMODB_EMPLOYEES_TABLE": "Employees"
+        }
+      },
+      "Tags": {
+        "Team": "Team2",
+        "Project": "HR-Resource-Optimization",
+        "Environment": "prod"
+      },
+      "Triggers": [
+        {
+          "Type": "API Gateway",
+          "Path": "/api/quantitative-analysis",
+          "Method": "POST"
+        }
+      ]
+    },
+    {
+      "FunctionName": "QualitativeAnalysis",
+      "Runtime": "python3.11",
+      "Handler": "index.handler",
+      "Role": "arn:aws:iam::ACCOUNT_ID:role/LambdaExecutionRole-Team2",
+      "Description": "정성적 인력 평가 (Claude 활용)",
+      "Timeout": 180,
+      "MemorySize": 1024,
+      "Environment": {
+        "Variables": {
+          "DYNAMODB_EMPLOYEES_TABLE": "Employees",
+          "BEDROCK_MODEL_ID": "anthropic.claude-v2"
+        }
+      },
+      "Tags": {
+        "Team": "Team2",
+        "Project": "HR-Resource-Optimization",
+        "Environment": "prod"
+      },
+      "Triggers": [
+        {
+          "Type": "API Gateway",
+          "Path": "/api/qualitative-analysis",
+          "Method": "POST"
+        }
+      ]
+    },
+    {
+      "FunctionName": "TechTrendCollector",
+      "Runtime": "python3.11",
+      "Handler": "index.handler",
+      "Role": "arn:aws:iam::ACCOUNT_ID:role/LambdaExecutionRole-Team2",
+      "Description": "외부 API에서 기술 트렌드 수집",
+      "Timeout": 180,
+      "MemorySize": 512,
+      "Environment": {
+        "Variables": {
+          "DYNAMODB_TRENDS_TABLE": "TechTrends",
+          "EXTERNAL_API_KEY": "YOUR_API_KEY"
+        }
+      },
+      "Tags": {
+        "Team": "Team2",
+        "Project": "HR-Resource-Optimization",
+        "Environment": "prod"
+      },
+      "Triggers": [
+        {
+          "Type": "EventBridge",
+          "Schedule": "rate(7 days)",
+          "Description": "주간 기술 트렌드 업데이트"
+        }
+      ]
+    },
+    {
+      "FunctionName": "VectorEmbeddingGenerator",
+      "Runtime": "python3.11",
+      "Handler": "index.handler",
+      "Role": "arn:aws:iam::ACCOUNT_ID:role/LambdaExecutionRole-Team2",
+      "Description": "직원 프로필 벡터 임베딩 생성",
+      "Timeout": 180,
+      "MemorySize": 1024,
+      "Environment": {
+        "Variables": {
+          "DYNAMODB_EMPLOYEES_TABLE": "Employees",
+          "OPENSEARCH_ENDPOINT": "https://opensearch-domain.REGION.es.amazonaws.com",
+          "BEDROCK_MODEL_ID": "amazon.titan-embed-text-v1"
+        }
+      },
+      "Tags": {
+        "Team": "Team2",
+        "Project": "HR-Resource-Optimization",
+        "Environment": "prod"
+      },
+      "Triggers": [
+        {
+          "Type": "DynamoDB Stream",
+          "Table": "Employees",
+          "StartingPosition": "LATEST"
+        }
+      ]
+    }
+  ]
+}

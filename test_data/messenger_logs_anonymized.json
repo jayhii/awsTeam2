@@ -1,0 +1,78 @@
+[
+  {
+    "log_id": "MSG_001",
+    "sender_id": "U_001",
+    "receiver_id": "U_003",
+    "timestamp": "2024-11-15T09:23:45Z",
+    "message_content": "[ANONYMIZED]",
+    "response_time_minutes": 3,
+    "conversation_thread_id": "THREAD_A001"
+  },
+  {
+    "log_id": "MSG_002",
+    "sender_id": "U_003",
+    "receiver_id": "U_001",
+    "timestamp": "2024-11-15T09:26:45Z",
+    "message_content": "[ANONYMIZED]",
+    "response_time_minutes": 5,
+    "conversation_thread_id": "THREAD_A001"
+  },
+  {
+    "log_id": "MSG_003",
+    "sender_id": "U_002",
+    "receiver_id": "U_004",
+    "timestamp": "2024-11-25T14:30:00Z",
+    "message_content": "[ANONYMIZED]",
+    "response_time_minutes": 15,
+    "conversation_thread_id": "THREAD_B001",
+    "is_payday": true
+  },
+  {
+    "log_id": "MSG_004",
+    "sender_id": "U_004",
+    "receiver_id": "U_002",
+    "timestamp": "2024-11-25T14:45:00Z",
+    "message_content": "[ANONYMIZED]",
+    "response_time_minutes": 8,
+    "conversation_thread_id": "THREAD_B001",
+    "is_payday": true
+  },
+  {
+    "log_id": "MSG_005",
+    "sender_id": "U_001",
+    "receiver_id": "U_003",
+    "timestamp": "2024-10-10T16:20:00Z",
+    "message_content": "[ANONYMIZED]",
+    "response_time_minutes": 2,
+    "conversation_thread_id": "THREAD_A002",
+    "is_vacation_day": true,
+    "vacation_owner": "U_003"
+  },
+  {
+    "log_id": "MSG_006",
+    "sender_id": "U_003",
+    "receiver_id": "U_005",
+    "timestamp": "2024-09-05T11:15:00Z",
+    "message_content": "[ANONYMIZED]",
+    "response_time_minutes": 180,
+    "conversation_thread_id": "THREAD_C001"
+  },
+  {
+    "log_id": "MSG_007",
+    "sender_id": "U_004",
+    "receiver_id": "U_006",
+    "timestamp": "2024-08-20T10:00:00Z",
+    "message_content": "[ANONYMIZED]",
+    "response_time_minutes": 60,
+    "conversation_thread_id": "THREAD_D001"
+  },
+  {
+    "log_id": "MSG_008",
+    "sender_id": "U_001",
+    "receiver_id": "U_002",
+    "timestamp": "2024-07-15T13:45:00Z",
+    "message_content": "[ANONYMIZED]",
+    "response_time_minutes": 20,
+    "conversation_thread_id": "THREAD_E001"
+  }
+]

@@ -1,0 +1,110 @@
+[
+  {
+    "project_id": "P_001",
+    "project_name": "차세대 금융 코어 뱅킹 시스템 구축 (The Next-Gen Core Banking)",
+    "client_industry": "Finance / Banking",
+    "period": {
+      "start": "2024-01-15",
+      "end": "2025-07-14",
+      "duration_months": 18
+    },
+    "budget_scale": "150억 원",
+    "description": "기존 메인프레임(COBOL) 환경의 계정계 시스템을 x86 기반의 Unix-to-Linux(U2L)로 전환하고 MSA(Microservices Architecture)를 도입하는 대규모 차세대 프로젝트입니다. 여수신, 외환, 대행 등 핵심 금융 업무의 결합도를 낮추고 유연성을 확보하여 신상품 출시 기간(Time-to-Market)을 50% 이상 단축하는 것이 주된 비즈니스 목표입니다. 또한, 금융 컴플라이언스를 준수하며 대량의 트랜잭션을 처리하기 위해 데이터 정합성과 시스템 고가용성(HA) 확보가 최우선 기술 과제로 요구됩니다. 일 2,000만 건 이상의 트랜잭션을 소화해야 하며, 대고객 서비스 중단을 방지하기 위한 Active-Active DR(재해복구) 센터를 동시에 구축해야 합니다. 기존의 모놀리식 아키텍처 한계를 극복하기 위해 도메인 주도 설계(DDD)를 적용합니다.",
+    "tech_stack": {
+      "backend": ["Java 17", "Spring Boot 3.2", "Spring Cloud Gateway", "MyBatis", "ProObject"],
+      "frontend": ["Vue.js 3", "Pinia", "HTML5 (WebSquare5)"],
+      "data": ["Oracle Exadata X9M", "Redis Cluster 7.0", "Apache Kafka 3.5"],
+      "infra": ["Red Hat OpenShift", "Jenkins", "Nexus", "SonarQube"],
+      "security": ["Vormetric (DB Encryption)", "NetFunnel (Traffic Control)"]
+    },
+    "requirements": [
+      "메인프레임 COBOL 자산을 Java 기반으로 자동/수동 변환 및 비즈니스 로직 최적화",
+      "초당 트랜잭션(TPS) 5,000건 처리 시 CPU 점유율 60% 미만 유지 (성능 요건)",
+      "금융보안원 가이드라인 준수를 위한 DB 암호화 및 접근 제어 솔루션 적용",
+      "24/365 무중단 배포를 위한 Blue-Green 배포 전략 및 파이프라인 구축",
+      "대외계 인터페이스(FEP)와 채널계 연동 시 전문 통신 표준화(ISO-8583)"
+    ],
+    "team_composition": {
+      "PM": 1,
+      "PMO": 2,
+      "PL": 5,
+      "AA_App_Architect": 2,
+      "TA_Tech_Architect": 2,
+      "DA_Data_Architect": 3,
+      "Backend_Dev": 20,
+      "Frontend_Dev": 10
+    },
+    "risk_factors": "기존 레거시 시스템의 비즈니스 로직이 문서화되지 않고 코드에만 남아있는 'Black Box' 영역이 존재하여 분석 단계 일정 지연 우려됨."
+  },
+  {
+    "project_id": "P_002",
+    "project_name": "전기차 배터리 생산 공장 MES(생산관리시스템) 고도화",
+    "client_industry": "Manufacturing / Automotive",
+    "period": {
+      "start": "2023-06-01",
+      "end": "2024-02-29",
+      "duration_months": 9
+    },
+    "budget_scale": "45억 원",
+    "description": "글로벌 전기차 배터리 수요 급증에 따라 신설된 북미 공장의 생산 효율성을 극대화하기 위한 스마트팩토리 MES 구축 프로젝트입니다. 원자재 입고부터 셀/모듈/팩 조립, 품질 검사, 출하까지 전 공정의 데이터를 실시간으로 추적(Traceability)하고 시각화해야 합니다. 특히 설비 자동화 시스템(PLC)과의 초저지연 인터페이스가 필수적이며, 수집된 공정 빅데이터를 분석하여 불량률을 예측하는 AI 모듈 도입이 포함되어 있습니다. 현장 작업자의 편의성을 위해 태블릿 및 PDA 전용 모바일 UI/UX를 제공해야 하며, 글로벌 확산을 고려한 다국어 지원이 필수입니다. 공장 내 네트워크 단절 상황에서도 라인이 멈추지 않도록 로컬 엣지 컴퓨팅 기술을 적용합니다.",
+    "tech_stack": {
+      "backend": ["C# .NET 7", "ASP.NET Core Web API", "gRPC"],
+      "frontend": ["WPF (Windows Presentation Foundation)", "Blazor Server", "DevExpress"],
+      "data": ["PostgreSQL 15", "InfluxDB (Time-series)", "MinIO (Object Storage)"],
+      "infra": ["Azure IoT Edge", "Docker Swarm", "Portainer"],
+      "ai_analytics": ["Python 3.11", "TensorFlow 2.13", "Scikit-learn"]
+    },
+    "requirements": [
+      "OPC-UA 프로토콜을 활용한 설비 데이터 실시간 수집 (지연시간 50ms 이내)",
+      "배터리 셀 단위의 전수 추적을 위한 QR/RFID 스캔 시스템 연동",
+      "비전 검사 장비(Vision Inspection)와 연동하여 불량 이미지 자동 분류 및 저장",
+      "현장 키오스크 및 PDA용 반응형 대시보드 구현",
+      "해외 공장 네트워크 불안정을 대비한 엣지(Edge) 서버 로컬 데이터 캐싱 기능"
+    ],
+    "team_composition": {
+      "PM": 1,
+      "PL_MES_Expert": 2,
+      "Equipment_Control_Dev": 3,
+      "Backend_Dev": 5,
+      "Frontend_Dev": 3,
+      "AI_Engineer": 2
+    },
+    "risk_factors": "설비 업체의 PLC 통신 사양 변경이 잦아 인터페이스 개발 시점과 테스트 일정의 불일치(Dependency Issue) 발생 가능성 높음."
+  },
+  {
+    "project_id": "P_003",
+    "project_name": "대형 유통사 온/오프라인 통합 옴니채널 커머스 플랫폼",
+    "client_industry": "Retail / E-commerce",
+    "period": {
+      "start": "2023-09-01",
+      "end": "2024-05-31",
+      "duration_months": 9
+    },
+    "budget_scale": "60억 원",
+    "description": "백화점, 마트, 온라인몰로 분리되어 있던 회원 및 재고 시스템을 통합하여 온/오프라인 경계 없는 쇼핑 경험을 제공하는 옴니채널 플랫폼 구축 사업입니다. 온라인에서 주문하고 오프라인 매장에서 픽업하는 'O4O(Online for Offline)' 서비스 구현과 통합 멤버십 포인트 시스템 구축이 핵심 목표입니다. 대규모 프로모션(예: 블랙 프라이데이) 시 발생하는 급격한 트래픽 스파이크를 견딜 수 있는 탄력적인 아키텍처가 요구되며, 사용자 행동 데이터를 기반으로 한 개인화 상품 추천 엔진을 탑재해야 합니다. 검색 품질 향상을 위해 기존 RDB 기반 검색을 검색엔진으로 전면 교체합니다. 레거시 시스템과의 연동을 위해 API Gateway 패턴을 적극 활용합니다.",
+    "tech_stack": {
+      "backend": ["Kotlin 1.9", "Spring Boot 3.1", "GraphQL (Apollo Server)"],
+      "frontend": ["Next.js 13 (App Router)", "React Query", "Tailwind CSS"],
+      "data": ["AWS Aurora MySQL", "Elasticsearch 8.9", "MongoDB 6.0"],
+      "infra": ["AWS EKS", "AWS Lambda", "CloudFront", "Datadog"],
+      "collaboration": ["Jira", "Confluence", "Slack API", "Figma"]
+    },
+    "requirements": [
+      "동시 접속자 10만 명 수용 가능한 오토스케일링 아키텍처 구현",
+      "온/오프라인 통합 재고 실시간 동기화 (재고 불일치율 0.1% 미만)",
+      "PG사 결제 모듈 연동 및 간편 결제(자체 페이) 시스템 고도화",
+      "검색 엔진 도입을 통한 자연어 검색 및 검색 속도 0.5초 이내 보장",
+      "SSO(Single Sign-On) 통합 인증 서버 구축 (OAuth 2.0 / OIDC 기반)"
+    ],
+    "team_composition": {
+      "PM": 1,
+      "Service_Planner": 3,
+      "UI_UX_Designer": 2,
+      "PL": 2,
+      "Backend_Dev": 8,
+      "Frontend_Dev": 5,
+      "DevOps_Eng": 2
+    },
+    "risk_factors": "온라인몰과 오프라인 매장(POS)의 마스터 데이터(상품 코드 등) 표준이 상이하여 데이터 매핑 및 정제 작업에 예상보다 많은 시간이 소요될 수 있음."
+  }
+]

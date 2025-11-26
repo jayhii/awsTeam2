@@ -1,0 +1,135 @@
+{
+  "buckets": [
+    {
+      "BucketName": "hr-frontend-hosting",
+      "Purpose": "프론트엔드 정적 웹사이트 호스팅",
+      "WebsiteConfiguration": {
+        "IndexDocument": "index.html",
+        "ErrorDocument": "error.html"
+      },
+      "PublicAccessBlockConfiguration": {
+        "BlockPublicAcls": false,
+        "IgnorePublicAcls": false,
+        "BlockPublicPolicy": false,
+        "RestrictPublicBuckets": false
+      },
+      "CorsConfiguration": {
+        "CorsRules": [
+          {
+            "AllowedOrigins": ["*"],
+            "AllowedMethods": ["GET", "HEAD"],
+            "AllowedHeaders": ["*"],
+            "MaxAgeSeconds": 3000
+          }
+        ]
+      }
+    },
+    {
+      "BucketName": "hr-resumes-bucket",
+      "Purpose": "이력서 파일 저장",
+      "LifecycleConfiguration": {
+        "Rules": [
+          {
+            "Id": "ArchiveOldResumes",
+            "Status": "Enabled",
+            "Transitions": [
+              {
+                "Days": 90,
+                "StorageClass": "GLACIER"
+              }
+            ]
+          }
+        ]
+      },
+      "VersioningConfiguration": {
+        "Status": "Enabled"
+      },
+      "ServerSideEncryptionConfiguration": {
+        "Rules": [
+          {
+            "ApplyServerSideEncryptionByDefault": {
+              "SSEAlgorithm": "AES256"
+            }
+          }
+        ]
+      },
+      "NotificationConfiguration": {
+        "LambdaFunctionConfigurations": [
+          {
+            "LambdaFunctionArn": "arn:aws:lambda:REGION:ACCOUNT_ID:function:ResumeParser",
+            "Events": ["s3:ObjectCreated:*"],
+            "Filter": {
+              "Key": {
+                "FilterRules": [
+                  {
+                    "Name": "prefix",
+                    "Value": "uploads/"
+                  },
+                  {
+                    "Name": "suffix",
+                    "Value": ".pdf"
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "BucketName": "hr-reports-bucket",
+      "Purpose": "분석 보고서 및 대시보드 데이터 저장",
+      "LifecycleConfiguration": {
+        "Rules": [
+          {
+            "Id": "DeleteOldReports",
+            "Status": "Enabled",
+            "Expiration": {
+              "Days": 365
+            }
+          }
+        ]
+      },
+      "ServerSideEncryptionConfiguration": {
+        "Rules": [
+          {
+            "ApplyServerSideEncryptionByDefault": {
+              "SSEAlgorithm": "AES256"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "BucketName": "hr-data-lake",
+      "Purpose": "원본 데이터 및 로그 저장",
+      "LifecycleConfiguration": {
+        "Rules": [
+          {
+            "Id": "TransitionToIA",
+            "Status": "Enabled",
+            "Transitions": [
+              {
+                "Days": 30,
+                "StorageClass": "STANDARD_IA"
+              },
+              {
+                "Days": 180,
+                "StorageClass": "GLACIER"
+              }
+            ]
+          }
+        ]
+      },
+      "ServerSideEncryptionConfiguration": {
+        "Rules": [
+          {
+            "ApplyServerSideEncryptionByDefault": {
+              "SSEAlgorithm": "AES256"
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

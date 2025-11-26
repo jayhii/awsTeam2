@@ -1,0 +1,99 @@
+{
+  "DomainName": "hr-employee-search",
+  "EngineVersion": "OpenSearch_2.11",
+  "ClusterConfig": {
+    "InstanceType": "t3.medium.search",
+    "InstanceCount": 2,
+    "DedicatedMasterEnabled": false,
+    "ZoneAwarenessEnabled": true,
+    "ZoneAwarenessConfig": {
+      "AvailabilityZoneCount": 2
+    }
+  },
+  "EBSOptions": {
+    "EBSEnabled": true,
+    "VolumeType": "gp3",
+    "VolumeSize": 100
+  },
+  "AccessPolicies": {
+    "Version": "2012-10-17",
+    "Statement": [
+      {
+        "Effect": "Allow",
+        "Principal": {
+          "AWS": "arn:aws:iam::ACCOUNT_ID:role/LambdaExecutionRole"
+        },
+        "Action": "es:*",
+        "Resource": "arn:aws:es:REGION:ACCOUNT_ID:domain/hr-employee-search/*"
+      }
+    ]
+  },
+  "EncryptionAtRestOptions": {
+    "Enabled": true
+  },
+  "NodeToNodeEncryptionOptions": {
+    "Enabled": true
+  },
+  "DomainEndpointOptions": {
+    "EnforceHTTPS": true,
+    "TLSSecurityPolicy": "Policy-Min-TLS-1-2-2019-07"
+  },
+  "AdvancedSecurityOptions": {
+    "Enabled": true,
+    "InternalUserDatabaseEnabled": false,
+    "MasterUserOptions": {
+      "MasterUserARN": "arn:aws:iam::ACCOUNT_ID:role/OpenSearchMasterRole"
+    }
+  },
+  "Indices": [
+    {
+      "IndexName": "employee_profiles",
+      "Mappings": {
+        "properties": {
+          "user_id": {"type": "keyword"},
+          "name": {"type": "text"},
+          "role": {"type": "keyword"},
+          "skills": {
+            "type": "nested",
+            "properties": {
+              "name": {"type": "keyword"},
+              "level": {"type": "keyword"},
+              "years": {"type": "integer"}
+            }
+          },
+          "profile_vector": {
+            "type": "knn_vector",
+            "dimension": 1536,
+            "method": {
+              "name": "hnsw",
+              "space_type": "cosinesimil",
+              "engine": "nmslib"
+            }
+          },
+          "years_of_experience": {"type": "integer"},
+          "self_introduction": {"type": "text"}
+        }
+      }
+    },
+    {
+      "IndexName": "project_requirements",
+      "Mappings": {
+        "properties": {
+          "project_id": {"type": "keyword"},
+          "project_name": {"type": "text"},
+          "required_skills": {"type": "keyword"},
+          "client_industry": {"type": "keyword"},
+          "requirement_vector": {
+            "type": "knn_vector",
+            "dimension": 1536,
+            "method": {
+              "name": "hnsw",
+              "space_type": "cosinesimil",
+              "engine": "nmslib"
+            }
+          }
+        }
+      }
+    }
+  ]
+}

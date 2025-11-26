@@ -1,0 +1,56 @@
+[
+  {
+    "event_id": "EVT_001",
+    "event_name": "2024 신년회",
+    "event_date": "2024-01-20",
+    "event_type": "Company-wide",
+    "participants": ["U_001", "U_002", "U_003", "U_004", "U_005", "U_006", "U_007", "U_008"],
+    "location": "서울 강남 호텔",
+    "description": "전사 신년 행사"
+  },
+  {
+    "event_id": "EVT_002",
+    "event_name": "팀 빌딩 워크샵",
+    "event_date": "2024-03-15",
+    "event_type": "Team Building",
+    "participants": ["U_001", "U_002", "U_004", "U_006", "U_009"],
+    "location": "경기도 가평",
+    "description": "개발팀 팀 빌딩 워크샵"
+  },
+  {
+    "event_id": "EVT_003",
+    "event_name": "회사 창립기념일",
+    "event_date": "2024-05-10",
+    "event_type": "Company-wide",
+    "participants": ["U_001", "U_003", "U_005", "U_007", "U_010"],
+    "location": "본사 대강당",
+    "description": "창립 15주년 기념식"
+  },
+  {
+    "event_id": "EVT_004",
+    "event_name": "여름 MT",
+    "event_date": "2024-07-22",
+    "event_type": "Recreation",
+    "participants": ["U_001", "U_002", "U_003", "U_004", "U_008", "U_009"],
+    "location": "강원도 속초",
+    "description": "여름 휴가 겸 MT"
+  },
+  {
+    "event_id": "EVT_005",
+    "event_name": "기술 세미나",
+    "event_date": "2024-09-18",
+    "event_type": "Education",
+    "participants": ["U_002", "U_004", "U_006", "U_011"],
+    "location": "본사 세미나실",
+    "description": "AWS 클라우드 아키텍처 세미나"
+  },
+  {
+    "event_id": "EVT_006",
+    "event_name": "송년회",
+    "event_date": "2024-12-20",
+    "event_type": "Company-wide",
+    "participants": ["U_001", "U_002", "U_003", "U_004", "U_005", "U_006", "U_007", "U_008", "U_009", "U_010"],
+    "location": "서울 여의도 레스토랑",
+    "description": "2024년 송년 행사"
+  }
+]

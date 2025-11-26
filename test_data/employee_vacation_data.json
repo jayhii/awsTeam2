@@ -1,0 +1,68 @@
+[
+  {
+    "vacation_id": "VAC_001",
+    "employee_id": "U_001",
+    "vacation_dates": [
+      {"date": "2024-08-05", "type": "annual"},
+      {"date": "2024-08-06", "type": "annual"},
+      {"date": "2024-10-15", "type": "annual"}
+    ],
+    "total_days_used": 3,
+    "remaining_days": 12
+  },
+  {
+    "vacation_id": "VAC_002",
+    "employee_id": "U_002",
+    "vacation_dates": [
+      {"date": "2024-07-10", "type": "annual"},
+      {"date": "2024-07-11", "type": "annual"},
+      {"date": "2024-09-20", "type": "annual"}
+    ],
+    "total_days_used": 3,
+    "remaining_days": 10
+  },
+  {
+    "vacation_id": "VAC_003",
+    "employee_id": "U_003",
+    "vacation_dates": [
+      {"date": "2024-06-15", "type": "annual"},
+      {"date": "2024-10-10", "type": "annual"},
+      {"date": "2024-10-11", "type": "annual"},
+      {"date": "2024-11-05", "type": "annual"}
+    ],
+    "total_days_used": 4,
+    "remaining_days": 11
+  },
+  {
+    "vacation_id": "VAC_004",
+    "employee_id": "U_004",
+    "vacation_dates": [
+      {"date": "2024-05-20", "type": "annual"},
+      {"date": "2024-08-25", "type": "annual"}
+    ],
+    "total_days_used": 2,
+    "remaining_days": 13
+  },
+  {
+    "vacation_id": "VAC_005",
+    "employee_id": "U_005",
+    "vacation_dates": [
+      {"date": "2024-04-10", "type": "annual"},
+      {"date": "2024-09-15", "type": "annual"},
+      {"date": "2024-09-16", "type": "annual"}
+    ],
+    "total_days_used": 3,
+    "remaining_days": 12
+  },
+  {
+    "vacation_id": "VAC_006",
+    "employee_id": "U_006",
+    "vacation_dates": [
+      {"date": "2024-07-01", "type": "annual"},
+      {"date": "2024-07-02", "type": "annual"},
+      {"date": "2024-11-20", "type": "annual"}
+    ],
+    "total_days_used": 3,
+    "remaining_days": 10
+  }
+]
