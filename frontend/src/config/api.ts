@@ -2,6 +2,8 @@
  * API 설정 및 엔드포인트 정의
  */
 
+/// <reference types="vite/client" />
+
 // API Gateway URL
 export const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'https://xoc7x1m6p8.execute-api.us-east-2.amazonaws.com/prod';
 
@@ -24,6 +26,9 @@ export const API_ENDPOINTS = {
   
   // 프로젝트 목록 조회 (추가)
   PROJECTS_LIST: '/projects',
+  
+  // 대시보드 메트릭
+  DASHBOARD_METRICS: '/dashboard/metrics',
 } as const;
 
 // API 요청 헤더
@@ -186,6 +191,25 @@ export interface ProjectsListResponse {
   count: number;
 }
 
+// 대시보드 메트릭 응답 타입
+export interface DashboardMetricsResponse {
+  total_employees: number;
+  active_projects: number;
+  available_employees: number;
+  pending_reviews: number;
+  recent_recommendations: Array<{
+    project: string;
+    recommended: number;
+    match_rate: number;
+    status: string;
+  }>;
+  top_skills: Array<{
+    name: string;
+    count: number;
+    percentage: number;
+  }>;
+}
+
 // API 함수들
 export const api = {
   /**
@@ -272,6 +296,36 @@ export const api = {
       return data;
     } catch (err) {
       console.error('프로젝트 목록 조회 실패:', err);
+      throw err;
+    }
+  },
+
+  /**
+   * 대시보드 메트릭 조회 API
+   */
+  getDashboardMetrics: async (): Promise<DashboardMetricsResponse> => {
+    const url = `${API_BASE_URL}${API_ENDPOINTS.DASHBOARD_METRICS}`;
+    console.log('대시보드 메트릭 조회:', url);
+    
+    try {
+      const response = await fetch(url, {
+        method: 'GET',
+        headers: getHeaders(),
+      });
+
+      console.log('대시보드 메트릭 응답 상태:', response.status);
+
+      if (!response.ok) {
+        const errorText = await response.text();
+        console.error('대시보드 메트릭 조회 에러:', errorText);
+        throw new Error(`API Error: ${response.status}`);
+      }
+
+      const data = await response.json();
+      console.log('대시보드 메트릭 데이터:', data);
+      return data;
+    } catch (err) {
+      console.error('대시보드 메트릭 조회 실패:', err);
       throw err;
     }
   },

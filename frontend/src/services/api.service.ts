@@ -55,7 +55,19 @@ class ApiService {
    * 대시보드 메트릭 조회
    */
   async getDashboardMetrics(): Promise<DashboardMetrics> {
-    return this.request<DashboardMetrics>(API_ENDPOINTS.DASHBOARD_METRICS);
+    const headers = await getAuthHeaders();
+    
+    const response = await fetch(`${this.baseUrl}/dashboard/metrics`, {
+      method: 'GET',
+      headers,
+    });
+
+    if (!response.ok) {
+      const error = await response.json().catch(() => ({ message: 'Unknown error' }));
+      throw new Error(error.message || `HTTP ${response.status}: ${response.statusText}`);
+    }
+
+    return response.json();
   }
 
   /**

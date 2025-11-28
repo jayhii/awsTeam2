@@ -289,3 +289,31 @@ resource "aws_lambda_function" "projects_list" {
     Environment = var.environment
   }
 }
+
+# Dashboard Metrics Lambda
+resource "aws_lambda_function" "dashboard_metrics" {
+  filename      = "../../lambda_functions/dashboard_metrics.zip"
+  function_name = "DashboardMetrics"
+  role          = aws_iam_role.lambda_execution_team2.arn
+  handler       = "index.lambda_handler"
+  runtime       = "python3.11"
+  timeout       = 30
+  memory_size   = 512
+  
+  layers = [aws_lambda_layer_version.boto3_layer.arn]
+  
+  environment {
+    variables = {
+      EMPLOYEES_TABLE   = aws_dynamodb_table.employees.name
+      PROJECTS_TABLE    = aws_dynamodb_table.projects.name
+      EVALUATIONS_TABLE = "EmployeeEvaluations"
+    }
+  }
+  
+  tags = {
+    Team        = "Team2"
+    EmployeeID  = "524956"
+    Project     = "HR-Resource-Optimization"
+    Environment = var.environment
+  }
+}

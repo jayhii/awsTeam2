@@ -781,20 +781,281 @@
   - _Requirements: 9.5_
 
 - [x] 22. Final Checkpoint - Ensure all tests pass
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
   - Ensure all tests pass, ask the user if questions arise.
+
+## Phase 2: UI Enhancement and Feature Completion
+
+- [x] 23. Dashboard - Remove hardcoded data and integrate DynamoDB
+
+
+
+
+  - _Requirements: 8.1, 8.2_
+
+- [x] 23.1 Update Dashboard component to fetch real-time data
+
+
+  - Remove all hardcoded statistics
+  - Implement API calls to fetch employee count, project count, and metrics
+  - Display loading states during data fetch
+  - _Requirements: 8.1, 8.2_
+
+- [x] 23.2 Implement dashboard metrics aggregation Lambda
+
+
+  - Create endpoint to return aggregated dashboard statistics
+  - Calculate total employees, active projects, pending evaluations
+  - Return skill distribution and domain coverage data
+  - _Requirements: 8.1, 8.2_
+
+- [x] 23.3 Update dashboard UI to match design specifications
+
+
+  - Adjust card layouts and styling based on provided screenshots
+  - Implement responsive design for metric cards
+  - Add visual indicators for trends (up/down arrows)
+  - _Requirements: 8.1_
+
+- [ ] 24. Personnel Management - Add new employee registration
+  - _Requirements: 1.1, 1.2_
+
+- [ ] 24.1 Create employee registration modal component
+  - Design popup form with all required fields from DynamoDB schema
+  - Include fields: name, email, skills, experience, department, position
+  - Add form validation for required fields
+  - _Requirements: 1.1, 1.2_
+
+- [ ] 24.2 Implement employee creation Lambda function
+  - Create API endpoint POST /employees
+  - Validate input data
+  - Store new employee to DynamoDB Employees table
+  - Return created employee data
+  - _Requirements: 1.1, 1.2_
+
+- [ ] 24.3 Connect modal to API and update employee list
+  - Implement form submission handler
+  - Call employee creation API
+  - Refresh employee list after successful creation
+  - Show success/error notifications
+  - _Requirements: 1.1_
+
+- [ ] 25. Project Management - Add new project registration and AI recommendation
+  - _Requirements: 2.1, 2.2_
+
+- [ ] 25.1 Create project registration modal component
+  - Design popup form with all required fields from DynamoDB schema
+  - Include fields: project name, industry, required skills, duration, team size
+  - Add form validation
+  - _Requirements: 2.1_
+
+- [ ] 25.2 Implement project creation Lambda function
+  - Create API endpoint POST /projects
+  - Validate input data
+  - Store new project to DynamoDB Projects table
+  - Return created project data
+  - _Requirements: 2.1_
+
+- [ ] 25.3 Add "AI 인력 추천 받기" button to project management
+  - Add button to each project card
+  - Trigger recommendation engine when clicked
+  - Navigate to recommendation results page
+  - _Requirements: 2.2_
+
+- [ ] 25.4 Connect modal to API and update project list
+  - Implement form submission handler
+  - Call project creation API
+  - Refresh project list after successful creation
+  - Show success/error notifications
+  - _Requirements: 2.1_
+
+- [ ] 26. Personnel Recommendation - Remove hardcoded data and add assignment feature
+  - _Requirements: 2.2, 2.4, 2.5_
+
+- [ ] 26.1 Update recommendation results to use real API data
+  - Remove all hardcoded recommendation results
+  - Fetch recommendations from recommendation engine API
+  - Display loading states during API calls
+  - _Requirements: 2.2, 2.4_
+
+- [ ] 26.2 Update recommendation UI to match design specifications
+  - Adjust layout based on provided screenshots
+  - Display employee cards with match scores, skills, and reasoning
+  - Show availability status clearly
+  - _Requirements: 2.4, 2.5_
+
+- [ ] 26.3 Implement project assignment functionality
+  - Add "프로젝트에 투입" button to each recommended employee
+  - Create modal to confirm assignment details
+  - Update employee's current project assignment
+  - _Requirements: 2.5_
+
+- [ ] 26.4 Create project assignment Lambda function
+  - Create API endpoint POST /projects/{projectId}/assign
+  - Update employee's assignment in DynamoDB
+  - Update project's team members list
+  - Check for assignment conflicts
+  - _Requirements: 2.5_
+
+- [ ] 26.5 Add detailed information view for recommendations
+  - Implement expandable detail section for each candidate
+  - Show complete project history, skill breakdown, affinity scores
+  - Display AI-generated reasoning in detail
+  - _Requirements: 2.4_
+
+- [ ] 27. Domain Analysis - Update results display
+  - _Requirements: 4.1, 4.2, 4.3_
+
+- [ ] 27.1 Redesign domain analysis results UI
+  - Update layout to match provided screenshots
+  - Display domain cards with progress indicators
+  - Show current domains vs potential domains clearly
+  - _Requirements: 4.1, 4.2_
+
+- [ ] 27.2 Enhance domain gap visualization
+  - Add visual indicators for domain gaps
+  - Display skill requirements for new domains
+  - Show feasibility scores with color coding
+  - _Requirements: 4.2, 4.3_
+
+- [ ] 27.3 Add domain expansion recommendations section
+  - Display prioritized list of recommended domains
+  - Show required skills and current skill gaps
+  - Include transition feasibility analysis
+  - _Requirements: 4.3_
+
+- [ ] 28. Employee Analysis - Add resume upload and evaluation workflow
+  - _Requirements: 3.1, 3.2, 3.3, 3.4, 10.1, 10.2, 10.3_
+
+- [ ] 28.1 Implement resume upload functionality
+  - Add file upload component to employee analysis page
+  - Support PDF file format
+  - Upload to S3 bucket
+  - Trigger resume parser Lambda automatically
+  - _Requirements: 10.1_
+
+- [ ] 28.2 Create evaluation status dashboard
+  - Display list of pending evaluations
+  - Show evaluation progress (대기, 승인됨, 검토중, 반려됨)
+  - Update UI to match provided screenshots
+  - _Requirements: 3.1_
+
+- [ ] 28.3 Implement evaluation approval workflow
+  - Add "승인" (Approve) button to evaluation cards
+  - Create API endpoint PUT /evaluations/{id}/approve
+  - Update evaluation status in DynamoDB
+  - Send notification on status change
+  - _Requirements: 3.1_
+
+- [ ] 28.4 Implement evaluation review workflow
+  - Add "검토" (Review) button to evaluation cards
+  - Create modal for review comments
+  - Create API endpoint PUT /evaluations/{id}/review
+  - Store review comments and update status
+  - _Requirements: 3.1_
+
+- [ ] 28.5 Implement evaluation rejection workflow
+  - Add "반려" (Reject) button to evaluation cards
+  - Create modal for rejection reason
+  - Create API endpoint PUT /evaluations/{id}/reject
+  - Store rejection reason and update status
+  - _Requirements: 3.1_
+
+- [ ] 28.6 Update evaluation display to match design
+  - Redesign evaluation cards based on screenshots
+  - Show evaluation scores with progress bars
+  - Display strengths, weaknesses, and AI recommendations clearly
+  - Add status badges (대기중, 승인됨, 검토중, 반려됨)
+  - _Requirements: 3.1, 3.4_
+
+- [ ] 29. Create evaluation workflow Lambda functions
+  - _Requirements: 3.1_
+
+- [ ] 29.1 Implement evaluation status update Lambda
+  - Create unified endpoint for status updates
+  - Handle approve, review, reject actions
+  - Update EmployeeEvaluations table
+  - Send notifications via SNS
+  - _Requirements: 3.1_
+
+- [ ] 29.2 Implement evaluation list Lambda
+  - Create endpoint GET /evaluations
+  - Support filtering by status
+  - Return paginated results
+  - Include employee details in response
+  - _Requirements: 3.1_
+
+- [ ] 30. Update API Gateway with new endpoints
+  - _Requirements: 9.2_
+
+- [ ] 30.1 Add new API endpoints to Terraform configuration
+  - POST /employees (create employee)
+  - POST /projects (create project)
+  - POST /projects/{projectId}/assign (assign employee)
+  - GET /evaluations (list evaluations)
+  - PUT /evaluations/{id}/approve (approve evaluation)
+  - PUT /evaluations/{id}/review (review evaluation)
+  - PUT /evaluations/{id}/reject (reject evaluation)
+  - GET /dashboard/metrics (dashboard statistics)
+  - _Requirements: 9.2_
+
+- [ ] 30.2 Update CORS configuration for new endpoints
+  - Add CORS headers to all new Lambda functions
+  - Configure OPTIONS methods
+  - _Requirements: 9.2_
+
+- [ ] 30.3 Deploy updated API Gateway
+  - Apply Terraform changes
+  - Test all new endpoints
+  - Update API documentation
+  - _Requirements: 9.2_
+
+- [ ] 31. Final Integration Testing
+  - _Requirements: All_
+
+- [ ] 31.1 Test complete employee registration flow
+  - Test modal opening and form validation
+  - Test API integration and data persistence
+  - Verify employee list refresh
+  - _Requirements: 1.1, 1.2_
+
+- [ ] 31.2 Test complete project registration and recommendation flow
+  - Test project creation modal
+  - Test AI recommendation trigger
+  - Verify recommendation results display
+  - Test project assignment functionality
+  - _Requirements: 2.1, 2.2, 2.5_
+
+- [ ] 31.3 Test evaluation workflow end-to-end
+  - Test resume upload and parsing
+  - Test evaluation status updates
+  - Test approve, review, reject actions
+  - Verify status changes persist
+  - _Requirements: 3.1, 10.1, 10.2, 10.3_
+
+- [ ] 31.4 Test dashboard data integration
+  - Verify all metrics load from DynamoDB
+  - Test data refresh functionality
+  - Verify UI matches design specifications
+  - _Requirements: 8.1, 8.2_
+
+- [ ] 32. Update documentation for new features
+  - _Requirements: All_
+
+- [ ] 32.1 Update API documentation
+  - Document all new endpoints
+  - Add request/response examples
+  - Include error codes and handling
+  - _Requirements: 9.2_
+
+- [ ] 32.2 Create user guide for new features
+  - Document employee registration process
+  - Document project registration and AI recommendation
+  - Document evaluation workflow
+  - Include screenshots from UI
+  - _Requirements: All_
+
+- [ ] 33. Final Checkpoint - Phase 2 Complete
+  - Ensure all new features are working correctly
+  - Verify UI matches design specifications from screenshots
+  - Confirm all hardcoded data has been removed
+  - Ask the user if questions arise.

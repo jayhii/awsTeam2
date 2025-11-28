@@ -414,3 +414,87 @@ resource "aws_api_gateway_integration_response" "projects_options" {
   
   depends_on = [aws_api_gateway_integration.projects_options]
 }
+
+# /dashboard/metrics resource
+resource "aws_api_gateway_resource" "dashboard" {
+  rest_api_id = aws_api_gateway_rest_api.hr_api.id
+  parent_id   = aws_api_gateway_rest_api.hr_api.root_resource_id
+  path_part   = "dashboard"
+}
+
+resource "aws_api_gateway_resource" "dashboard_metrics" {
+  rest_api_id = aws_api_gateway_rest_api.hr_api.id
+  parent_id   = aws_api_gateway_resource.dashboard.id
+  path_part   = "metrics"
+}
+
+resource "aws_api_gateway_method" "dashboard_metrics_get" {
+  rest_api_id   = aws_api_gateway_rest_api.hr_api.id
+  resource_id   = aws_api_gateway_resource.dashboard_metrics.id
+  http_method   = "GET"
+  authorization = "NONE"
+}
+
+resource "aws_api_gateway_integration" "dashboard_metrics_lambda" {
+  rest_api_id             = aws_api_gateway_rest_api.hr_api.id
+  resource_id             = aws_api_gateway_resource.dashboard_metrics.id
+  http_method             = aws_api_gateway_method.dashboard_metrics_get.http_method
+  integration_http_method = "POST"
+  type                    = "AWS_PROXY"
+  uri                     = aws_lambda_function.dashboard_metrics.invoke_arn
+}
+
+resource "aws_lambda_permission" "api_gateway_dashboard_metrics" {
+  statement_id  = "AllowAPIGatewayInvoke"
+  action        = "lambda:InvokeFunction"
+  function_name = aws_lambda_function.dashboard_metrics.function_name
+  principal     = "apigateway.amazonaws.com"
+  source_arn    = "${aws_api_gateway_rest_api.hr_api.execution_arn}/*/*"
+}
+
+# CORS for /dashboard/metrics
+resource "aws_api_gateway_method" "dashboard_metrics_options" {
+  rest_api_id   = aws_api_gateway_rest_api.hr_api.id
+  resource_id   = aws_api_gateway_resource.dashboard_metrics.id
+  http_method   = "OPTIONS"
+  authorization = "NONE"
+}
+
+resource "aws_api_gateway_integration" "dashboard_metrics_options" {
+  rest_api_id = aws_api_gateway_rest_api.hr_api.id
+  resource_id = aws_api_gateway_resource.dashboard_metrics.id
+  http_method = "OPTIONS"
+  type        = "MOCK"
+  
+  request_templates = {
+    "application/json" = "{\"statusCode\": 200}"
+  }
+}
+
+resource "aws_api_gateway_method_response" "dashboard_metrics_options" {
+  rest_api_id = aws_api_gateway_rest_api.hr_api.id
+  resource_id = aws_api_gateway_resource.dashboard_metrics.id
+  http_method = "OPTIONS"
+  status_code = "200"
+  
+  response_parameters = {
+    "method.response.header.Access-Control-Allow-Headers" = true
+    "method.response.header.Access-Control-Allow-Methods" = true
+    "method.response.header.Access-Control-Allow-Origin"  = true
+  }
+}
+
+resource "aws_api_gateway_integration_response" "dashboard_metrics_options" {
+  rest_api_id = aws_api_gateway_rest_api.hr_api.id
+  resource_id = aws_api_gateway_resource.dashboard_metrics.id
+  http_method = "OPTIONS"
+  status_code = "200"
+  
+  response_parameters = {
+    "method.response.header.Access-Control-Allow-Headers" = "'Content-Type,Authorization'"
+    "method.response.header.Access-Control-Allow-Methods" = "'GET,OPTIONS'"
+    "method.response.header.Access-Control-Allow-Origin"  = "'*'"
+  }
+  
+  depends_on = [aws_api_gateway_integration.dashboard_metrics_options]
+}

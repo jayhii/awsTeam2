@@ -10,7 +10,10 @@ $lambdaFunctions = @(
     "recommendation_engine",
     "domain_analysis",
     "tech_trend_collector",
-    "vector_embedding"
+    "vector_embedding",
+    "employees_list",
+    "projects_list",
+    "dashboard_metrics"
 )
 
 foreach ($func in $lambdaFunctions) {
