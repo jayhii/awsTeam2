@@ -87,8 +87,18 @@ def fetch_all_employees() -> List[Dict[str, Any]]:
                     'email': item.get('basic_info', {}).get('email', ''),
                     'years_of_experience': float(item.get('basic_info', {}).get('years_of_experience', 0))
                 },
-                'skills': []
+                'skills': [],
+                'certifications': item.get('certifications', []),
+                'work_experience': item.get('work_experience', [])
             }
+            
+            # 자기소개 추가 (있는 경우)
+            if 'self_introduction' in item:
+                employee['self_introduction'] = item['self_introduction']
+            
+            # 학력 정보 추가 (있는 경우)
+            if 'education' in item:
+                employee['education'] = item['education']
             
             # 스킬 정보 추출
             skills = item.get('skills', [])

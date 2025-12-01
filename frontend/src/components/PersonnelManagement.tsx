@@ -7,6 +7,8 @@ import { Button } from './ui/button';
 import { Input } from './ui/input';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from './ui/dialog';
 import { api, Employee } from '../config/api';
+import { EmployeeRegistrationModal } from './EmployeeRegistrationModal';
+import { toast } from 'sonner';
 
 interface Personnel {
   id: string;
@@ -21,40 +23,40 @@ interface Personnel {
 
 export function PersonnelManagement() {
   const [searchQuery, setSearchQuery] = useState('');
-  const [selectedPerson, setSelectedPerson] = useState<Personnel | null>(null);
   const [personnel, setPersonnel] = useState<Personnel[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   // DB에서 직원 목록 가져오기
-  useEffect(() => {
-    const fetchEmployees = async () => {
-      try {
-        setLoading(true);
-        const response = await api.getEmployees();
-        
-        // API 응답을 Personnel 형식으로 변환
-        const transformedData: Personnel[] = response.employees.map((emp: Employee) => ({
-          id: emp.user_id,
-          name: emp.basic_info.name,
-          position: emp.basic_info.role,
-          department: '개발팀', // 기본값 (DB에 없는 경우)
-          skills: emp.skills.map(s => s.name),
-          experience: emp.basic_info.years_of_experience,
-          currentProject: null, // 기본값 (DB에 없는 경우)
-          availability: 'available' as const, // 기본값
-        }));
-        
-        setPersonnel(transformedData);
-        setError(null);
-      } catch (err) {
-        console.error('직원 목록 조회 실패:', err);
-        setError(err instanceof Error ? err.message : '직원 목록을 불러오는데 실패했습니다');
-      } finally {
-        setLoading(false);
-      }
-    };
+  const fetchEmployees = async () => {
+    try {
+      setLoading(true);
+      const response = await api.getEmployees();
+      
+      // API 응답을 Personnel 형식으로 변환
+      const transformedData: Personnel[] = response.employees.map((emp: Employee) => ({
+        id: emp.user_id,
+        name: emp.basic_info.name,
+        position: emp.basic_info.role,
+        department: '개발팀', // 기본값 (DB에 없는 경우)
+        skills: emp.skills.map(s => s.name),
+        experience: emp.basic_info.years_of_experience,
+        currentProject: null, // 기본값 (DB에 없는 경우)
+        availability: 'available' as const, // 기본값
+      }));
+      
+      setPersonnel(transformedData);
+      setError(null);
+    } catch (err) {
+      console.error('직원 목록 조회 실패:', err);
+      setError(err instanceof Error ? err.message : '직원 목록을 불러오는데 실패했습니다');
+    } finally {
+      setLoading(false);
+    }
+  };
 
+  useEffect(() => {
     fetchEmployees();
   }, []);
 
@@ -98,7 +100,10 @@ export function PersonnelManagement() {
           <p className="text-gray-600">전체 인력 정보를 확인하고 관리하세요 (총 {personnel.length}명)</p>
         </div>
         <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-          <Button className="gap-2 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 shadow-lg shadow-blue-500/30">
+          <Button 
+            onClick={() => setIsModalOpen(true)}
+            className="gap-2 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 shadow-lg shadow-blue-500/30"
+          >
             <UserPlus className="w-4 h-4" />
             신규 인력 등록
           </Button>
@@ -296,6 +301,29 @@ export function PersonnelManagement() {
           )}
         </div>
       )}
+
+      {/* 직원 등록 모달 */}
+      <EmployeeRegistrationModal
+        open={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        onSubmit={async (data) => {
+          try {
+            // API 호출하여 직원 생성
+            await api.createEmployee(data);
+            
+            // 성공 시 직원 목록 새로고침
+            await fetchEmployees();
+            
+            // 성공 알림
+            toast.success('직원이 성공적으로 등록되었습니다', {
+              description: `${data.name}님이 시스템에 추가되었습니다`,
+            });
+          } catch (error) {
+            // 에러는 모달 컴포넌트에서 처리됨
+            throw error;
+          }
+        }}
+      />
     </div>
   );
 }

@@ -4,6 +4,8 @@ HR System 유틸리티 함수
 기술 스택 정규화 및 기타 공통 유틸리티 함수를 제공합니다.
 """
 
+import re
+import logging
 from typing import Dict, List
 
 
@@ -214,3 +216,54 @@ def get_unique_skills(skill_names: List[str]) -> List[str]:
             seen.add(skill)
             result.append(skill)
     return result
+
+
+def validate_email(email: str) -> bool:
+    """
+    이메일 주소의 유효성을 검사합니다.
+    
+    Args:
+        email: 검사할 이메일 주소
+        
+    Returns:
+        유효한 이메일이면 True, 아니면 False
+        
+    Examples:
+        >>> validate_email("user@example.com")
+        True
+        >>> validate_email("invalid-email")
+        False
+    """
+    if not email:
+        return False
+    
+    # 기본적인 이메일 형식 검증
+    email_pattern = r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$'
+    return bool(re.match(email_pattern, email))
+
+
+def setup_logger(name: str, level: int = logging.INFO) -> logging.Logger:
+    """
+    로거를 설정합니다.
+    
+    Args:
+        name: 로거 이름
+        level: 로그 레벨
+        
+    Returns:
+        설정된 로거 객체
+    """
+    logger = logging.getLogger(name)
+    logger.setLevel(level)
+    
+    # 핸들러가 없으면 추가
+    if not logger.handlers:
+        handler = logging.StreamHandler()
+        handler.setLevel(level)
+        formatter = logging.Formatter(
+            '%(asctime)s - %(name)s - %(levelname)s - %(message)s'
+        )
+        handler.setFormatter(formatter)
+        logger.addHandler(handler)
+    
+    return logger

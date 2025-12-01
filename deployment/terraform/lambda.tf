@@ -270,6 +270,32 @@ resource "aws_lambda_function" "employees_list" {
   }
 }
 
+# Employee Create Lambda
+resource "aws_lambda_function" "employee_create" {
+  filename      = "../../lambda_functions/employee_create.zip"
+  function_name = "EmployeeCreate"
+  role          = aws_iam_role.lambda_execution_team2.arn
+  handler       = "index.lambda_handler"
+  runtime       = "python3.11"
+  timeout       = 30
+  memory_size   = 512
+  
+  layers = [aws_lambda_layer_version.boto3_layer.arn]
+  
+  environment {
+    variables = {
+      EMPLOYEES_TABLE = aws_dynamodb_table.employees.name
+    }
+  }
+  
+  tags = {
+    Team        = "Team2"
+    EmployeeID  = "524956"
+    Project     = "HR-Resource-Optimization"
+    Environment = var.environment
+  }
+}
+
 # Projects List Lambda
 resource "aws_lambda_function" "projects_list" {
   filename      = "../../lambda_functions/projects_list.zip"
@@ -281,6 +307,32 @@ resource "aws_lambda_function" "projects_list" {
   memory_size   = 256
   
   layers = [aws_lambda_layer_version.boto3_layer.arn]
+  
+  tags = {
+    Team        = "Team2"
+    EmployeeID  = "524956"
+    Project     = "HR-Resource-Optimization"
+    Environment = var.environment
+  }
+}
+
+# Project Create Lambda
+resource "aws_lambda_function" "project_create" {
+  filename      = "../../lambda_functions/project_create.zip"
+  function_name = "ProjectCreate"
+  role          = aws_iam_role.lambda_execution_team2.arn
+  handler       = "index.lambda_handler"
+  runtime       = "python3.11"
+  timeout       = 30
+  memory_size   = 512
+  
+  layers = [aws_lambda_layer_version.boto3_layer.arn]
+  
+  environment {
+    variables = {
+      PROJECTS_TABLE = aws_dynamodb_table.projects.name
+    }
+  }
   
   tags = {
     Team        = "Team2"
@@ -309,6 +361,93 @@ resource "aws_lambda_function" "dashboard_metrics" {
       EVALUATIONS_TABLE = "EmployeeEvaluations"
     }
   }
+  
+  tags = {
+    Team        = "Team2"
+    EmployeeID  = "524956"
+    Project     = "HR-Resource-Optimization"
+    Environment = var.environment
+  }
+}
+
+# Project Assignment Lambda
+resource "aws_lambda_function" "project_assign" {
+  filename      = "../../lambda_functions/project_assign.zip"
+  function_name = "ProjectAssignment"
+  role          = aws_iam_role.lambda_execution_team2.arn
+  handler       = "index.handler"
+  runtime       = "python3.11"
+  timeout       = 60
+  memory_size   = 512
+  
+  layers = [aws_lambda_layer_version.boto3_layer.arn]
+  
+  environment {
+    variables = {
+      EMPLOYEES_TABLE = aws_dynamodb_table.employees.name
+      PROJECTS_TABLE  = aws_dynamodb_table.projects.name
+    }
+  }
+  
+  tags = {
+    Team        = "Team2"
+    EmployeeID  = "524956"
+    Project     = "HR-Resource-Optimization"
+    Environment = var.environment
+  }
+}
+
+# Resume Upload URL Generator Lambda
+resource "aws_lambda_function" "resume_upload" {
+  filename      = "../../lambda_functions/resume_upload.zip"
+  function_name = "ResumeUploadURLGenerator"
+  role          = aws_iam_role.lambda_execution_team2.arn
+  handler       = "index.lambda_handler"
+  runtime       = "python3.11"
+  timeout       = 30
+  memory_size   = 256
+  
+  environment {
+    variables = {
+      RESUMES_BUCKET = aws_s3_bucket.resumes.id
+    }
+  }
+  
+  tags = {
+    Team        = "Team2"
+    EmployeeID  = "524956"
+    Project     = "HR-Resource-Optimization"
+    Environment = var.environment
+  }
+}
+
+# Evaluations List Lambda
+resource "aws_lambda_function" "evaluations_list" {
+  filename      = "../../lambda_functions/evaluations_list.zip"
+  function_name = "EvaluationsList"
+  role          = aws_iam_role.lambda_execution_team2.arn
+  handler       = "index.lambda_handler"
+  runtime       = "python3.11"
+  timeout       = 30
+  memory_size   = 256
+  
+  tags = {
+    Team        = "Team2"
+    EmployeeID  = "524956"
+    Project     = "HR-Resource-Optimization"
+    Environment = var.environment
+  }
+}
+
+# Evaluation Status Update Lambda
+resource "aws_lambda_function" "evaluation_status_update" {
+  filename      = "../../lambda_functions/evaluation_status_update.zip"
+  function_name = "EvaluationStatusUpdate"
+  role          = aws_iam_role.lambda_execution_team2.arn
+  handler       = "index.lambda_handler"
+  runtime       = "python3.11"
+  timeout       = 30
+  memory_size   = 256
   
   tags = {
     Team        = "Team2"

@@ -171,3 +171,39 @@ resource "aws_dynamodb_table" "tech_trends" {
     Environment = var.environment
   }
 }
+
+# Employee Evaluations Table
+resource "aws_dynamodb_table" "employee_evaluations" {
+  name           = "EmployeeEvaluations"
+  billing_mode   = "PAY_PER_REQUEST"
+  hash_key       = "evaluation_id"
+  
+  attribute {
+    name = "evaluation_id"
+    type = "S"
+  }
+  
+  attribute {
+    name = "status"
+    type = "S"
+  }
+  
+  attribute {
+    name = "submitted_at"
+    type = "S"
+  }
+  
+  global_secondary_index {
+    name            = "StatusIndex"
+    hash_key        = "status"
+    range_key       = "submitted_at"
+    projection_type = "ALL"
+  }
+  
+  tags = {
+    Team        = "Team2"
+    EmployeeID  = "524956"
+    Project     = "HR-Resource-Optimization"
+    Environment = var.environment
+  }
+}

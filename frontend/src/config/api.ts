@@ -29,10 +29,26 @@ export const API_ENDPOINTS = {
   
   // 대시보드 메트릭
   DASHBOARD_METRICS: '/dashboard/metrics',
+  
+  // 프로젝트 배정
+  PROJECT_ASSIGN: (projectId: string) => `/projects/${projectId}/assign`,
+  
+  // 평가 관련
+  EVALUATIONS: '/evaluations',
+  EVALUATION_APPROVE: (evaluationId: string) => `/evaluations/${evaluationId}/approve`,
+  EVALUATION_REVIEW: (evaluationId: string) => `/evaluations/${evaluationId}/review`,
+  EVALUATION_REJECT: (evaluationId: string) => `/evaluations/${evaluationId}/reject`,
 } as const;
 
 // API 요청 헤더
 const getHeaders = (): Record<string, string> => {
+  return {
+    'Content-Type': 'application/json',
+  };
+};
+
+// 인증 헤더 가져오기 (API 서비스에서 사용)
+export const getAuthHeaders = async (): Promise<Record<string, string>> => {
   return {
     'Content-Type': 'application/json',
   };
@@ -75,8 +91,7 @@ async function apiCall<T>(endpoint: string, body: any): Promise<T> {
 
 // API 타입 정의
 export interface DomainAnalysisRequest {
-  employee_id: string;
-  analysis_type: string;
+  analysis_type?: string;
 }
 
 export interface DomainAnalysisResponse {
@@ -326,6 +341,117 @@ export const api = {
       return data;
     } catch (err) {
       console.error('대시보드 메트릭 조회 실패:', err);
+      throw err;
+    }
+  },
+
+  /**
+   * 직원 생성 API
+   */
+  createEmployee: async (employeeData: any): Promise<Employee> => {
+    const url = `${API_BASE_URL}${API_ENDPOINTS.EMPLOYEES_LIST}`;
+    console.log('직원 생성:', url, employeeData);
+    
+    try {
+      const response = await fetch(url, {
+        method: 'POST',
+        headers: getHeaders(),
+        body: JSON.stringify(employeeData),
+      });
+
+      console.log('직원 생성 응답 상태:', response.status);
+
+      if (!response.ok) {
+        const errorText = await response.text();
+        console.error('직원 생성 에러:', errorText);
+        let errorData;
+        try {
+          errorData = JSON.parse(errorText);
+        } catch {
+          errorData = { message: errorText || 'Unknown error' };
+        }
+        throw new Error(errorData.message || `API Error: ${response.status}`);
+      }
+
+      const data = await response.json();
+      console.log('직원 생성 데이터:', data);
+      return data.employee;
+    } catch (err) {
+      console.error('직원 생성 실패:', err);
+      throw err;
+    }
+  },
+
+  /**
+   * 프로젝트 생성 API
+   */
+  createProject: async (projectData: any): Promise<Project> => {
+    const url = `${API_BASE_URL}${API_ENDPOINTS.PROJECTS_LIST}`;
+    console.log('프로젝트 생성:', url, projectData);
+    
+    try {
+      const response = await fetch(url, {
+        method: 'POST',
+        headers: getHeaders(),
+        body: JSON.stringify(projectData),
+      });
+
+      console.log('프로젝트 생성 응답 상태:', response.status);
+
+      if (!response.ok) {
+        const errorText = await response.text();
+        console.error('프로젝트 생성 에러:', errorText);
+        let errorData;
+        try {
+          errorData = JSON.parse(errorText);
+        } catch {
+          errorData = { message: errorText || 'Unknown error' };
+        }
+        throw new Error(errorData.message || `API Error: ${response.status}`);
+      }
+
+      const data = await response.json();
+      console.log('프로젝트 생성 데이터:', data);
+      return data;
+    } catch (err) {
+      console.error('프로젝트 생성 실패:', err);
+      throw err;
+    }
+  },
+
+  /**
+   * 프로젝트 배정 API
+   */
+  assignProject: async (projectId: string, employeeId: string): Promise<any> => {
+    const url = `${API_BASE_URL}/projects/${projectId}/assign`;
+    console.log('프로젝트 배정:', url, { employee_id: employeeId });
+    
+    try {
+      const response = await fetch(url, {
+        method: 'POST',
+        headers: getHeaders(),
+        body: JSON.stringify({ employee_id: employeeId }),
+      });
+
+      console.log('프로젝트 배정 응답 상태:', response.status);
+
+      if (!response.ok) {
+        const errorText = await response.text();
+        console.error('프로젝트 배정 에러:', errorText);
+        let errorData;
+        try {
+          errorData = JSON.parse(errorText);
+        } catch {
+          errorData = { message: errorText || 'Unknown error' };
+        }
+        throw new Error(errorData.error || errorData.message || `API Error: ${response.status}`);
+      }
+
+      const data = await response.json();
+      console.log('프로젝트 배정 데이터:', data);
+      return data;
+    } catch (err) {
+      console.error('프로젝트 배정 실패:', err);
       throw err;
     }
   },

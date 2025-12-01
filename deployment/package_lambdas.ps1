@@ -12,6 +12,7 @@ $lambdaFunctions = @(
     "tech_trend_collector",
     "vector_embedding",
     "employees_list",
+    "employee_create",
     "projects_list",
     "dashboard_metrics"
 )

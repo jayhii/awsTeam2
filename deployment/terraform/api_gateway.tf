@@ -266,6 +266,7 @@ resource "aws_api_gateway_resource" "employees" {
   path_part   = "employees"
 }
 
+# GET /employees
 resource "aws_api_gateway_method" "employees_get" {
   rest_api_id   = aws_api_gateway_rest_api.hr_api.id
   resource_id   = aws_api_gateway_resource.employees.id
@@ -273,7 +274,7 @@ resource "aws_api_gateway_method" "employees_get" {
   authorization = "NONE"
 }
 
-resource "aws_api_gateway_integration" "employees_lambda" {
+resource "aws_api_gateway_integration" "employees_get_lambda" {
   rest_api_id             = aws_api_gateway_rest_api.hr_api.id
   resource_id             = aws_api_gateway_resource.employees.id
   http_method             = aws_api_gateway_method.employees_get.http_method
@@ -282,10 +283,35 @@ resource "aws_api_gateway_integration" "employees_lambda" {
   uri                     = aws_lambda_function.employees_list.invoke_arn
 }
 
-resource "aws_lambda_permission" "api_gateway_employees" {
-  statement_id  = "AllowAPIGatewayInvoke"
+resource "aws_lambda_permission" "api_gateway_employees_get" {
+  statement_id  = "AllowAPIGatewayInvokeGet"
   action        = "lambda:InvokeFunction"
   function_name = aws_lambda_function.employees_list.function_name
+  principal     = "apigateway.amazonaws.com"
+  source_arn    = "${aws_api_gateway_rest_api.hr_api.execution_arn}/*/*"
+}
+
+# POST /employees
+resource "aws_api_gateway_method" "employees_post" {
+  rest_api_id   = aws_api_gateway_rest_api.hr_api.id
+  resource_id   = aws_api_gateway_resource.employees.id
+  http_method   = "POST"
+  authorization = "NONE"
+}
+
+resource "aws_api_gateway_integration" "employees_post_lambda" {
+  rest_api_id             = aws_api_gateway_rest_api.hr_api.id
+  resource_id             = aws_api_gateway_resource.employees.id
+  http_method             = aws_api_gateway_method.employees_post.http_method
+  integration_http_method = "POST"
+  type                    = "AWS_PROXY"
+  uri                     = aws_lambda_function.employee_create.invoke_arn
+}
+
+resource "aws_lambda_permission" "api_gateway_employees_post" {
+  statement_id  = "AllowAPIGatewayInvokePost"
+  action        = "lambda:InvokeFunction"
+  function_name = aws_lambda_function.employee_create.function_name
   principal     = "apigateway.amazonaws.com"
   source_arn    = "${aws_api_gateway_rest_api.hr_api.execution_arn}/*/*"
 }
@@ -297,6 +323,7 @@ resource "aws_api_gateway_resource" "projects" {
   path_part   = "projects"
 }
 
+# GET /projects
 resource "aws_api_gateway_method" "projects_get" {
   rest_api_id   = aws_api_gateway_rest_api.hr_api.id
   resource_id   = aws_api_gateway_resource.projects.id
@@ -304,7 +331,7 @@ resource "aws_api_gateway_method" "projects_get" {
   authorization = "NONE"
 }
 
-resource "aws_api_gateway_integration" "projects_lambda" {
+resource "aws_api_gateway_integration" "projects_get_lambda" {
   rest_api_id             = aws_api_gateway_rest_api.hr_api.id
   resource_id             = aws_api_gateway_resource.projects.id
   http_method             = aws_api_gateway_method.projects_get.http_method
@@ -313,10 +340,35 @@ resource "aws_api_gateway_integration" "projects_lambda" {
   uri                     = aws_lambda_function.projects_list.invoke_arn
 }
 
-resource "aws_lambda_permission" "api_gateway_projects" {
-  statement_id  = "AllowAPIGatewayInvoke"
+resource "aws_lambda_permission" "api_gateway_projects_get" {
+  statement_id  = "AllowAPIGatewayInvokeGet"
   action        = "lambda:InvokeFunction"
   function_name = aws_lambda_function.projects_list.function_name
+  principal     = "apigateway.amazonaws.com"
+  source_arn    = "${aws_api_gateway_rest_api.hr_api.execution_arn}/*/*"
+}
+
+# POST /projects
+resource "aws_api_gateway_method" "projects_post" {
+  rest_api_id   = aws_api_gateway_rest_api.hr_api.id
+  resource_id   = aws_api_gateway_resource.projects.id
+  http_method   = "POST"
+  authorization = "NONE"
+}
+
+resource "aws_api_gateway_integration" "projects_post_lambda" {
+  rest_api_id             = aws_api_gateway_rest_api.hr_api.id
+  resource_id             = aws_api_gateway_resource.projects.id
+  http_method             = aws_api_gateway_method.projects_post.http_method
+  integration_http_method = "POST"
+  type                    = "AWS_PROXY"
+  uri                     = aws_lambda_function.project_create.invoke_arn
+}
+
+resource "aws_lambda_permission" "api_gateway_projects_post" {
+  statement_id  = "AllowAPIGatewayInvokePost"
+  action        = "lambda:InvokeFunction"
+  function_name = aws_lambda_function.project_create.function_name
   principal     = "apigateway.amazonaws.com"
   source_arn    = "${aws_api_gateway_rest_api.hr_api.execution_arn}/*/*"
 }
@@ -361,7 +413,7 @@ resource "aws_api_gateway_integration_response" "employees_options" {
   
   response_parameters = {
     "method.response.header.Access-Control-Allow-Headers" = "'Content-Type,Authorization'"
-    "method.response.header.Access-Control-Allow-Methods" = "'GET,OPTIONS'"
+    "method.response.header.Access-Control-Allow-Methods" = "'GET,POST,OPTIONS'"
     "method.response.header.Access-Control-Allow-Origin"  = "'*'"
   }
   
@@ -408,7 +460,7 @@ resource "aws_api_gateway_integration_response" "projects_options" {
   
   response_parameters = {
     "method.response.header.Access-Control-Allow-Headers" = "'Content-Type,Authorization'"
-    "method.response.header.Access-Control-Allow-Methods" = "'GET,OPTIONS'"
+    "method.response.header.Access-Control-Allow-Methods" = "'GET,POST,OPTIONS'"
     "method.response.header.Access-Control-Allow-Origin"  = "'*'"
   }
   
@@ -497,4 +549,427 @@ resource "aws_api_gateway_integration_response" "dashboard_metrics_options" {
   }
   
   depends_on = [aws_api_gateway_integration.dashboard_metrics_options]
+}
+
+# /projects/{projectId}/assign resource
+resource "aws_api_gateway_resource" "project_id" {
+  rest_api_id = aws_api_gateway_rest_api.hr_api.id
+  parent_id   = aws_api_gateway_resource.projects.id
+  path_part   = "{projectId}"
+}
+
+resource "aws_api_gateway_resource" "project_assign" {
+  rest_api_id = aws_api_gateway_rest_api.hr_api.id
+  parent_id   = aws_api_gateway_resource.project_id.id
+  path_part   = "assign"
+}
+
+# POST /projects/{projectId}/assign
+resource "aws_api_gateway_method" "project_assign_post" {
+  rest_api_id   = aws_api_gateway_rest_api.hr_api.id
+  resource_id   = aws_api_gateway_resource.project_assign.id
+  http_method   = "POST"
+  authorization = "NONE"
+}
+
+resource "aws_api_gateway_integration" "project_assign_lambda" {
+  rest_api_id             = aws_api_gateway_rest_api.hr_api.id
+  resource_id             = aws_api_gateway_resource.project_assign.id
+  http_method             = aws_api_gateway_method.project_assign_post.http_method
+  integration_http_method = "POST"
+  type                    = "AWS_PROXY"
+  uri                     = aws_lambda_function.project_assign.invoke_arn
+}
+
+resource "aws_lambda_permission" "api_gateway_project_assign" {
+  statement_id  = "AllowAPIGatewayInvokeAssign"
+  action        = "lambda:InvokeFunction"
+  function_name = aws_lambda_function.project_assign.function_name
+  principal     = "apigateway.amazonaws.com"
+  source_arn    = "${aws_api_gateway_rest_api.hr_api.execution_arn}/*/*"
+}
+
+# OPTIONS /projects/{projectId}/assign (CORS)
+resource "aws_api_gateway_method" "project_assign_options" {
+  rest_api_id   = aws_api_gateway_rest_api.hr_api.id
+  resource_id   = aws_api_gateway_resource.project_assign.id
+  http_method   = "OPTIONS"
+  authorization = "NONE"
+}
+
+resource "aws_api_gateway_integration" "project_assign_options" {
+  rest_api_id = aws_api_gateway_rest_api.hr_api.id
+  resource_id = aws_api_gateway_resource.project_assign.id
+  http_method = aws_api_gateway_method.project_assign_options.http_method
+  type        = "MOCK"
+  
+  request_templates = {
+    "application/json" = "{\"statusCode\": 200}"
+  }
+}
+
+resource "aws_api_gateway_method_response" "project_assign_options" {
+  rest_api_id = aws_api_gateway_rest_api.hr_api.id
+  resource_id = aws_api_gateway_resource.project_assign.id
+  http_method = aws_api_gateway_method.project_assign_options.http_method
+  status_code = "200"
+  
+  response_parameters = {
+    "method.response.header.Access-Control-Allow-Headers" = true
+    "method.response.header.Access-Control-Allow-Methods" = true
+    "method.response.header.Access-Control-Allow-Origin"  = true
+  }
+}
+
+resource "aws_api_gateway_integration_response" "project_assign_options" {
+  rest_api_id = aws_api_gateway_rest_api.hr_api.id
+  resource_id = aws_api_gateway_resource.project_assign.id
+  http_method = aws_api_gateway_method.project_assign_options.http_method
+  status_code = "200"
+  
+  response_parameters = {
+    "method.response.header.Access-Control-Allow-Headers" = "'Content-Type,Authorization'"
+    "method.response.header.Access-Control-Allow-Methods" = "'POST,OPTIONS'"
+    "method.response.header.Access-Control-Allow-Origin"  = "'*'"
+  }
+  
+  depends_on = [aws_api_gateway_integration.project_assign_options]
+}
+
+# /resume resource
+resource "aws_api_gateway_resource" "resume" {
+  rest_api_id = aws_api_gateway_rest_api.hr_api.id
+  parent_id   = aws_api_gateway_rest_api.hr_api.root_resource_id
+  path_part   = "resume"
+}
+
+resource "aws_api_gateway_resource" "resume_upload_url" {
+  rest_api_id = aws_api_gateway_rest_api.hr_api.id
+  parent_id   = aws_api_gateway_resource.resume.id
+  path_part   = "upload-url"
+}
+
+# POST /resume/upload-url
+resource "aws_api_gateway_method" "resume_upload_url_post" {
+  rest_api_id   = aws_api_gateway_rest_api.hr_api.id
+  resource_id   = aws_api_gateway_resource.resume_upload_url.id
+  http_method   = "POST"
+  authorization = "NONE"
+}
+
+resource "aws_api_gateway_integration" "resume_upload_url_lambda" {
+  rest_api_id             = aws_api_gateway_rest_api.hr_api.id
+  resource_id             = aws_api_gateway_resource.resume_upload_url.id
+  http_method             = aws_api_gateway_method.resume_upload_url_post.http_method
+  integration_http_method = "POST"
+  type                    = "AWS_PROXY"
+  uri                     = aws_lambda_function.resume_upload.invoke_arn
+}
+
+resource "aws_lambda_permission" "api_gateway_resume_upload" {
+  statement_id  = "AllowAPIGatewayInvokeResumeUpload"
+  action        = "lambda:InvokeFunction"
+  function_name = aws_lambda_function.resume_upload.function_name
+  principal     = "apigateway.amazonaws.com"
+  source_arn    = "${aws_api_gateway_rest_api.hr_api.execution_arn}/*/*"
+}
+
+# OPTIONS /resume/upload-url (CORS)
+resource "aws_api_gateway_method" "resume_upload_url_options" {
+  rest_api_id   = aws_api_gateway_rest_api.hr_api.id
+  resource_id   = aws_api_gateway_resource.resume_upload_url.id
+  http_method   = "OPTIONS"
+  authorization = "NONE"
+}
+
+resource "aws_api_gateway_integration" "resume_upload_url_options" {
+  rest_api_id = aws_api_gateway_rest_api.hr_api.id
+  resource_id = aws_api_gateway_resource.resume_upload_url.id
+  http_method = aws_api_gateway_method.resume_upload_url_options.http_method
+  type        = "MOCK"
+  
+  request_templates = {
+    "application/json" = "{\"statusCode\": 200}"
+  }
+}
+
+resource "aws_api_gateway_method_response" "resume_upload_url_options" {
+  rest_api_id = aws_api_gateway_rest_api.hr_api.id
+  resource_id = aws_api_gateway_resource.resume_upload_url.id
+  http_method = aws_api_gateway_method.resume_upload_url_options.http_method
+  status_code = "200"
+  
+  response_parameters = {
+    "method.response.header.Access-Control-Allow-Headers" = true
+    "method.response.header.Access-Control-Allow-Methods" = true
+    "method.response.header.Access-Control-Allow-Origin"  = true
+  }
+}
+
+resource "aws_api_gateway_integration_response" "resume_upload_url_options" {
+  rest_api_id = aws_api_gateway_rest_api.hr_api.id
+  resource_id = aws_api_gateway_resource.resume_upload_url.id
+  http_method = aws_api_gateway_method.resume_upload_url_options.http_method
+  status_code = "200"
+  
+  response_parameters = {
+    "method.response.header.Access-Control-Allow-Headers" = "'Content-Type,Authorization'"
+    "method.response.header.Access-Control-Allow-Methods" = "'POST,OPTIONS'"
+    "method.response.header.Access-Control-Allow-Origin"  = "'*'"
+  }
+  
+  depends_on = [aws_api_gateway_integration.resume_upload_url_options]
+}
+
+# /evaluations resource
+resource "aws_api_gateway_resource" "evaluations" {
+  rest_api_id = aws_api_gateway_rest_api.hr_api.id
+  parent_id   = aws_api_gateway_rest_api.hr_api.root_resource_id
+  path_part   = "evaluations"
+}
+
+# GET /evaluations
+resource "aws_api_gateway_method" "evaluations_get" {
+  rest_api_id   = aws_api_gateway_rest_api.hr_api.id
+  resource_id   = aws_api_gateway_resource.evaluations.id
+  http_method   = "GET"
+  authorization = "NONE"
+}
+
+resource "aws_api_gateway_integration" "evaluations_get_lambda" {
+  rest_api_id             = aws_api_gateway_rest_api.hr_api.id
+  resource_id             = aws_api_gateway_resource.evaluations.id
+  http_method             = aws_api_gateway_method.evaluations_get.http_method
+  integration_http_method = "POST"
+  type                    = "AWS_PROXY"
+  uri                     = aws_lambda_function.evaluations_list.invoke_arn
+}
+
+resource "aws_lambda_permission" "api_gateway_evaluations_get" {
+  statement_id  = "AllowAPIGatewayInvokeEvaluationsGet"
+  action        = "lambda:InvokeFunction"
+  function_name = aws_lambda_function.evaluations_list.function_name
+  principal     = "apigateway.amazonaws.com"
+  source_arn    = "${aws_api_gateway_rest_api.hr_api.execution_arn}/*/*"
+}
+
+# /evaluations/{evaluationId} resource
+resource "aws_api_gateway_resource" "evaluation_id" {
+  rest_api_id = aws_api_gateway_rest_api.hr_api.id
+  parent_id   = aws_api_gateway_resource.evaluations.id
+  path_part   = "{evaluationId}"
+}
+
+# /evaluations/{evaluationId}/approve resource
+resource "aws_api_gateway_resource" "evaluation_approve" {
+  rest_api_id = aws_api_gateway_rest_api.hr_api.id
+  parent_id   = aws_api_gateway_resource.evaluation_id.id
+  path_part   = "approve"
+}
+
+# PUT /evaluations/{evaluationId}/approve
+resource "aws_api_gateway_method" "evaluation_approve_put" {
+  rest_api_id   = aws_api_gateway_rest_api.hr_api.id
+  resource_id   = aws_api_gateway_resource.evaluation_approve.id
+  http_method   = "PUT"
+  authorization = "NONE"
+}
+
+resource "aws_api_gateway_integration" "evaluation_approve_lambda" {
+  rest_api_id             = aws_api_gateway_rest_api.hr_api.id
+  resource_id             = aws_api_gateway_resource.evaluation_approve.id
+  http_method             = aws_api_gateway_method.evaluation_approve_put.http_method
+  integration_http_method = "POST"
+  type                    = "AWS_PROXY"
+  uri                     = aws_lambda_function.evaluation_status_update.invoke_arn
+}
+
+resource "aws_lambda_permission" "api_gateway_evaluation_approve" {
+  statement_id  = "AllowAPIGatewayInvokeEvaluationApprove"
+  action        = "lambda:InvokeFunction"
+  function_name = aws_lambda_function.evaluation_status_update.function_name
+  principal     = "apigateway.amazonaws.com"
+  source_arn    = "${aws_api_gateway_rest_api.hr_api.execution_arn}/*/*"
+}
+
+# /evaluations/{evaluationId}/review resource
+resource "aws_api_gateway_resource" "evaluation_review" {
+  rest_api_id = aws_api_gateway_rest_api.hr_api.id
+  parent_id   = aws_api_gateway_resource.evaluation_id.id
+  path_part   = "review"
+}
+
+# PUT /evaluations/{evaluationId}/review
+resource "aws_api_gateway_method" "evaluation_review_put" {
+  rest_api_id   = aws_api_gateway_rest_api.hr_api.id
+  resource_id   = aws_api_gateway_resource.evaluation_review.id
+  http_method   = "PUT"
+  authorization = "NONE"
+}
+
+resource "aws_api_gateway_integration" "evaluation_review_lambda" {
+  rest_api_id             = aws_api_gateway_rest_api.hr_api.id
+  resource_id             = aws_api_gateway_resource.evaluation_review.id
+  http_method             = aws_api_gateway_method.evaluation_review_put.http_method
+  integration_http_method = "POST"
+  type                    = "AWS_PROXY"
+  uri                     = aws_lambda_function.evaluation_status_update.invoke_arn
+}
+
+resource "aws_lambda_permission" "api_gateway_evaluation_review" {
+  statement_id  = "AllowAPIGatewayInvokeEvaluationReview"
+  action        = "lambda:InvokeFunction"
+  function_name = aws_lambda_function.evaluation_status_update.function_name
+  principal     = "apigateway.amazonaws.com"
+  source_arn    = "${aws_api_gateway_rest_api.hr_api.execution_arn}/*/*"
+}
+
+# /evaluations/{evaluationId}/reject resource
+resource "aws_api_gateway_resource" "evaluation_reject" {
+  rest_api_id = aws_api_gateway_rest_api.hr_api.id
+  parent_id   = aws_api_gateway_resource.evaluation_id.id
+  path_part   = "reject"
+}
+
+# PUT /evaluations/{evaluationId}/reject
+resource "aws_api_gateway_method" "evaluation_reject_put" {
+  rest_api_id   = aws_api_gateway_rest_api.hr_api.id
+  resource_id   = aws_api_gateway_resource.evaluation_reject.id
+  http_method   = "PUT"
+  authorization = "NONE"
+}
+
+resource "aws_api_gateway_integration" "evaluation_reject_lambda" {
+  rest_api_id             = aws_api_gateway_rest_api.hr_api.id
+  resource_id             = aws_api_gateway_resource.evaluation_reject.id
+  http_method             = aws_api_gateway_method.evaluation_reject_put.http_method
+  integration_http_method = "POST"
+  type                    = "AWS_PROXY"
+  uri                     = aws_lambda_function.evaluation_status_update.invoke_arn
+}
+
+resource "aws_lambda_permission" "api_gateway_evaluation_reject" {
+  statement_id  = "AllowAPIGatewayInvokeEvaluationReject"
+  action        = "lambda:InvokeFunction"
+  function_name = aws_lambda_function.evaluation_status_update.function_name
+  principal     = "apigateway.amazonaws.com"
+  source_arn    = "${aws_api_gateway_rest_api.hr_api.execution_arn}/*/*"
+}
+
+# CORS for /evaluations
+resource "aws_api_gateway_method" "evaluations_options" {
+  rest_api_id   = aws_api_gateway_rest_api.hr_api.id
+  resource_id   = aws_api_gateway_resource.evaluations.id
+  http_method   = "OPTIONS"
+  authorization = "NONE"
+}
+
+resource "aws_api_gateway_integration" "evaluations_options" {
+  rest_api_id = aws_api_gateway_rest_api.hr_api.id
+  resource_id = aws_api_gateway_resource.evaluations.id
+  http_method = "OPTIONS"
+  type        = "MOCK"
+  
+  request_templates = {
+    "application/json" = "{\"statusCode\": 200}"
+  }
+}
+
+resource "aws_api_gateway_method_response" "evaluations_options" {
+  rest_api_id = aws_api_gateway_rest_api.hr_api.id
+  resource_id = aws_api_gateway_resource.evaluations.id
+  http_method = "OPTIONS"
+  status_code = "200"
+  
+  response_parameters = {
+    "method.response.header.Access-Control-Allow-Headers" = true
+    "method.response.header.Access-Control-Allow-Methods" = true
+    "method.response.header.Access-Control-Allow-Origin"  = true
+  }
+}
+
+resource "aws_api_gateway_integration_response" "evaluations_options" {
+  rest_api_id = aws_api_gateway_rest_api.hr_api.id
+  resource_id = aws_api_gateway_resource.evaluations.id
+  http_method = "OPTIONS"
+  status_code = "200"
+  
+  response_parameters = {
+    "method.response.header.Access-Control-Allow-Headers" = "'Content-Type,Authorization'"
+    "method.response.header.Access-Control-Allow-Methods" = "'GET,PUT,OPTIONS'"
+    "method.response.header.Access-Control-Allow-Origin"  = "'*'"
+  }
+  
+  depends_on = [aws_api_gateway_integration.evaluations_options]
+}
+
+# CORS for evaluation actions (approve, review, reject)
+resource "aws_api_gateway_method" "evaluation_actions_options" {
+  for_each = {
+    approve = aws_api_gateway_resource.evaluation_approve.id
+    review  = aws_api_gateway_resource.evaluation_review.id
+    reject  = aws_api_gateway_resource.evaluation_reject.id
+  }
+  
+  rest_api_id   = aws_api_gateway_rest_api.hr_api.id
+  resource_id   = each.value
+  http_method   = "OPTIONS"
+  authorization = "NONE"
+}
+
+resource "aws_api_gateway_integration" "evaluation_actions_options" {
+  for_each = {
+    approve = aws_api_gateway_resource.evaluation_approve.id
+    review  = aws_api_gateway_resource.evaluation_review.id
+    reject  = aws_api_gateway_resource.evaluation_reject.id
+  }
+  
+  rest_api_id = aws_api_gateway_rest_api.hr_api.id
+  resource_id = each.value
+  http_method = "OPTIONS"
+  type        = "MOCK"
+  
+  request_templates = {
+    "application/json" = "{\"statusCode\": 200}"
+  }
+}
+
+resource "aws_api_gateway_method_response" "evaluation_actions_options" {
+  for_each = {
+    approve = aws_api_gateway_resource.evaluation_approve.id
+    review  = aws_api_gateway_resource.evaluation_review.id
+    reject  = aws_api_gateway_resource.evaluation_reject.id
+  }
+  
+  rest_api_id = aws_api_gateway_rest_api.hr_api.id
+  resource_id = each.value
+  http_method = "OPTIONS"
+  status_code = "200"
+  
+  response_parameters = {
+    "method.response.header.Access-Control-Allow-Headers" = true
+    "method.response.header.Access-Control-Allow-Methods" = true
+    "method.response.header.Access-Control-Allow-Origin"  = true
+  }
+}
+
+resource "aws_api_gateway_integration_response" "evaluation_actions_options" {
+  for_each = {
+    approve = aws_api_gateway_resource.evaluation_approve.id
+    review  = aws_api_gateway_resource.evaluation_review.id
+    reject  = aws_api_gateway_resource.evaluation_reject.id
+  }
+  
+  rest_api_id = aws_api_gateway_rest_api.hr_api.id
+  resource_id = each.value
+  http_method = "OPTIONS"
+  status_code = "200"
+  
+  response_parameters = {
+    "method.response.header.Access-Control-Allow-Headers" = "'Content-Type,Authorization'"
+    "method.response.header.Access-Control-Allow-Methods" = "'PUT,OPTIONS'"
+    "method.response.header.Access-Control-Allow-Origin"  = "'*'"
+  }
+  
+  depends_on = [aws_api_gateway_integration.evaluation_actions_options]
 }

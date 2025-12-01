@@ -17,6 +17,7 @@ import type {
   DashboardMetrics,
   ResumeUploadResponse,
   ResumeParseStatus,
+  PersonnelEvaluation,
 } from '../types/models';
 
 class ApiService {
@@ -73,42 +74,41 @@ class ApiService {
   /**
    * 전체 직원 목록 조회
    */
-  async getEmployees(): Promise<Employee[]> {
-    return this.request<Employee[]>(API_ENDPOINTS.EMPLOYEES);
-  }
+  async getEmployees(): Promise<any[]> {
+    console.log('getEmployees 호출됨');
+    const headers = await getAuthHeaders();
+    
+    const response = await fetch(`${this.baseUrl}${API_ENDPOINTS.EMPLOYEES_LIST}`, {
+      method: 'GET',
+      headers,
+    });
 
-  /**
-   * 특정 직원 조회
-   */
-  async getEmployeeById(id: string): Promise<Employee> {
-    return this.request<Employee>(API_ENDPOINTS.EMPLOYEE_BY_ID(id));
-  }
+    if (!response.ok) {
+      const error = await response.json().catch(() => ({ message: 'Unknown error' }));
+      throw new Error(error.message || `HTTP ${response.status}: ${response.statusText}`);
+    }
 
-  /**
-   * 기술 스택으로 직원 검색
-   */
-  async getEmployeesBySkill(skills: string[]): Promise<Employee[]> {
-    return this.request<Employee[]>(
-      `${API_ENDPOINTS.EMPLOYEES_BY_SKILL}?skills=${skills.join(',')}`
-    );
+    const data = await response.json();
+    console.log('getEmployees 응답:', data);
+    
+    // 응답 구조에 따라 처리
+    if (Array.isArray(data)) {
+      return data;
+    } else if (data.employees && Array.isArray(data.employees)) {
+      return data.employees;
+    } else if (data.Items && Array.isArray(data.Items)) {
+      return data.Items;
+    }
+    
+    return [];
   }
 
   /**
    * 직원 생성
    */
   async createEmployee(employee: Partial<Employee>): Promise<Employee> {
-    return this.request<Employee>(API_ENDPOINTS.EMPLOYEES, {
+    return this.request<Employee>(API_ENDPOINTS.EMPLOYEES_LIST, {
       method: 'POST',
-      body: JSON.stringify(employee),
-    });
-  }
-
-  /**
-   * 직원 정보 수정
-   */
-  async updateEmployee(id: string, employee: Partial<Employee>): Promise<Employee> {
-    return this.request<Employee>(API_ENDPOINTS.EMPLOYEE_BY_ID(id), {
-      method: 'PUT',
       body: JSON.stringify(employee),
     });
   }
@@ -116,33 +116,39 @@ class ApiService {
   /**
    * 전체 프로젝트 목록 조회
    */
-  async getProjects(): Promise<Project[]> {
-    return this.request<Project[]>(API_ENDPOINTS.PROJECTS);
-  }
+  async getProjects(): Promise<any[]> {
+    const headers = await getAuthHeaders();
+    
+    const response = await fetch(`${this.baseUrl}${API_ENDPOINTS.PROJECTS_LIST}`, {
+      method: 'GET',
+      headers,
+    });
 
-  /**
-   * 특정 프로젝트 조회
-   */
-  async getProjectById(id: string): Promise<Project> {
-    return this.request<Project>(API_ENDPOINTS.PROJECT_BY_ID(id));
+    if (!response.ok) {
+      const error = await response.json().catch(() => ({ message: 'Unknown error' }));
+      throw new Error(error.message || `HTTP ${response.status}: ${response.statusText}`);
+    }
+
+    const data = await response.json();
+    
+    // 응답 구조에 따라 처리
+    if (Array.isArray(data)) {
+      return data;
+    } else if (data.projects && Array.isArray(data.projects)) {
+      return data.projects;
+    } else if (data.Items && Array.isArray(data.Items)) {
+      return data.Items;
+    }
+    
+    return [];
   }
 
   /**
    * 프로젝트 생성
    */
   async createProject(project: Partial<Project>): Promise<Project> {
-    return this.request<Project>(API_ENDPOINTS.PROJECTS, {
+    return this.request<Project>(API_ENDPOINTS.PROJECTS_LIST, {
       method: 'POST',
-      body: JSON.stringify(project),
-    });
-  }
-
-  /**
-   * 프로젝트 정보 수정
-   */
-  async updateProject(id: string, project: Partial<Project>): Promise<Project> {
-    return this.request<Project>(API_ENDPOINTS.PROJECT_BY_ID(id), {
-      method: 'PUT',
       body: JSON.stringify(project),
     });
   }
@@ -225,6 +231,57 @@ class ApiService {
    */
   async getResumeParseStatus(jobId: string): Promise<ResumeParseStatus> {
     return this.request<ResumeParseStatus>(API_ENDPOINTS.RESUME_PARSE_STATUS(jobId));
+  }
+
+  /**
+   * 평가 목록 조회
+   */
+  async getEvaluations(status?: 'pending' | 'approved' | 'rejected' | 'review'): Promise<PersonnelEvaluation[]> {
+    const endpoint = status 
+      ? `${API_ENDPOINTS.EVALUATIONS}?status=${status}`
+      : API_ENDPOINTS.EVALUATIONS;
+    
+    const response = await this.request<{ evaluations: PersonnelEvaluation[] }>(endpoint);
+    return response.evaluations;
+  }
+
+  /**
+   * 평가 승인
+   */
+  async approveEvaluation(evaluationId: string): Promise<PersonnelEvaluation> {
+    return this.request<PersonnelEvaluation>(
+      API_ENDPOINTS.EVALUATION_APPROVE(evaluationId),
+      {
+        method: 'PUT',
+        body: JSON.stringify({ status: 'approved' }),
+      }
+    );
+  }
+
+  /**
+   * 평가 검토
+   */
+  async reviewEvaluation(evaluationId: string, comments: string): Promise<PersonnelEvaluation> {
+    return this.request<PersonnelEvaluation>(
+      API_ENDPOINTS.EVALUATION_REVIEW(evaluationId),
+      {
+        method: 'PUT',
+        body: JSON.stringify({ status: 'review', comments }),
+      }
+    );
+  }
+
+  /**
+   * 평가 반려
+   */
+  async rejectEvaluation(evaluationId: string, reason: string): Promise<PersonnelEvaluation> {
+    return this.request<PersonnelEvaluation>(
+      API_ENDPOINTS.EVALUATION_REJECT(evaluationId),
+      {
+        method: 'PUT',
+        body: JSON.stringify({ status: 'rejected', reason }),
+      }
+    );
   }
 }
 

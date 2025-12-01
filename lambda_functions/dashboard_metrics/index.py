@@ -62,20 +62,21 @@ def get_available_employees() -> int:
     """투입 대기 인력 수 조회 (현재 프로젝트에 배정되지 않은 직원)"""
     try:
         table = dynamodb.Table(EMPLOYEES_TABLE)
-        response = table.scan(
-            FilterExpression=Attr('availability').eq('available')
-        )
-        return len(response.get('Items', []))
+        # currentProject가 없거나 None인 직원 카운트
+        response = table.scan()
+        items = response.get('Items', [])
+        
+        # currentProject가 없거나 None인 직원 필터링
+        available_count = 0
+        for item in items:
+            current_project = item.get('currentProject')
+            if current_project is None or current_project == '':
+                available_count += 1
+        
+        return available_count
     except Exception as e:
         print(f"Error getting available employees: {str(e)}")
-        # availability 필드가 없는 경우 currentProject가 null인 직원 카운트
-        try:
-            response = table.scan(
-                FilterExpression=Attr('currentProject').not_exists() | Attr('currentProject').eq(None)
-            )
-            return len(response.get('Items', []))
-        except:
-            return 0
+        return 0
 
 
 def get_pending_reviews() -> int:

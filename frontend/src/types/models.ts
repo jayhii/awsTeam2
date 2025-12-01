@@ -194,25 +194,17 @@ export interface QualitativeAnalysisResponse {
 
 // 인력 평가
 export interface PersonnelEvaluation {
-  id: string;
+  evaluation_id: string;
+  user_id: string;
   name: string;
   type: 'career' | 'freelancer';
-  status: 'pending' | 'approved' | 'rejected';
+  status: 'pending' | 'approved' | 'rejected' | 'review';
   overall_score: number;
   submitted_at: string;
-  evaluations: {
-    category: string;
-    score: number;
-    max_score: number;
-    feedback: string;
-  }[];
-  projects: {
-    name: string;
-    role: string;
-    period: string;
-    verified: boolean;
-  }[];
-  recommendations: string[];
+  quantitative_analysis?: QuantitativeAnalysisResponse;
+  qualitative_analysis?: QualitativeAnalysisResponse;
+  review_comments?: string;
+  rejection_reason?: string;
 }
 
 // 대시보드 메트릭

@@ -6,6 +6,8 @@ import { Badge } from './ui/badge';
 import { Button } from './ui/button';
 import { Input } from './ui/input';
 import { api, Project as APIProject } from '../config/api';
+import { ProjectRegistrationModal, ProjectFormData } from './ProjectRegistrationModal';
+import { toast } from 'sonner';
 
 interface Project {
   id: string;
@@ -25,6 +27,7 @@ export function ProjectManagement() {
   const [projects, setProjects] = useState<Project[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   // DB에서 프로젝트 목록 가져오기
   useEffect(() => {
@@ -98,6 +101,50 @@ export function ProjectManagement() {
     }
   };
 
+  // 프로젝트 생성 핸들러
+  const handleCreateProject = async (projectData: ProjectFormData) => {
+    try {
+      await api.createProject(projectData);
+      toast.success('프로젝트가 성공적으로 등록되었습니다');
+      
+      // 프로젝트 목록 새로고침
+      const response = await api.getProjects();
+      const transformedData: Project[] = response.projects.map((proj: APIProject) => {
+        let status: 'planning' | 'in-progress' | 'completed' = 'planning';
+        if (proj.status === 'active' || proj.status === 'in-progress') {
+          status = 'in-progress';
+        } else if (proj.status === 'completed') {
+          status = 'completed';
+        }
+
+        return {
+          id: proj.project_id,
+          name: proj.project_name,
+          client: '고객사',
+          status,
+          requiredSkills: proj.required_skills || [],
+          assignedMembers: 0,
+          requiredMembers: 5,
+          startDate: proj.start_date || '미정',
+          endDate: '미정',
+          matchRate: undefined,
+        };
+      });
+      setProjects(transformedData);
+    } catch (err) {
+      console.error('프로젝트 등록 실패:', err);
+      toast.error(err instanceof Error ? err.message : '프로젝트 등록에 실패했습니다');
+      throw err;
+    }
+  };
+
+  // AI 인력 추천 받기 핸들러
+  const handleGetRecommendations = (projectId: string) => {
+    // 추천 기능은 인력 추천 탭에서 프로젝트 ID를 선택하여 사용
+    toast.info('인력 추천 탭으로 이동하여 프로젝트를 선택해주세요.');
+    console.log('프로젝트 ID:', projectId);
+  };
+
   return (
     <div className="space-y-6">
       <motion.div 
@@ -110,7 +157,10 @@ export function ProjectManagement() {
           <p className="text-gray-600">진행 중인 프로젝트와 투입 인력을 관리하세요 (총 {projects.length}개)</p>
         </div>
         <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-          <Button className="gap-2 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 shadow-lg shadow-blue-500/30">
+          <Button 
+            onClick={() => setIsModalOpen(true)}
+            className="gap-2 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 shadow-lg shadow-blue-500/30"
+          >
             <Plus className="w-4 h-4" />
             신규 프로젝트 등록
           </Button>
@@ -267,7 +317,12 @@ export function ProjectManagement() {
                     className="mt-4 pt-4 border-t border-gray-200"
                   >
                     <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
-                      <Button variant="outline" size="sm" className="w-full md:w-auto border-blue-200 text-blue-700 hover:bg-blue-50">
+                      <Button 
+                        variant="outline" 
+                        size="sm" 
+                        onClick={() => handleGetRecommendations(project.id)}
+                        className="w-full md:w-auto border-blue-200 text-blue-700 hover:bg-blue-50"
+                      >
                         AI 인력 추천 받기
                       </Button>
                     </motion.div>
@@ -280,6 +335,13 @@ export function ProjectManagement() {
           )}
         </div>
       )}
+
+      {/* 프로젝트 등록 모달 */}
+      <ProjectRegistrationModal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        onSubmit={handleCreateProject}
+      />
     </div>
   );
 }

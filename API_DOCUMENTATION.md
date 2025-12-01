@@ -374,6 +374,352 @@ AI를 활용하여 직원의 이력서와 프로젝트 경험을 정성적으로
 
 ---
 
+### 5. 직원 목록 조회
+
+등록된 모든 직원 목록을 조회합니다.
+
+**Endpoint**: `GET /employees`
+
+**요청 파라미터**: 없음
+
+**응답 (200 OK)**:
+
+```json
+{
+  "employees": [
+    {
+      "user_id": "U_001",
+      "name": "최정우",
+      "role": "Principal Software Engineer",
+      "years_of_experience": 13,
+      "skills": ["Java", "Spring Boot", "AWS"],
+      "current_project": null,
+      "availability": "available"
+    }
+  ],
+  "total_count": 150
+}
+```
+
+---
+
+### 6. 직원 등록
+
+새로운 직원을 시스템에 등록합니다.
+
+**Endpoint**: `POST /employees`
+
+**요청 본문**:
+
+```json
+{
+  "name": "홍길동",
+  "email": "hong@example.com",
+  "role": "Senior Developer",
+  "skills": ["Python", "Django", "PostgreSQL"],
+  "years_of_experience": 5,
+  "department": "Engineering",
+  "position": "Backend Developer"
+}
+```
+
+**응답 (201 Created)**:
+
+```json
+{
+  "user_id": "U_152",
+  "name": "홍길동",
+  "email": "hong@example.com",
+  "created_at": "2025-11-26T10:30:00Z",
+  "message": "직원이 성공적으로 등록되었습니다"
+}
+```
+
+---
+
+### 7. 프로젝트 목록 조회
+
+등록된 모든 프로젝트 목록을 조회합니다.
+
+**Endpoint**: `GET /projects`
+
+**요청 파라미터**: 없음
+
+**응답 (200 OK)**:
+
+```json
+{
+  "projects": [
+    {
+      "project_id": "P_001",
+      "project_name": "차세대 금융 코어 뱅킹 시스템",
+      "client_industry": "Finance / Banking",
+      "status": "active",
+      "team_size": 20,
+      "required_skills": ["Java", "Spring Boot", "Oracle"]
+    }
+  ],
+  "total_count": 45
+}
+```
+
+---
+
+### 8. 프로젝트 등록
+
+새로운 프로젝트를 시스템에 등록합니다.
+
+**Endpoint**: `POST /projects`
+
+**요청 본문**:
+
+```json
+{
+  "project_name": "모바일 뱅킹 앱 개발",
+  "client_industry": "Finance / Banking",
+  "required_skills": ["React Native", "Node.js", "MongoDB"],
+  "team_size": 8,
+  "duration_months": 12,
+  "start_date": "2025-12-01"
+}
+```
+
+**응답 (201 Created)**:
+
+```json
+{
+  "project_id": "P_046",
+  "project_name": "모바일 뱅킹 앱 개발",
+  "created_at": "2025-11-26T10:30:00Z",
+  "message": "프로젝트가 성공적으로 등록되었습니다"
+}
+```
+
+---
+
+### 9. 프로젝트 인력 배정
+
+프로젝트에 직원을 배정합니다.
+
+**Endpoint**: `POST /projects/{projectId}/assign`
+
+**경로 파라미터**:
+- `projectId`: 프로젝트 ID
+
+**요청 본문**:
+
+```json
+{
+  "user_id": "U_001",
+  "role": "Lead Developer",
+  "start_date": "2025-12-01",
+  "allocation_percentage": 100
+}
+```
+
+**응답 (200 OK)**:
+
+```json
+{
+  "project_id": "P_046",
+  "user_id": "U_001",
+  "assignment_id": "A_001",
+  "message": "직원이 프로젝트에 성공적으로 배정되었습니다",
+  "assigned_at": "2025-11-26T10:30:00Z"
+}
+```
+
+---
+
+### 10. 평가 목록 조회
+
+직원 평가 목록을 조회합니다.
+
+**Endpoint**: `GET /evaluations`
+
+**쿼리 파라미터**:
+- `status`: 평가 상태 필터 ("pending", "approved", "under_review", "rejected")
+
+**응답 (200 OK)**:
+
+```json
+{
+  "evaluations": [
+    {
+      "evaluation_id": "E_001",
+      "user_id": "U_001",
+      "name": "최정우",
+      "status": "pending",
+      "submitted_at": "2025-11-25T14:30:00Z",
+      "quantitative_score": 91.5,
+      "qualitative_summary": "우수한 기술 역량과 리더십"
+    }
+  ],
+  "total_count": 25
+}
+```
+
+---
+
+### 11. 평가 승인
+
+직원 평가를 승인합니다.
+
+**Endpoint**: `PUT /evaluations/{evaluationId}/approve`
+
+**경로 파라미터**:
+- `evaluationId`: 평가 ID
+
+**요청 본문**:
+
+```json
+{
+  "approved_by": "manager@example.com",
+  "comments": "평가 내용이 정확하며 승인합니다"
+}
+```
+
+**응답 (200 OK)**:
+
+```json
+{
+  "evaluation_id": "E_001",
+  "status": "approved",
+  "approved_at": "2025-11-26T10:30:00Z",
+  "message": "평가가 승인되었습니다"
+}
+```
+
+---
+
+### 12. 평가 검토 요청
+
+직원 평가에 대한 추가 검토를 요청합니다.
+
+**Endpoint**: `PUT /evaluations/{evaluationId}/review`
+
+**경로 파라미터**:
+- `evaluationId`: 평가 ID
+
+**요청 본문**:
+
+```json
+{
+  "reviewer": "senior-manager@example.com",
+  "review_comments": "추가 검증이 필요한 항목이 있습니다",
+  "review_points": ["프로젝트 성과 검증", "기술 스택 확인"]
+}
+```
+
+**응답 (200 OK)**:
+
+```json
+{
+  "evaluation_id": "E_001",
+  "status": "under_review",
+  "reviewed_at": "2025-11-26T10:30:00Z",
+  "message": "평가가 검토 상태로 변경되었습니다"
+}
+```
+
+---
+
+### 13. 평가 반려
+
+직원 평가를 반려합니다.
+
+**Endpoint**: `PUT /evaluations/{evaluationId}/reject`
+
+**경로 파라미터**:
+- `evaluationId`: 평가 ID
+
+**요청 본문**:
+
+```json
+{
+  "rejected_by": "manager@example.com",
+  "rejection_reason": "평가 기준이 명확하지 않음",
+  "required_actions": ["평가 기준 재정의", "추가 데이터 수집"]
+}
+```
+
+**응답 (200 OK)**:
+
+```json
+{
+  "evaluation_id": "E_001",
+  "status": "rejected",
+  "rejected_at": "2025-11-26T10:30:00Z",
+  "message": "평가가 반려되었습니다"
+}
+```
+
+---
+
+### 14. 대시보드 메트릭 조회
+
+시스템 전체의 주요 메트릭을 조회합니다.
+
+**Endpoint**: `GET /dashboard/metrics`
+
+**요청 파라미터**: 없음
+
+**응답 (200 OK)**:
+
+```json
+{
+  "metrics": {
+    "total_employees": 150,
+    "active_projects": 45,
+    "pending_evaluations": 12,
+    "available_employees": 35,
+    "skill_distribution": {
+      "Java": 45,
+      "Python": 38,
+      "JavaScript": 52,
+      "AWS": 28
+    },
+    "domain_coverage": {
+      "Finance": 15,
+      "E-commerce": 8,
+      "Healthcare": 3
+    }
+  },
+  "timestamp": "2025-11-26T10:30:00Z"
+}
+```
+
+---
+
+### 15. 이력서 업로드 URL 생성
+
+이력서 파일을 업로드하기 위한 사전 서명된 URL을 생성합니다.
+
+**Endpoint**: `POST /resume/upload-url`
+
+**요청 본문**:
+
+```json
+{
+  "user_id": "U_001",
+  "file_name": "resume.pdf",
+  "file_type": "application/pdf"
+}
+```
+
+**응답 (200 OK)**:
+
+```json
+{
+  "upload_url": "https://hr-resumes-bucket.s3.amazonaws.com/...",
+  "expires_in": 3600,
+  "file_key": "resumes/U_001/resume_20251126.pdf",
+  "message": "업로드 URL이 생성되었습니다"
+}
+```
+
+---
+
 ## 공통 에러 응답
 
 모든 API는 다음과 같은 형식의 에러 응답을 반환합니다:
@@ -586,8 +932,17 @@ with concurrent.futures.ThreadPoolExecutor(max_workers=10) as executor:
 
 ## 변경 이력
 
+### v1.1.0 (2025-11-30)
+- 직원 관리 엔드포인트 추가 (GET /employees, POST /employees)
+- 프로젝트 관리 엔드포인트 추가 (GET /projects, POST /projects)
+- 프로젝트 인력 배정 엔드포인트 추가 (POST /projects/{projectId}/assign)
+- 평가 관리 엔드포인트 추가 (GET /evaluations, PUT /evaluations/{id}/approve, PUT /evaluations/{id}/review, PUT /evaluations/{id}/reject)
+- 대시보드 메트릭 엔드포인트 추가 (GET /dashboard/metrics)
+- 이력서 업로드 URL 생성 엔드포인트 추가 (POST /resume/upload-url)
+- 모든 엔드포인트에 CORS 지원 추가
+
 ### v1.0.0 (2025-11-26)
 - 초기 API 릴리스
-- 4개 주요 엔드포인트 제공
+- 4개 주요 엔드포인트 제공 (recommendations, domain-analysis, quantitative-analysis, qualitative-analysis)
 - IAM 인증 지원
 - Rate Limiting 적용
