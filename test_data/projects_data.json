@@ -1,71 +1,16 @@
 [
   {
     "project_id": "PRJ001",
-    "project_name": "예지 보전 시스템",
-    "client_industry": "Manufacturing",
-    "period": {
-      "start": "2022-06-01",
-      "end": "2022-11-28",
-      "duration_months": 6
-    },
-    "budget_scale": "Large",
-    "description": "Manufacturing 분야 예지 보전 시스템",
-    "tech_stack": {
-      "backend": [
-        "Python",
-        "Django",
-        "FastAPI"
-      ],
-      "frontend": [
-        "React",
-        "Vue.js"
-      ],
-      "data": [
-        "PostgreSQL",
-        "MongoDB",
-        "Time Series DB"
-      ],
-      "infra": [
-        "AWS",
-        "Docker",
-        "Edge Computing"
-      ]
-    },
-    "requirements": [
-      "IoT 연동",
-      "실시간 모니터링",
-      "예지 보전",
-      "품질 관리"
-    ],
-    "team_composition": {
-      "AI/ML Engineer": [
-        "U_147"
-      ],
-      "Backend Developer": [
-        "U_087"
-      ],
-      "Data Engineer": [
-        "U_262"
-      ],
-      "IoT Engineer": [
-        "U_012",
-        "U_268",
-        "U_285",
-        "U_103"
-      ]
-    }
-  },
-  {
-    "project_id": "PRJ002",
-    "project_name": "AI 추천 시스템",
+    "project_name": "옴니채널 커머스",
     "client_industry": "E-commerce",
+    "status": "completed",
     "period": {
-      "start": "2022-11-01",
-      "end": "2023-07-29",
-      "duration_months": 9
+      "start": "2023-12-01",
+      "end": "2025-01-24",
+      "duration_months": 14
     },
-    "budget_scale": "Large",
-    "description": "E-commerce 분야 AI 추천 시스템",
+    "budget_scale": "Medium",
+    "description": "E-commerce 분야 옴니채널 커머스",
     "tech_stack": {
       "backend": [
         "Node.js",
@@ -106,78 +51,137 @@
         "U_045"
       ],
       "DevOps Engineer": [
-        "U_188",
-        "U_226",
-        "U_085",
-        "U_061"
+        "U_188"
+      ]
+    }
+  },
+  {
+    "project_id": "PRJ002",
+    "project_name": "차세대 코어뱅킹 시스템",
+    "client_industry": "Finance",
+    "status": "completed",
+    "period": {
+      "start": "2022-04-01",
+      "end": "2023-09-23",
+      "duration_months": 18
+    },
+    "budget_scale": "Small",
+    "description": "Finance 분야 차세대 코어뱅킹 시스템",
+    "tech_stack": {
+      "backend": [
+        "Java",
+        "Spring Boot",
+        "Oracle",
+        "MSA"
+      ],
+      "frontend": [
+        "React",
+        "TypeScript",
+        "Angular"
+      ],
+      "data": [
+        "Oracle",
+        "Redis",
+        "PostgreSQL"
+      ],
+      "infra": [
+        "AWS",
+        "Docker",
+        "Kubernetes",
+        "Terraform"
+      ]
+    },
+    "requirements": [
+      "보안",
+      "고가용성",
+      "확장성",
+      "컴플라이언스"
+    ],
+    "team_composition": {
+      "Backend Developer": [
+        "U_008"
+      ],
+      "System Architect": [
+        "U_009"
+      ],
+      "Security Engineer": [
+        "U_044"
+      ],
+      "DevOps Engineer": [
+        "U_003"
       ]
     }
   },
   {
     "project_id": "PRJ003",
-    "project_name": "품질 관리 시스템",
-    "client_industry": "Manufacturing",
+    "project_name": "금융 플랫폼 구축",
+    "client_industry": "Finance",
+    "status": "completed",
     "period": {
-      "start": "2023-07-01",
-      "end": "2023-12-28",
-      "duration_months": 6
+      "start": "2023-06-01",
+      "end": "2024-01-27",
+      "duration_months": 8
     },
-    "budget_scale": "Medium",
-    "description": "Manufacturing 분야 품질 관리 시스템",
+    "budget_scale": "Small",
+    "description": "Finance 분야 금융 플랫폼 구축",
     "tech_stack": {
       "backend": [
-        "Python",
-        "Django",
-        "FastAPI"
+        "Java",
+        "Spring Boot",
+        "Oracle",
+        "MSA"
       ],
       "frontend": [
         "React",
-        "Vue.js"
+        "TypeScript",
+        "Angular"
       ],
       "data": [
-        "PostgreSQL",
-        "MongoDB",
-        "Time Series DB"
+        "Oracle",
+        "Redis",
+        "PostgreSQL"
       ],
       "infra": [
         "AWS",
         "Docker",
-        "Edge Computing"
+        "Kubernetes",
+        "Terraform"
       ]
     },
     "requirements": [
-      "IoT 연동",
-      "실시간 모니터링",
-      "예지 보전",
-      "품질 관리"
+      "보안",
+      "고가용성",
+      "확장성",
+      "컴플라이언스"
     ],
     "team_composition": {
-      "AI/ML Engineer": [
-        "U_147"
-      ],
       "Backend Developer": [
-        "U_087"
+        "U_008"
       ],
-      "Data Engineer": [
-        "U_262"
+      "System Architect": [
+        "U_009"
       ],
-      "IoT Engineer": [
-        "U_012",
-        "U_268"
+      "Security Engineer": [
+        "U_044"
+      ],
+      "DevOps Engineer": [
+        "U_003",
+        "U_030"
       ]
     }
   },
   {
     "project_id": "PRJ004",
-    "project_name": "스마트 팩토리 MES",
+    "project_name": "품질 관리 시스템",
     "client_industry": "Manufacturing",
+    "status": "completed",
     "period": {
-      "start": "2023-01-01",
-      "end": "2024-05-25",
-      "duration_months": 17
+      "start": "2022-10-01",
+      "end": "2023-07-28",
+      "duration_months": 10
     },
-    "budget_scale": "Small",
-    "description": "Manufacturing 분야 스마트 팩토리 MES",
+    "budget_scale": "Large",
+    "description": "Manufacturing 분야 품질 관리 시스템",
     "tech_stack": {
       "backend": [
         "Python",
@@ -222,15 +226,16 @@
   },
   {
     "project_id": "PRJ005",
-    "project_name": "원격 진료 플랫폼",
+    "project_name": "EMR 시스템 구축",
     "client_industry": "Healthcare",
+    "status": "completed",
     "period": {
-      "start": "2022-11-01",
-      "end": "2023-10-27",
-      "duration_months": 12
+      "start": "2022-09-01",
+      "end": "2023-07-28",
+      "duration_months": 11
     },
     "budget_scale": "Medium",
-    "description": "Healthcare 분야 원격 진료 플랫폼",
+    "description": "Healthcare 분야 EMR 시스템 구축",
     "tech_stack": {
       "backend": [
         "Python",
@@ -273,128 +278,72 @@
   },
   {
     "project_id": "PRJ006",
-    "project_name": "증권 거래 시스템",
-    "client_industry": "Finance",
+    "project_name": "옴니채널 커머스",
+    "client_industry": "E-commerce",
+    "status": "completed",
     "period": {
       "start": "2023-09-01",
-      "end": "2024-12-24",
-      "duration_months": 16
+      "end": "2024-08-26",
+      "duration_months": 12
     },
-    "budget_scale": "Large",
-    "description": "Finance 분야 증권 거래 시스템",
+    "budget_scale": "Medium",
+    "description": "E-commerce 분야 옴니채널 커머스",
     "tech_stack": {
       "backend": [
+        "Node.js",
+        "Express",
         "Java",
-        "Spring Boot",
-        "Oracle",
-        "MSA"
+        "Spring Boot"
       ],
       "frontend": [
         "React",
-        "TypeScript",
-        "Angular"
+        "Vue.js",
+        "Next.js"
       ],
       "data": [
-        "Oracle",
+        "MongoDB",
         "Redis",
-        "PostgreSQL"
+        "Elasticsearch"
       ],
       "infra": [
         "AWS",
         "Docker",
-        "Kubernetes",
-        "Terraform"
+        "Kubernetes"
       ]
     },
     "requirements": [
-      "보안",
-      "고가용성",
-      "확장성",
-      "컴플라이언스"
+      "결제 시스템",
+      "재고 관리",
+      "추천 시스템",
+      "실시간 처리"
     ],
     "team_composition": {
+      "Full Stack Developer": [
+        "U_221"
+      ],
       "Backend Developer": [
-        "U_008"
+        "U_052"
       ],
-      "System Architect": [
-        "U_009"
-      ],
-      "Security Engineer": [
-        "U_044"
+      "Frontend Developer": [
+        "U_045"
       ],
       "DevOps Engineer": [
-        "U_003"
+        "U_188"
       ]
     }
   },
   {
     "project_id": "PRJ007",
-    "project_name": "스마트 팩토리 MES",
+    "project_name": "품질 관리 시스템",
     "client_industry": "Manufacturing",
+    "status": "completed",
     "period": {
-      "start": "2022-08-01",
-      "end": "2023-01-28",
-      "duration_months": 6
+      "start": "2023-01-01",
+      "end": "2023-09-28",
+      "duration_months": 9
     },
     "budget_scale": "Medium",
-    "description": "Manufacturing 분야 스마트 팩토리 MES",
-    "tech_stack": {
-      "backend": [
-        "Python",
-        "Django",
-        "FastAPI"
-      ],
-      "frontend": [
-        "React",
-        "Vue.js"
-      ],
-      "data": [
-        "PostgreSQL",
-        "MongoDB",
-        "Time Series DB"
-      ],
-      "infra": [
-        "AWS",
-        "Docker",
-        "Edge Computing"
-      ]
-    },
-    "requirements": [
-      "IoT 연동",
-      "실시간 모니터링",
-      "예지 보전",
-      "품질 관리"
-    ],
-    "team_composition": {
-      "AI/ML Engineer": [
-        "U_147"
-      ],
-      "Backend Developer": [
-        "U_087"
-      ],
-      "Data Engineer": [
-        "U_262"
-      ],
-      "IoT Engineer": [
-        "U_012",
-        "U_268",
-        "U_285",
-        "U_103",
-        "U_116"
-      ]
-    }
-  },
-  {
-    "project_id": "PRJ008",
-    "project_name": "예지 보전 시스템",
-    "client_industry": "Manufacturing",
-    "period": {
-      "start": "2022-09-01",
-      "end": "2023-12-25",
-      "duration_months": 16
-    },
-    "budget_scale": "Enterprise",
-    "description": "Manufacturing 분야 예지 보전 시스템",
+    "description": "Manufacturing 분야 품질 관리 시스템",
     "tech_stack": {
       "backend": [
         "Python",
@@ -438,16 +387,17 @@
     }
   },
   {
-    "project_id": "PRJ009",
-    "project_name": "EMR 시스템 구축",
+    "project_id": "PRJ008",
+    "project_name": "환자 관리 시스템",
     "client_industry": "Healthcare",
+    "status": "completed",
     "period": {
-      "start": "2022-02-01",
-      "end": "2022-10-29",
-      "duration_months": 9
+      "start": "2023-03-01",
+      "end": "2024-08-22",
+      "duration_months": 18
     },
     "budget_scale": "Small",
-    "description": "Healthcare 분야 EMR 시스템 구축",
+    "description": "Healthcare 분야 환자 관리 시스템",
     "tech_stack": {
       "backend": [
         "Python",
@@ -490,631 +440,16 @@
     }
   },
   {
-    "project_id": "PRJ010",
-    "project_name": "품질 관리 시스템",
-    "client_industry": "Manufacturing",
-    "period": {
-      "start": "2022-08-01",
-      "end": "2024-01-23",
-      "duration_months": 18
-    },
-    "budget_scale": "Small",
-    "description": "Manufacturing 분야 품질 관리 시스템",
-    "tech_stack": {
-      "backend": [
-        "Python",
-        "Django",
-        "FastAPI"
-      ],
-      "frontend": [
-        "React",
-        "Vue.js"
-      ],
-      "data": [
-        "PostgreSQL",
-        "MongoDB",
-        "Time Series DB"
-      ],
-      "infra": [
-        "AWS",
-        "Docker",
-        "Edge Computing"
-      ]
-    },
-    "requirements": [
-      "IoT 연동",
-      "실시간 모니터링",
-      "예지 보전",
-      "품질 관리"
-    ],
-    "team_composition": {
-      "AI/ML Engineer": [
-        "U_147",
-        "U_087"
-      ],
-      "Backend Developer": [
-        "U_262"
-      ],
-      "Data Engineer": [
-        "U_012"
-      ],
-      "IoT Engineer": [
-        "U_268",
-        "U_285",
-        "U_103",
-        "U_116"
-      ]
-    }
-  },
-  {
-    "project_id": "PRJ011",
-    "project_name": "E-commerce 플랫폼",
-    "client_industry": "E-commerce",
-    "period": {
-      "start": "2023-05-01",
-      "end": "2024-07-24",
-      "duration_months": 15
-    },
-    "budget_scale": "Enterprise",
-    "description": "E-commerce 분야 E-commerce 플랫폼",
-    "tech_stack": {
-      "backend": [
-        "Node.js",
-        "Express",
-        "Java",
-        "Spring Boot"
-      ],
-      "frontend": [
-        "React",
-        "Vue.js",
-        "Next.js"
-      ],
-      "data": [
-        "MongoDB",
-        "Redis",
-        "Elasticsearch"
-      ],
-      "infra": [
-        "AWS",
-        "Docker",
-        "Kubernetes"
-      ]
-    },
-    "requirements": [
-      "결제 시스템",
-      "재고 관리",
-      "추천 시스템",
-      "실시간 처리"
-    ],
-    "team_composition": {
-      "Full Stack Developer": [
-        "U_221"
-      ],
-      "Backend Developer": [
-        "U_052"
-      ],
-      "Frontend Developer": [
-        "U_045"
-      ],
-      "DevOps Engineer": [
-        "U_188",
-        "U_226",
-        "U_085",
-        "U_061"
-      ]
-    }
-  },
-  {
-    "project_id": "PRJ012",
-    "project_name": "원격 진료 플랫폼",
-    "client_industry": "Healthcare",
-    "period": {
-      "start": "2023-10-01",
-      "end": "2024-12-24",
-      "duration_months": 15
-    },
-    "budget_scale": "Medium",
-    "description": "Healthcare 분야 원격 진료 플랫폼",
-    "tech_stack": {
-      "backend": [
-        "Python",
-        "Java",
-        "Spring Boot"
-      ],
-      "frontend": [
-        "React",
-        "Angular"
-      ],
-      "data": [
-        "PostgreSQL",
-        "MongoDB"
-      ],
-      "infra": [
-        "AWS",
-        "Docker"
-      ]
-    },
-    "requirements": [
-      "HIPAA 준수",
-      "데이터 보안",
-      "실시간 분석",
-      "EMR 연동"
-    ],
-    "team_composition": {
-      "Backend Developer": [
-        "U_147"
-      ],
-      "Security Engineer": [
-        "U_168"
-      ],
-      "Data Scientist": [
-        "U_249"
-      ],
-      "Full Stack Developer": [
-        "U_047",
-        "U_285",
-        "U_044",
-        "U_108"
-      ]
-    }
-  },
-  {
-    "project_id": "PRJ013",
-    "project_name": "환자 관리 시스템",
-    "client_industry": "Healthcare",
-    "period": {
-      "start": "2022-06-01",
-      "end": "2023-10-24",
-      "duration_months": 17
-    },
-    "budget_scale": "Enterprise",
-    "description": "Healthcare 분야 환자 관리 시스템",
-    "tech_stack": {
-      "backend": [
-        "Python",
-        "Java",
-        "Spring Boot"
-      ],
-      "frontend": [
-        "React",
-        "Angular"
-      ],
-      "data": [
-        "PostgreSQL",
-        "MongoDB"
-      ],
-      "infra": [
-        "AWS",
-        "Docker"
-      ]
-    },
-    "requirements": [
-      "HIPAA 준수",
-      "데이터 보안",
-      "실시간 분석",
-      "EMR 연동"
-    ],
-    "team_composition": {
-      "Backend Developer": [
-        "U_147"
-      ],
-      "Security Engineer": [
-        "U_168"
-      ],
-      "Data Scientist": [
-        "U_249"
-      ],
-      "Full Stack Developer": [
-        "U_047",
-        "U_285",
-        "U_044"
-      ]
-    }
-  },
-  {
-    "project_id": "PRJ014",
-    "project_name": "예지 보전 시스템",
-    "client_industry": "Manufacturing",
-    "period": {
-      "start": "2022-10-01",
-      "end": "2024-01-24",
-      "duration_months": 16
-    },
-    "budget_scale": "Large",
-    "description": "Manufacturing 분야 예지 보전 시스템",
-    "tech_stack": {
-      "backend": [
-        "Python",
-        "Django",
-        "FastAPI"
-      ],
-      "frontend": [
-        "React",
-        "Vue.js"
-      ],
-      "data": [
-        "PostgreSQL",
-        "MongoDB",
-        "Time Series DB"
-      ],
-      "infra": [
-        "AWS",
-        "Docker",
-        "Edge Computing"
-      ]
-    },
-    "requirements": [
-      "IoT 연동",
-      "실시간 모니터링",
-      "예지 보전",
-      "품질 관리"
-    ],
-    "team_composition": {
-      "AI/ML Engineer": [
-        "U_147"
-      ],
-      "Backend Developer": [
-        "U_087"
-      ],
-      "Data Engineer": [
-        "U_262"
-      ],
-      "IoT Engineer": [
-        "U_012"
-      ]
-    }
-  },
-  {
-    "project_id": "PRJ015",
-    "project_name": "IoT 플랫폼 구축",
-    "client_industry": "Manufacturing",
-    "period": {
-      "start": "2022-02-01",
-      "end": "2022-08-30",
-      "duration_months": 7
-    },
-    "budget_scale": "Small",
-    "description": "Manufacturing 분야 IoT 플랫폼 구축",
-    "tech_stack": {
-      "backend": [
-        "Python",
-        "Django",
-        "FastAPI"
-      ],
-      "frontend": [
-        "React",
-        "Vue.js"
-      ],
-      "data": [
-        "PostgreSQL",
-        "MongoDB",
-        "Time Series DB"
-      ],
-      "infra": [
-        "AWS",
-        "Docker",
-        "Edge Computing"
-      ]
-    },
-    "requirements": [
-      "IoT 연동",
-      "실시간 모니터링",
-      "예지 보전",
-      "품질 관리"
-    ],
-    "team_composition": {
-      "AI/ML Engineer": [
-        "U_147",
-        "U_087"
-      ],
-      "Backend Developer": [
-        "U_262"
-      ],
-      "Data Engineer": [
-        "U_012"
-      ],
-      "IoT Engineer": [
-        "U_268",
-        "U_285",
-        "U_103",
-        "U_116"
-      ]
-    }
-  },
-  {
-    "project_id": "PRJ016",
-    "project_name": "품질 관리 시스템",
-    "client_industry": "Manufacturing",
-    "period": {
-      "start": "2023-08-01",
-      "end": "2024-04-27",
-      "duration_months": 9
-    },
-    "budget_scale": "Small",
-    "description": "Manufacturing 분야 품질 관리 시스템",
-    "tech_stack": {
-      "backend": [
-        "Python",
-        "Django",
-        "FastAPI"
-      ],
-      "frontend": [
-        "React",
-        "Vue.js"
-      ],
-      "data": [
-        "PostgreSQL",
-        "MongoDB",
-        "Time Series DB"
-      ],
-      "infra": [
-        "AWS",
-        "Docker",
-        "Edge Computing"
-      ]
-    },
-    "requirements": [
-      "IoT 연동",
-      "실시간 모니터링",
-      "예지 보전",
-      "품질 관리"
-    ],
-    "team_composition": {
-      "AI/ML Engineer": [
-        "U_147",
-        "U_087"
-      ],
-      "Backend Developer": [
-        "U_262"
-      ],
-      "Data Engineer": [
-        "U_012"
-      ],
-      "IoT Engineer": [
-        "U_268",
-        "U_285",
-        "U_103",
-        "U_116"
-      ]
-    }
-  },
-  {
-    "project_id": "PRJ017",
-    "project_name": "증권 거래 시스템",
-    "client_industry": "Finance",
-    "period": {
-      "start": "2022-12-01",
-      "end": "2023-07-29",
-      "duration_months": 8
-    },
-    "budget_scale": "Enterprise",
-    "description": "Finance 분야 증권 거래 시스템",
-    "tech_stack": {
-      "backend": [
-        "Java",
-        "Spring Boot",
-        "Oracle",
-        "MSA"
-      ],
-      "frontend": [
-        "React",
-        "TypeScript",
-        "Angular"
-      ],
-      "data": [
-        "Oracle",
-        "Redis",
-        "PostgreSQL"
-      ],
-      "infra": [
-        "AWS",
-        "Docker",
-        "Kubernetes",
-        "Terraform"
-      ]
-    },
-    "requirements": [
-      "보안",
-      "고가용성",
-      "확장성",
-      "컴플라이언스"
-    ],
-    "team_composition": {
-      "Backend Developer": [
-        "U_008"
-      ],
-      "System Architect": [
-        "U_009"
-      ],
-      "Security Engineer": [
-        "U_044"
-      ],
-      "DevOps Engineer": [
-        "U_003"
-      ]
-    }
-  },
-  {
-    "project_id": "PRJ018",
-    "project_name": "증권 거래 시스템",
-    "client_industry": "Finance",
-    "period": {
-      "start": "2022-05-01",
-      "end": "2022-11-27",
-      "duration_months": 7
-    },
-    "budget_scale": "Enterprise",
-    "description": "Finance 분야 증권 거래 시스템",
-    "tech_stack": {
-      "backend": [
-        "Java",
-        "Spring Boot",
-        "Oracle",
-        "MSA"
-      ],
-      "frontend": [
-        "React",
-        "TypeScript",
-        "Angular"
-      ],
-      "data": [
-        "Oracle",
-        "Redis",
-        "PostgreSQL"
-      ],
-      "infra": [
-        "AWS",
-        "Docker",
-        "Kubernetes",
-        "Terraform"
-      ]
-    },
-    "requirements": [
-      "보안",
-      "고가용성",
-      "확장성",
-      "컴플라이언스"
-    ],
-    "team_composition": {
-      "Backend Developer": [
-        "U_008"
-      ],
-      "System Architect": [
-        "U_009"
-      ],
-      "Security Engineer": [
-        "U_044"
-      ],
-      "DevOps Engineer": [
-        "U_003",
-        "U_030",
-        "U_103",
-        "U_235"
-      ]
-    }
-  },
-  {
-    "project_id": "PRJ019",
-    "project_name": "예지 보전 시스템",
-    "client_industry": "Manufacturing",
-    "period": {
-      "start": "2022-04-01",
-      "end": "2022-10-28",
-      "duration_months": 7
-    },
-    "budget_scale": "Medium",
-    "description": "Manufacturing 분야 예지 보전 시스템",
-    "tech_stack": {
-      "backend": [
-        "Python",
-        "Django",
-        "FastAPI"
-      ],
-      "frontend": [
-        "React",
-        "Vue.js"
-      ],
-      "data": [
-        "PostgreSQL",
-        "MongoDB",
-        "Time Series DB"
-      ],
-      "infra": [
-        "AWS",
-        "Docker",
-        "Edge Computing"
-      ]
-    },
-    "requirements": [
-      "IoT 연동",
-      "실시간 모니터링",
-      "예지 보전",
-      "품질 관리"
-    ],
-    "team_composition": {
-      "AI/ML Engineer": [
-        "U_147"
-      ],
-      "Backend Developer": [
-        "U_087"
-      ],
-      "Data Engineer": [
-        "U_262"
-      ],
-      "IoT Engineer": [
-        "U_012",
-        "U_268",
-        "U_285",
-        "U_103"
-      ]
-    }
-  },
-  {
-    "project_id": "PRJ020",
-    "project_name": "차세대 코어뱅킹 시스템",
-    "client_industry": "Finance",
-    "period": {
-      "start": "2023-04-01",
-      "end": "2024-02-25",
-      "duration_months": 11
-    },
-    "budget_scale": "Enterprise",
-    "description": "Finance 분야 차세대 코어뱅킹 시스템",
-    "tech_stack": {
-      "backend": [
-        "Java",
-        "Spring Boot",
-        "Oracle",
-        "MSA"
-      ],
-      "frontend": [
-        "React",
-        "TypeScript",
-        "Angular"
-      ],
-      "data": [
-        "Oracle",
-        "Redis",
-        "PostgreSQL"
-      ],
-      "infra": [
-        "AWS",
-        "Docker",
-        "Kubernetes",
-        "Terraform"
-      ]
-    },
-    "requirements": [
-      "보안",
-      "고가용성",
-      "확장성",
-      "컴플라이언스"
-    ],
-    "team_composition": {
-      "Backend Developer": [
-        "U_008"
-      ],
-      "System Architect": [
-        "U_009"
-      ],
-      "Security Engineer": [
-        "U_044"
-      ],
-      "DevOps Engineer": [
-        "U_003"
-      ]
-    }
-  },
-  {
-    "project_id": "PRJ021",
+    "project_id": "PRJ009",
     "project_name": "AI 추천 시스템",
     "client_industry": "E-commerce",
+    "status": "completed",
     "period": {
-      "start": "2023-07-01",
-      "end": "2024-10-23",
-      "duration_months": 16
+      "start": "2023-01-01",
+      "end": "2024-03-26",
+      "duration_months": 15
     },
-    "budget_scale": "Large",
+    "budget_scale": "Medium",
     "description": "E-commerce 분야 AI 추천 시스템",
     "tech_stack": {
       "backend": [
@@ -1164,15 +499,74 @@
     }
   },
   {
-    "project_id": "PRJ022",
+    "project_id": "PRJ010",
+    "project_name": "옴니채널 커머스",
+    "client_industry": "E-commerce",
+    "status": "completed",
+    "period": {
+      "start": "2023-09-01",
+      "end": "2024-02-28",
+      "duration_months": 6
+    },
+    "budget_scale": "Enterprise",
+    "description": "E-commerce 분야 옴니채널 커머스",
+    "tech_stack": {
+      "backend": [
+        "Node.js",
+        "Express",
+        "Java",
+        "Spring Boot"
+      ],
+      "frontend": [
+        "React",
+        "Vue.js",
+        "Next.js"
+      ],
+      "data": [
+        "MongoDB",
+        "Redis",
+        "Elasticsearch"
+      ],
+      "infra": [
+        "AWS",
+        "Docker",
+        "Kubernetes"
+      ]
+    },
+    "requirements": [
+      "결제 시스템",
+      "재고 관리",
+      "추천 시스템",
+      "실시간 처리"
+    ],
+    "team_composition": {
+      "Full Stack Developer": [
+        "U_221"
+      ],
+      "Backend Developer": [
+        "U_052"
+      ],
+      "Frontend Developer": [
+        "U_045"
+      ],
+      "DevOps Engineer": [
+        "U_188",
+        "U_226",
+        "U_085"
+      ]
+    }
+  },
+  {
+    "project_id": "PRJ011",
     "project_name": "IoT 플랫폼 구축",
     "client_industry": "Manufacturing",
+    "status": "completed",
     "period": {
-      "start": "2022-08-01",
-      "end": "2023-05-28",
-      "duration_months": 10
+      "start": "2022-05-01",
+      "end": "2023-03-27",
+      "duration_months": 11
     },
-    "budget_scale": "Medium",
+    "budget_scale": "Small",
     "description": "Manufacturing 분야 IoT 플랫폼 구축",
     "tech_stack": {
       "backend": [
@@ -1203,141 +597,87 @@
     ],
     "team_composition": {
       "AI/ML Engineer": [
-        "U_147",
-        "U_087"
+        "U_147"
       ],
       "Backend Developer": [
-        "U_262"
+        "U_087"
       ],
       "Data Engineer": [
-        "U_012"
+        "U_262"
       ],
       "IoT Engineer": [
-        "U_268",
-        "U_285",
-        "U_103",
-        "U_116"
+        "U_012"
       ]
     }
   },
   {
-    "project_id": "PRJ023",
-    "project_name": "환자 관리 시스템",
-    "client_industry": "Healthcare",
+    "project_id": "PRJ012",
+    "project_name": "증권 거래 시스템",
+    "client_industry": "Finance",
+    "status": "completed",
     "period": {
-      "start": "2023-09-01",
-      "end": "2024-09-25",
-      "duration_months": 13
+      "start": "2022-02-01",
+      "end": "2022-10-29",
+      "duration_months": 9
     },
-    "budget_scale": "Enterprise",
-    "description": "Healthcare 분야 환자 관리 시스템",
+    "budget_scale": "Large",
+    "description": "Finance 분야 증권 거래 시스템",
     "tech_stack": {
       "backend": [
-        "Python",
         "Java",
-        "Spring Boot"
+        "Spring Boot",
+        "Oracle",
+        "MSA"
       ],
       "frontend": [
         "React",
+        "TypeScript",
         "Angular"
       ],
       "data": [
-        "PostgreSQL",
-        "MongoDB"
-      ],
-      "infra": [
-        "AWS",
-        "Docker"
-      ]
-    },
-    "requirements": [
-      "HIPAA 준수",
-      "데이터 보안",
-      "실시간 분석",
-      "EMR 연동"
-    ],
-    "team_composition": {
-      "Backend Developer": [
-        "U_147"
-      ],
-      "Security Engineer": [
-        "U_168"
-      ],
-      "Data Scientist": [
-        "U_249"
-      ],
-      "Full Stack Developer": [
-        "U_047"
-      ]
-    }
-  },
-  {
-    "project_id": "PRJ024",
-    "project_name": "예지 보전 시스템",
-    "client_industry": "Manufacturing",
-    "period": {
-      "start": "2023-02-01",
-      "end": "2023-12-28",
-      "duration_months": 11
-    },
-    "budget_scale": "Enterprise",
-    "description": "Manufacturing 분야 예지 보전 시스템",
-    "tech_stack": {
-      "backend": [
-        "Python",
-        "Django",
-        "FastAPI"
-      ],
-      "frontend": [
-        "React",
-        "Vue.js"
-      ],
-      "data": [
-        "PostgreSQL",
-        "MongoDB",
-        "Time Series DB"
+        "Oracle",
+        "Redis",
+        "PostgreSQL"
       ],
       "infra": [
         "AWS",
         "Docker",
-        "Edge Computing"
+        "Kubernetes",
+        "Terraform"
       ]
     },
     "requirements": [
-      "IoT 연동",
-      "실시간 모니터링",
-      "예지 보전",
-      "품질 관리"
+      "보안",
+      "고가용성",
+      "확장성",
+      "컴플라이언스"
     ],
     "team_composition": {
-      "AI/ML Engineer": [
-        "U_147",
-        "U_087"
-      ],
       "Backend Developer": [
-        "U_262"
+        "U_008"
       ],
-      "Data Engineer": [
-        "U_012"
+      "System Architect": [
+        "U_009"
       ],
-      "IoT Engineer": [
-        "U_268",
-        "U_285",
-        "U_103",
-        "U_116"
+      "Security Engineer": [
+        "U_044"
+      ],
+      "DevOps Engineer": [
+        "U_003"
       ]
     }
   },
   {
-    "project_id": "PRJ025",
+    "project_id": "PRJ013",
     "project_name": "EMR 시스템 구축",
     "client_industry": "Healthcare",
+    "status": "completed",
     "period": {
-      "start": "2022-05-01",
-      "end": "2023-10-23",
-      "duration_months": 18
+      "start": "2023-04-01",
+      "end": "2024-03-26",
+      "duration_months": 12
     },
-    "budget_scale": "Large",
+    "budget_scale": "Small",
     "description": "Healthcare 분야 EMR 시스템 구축",
     "tech_stack": {
       "backend": [
@@ -1366,29 +706,34 @@
     ],
     "team_composition": {
       "Backend Developer": [
-        "U_147"
-      ],
-      "Security Engineer": [
+        "U_147",
         "U_168"
       ],
-      "Data Scientist": [
+      "Security Engineer": [
         "U_249"
       ],
-      "Full Stack Developer": [
+      "Data Scientist": [
         "U_047"
+      ],
+      "Full Stack Developer": [
+        "U_285",
+        "U_044",
+        "U_108",
+        "U_185"
       ]
     }
   },
   {
-    "project_id": "PRJ026",
+    "project_id": "PRJ014",
     "project_name": "E-commerce 플랫폼",
     "client_industry": "E-commerce",
+    "status": "completed",
     "period": {
-      "start": "2022-04-01",
-      "end": "2023-05-26",
-      "duration_months": 14
+      "start": "2022-11-01",
+      "end": "2024-01-25",
+      "duration_months": 15
     },
-    "budget_scale": "Medium",
+    "budget_scale": "Enterprise",
     "description": "E-commerce 분야 E-commerce 플랫폼",
     "tech_stack": {
       "backend": [
@@ -1430,807 +775,22 @@
         "U_045"
       ],
       "DevOps Engineer": [
-        "U_188",
-        "U_226",
-        "U_085",
-        "U_061",
-        "U_044"
-      ]
-    }
-  },
-  {
-    "project_id": "PRJ027",
-    "project_name": "금융 플랫폼 구축",
-    "client_industry": "Finance",
-    "period": {
-      "start": "2022-11-01",
-      "end": "2023-09-27",
-      "duration_months": 11
-    },
-    "budget_scale": "Enterprise",
-    "description": "Finance 분야 금융 플랫폼 구축",
-    "tech_stack": {
-      "backend": [
-        "Java",
-        "Spring Boot",
-        "Oracle",
-        "MSA"
-      ],
-      "frontend": [
-        "React",
-        "TypeScript",
-        "Angular"
-      ],
-      "data": [
-        "Oracle",
-        "Redis",
-        "PostgreSQL"
-      ],
-      "infra": [
-        "AWS",
-        "Docker",
-        "Kubernetes",
-        "Terraform"
-      ]
-    },
-    "requirements": [
-      "보안",
-      "고가용성",
-      "확장성",
-      "컴플라이언스"
-    ],
-    "team_composition": {
-      "Backend Developer": [
-        "U_008"
-      ],
-      "System Architect": [
-        "U_009"
-      ],
-      "Security Engineer": [
-        "U_044"
-      ],
-      "DevOps Engineer": [
-        "U_003"
-      ]
-    }
-  },
-  {
-    "project_id": "PRJ028",
-    "project_name": "옴니채널 커머스",
-    "client_industry": "E-commerce",
-    "period": {
-      "start": "2023-03-01",
-      "end": "2023-08-28",
-      "duration_months": 6
-    },
-    "budget_scale": "Small",
-    "description": "E-commerce 분야 옴니채널 커머스",
-    "tech_stack": {
-      "backend": [
-        "Node.js",
-        "Express",
-        "Java",
-        "Spring Boot"
-      ],
-      "frontend": [
-        "React",
-        "Vue.js",
-        "Next.js"
-      ],
-      "data": [
-        "MongoDB",
-        "Redis",
-        "Elasticsearch"
-      ],
-      "infra": [
-        "AWS",
-        "Docker",
-        "Kubernetes"
-      ]
-    },
-    "requirements": [
-      "결제 시스템",
-      "재고 관리",
-      "추천 시스템",
-      "실시간 처리"
-    ],
-    "team_composition": {
-      "Full Stack Developer": [
-        "U_221"
-      ],
-      "Backend Developer": [
-        "U_052"
-      ],
-      "Frontend Developer": [
-        "U_045"
-      ],
-      "DevOps Engineer": [
-        "U_188",
-        "U_226",
-        "U_085",
-        "U_061"
-      ]
-    }
-  },
-  {
-    "project_id": "PRJ029",
-    "project_name": "예지 보전 시스템",
-    "client_industry": "Manufacturing",
-    "period": {
-      "start": "2023-09-01",
-      "end": "2024-05-28",
-      "duration_months": 9
-    },
-    "budget_scale": "Enterprise",
-    "description": "Manufacturing 분야 예지 보전 시스템",
-    "tech_stack": {
-      "backend": [
-        "Python",
-        "Django",
-        "FastAPI"
-      ],
-      "frontend": [
-        "React",
-        "Vue.js"
-      ],
-      "data": [
-        "PostgreSQL",
-        "MongoDB",
-        "Time Series DB"
-      ],
-      "infra": [
-        "AWS",
-        "Docker",
-        "Edge Computing"
-      ]
-    },
-    "requirements": [
-      "IoT 연동",
-      "실시간 모니터링",
-      "예지 보전",
-      "품질 관리"
-    ],
-    "team_composition": {
-      "AI/ML Engineer": [
-        "U_147",
-        "U_087"
-      ],
-      "Backend Developer": [
-        "U_262"
-      ],
-      "Data Engineer": [
-        "U_012"
-      ],
-      "IoT Engineer": [
-        "U_268",
-        "U_285",
-        "U_103",
-        "U_116"
-      ]
-    }
-  },
-  {
-    "project_id": "PRJ030",
-    "project_name": "예지 보전 시스템",
-    "client_industry": "Manufacturing",
-    "period": {
-      "start": "2023-08-01",
-      "end": "2024-10-24",
-      "duration_months": 15
-    },
-    "budget_scale": "Small",
-    "description": "Manufacturing 분야 예지 보전 시스템",
-    "tech_stack": {
-      "backend": [
-        "Python",
-        "Django",
-        "FastAPI"
-      ],
-      "frontend": [
-        "React",
-        "Vue.js"
-      ],
-      "data": [
-        "PostgreSQL",
-        "MongoDB",
-        "Time Series DB"
-      ],
-      "infra": [
-        "AWS",
-        "Docker",
-        "Edge Computing"
-      ]
-    },
-    "requirements": [
-      "IoT 연동",
-      "실시간 모니터링",
-      "예지 보전",
-      "품질 관리"
-    ],
-    "team_composition": {
-      "AI/ML Engineer": [
-        "U_147"
-      ],
-      "Backend Developer": [
-        "U_087"
-      ],
-      "Data Engineer": [
-        "U_262"
-      ],
-      "IoT Engineer": [
-        "U_012"
-      ]
-    }
-  },
-  {
-    "project_id": "PRJ031",
-    "project_name": "옴니채널 커머스",
-    "client_industry": "E-commerce",
-    "period": {
-      "start": "2022-02-01",
-      "end": "2023-07-26",
-      "duration_months": 18
-    },
-    "budget_scale": "Enterprise",
-    "description": "E-commerce 분야 옴니채널 커머스",
-    "tech_stack": {
-      "backend": [
-        "Node.js",
-        "Express",
-        "Java",
-        "Spring Boot"
-      ],
-      "frontend": [
-        "React",
-        "Vue.js",
-        "Next.js"
-      ],
-      "data": [
-        "MongoDB",
-        "Redis",
-        "Elasticsearch"
-      ],
-      "infra": [
-        "AWS",
-        "Docker",
-        "Kubernetes"
-      ]
-    },
-    "requirements": [
-      "결제 시스템",
-      "재고 관리",
-      "추천 시스템",
-      "실시간 처리"
-    ],
-    "team_composition": {
-      "Full Stack Developer": [
-        "U_221",
-        "U_052"
-      ],
-      "Backend Developer": [
-        "U_045"
-      ],
-      "Frontend Developer": [
         "U_188"
-      ],
-      "DevOps Engineer": [
-        "U_226",
-        "U_085",
-        "U_061",
-        "U_044"
       ]
     }
   },
   {
-    "project_id": "PRJ032",
-    "project_name": "금융 플랫폼 구축",
-    "client_industry": "Finance",
-    "period": {
-      "start": "2023-05-01",
-      "end": "2023-11-27",
-      "duration_months": 7
-    },
-    "budget_scale": "Medium",
-    "description": "Finance 분야 금융 플랫폼 구축",
-    "tech_stack": {
-      "backend": [
-        "Java",
-        "Spring Boot",
-        "Oracle",
-        "MSA"
-      ],
-      "frontend": [
-        "React",
-        "TypeScript",
-        "Angular"
-      ],
-      "data": [
-        "Oracle",
-        "Redis",
-        "PostgreSQL"
-      ],
-      "infra": [
-        "AWS",
-        "Docker",
-        "Kubernetes",
-        "Terraform"
-      ]
-    },
-    "requirements": [
-      "보안",
-      "고가용성",
-      "확장성",
-      "컴플라이언스"
-    ],
-    "team_composition": {
-      "Backend Developer": [
-        "U_008"
-      ],
-      "System Architect": [
-        "U_009"
-      ],
-      "Security Engineer": [
-        "U_044"
-      ],
-      "DevOps Engineer": [
-        "U_003"
-      ]
-    }
-  },
-  {
-    "project_id": "PRJ033",
-    "project_name": "환자 관리 시스템",
-    "client_industry": "Healthcare",
-    "period": {
-      "start": "2023-09-01",
-      "end": "2024-11-24",
-      "duration_months": 15
-    },
-    "budget_scale": "Small",
-    "description": "Healthcare 분야 환자 관리 시스템",
-    "tech_stack": {
-      "backend": [
-        "Python",
-        "Java",
-        "Spring Boot"
-      ],
-      "frontend": [
-        "React",
-        "Angular"
-      ],
-      "data": [
-        "PostgreSQL",
-        "MongoDB"
-      ],
-      "infra": [
-        "AWS",
-        "Docker"
-      ]
-    },
-    "requirements": [
-      "HIPAA 준수",
-      "데이터 보안",
-      "실시간 분석",
-      "EMR 연동"
-    ],
-    "team_composition": {
-      "Backend Developer": [
-        "U_147"
-      ],
-      "Security Engineer": [
-        "U_168"
-      ],
-      "Data Scientist": [
-        "U_249"
-      ],
-      "Full Stack Developer": [
-        "U_047",
-        "U_285",
-        "U_044",
-        "U_108"
-      ]
-    }
-  },
-  {
-    "project_id": "PRJ034",
+    "project_id": "PRJ015",
     "project_name": "차세대 코어뱅킹 시스템",
     "client_industry": "Finance",
+    "status": "completed",
     "period": {
-      "start": "2023-11-01",
-      "end": "2024-10-26",
-      "duration_months": 12
-    },
-    "budget_scale": "Small",
-    "description": "Finance 분야 차세대 코어뱅킹 시스템",
-    "tech_stack": {
-      "backend": [
-        "Java",
-        "Spring Boot",
-        "Oracle",
-        "MSA"
-      ],
-      "frontend": [
-        "React",
-        "TypeScript",
-        "Angular"
-      ],
-      "data": [
-        "Oracle",
-        "Redis",
-        "PostgreSQL"
-      ],
-      "infra": [
-        "AWS",
-        "Docker",
-        "Kubernetes",
-        "Terraform"
-      ]
-    },
-    "requirements": [
-      "보안",
-      "고가용성",
-      "확장성",
-      "컴플라이언스"
-    ],
-    "team_composition": {
-      "Backend Developer": [
-        "U_008"
-      ],
-      "System Architect": [
-        "U_009"
-      ],
-      "Security Engineer": [
-        "U_044"
-      ],
-      "DevOps Engineer": [
-        "U_003",
-        "U_030",
-        "U_103",
-        "U_235"
-      ]
-    }
-  },
-  {
-    "project_id": "PRJ035",
-    "project_name": "옴니채널 커머스",
-    "client_industry": "E-commerce",
-    "period": {
-      "start": "2023-03-01",
-      "end": "2024-08-22",
-      "duration_months": 18
-    },
-    "budget_scale": "Large",
-    "description": "E-commerce 분야 옴니채널 커머스",
-    "tech_stack": {
-      "backend": [
-        "Node.js",
-        "Express",
-        "Java",
-        "Spring Boot"
-      ],
-      "frontend": [
-        "React",
-        "Vue.js",
-        "Next.js"
-      ],
-      "data": [
-        "MongoDB",
-        "Redis",
-        "Elasticsearch"
-      ],
-      "infra": [
-        "AWS",
-        "Docker",
-        "Kubernetes"
-      ]
-    },
-    "requirements": [
-      "결제 시스템",
-      "재고 관리",
-      "추천 시스템",
-      "실시간 처리"
-    ],
-    "team_composition": {
-      "Full Stack Developer": [
-        "U_221"
-      ],
-      "Backend Developer": [
-        "U_052"
-      ],
-      "Frontend Developer": [
-        "U_045"
-      ],
-      "DevOps Engineer": [
-        "U_188",
-        "U_226",
-        "U_085",
-        "U_061",
-        "U_044"
-      ]
-    }
-  },
-  {
-    "project_id": "PRJ036",
-    "project_name": "환자 관리 시스템",
-    "client_industry": "Healthcare",
-    "period": {
-      "start": "2022-09-01",
-      "end": "2023-10-26",
-      "duration_months": 14
-    },
-    "budget_scale": "Small",
-    "description": "Healthcare 분야 환자 관리 시스템",
-    "tech_stack": {
-      "backend": [
-        "Python",
-        "Java",
-        "Spring Boot"
-      ],
-      "frontend": [
-        "React",
-        "Angular"
-      ],
-      "data": [
-        "PostgreSQL",
-        "MongoDB"
-      ],
-      "infra": [
-        "AWS",
-        "Docker"
-      ]
-    },
-    "requirements": [
-      "HIPAA 준수",
-      "데이터 보안",
-      "실시간 분석",
-      "EMR 연동"
-    ],
-    "team_composition": {
-      "Backend Developer": [
-        "U_147"
-      ],
-      "Security Engineer": [
-        "U_168"
-      ],
-      "Data Scientist": [
-        "U_249"
-      ],
-      "Full Stack Developer": [
-        "U_047",
-        "U_285",
-        "U_044",
-        "U_108"
-      ]
-    }
-  },
-  {
-    "project_id": "PRJ037",
-    "project_name": "스마트 팩토리 MES",
-    "client_industry": "Manufacturing",
-    "period": {
-      "start": "2022-06-01",
-      "end": "2023-01-27",
-      "duration_months": 8
-    },
-    "budget_scale": "Large",
-    "description": "Manufacturing 분야 스마트 팩토리 MES",
-    "tech_stack": {
-      "backend": [
-        "Python",
-        "Django",
-        "FastAPI"
-      ],
-      "frontend": [
-        "React",
-        "Vue.js"
-      ],
-      "data": [
-        "PostgreSQL",
-        "MongoDB",
-        "Time Series DB"
-      ],
-      "infra": [
-        "AWS",
-        "Docker",
-        "Edge Computing"
-      ]
-    },
-    "requirements": [
-      "IoT 연동",
-      "실시간 모니터링",
-      "예지 보전",
-      "품질 관리"
-    ],
-    "team_composition": {
-      "AI/ML Engineer": [
-        "U_147"
-      ],
-      "Backend Developer": [
-        "U_087"
-      ],
-      "Data Engineer": [
-        "U_262"
-      ],
-      "IoT Engineer": [
-        "U_012"
-      ]
-    }
-  },
-  {
-    "project_id": "PRJ038",
-    "project_name": "온라인 쇼핑몰 구축",
-    "client_industry": "E-commerce",
-    "period": {
-      "start": "2023-05-01",
-      "end": "2024-06-24",
-      "duration_months": 14
+      "start": "2022-04-01",
+      "end": "2023-01-26",
+      "duration_months": 10
     },
     "budget_scale": "Enterprise",
-    "description": "E-commerce 분야 온라인 쇼핑몰 구축",
-    "tech_stack": {
-      "backend": [
-        "Node.js",
-        "Express",
-        "Java",
-        "Spring Boot"
-      ],
-      "frontend": [
-        "React",
-        "Vue.js",
-        "Next.js"
-      ],
-      "data": [
-        "MongoDB",
-        "Redis",
-        "Elasticsearch"
-      ],
-      "infra": [
-        "AWS",
-        "Docker",
-        "Kubernetes"
-      ]
-    },
-    "requirements": [
-      "결제 시스템",
-      "재고 관리",
-      "추천 시스템",
-      "실시간 처리"
-    ],
-    "team_composition": {
-      "Full Stack Developer": [
-        "U_221"
-      ],
-      "Backend Developer": [
-        "U_052"
-      ],
-      "Frontend Developer": [
-        "U_045"
-      ],
-      "DevOps Engineer": [
-        "U_188",
-        "U_226"
-      ]
-    }
-  },
-  {
-    "project_id": "PRJ039",
-    "project_name": "옴니채널 커머스",
-    "client_industry": "E-commerce",
-    "period": {
-      "start": "2023-08-01",
-      "end": "2024-07-26",
-      "duration_months": 12
-    },
-    "budget_scale": "Large",
-    "description": "E-commerce 분야 옴니채널 커머스",
-    "tech_stack": {
-      "backend": [
-        "Node.js",
-        "Express",
-        "Java",
-        "Spring Boot"
-      ],
-      "frontend": [
-        "React",
-        "Vue.js",
-        "Next.js"
-      ],
-      "data": [
-        "MongoDB",
-        "Redis",
-        "Elasticsearch"
-      ],
-      "infra": [
-        "AWS",
-        "Docker",
-        "Kubernetes"
-      ]
-    },
-    "requirements": [
-      "결제 시스템",
-      "재고 관리",
-      "추천 시스템",
-      "실시간 처리"
-    ],
-    "team_composition": {
-      "Full Stack Developer": [
-        "U_221"
-      ],
-      "Backend Developer": [
-        "U_052"
-      ],
-      "Frontend Developer": [
-        "U_045"
-      ],
-      "DevOps Engineer": [
-        "U_188"
-      ]
-    }
-  },
-  {
-    "project_id": "PRJ040",
-    "project_name": "예지 보전 시스템",
-    "client_industry": "Manufacturing",
-    "period": {
-      "start": "2023-08-01",
-      "end": "2024-11-23",
-      "duration_months": 16
-    },
-    "budget_scale": "Large",
-    "description": "Manufacturing 분야 예지 보전 시스템",
-    "tech_stack": {
-      "backend": [
-        "Python",
-        "Django",
-        "FastAPI"
-      ],
-      "frontend": [
-        "React",
-        "Vue.js"
-      ],
-      "data": [
-        "PostgreSQL",
-        "MongoDB",
-        "Time Series DB"
-      ],
-      "infra": [
-        "AWS",
-        "Docker",
-        "Edge Computing"
-      ]
-    },
-    "requirements": [
-      "IoT 연동",
-      "실시간 모니터링",
-      "예지 보전",
-      "품질 관리"
-    ],
-    "team_composition": {
-      "AI/ML Engineer": [
-        "U_147"
-      ],
-      "Backend Developer": [
-        "U_087"
-      ],
-      "Data Engineer": [
-        "U_262"
-      ],
-      "IoT Engineer": [
-        "U_012"
-      ]
-    }
-  },
-  {
-    "project_id": "PRJ041",
-    "project_name": "금융 플랫폼 구축",
-    "client_industry": "Finance",
-    "period": {
-      "start": "2022-12-01",
-      "end": "2023-07-29",
-      "duration_months": 8
-    },
-    "budget_scale": "Medium",
-    "description": "Finance 분야 금융 플랫폼 구축",
+    "description": "Finance 분야 차세대 코어뱅킹 시스템",
     "tech_stack": {
       "backend": [
         "Java",
@@ -2281,15 +841,16 @@
     }
   },
   {
-    "project_id": "PRJ042",
+    "project_id": "PRJ016",
     "project_name": "예지 보전 시스템",
     "client_industry": "Manufacturing",
+    "status": "completed",
     "period": {
-      "start": "2023-08-01",
-      "end": "2024-07-26",
-      "duration_months": 12
+      "start": "2022-01-01",
+      "end": "2022-10-28",
+      "duration_months": 10
     },
-    "budget_scale": "Small",
+    "budget_scale": "Large",
     "description": "Manufacturing 분야 예지 보전 시스템",
     "tech_stack": {
       "backend": [
@@ -2329,21 +890,866 @@
         "U_262"
       ],
       "IoT Engineer": [
-        "U_012",
-        "U_268"
+        "U_012"
       ]
     }
   },
   {
-    "project_id": "PRJ043",
-    "project_name": "증권 거래 시스템",
-    "client_industry": "Finance",
+    "project_id": "PRJ017",
+    "project_name": "원격 진료 플랫폼",
+    "client_industry": "Healthcare",
+    "status": "completed",
     "period": {
-      "start": "2023-04-01",
-      "end": "2024-06-24",
-      "duration_months": 15
+      "start": "2023-12-01",
+      "end": "2024-12-25",
+      "duration_months": 13
+    },
+    "budget_scale": "Enterprise",
+    "description": "Healthcare 분야 원격 진료 플랫폼",
+    "tech_stack": {
+      "backend": [
+        "Python",
+        "Java",
+        "Spring Boot"
+      ],
+      "frontend": [
+        "React",
+        "Angular"
+      ],
+      "data": [
+        "PostgreSQL",
+        "MongoDB"
+      ],
+      "infra": [
+        "AWS",
+        "Docker"
+      ]
+    },
+    "requirements": [
+      "HIPAA 준수",
+      "데이터 보안",
+      "실시간 분석",
+      "EMR 연동"
+    ],
+    "team_composition": {
+      "Backend Developer": [
+        "U_147"
+      ],
+      "Security Engineer": [
+        "U_168"
+      ],
+      "Data Scientist": [
+        "U_249"
+      ],
+      "Full Stack Developer": [
+        "U_047",
+        "U_285",
+        "U_044"
+      ]
+    }
+  },
+  {
+    "project_id": "PRJ018",
+    "project_name": "금융 플랫폼 구축",
+    "client_industry": "Finance",
+    "status": "completed",
+    "period": {
+      "start": "2022-10-01",
+      "end": "2024-03-24",
+      "duration_months": 18
     },
     "budget_scale": "Medium",
+    "description": "Finance 분야 금융 플랫폼 구축",
+    "tech_stack": {
+      "backend": [
+        "Java",
+        "Spring Boot",
+        "Oracle",
+        "MSA"
+      ],
+      "frontend": [
+        "React",
+        "TypeScript",
+        "Angular"
+      ],
+      "data": [
+        "Oracle",
+        "Redis",
+        "PostgreSQL"
+      ],
+      "infra": [
+        "AWS",
+        "Docker",
+        "Kubernetes",
+        "Terraform"
+      ]
+    },
+    "requirements": [
+      "보안",
+      "고가용성",
+      "확장성",
+      "컴플라이언스"
+    ],
+    "team_composition": {
+      "Backend Developer": [
+        "U_008"
+      ],
+      "System Architect": [
+        "U_009"
+      ],
+      "Security Engineer": [
+        "U_044"
+      ],
+      "DevOps Engineer": [
+        "U_003"
+      ]
+    }
+  },
+  {
+    "project_id": "PRJ019",
+    "project_name": "옴니채널 커머스",
+    "client_industry": "E-commerce",
+    "status": "completed",
+    "period": {
+      "start": "2023-03-01",
+      "end": "2024-03-25",
+      "duration_months": 13
+    },
+    "budget_scale": "Medium",
+    "description": "E-commerce 분야 옴니채널 커머스",
+    "tech_stack": {
+      "backend": [
+        "Node.js",
+        "Express",
+        "Java",
+        "Spring Boot"
+      ],
+      "frontend": [
+        "React",
+        "Vue.js",
+        "Next.js"
+      ],
+      "data": [
+        "MongoDB",
+        "Redis",
+        "Elasticsearch"
+      ],
+      "infra": [
+        "AWS",
+        "Docker",
+        "Kubernetes"
+      ]
+    },
+    "requirements": [
+      "결제 시스템",
+      "재고 관리",
+      "추천 시스템",
+      "실시간 처리"
+    ],
+    "team_composition": {
+      "Full Stack Developer": [
+        "U_221"
+      ],
+      "Backend Developer": [
+        "U_052"
+      ],
+      "Frontend Developer": [
+        "U_045"
+      ],
+      "DevOps Engineer": [
+        "U_188"
+      ]
+    }
+  },
+  {
+    "project_id": "PRJ020",
+    "project_name": "의료 데이터 분석",
+    "client_industry": "Healthcare",
+    "status": "completed",
+    "period": {
+      "start": "2023-12-01",
+      "end": "2024-10-26",
+      "duration_months": 11
+    },
+    "budget_scale": "Large",
+    "description": "Healthcare 분야 의료 데이터 분석",
+    "tech_stack": {
+      "backend": [
+        "Python",
+        "Java",
+        "Spring Boot"
+      ],
+      "frontend": [
+        "React",
+        "Angular"
+      ],
+      "data": [
+        "PostgreSQL",
+        "MongoDB"
+      ],
+      "infra": [
+        "AWS",
+        "Docker"
+      ]
+    },
+    "requirements": [
+      "HIPAA 준수",
+      "데이터 보안",
+      "실시간 분석",
+      "EMR 연동"
+    ],
+    "team_composition": {
+      "Backend Developer": [
+        "U_147"
+      ],
+      "Security Engineer": [
+        "U_168"
+      ],
+      "Data Scientist": [
+        "U_249"
+      ],
+      "Full Stack Developer": [
+        "U_047",
+        "U_285",
+        "U_044",
+        "U_108"
+      ]
+    }
+  },
+  {
+    "project_id": "PRJ021",
+    "project_name": "옴니채널 커머스",
+    "client_industry": "E-commerce",
+    "status": "completed",
+    "period": {
+      "start": "2023-11-01",
+      "end": "2024-06-28",
+      "duration_months": 8
+    },
+    "budget_scale": "Medium",
+    "description": "E-commerce 분야 옴니채널 커머스",
+    "tech_stack": {
+      "backend": [
+        "Node.js",
+        "Express",
+        "Java",
+        "Spring Boot"
+      ],
+      "frontend": [
+        "React",
+        "Vue.js",
+        "Next.js"
+      ],
+      "data": [
+        "MongoDB",
+        "Redis",
+        "Elasticsearch"
+      ],
+      "infra": [
+        "AWS",
+        "Docker",
+        "Kubernetes"
+      ]
+    },
+    "requirements": [
+      "결제 시스템",
+      "재고 관리",
+      "추천 시스템",
+      "실시간 처리"
+    ],
+    "team_composition": {
+      "Full Stack Developer": [
+        "U_221"
+      ],
+      "Backend Developer": [
+        "U_052"
+      ],
+      "Frontend Developer": [
+        "U_045"
+      ],
+      "DevOps Engineer": [
+        "U_188",
+        "U_226",
+        "U_085"
+      ]
+    }
+  },
+  {
+    "project_id": "PRJ022",
+    "project_name": "환자 관리 시스템",
+    "client_industry": "Healthcare",
+    "status": "completed",
+    "period": {
+      "start": "2023-08-01",
+      "end": "2024-04-27",
+      "duration_months": 9
+    },
+    "budget_scale": "Small",
+    "description": "Healthcare 분야 환자 관리 시스템",
+    "tech_stack": {
+      "backend": [
+        "Python",
+        "Java",
+        "Spring Boot"
+      ],
+      "frontend": [
+        "React",
+        "Angular"
+      ],
+      "data": [
+        "PostgreSQL",
+        "MongoDB"
+      ],
+      "infra": [
+        "AWS",
+        "Docker"
+      ]
+    },
+    "requirements": [
+      "HIPAA 준수",
+      "데이터 보안",
+      "실시간 분석",
+      "EMR 연동"
+    ],
+    "team_composition": {
+      "Backend Developer": [
+        "U_147",
+        "U_168"
+      ],
+      "Security Engineer": [
+        "U_249"
+      ],
+      "Data Scientist": [
+        "U_047"
+      ],
+      "Full Stack Developer": [
+        "U_285",
+        "U_044",
+        "U_108",
+        "U_185"
+      ]
+    }
+  },
+  {
+    "project_id": "PRJ023",
+    "project_name": "온라인 쇼핑몰 구축",
+    "client_industry": "E-commerce",
+    "status": "completed",
+    "period": {
+      "start": "2022-07-01",
+      "end": "2023-08-25",
+      "duration_months": 14
+    },
+    "budget_scale": "Enterprise",
+    "description": "E-commerce 분야 온라인 쇼핑몰 구축",
+    "tech_stack": {
+      "backend": [
+        "Node.js",
+        "Express",
+        "Java",
+        "Spring Boot"
+      ],
+      "frontend": [
+        "React",
+        "Vue.js",
+        "Next.js"
+      ],
+      "data": [
+        "MongoDB",
+        "Redis",
+        "Elasticsearch"
+      ],
+      "infra": [
+        "AWS",
+        "Docker",
+        "Kubernetes"
+      ]
+    },
+    "requirements": [
+      "결제 시스템",
+      "재고 관리",
+      "추천 시스템",
+      "실시간 처리"
+    ],
+    "team_composition": {
+      "Full Stack Developer": [
+        "U_221",
+        "U_052"
+      ],
+      "Backend Developer": [
+        "U_045"
+      ],
+      "Frontend Developer": [
+        "U_188"
+      ],
+      "DevOps Engineer": [
+        "U_226",
+        "U_085",
+        "U_061",
+        "U_044"
+      ]
+    }
+  },
+  {
+    "project_id": "PRJ024",
+    "project_name": "온라인 쇼핑몰 구축",
+    "client_industry": "E-commerce",
+    "status": "completed",
+    "period": {
+      "start": "2022-08-01",
+      "end": "2023-10-25",
+      "duration_months": 15
+    },
+    "budget_scale": "Large",
+    "description": "E-commerce 분야 온라인 쇼핑몰 구축",
+    "tech_stack": {
+      "backend": [
+        "Node.js",
+        "Express",
+        "Java",
+        "Spring Boot"
+      ],
+      "frontend": [
+        "React",
+        "Vue.js",
+        "Next.js"
+      ],
+      "data": [
+        "MongoDB",
+        "Redis",
+        "Elasticsearch"
+      ],
+      "infra": [
+        "AWS",
+        "Docker",
+        "Kubernetes"
+      ]
+    },
+    "requirements": [
+      "결제 시스템",
+      "재고 관리",
+      "추천 시스템",
+      "실시간 처리"
+    ],
+    "team_composition": {
+      "Full Stack Developer": [
+        "U_221"
+      ],
+      "Backend Developer": [
+        "U_052"
+      ],
+      "Frontend Developer": [
+        "U_045"
+      ],
+      "DevOps Engineer": [
+        "U_188",
+        "U_226",
+        "U_085"
+      ]
+    }
+  },
+  {
+    "project_id": "PRJ025",
+    "project_name": "모바일 뱅킹 앱",
+    "client_industry": "Finance",
+    "status": "completed",
+    "period": {
+      "start": "2023-11-01",
+      "end": "2024-04-29",
+      "duration_months": 6
+    },
+    "budget_scale": "Enterprise",
+    "description": "Finance 분야 모바일 뱅킹 앱",
+    "tech_stack": {
+      "backend": [
+        "Java",
+        "Spring Boot",
+        "Oracle",
+        "MSA"
+      ],
+      "frontend": [
+        "React",
+        "TypeScript",
+        "Angular"
+      ],
+      "data": [
+        "Oracle",
+        "Redis",
+        "PostgreSQL"
+      ],
+      "infra": [
+        "AWS",
+        "Docker",
+        "Kubernetes",
+        "Terraform"
+      ]
+    },
+    "requirements": [
+      "보안",
+      "고가용성",
+      "확장성",
+      "컴플라이언스"
+    ],
+    "team_composition": {
+      "Backend Developer": [
+        "U_008"
+      ],
+      "System Architect": [
+        "U_009"
+      ],
+      "Security Engineer": [
+        "U_044"
+      ],
+      "DevOps Engineer": [
+        "U_003"
+      ]
+    }
+  },
+  {
+    "project_id": "PRJ026",
+    "project_name": "의료 데이터 분석",
+    "client_industry": "Healthcare",
+    "status": "completed",
+    "period": {
+      "start": "2022-11-01",
+      "end": "2024-04-24",
+      "duration_months": 18
+    },
+    "budget_scale": "Small",
+    "description": "Healthcare 분야 의료 데이터 분석",
+    "tech_stack": {
+      "backend": [
+        "Python",
+        "Java",
+        "Spring Boot"
+      ],
+      "frontend": [
+        "React",
+        "Angular"
+      ],
+      "data": [
+        "PostgreSQL",
+        "MongoDB"
+      ],
+      "infra": [
+        "AWS",
+        "Docker"
+      ]
+    },
+    "requirements": [
+      "HIPAA 준수",
+      "데이터 보안",
+      "실시간 분석",
+      "EMR 연동"
+    ],
+    "team_composition": {
+      "Backend Developer": [
+        "U_147"
+      ],
+      "Security Engineer": [
+        "U_168"
+      ],
+      "Data Scientist": [
+        "U_249"
+      ],
+      "Full Stack Developer": [
+        "U_047",
+        "U_285",
+        "U_044"
+      ]
+    }
+  },
+  {
+    "project_id": "PRJ027",
+    "project_name": "예지 보전 시스템",
+    "client_industry": "Manufacturing",
+    "status": "completed",
+    "period": {
+      "start": "2022-11-01",
+      "end": "2023-06-29",
+      "duration_months": 8
+    },
+    "budget_scale": "Enterprise",
+    "description": "Manufacturing 분야 예지 보전 시스템",
+    "tech_stack": {
+      "backend": [
+        "Python",
+        "Django",
+        "FastAPI"
+      ],
+      "frontend": [
+        "React",
+        "Vue.js"
+      ],
+      "data": [
+        "PostgreSQL",
+        "MongoDB",
+        "Time Series DB"
+      ],
+      "infra": [
+        "AWS",
+        "Docker",
+        "Edge Computing"
+      ]
+    },
+    "requirements": [
+      "IoT 연동",
+      "실시간 모니터링",
+      "예지 보전",
+      "품질 관리"
+    ],
+    "team_composition": {
+      "AI/ML Engineer": [
+        "U_147"
+      ],
+      "Backend Developer": [
+        "U_087"
+      ],
+      "Data Engineer": [
+        "U_262"
+      ],
+      "IoT Engineer": [
+        "U_012"
+      ]
+    }
+  },
+  {
+    "project_id": "PRJ028",
+    "project_name": "환자 관리 시스템",
+    "client_industry": "Healthcare",
+    "status": "completed",
+    "period": {
+      "start": "2022-10-01",
+      "end": "2023-10-26",
+      "duration_months": 13
+    },
+    "budget_scale": "Medium",
+    "description": "Healthcare 분야 환자 관리 시스템",
+    "tech_stack": {
+      "backend": [
+        "Python",
+        "Java",
+        "Spring Boot"
+      ],
+      "frontend": [
+        "React",
+        "Angular"
+      ],
+      "data": [
+        "PostgreSQL",
+        "MongoDB"
+      ],
+      "infra": [
+        "AWS",
+        "Docker"
+      ]
+    },
+    "requirements": [
+      "HIPAA 준수",
+      "데이터 보안",
+      "실시간 분석",
+      "EMR 연동"
+    ],
+    "team_composition": {
+      "Backend Developer": [
+        "U_147"
+      ],
+      "Security Engineer": [
+        "U_168"
+      ],
+      "Data Scientist": [
+        "U_249"
+      ],
+      "Full Stack Developer": [
+        "U_047",
+        "U_285",
+        "U_044",
+        "U_108"
+      ]
+    }
+  },
+  {
+    "project_id": "PRJ029",
+    "project_name": "AI 추천 시스템",
+    "client_industry": "E-commerce",
+    "status": "completed",
+    "period": {
+      "start": "2022-04-01",
+      "end": "2023-01-26",
+      "duration_months": 10
+    },
+    "budget_scale": "Medium",
+    "description": "E-commerce 분야 AI 추천 시스템",
+    "tech_stack": {
+      "backend": [
+        "Node.js",
+        "Express",
+        "Java",
+        "Spring Boot"
+      ],
+      "frontend": [
+        "React",
+        "Vue.js",
+        "Next.js"
+      ],
+      "data": [
+        "MongoDB",
+        "Redis",
+        "Elasticsearch"
+      ],
+      "infra": [
+        "AWS",
+        "Docker",
+        "Kubernetes"
+      ]
+    },
+    "requirements": [
+      "결제 시스템",
+      "재고 관리",
+      "추천 시스템",
+      "실시간 처리"
+    ],
+    "team_composition": {
+      "Full Stack Developer": [
+        "U_221",
+        "U_052"
+      ],
+      "Backend Developer": [
+        "U_045"
+      ],
+      "Frontend Developer": [
+        "U_188"
+      ],
+      "DevOps Engineer": [
+        "U_226",
+        "U_085",
+        "U_061",
+        "U_044"
+      ]
+    }
+  },
+  {
+    "project_id": "PRJ030",
+    "project_name": "원격 진료 플랫폼",
+    "client_industry": "Healthcare",
+    "status": "completed",
+    "period": {
+      "start": "2023-09-01",
+      "end": "2025-02-22",
+      "duration_months": 18
+    },
+    "budget_scale": "Small",
+    "description": "Healthcare 분야 원격 진료 플랫폼",
+    "tech_stack": {
+      "backend": [
+        "Python",
+        "Java",
+        "Spring Boot"
+      ],
+      "frontend": [
+        "React",
+        "Angular"
+      ],
+      "data": [
+        "PostgreSQL",
+        "MongoDB"
+      ],
+      "infra": [
+        "AWS",
+        "Docker"
+      ]
+    },
+    "requirements": [
+      "HIPAA 준수",
+      "데이터 보안",
+      "실시간 분석",
+      "EMR 연동"
+    ],
+    "team_composition": {
+      "Backend Developer": [
+        "U_147"
+      ],
+      "Security Engineer": [
+        "U_168"
+      ],
+      "Data Scientist": [
+        "U_249"
+      ],
+      "Full Stack Developer": [
+        "U_047",
+        "U_285",
+        "U_044",
+        "U_108"
+      ]
+    }
+  },
+  {
+    "project_id": "PRJ031",
+    "project_name": "EMR 시스템 구축",
+    "client_industry": "Healthcare",
+    "status": "completed",
+    "period": {
+      "start": "2023-04-01",
+      "end": "2023-11-27",
+      "duration_months": 8
+    },
+    "budget_scale": "Large",
+    "description": "Healthcare 분야 EMR 시스템 구축",
+    "tech_stack": {
+      "backend": [
+        "Python",
+        "Java",
+        "Spring Boot"
+      ],
+      "frontend": [
+        "React",
+        "Angular"
+      ],
+      "data": [
+        "PostgreSQL",
+        "MongoDB"
+      ],
+      "infra": [
+        "AWS",
+        "Docker"
+      ]
+    },
+    "requirements": [
+      "HIPAA 준수",
+      "데이터 보안",
+      "실시간 분석",
+      "EMR 연동"
+    ],
+    "team_composition": {
+      "Backend Developer": [
+        "U_147",
+        "U_168"
+      ],
+      "Security Engineer": [
+        "U_249"
+      ],
+      "Data Scientist": [
+        "U_047"
+      ],
+      "Full Stack Developer": [
+        "U_285",
+        "U_044",
+        "U_108",
+        "U_185"
+      ]
+    }
+  },
+  {
+    "project_id": "PRJ032",
+    "project_name": "증권 거래 시스템",
+    "client_industry": "Finance",
+    "status": "completed",
+    "period": {
+      "start": "2023-10-01",
+      "end": "2024-04-28",
+      "duration_months": 7
+    },
+    "budget_scale": "Small",
     "description": "Finance 분야 증권 거래 시스템",
     "tech_stack": {
       "backend": [
@@ -2392,13 +1798,184 @@
     }
   },
   {
-    "project_id": "PRJ044",
+    "project_id": "PRJ033",
+    "project_name": "옴니채널 커머스",
+    "client_industry": "E-commerce",
+    "status": "completed",
+    "period": {
+      "start": "2022-07-01",
+      "end": "2023-05-27",
+      "duration_months": 11
+    },
+    "budget_scale": "Small",
+    "description": "E-commerce 분야 옴니채널 커머스",
+    "tech_stack": {
+      "backend": [
+        "Node.js",
+        "Express",
+        "Java",
+        "Spring Boot"
+      ],
+      "frontend": [
+        "React",
+        "Vue.js",
+        "Next.js"
+      ],
+      "data": [
+        "MongoDB",
+        "Redis",
+        "Elasticsearch"
+      ],
+      "infra": [
+        "AWS",
+        "Docker",
+        "Kubernetes"
+      ]
+    },
+    "requirements": [
+      "결제 시스템",
+      "재고 관리",
+      "추천 시스템",
+      "실시간 처리"
+    ],
+    "team_composition": {
+      "Full Stack Developer": [
+        "U_221"
+      ],
+      "Backend Developer": [
+        "U_052"
+      ],
+      "Frontend Developer": [
+        "U_045"
+      ],
+      "DevOps Engineer": [
+        "U_188",
+        "U_226",
+        "U_085",
+        "U_061"
+      ]
+    }
+  },
+  {
+    "project_id": "PRJ034",
+    "project_name": "원격 진료 플랫폼",
+    "client_industry": "Healthcare",
+    "status": "completed",
+    "period": {
+      "start": "2023-06-01",
+      "end": "2024-01-27",
+      "duration_months": 8
+    },
+    "budget_scale": "Small",
+    "description": "Healthcare 분야 원격 진료 플랫폼",
+    "tech_stack": {
+      "backend": [
+        "Python",
+        "Java",
+        "Spring Boot"
+      ],
+      "frontend": [
+        "React",
+        "Angular"
+      ],
+      "data": [
+        "PostgreSQL",
+        "MongoDB"
+      ],
+      "infra": [
+        "AWS",
+        "Docker"
+      ]
+    },
+    "requirements": [
+      "HIPAA 준수",
+      "데이터 보안",
+      "실시간 분석",
+      "EMR 연동"
+    ],
+    "team_composition": {
+      "Backend Developer": [
+        "U_147"
+      ],
+      "Security Engineer": [
+        "U_168"
+      ],
+      "Data Scientist": [
+        "U_249"
+      ],
+      "Full Stack Developer": [
+        "U_047",
+        "U_285",
+        "U_044",
+        "U_108",
+        "U_185"
+      ]
+    }
+  },
+  {
+    "project_id": "PRJ035",
+    "project_name": "IoT 플랫폼 구축",
+    "client_industry": "Manufacturing",
+    "status": "completed",
+    "period": {
+      "start": "2022-08-01",
+      "end": "2023-02-27",
+      "duration_months": 7
+    },
+    "budget_scale": "Large",
+    "description": "Manufacturing 분야 IoT 플랫폼 구축",
+    "tech_stack": {
+      "backend": [
+        "Python",
+        "Django",
+        "FastAPI"
+      ],
+      "frontend": [
+        "React",
+        "Vue.js"
+      ],
+      "data": [
+        "PostgreSQL",
+        "MongoDB",
+        "Time Series DB"
+      ],
+      "infra": [
+        "AWS",
+        "Docker",
+        "Edge Computing"
+      ]
+    },
+    "requirements": [
+      "IoT 연동",
+      "실시간 모니터링",
+      "예지 보전",
+      "품질 관리"
+    ],
+    "team_composition": {
+      "AI/ML Engineer": [
+        "U_147"
+      ],
+      "Backend Developer": [
+        "U_087"
+      ],
+      "Data Engineer": [
+        "U_262"
+      ],
+      "IoT Engineer": [
+        "U_012",
+        "U_268"
+      ]
+    }
+  },
+  {
+    "project_id": "PRJ036",
     "project_name": "증권 거래 시스템",
     "client_industry": "Finance",
+    "status": "completed",
     "period": {
-      "start": "2023-10-01",
-      "end": "2024-10-25",
-      "duration_months": 13
+      "start": "2023-05-01",
+      "end": "2024-07-24",
+      "duration_months": 15
     },
     "budget_scale": "Medium",
     "description": "Finance 분야 증권 거래 시스템",
@@ -2448,15 +2025,16 @@
     }
   },
   {
-    "project_id": "PRJ045",
+    "project_id": "PRJ037",
     "project_name": "환자 관리 시스템",
     "client_industry": "Healthcare",
+    "status": "completed",
     "period": {
-      "start": "2022-06-01",
-      "end": "2023-03-28",
-      "duration_months": 10
+      "start": "2023-08-01",
+      "end": "2024-10-24",
+      "duration_months": 15
     },
-    "budget_scale": "Large",
+    "budget_scale": "Medium",
     "description": "Healthcare 분야 환자 관리 시스템",
     "tech_stack": {
       "backend": [
@@ -2494,23 +2072,196 @@
         "U_249"
       ],
       "Full Stack Developer": [
-        "U_047",
-        "U_285",
-        "U_044"
+        "U_047"
       ]
     }
   },
   {
-    "project_id": "PRJ046",
-    "project_name": "모바일 뱅킹 앱",
-    "client_industry": "Finance",
+    "project_id": "PRJ038",
+    "project_name": "스마트 팩토리 MES",
+    "client_industry": "Manufacturing",
+    "status": "completed",
     "period": {
-      "start": "2022-05-01",
-      "end": "2023-01-26",
+      "start": "2022-08-01",
+      "end": "2023-04-28",
       "duration_months": 9
     },
     "budget_scale": "Medium",
-    "description": "Finance 분야 모바일 뱅킹 앱",
+    "description": "Manufacturing 분야 스마트 팩토리 MES",
+    "tech_stack": {
+      "backend": [
+        "Python",
+        "Django",
+        "FastAPI"
+      ],
+      "frontend": [
+        "React",
+        "Vue.js"
+      ],
+      "data": [
+        "PostgreSQL",
+        "MongoDB",
+        "Time Series DB"
+      ],
+      "infra": [
+        "AWS",
+        "Docker",
+        "Edge Computing"
+      ]
+    },
+    "requirements": [
+      "IoT 연동",
+      "실시간 모니터링",
+      "예지 보전",
+      "품질 관리"
+    ],
+    "team_composition": {
+      "AI/ML Engineer": [
+        "U_147",
+        "U_087"
+      ],
+      "Backend Developer": [
+        "U_262"
+      ],
+      "Data Engineer": [
+        "U_012"
+      ],
+      "IoT Engineer": [
+        "U_268",
+        "U_285",
+        "U_103",
+        "U_116"
+      ]
+    }
+  },
+  {
+    "project_id": "PRJ039",
+    "project_name": "차세대 코어뱅킹 시스템",
+    "client_industry": "Finance",
+    "status": "completed",
+    "period": {
+      "start": "2023-05-01",
+      "end": "2024-04-25",
+      "duration_months": 12
+    },
+    "budget_scale": "Medium",
+    "description": "Finance 분야 차세대 코어뱅킹 시스템",
+    "tech_stack": {
+      "backend": [
+        "Java",
+        "Spring Boot",
+        "Oracle",
+        "MSA"
+      ],
+      "frontend": [
+        "React",
+        "TypeScript",
+        "Angular"
+      ],
+      "data": [
+        "Oracle",
+        "Redis",
+        "PostgreSQL"
+      ],
+      "infra": [
+        "AWS",
+        "Docker",
+        "Kubernetes",
+        "Terraform"
+      ]
+    },
+    "requirements": [
+      "보안",
+      "고가용성",
+      "확장성",
+      "컴플라이언스"
+    ],
+    "team_composition": {
+      "Backend Developer": [
+        "U_008"
+      ],
+      "System Architect": [
+        "U_009"
+      ],
+      "Security Engineer": [
+        "U_044"
+      ],
+      "DevOps Engineer": [
+        "U_003",
+        "U_030",
+        "U_103",
+        "U_235"
+      ]
+    }
+  },
+  {
+    "project_id": "PRJ040",
+    "project_name": "E-commerce 플랫폼",
+    "client_industry": "E-commerce",
+    "status": "completed",
+    "period": {
+      "start": "2023-03-01",
+      "end": "2024-01-25",
+      "duration_months": 11
+    },
+    "budget_scale": "Medium",
+    "description": "E-commerce 분야 E-commerce 플랫폼",
+    "tech_stack": {
+      "backend": [
+        "Node.js",
+        "Express",
+        "Java",
+        "Spring Boot"
+      ],
+      "frontend": [
+        "React",
+        "Vue.js",
+        "Next.js"
+      ],
+      "data": [
+        "MongoDB",
+        "Redis",
+        "Elasticsearch"
+      ],
+      "infra": [
+        "AWS",
+        "Docker",
+        "Kubernetes"
+      ]
+    },
+    "requirements": [
+      "결제 시스템",
+      "재고 관리",
+      "추천 시스템",
+      "실시간 처리"
+    ],
+    "team_composition": {
+      "Full Stack Developer": [
+        "U_221"
+      ],
+      "Backend Developer": [
+        "U_052"
+      ],
+      "Frontend Developer": [
+        "U_045"
+      ],
+      "DevOps Engineer": [
+        "U_188"
+      ]
+    }
+  },
+  {
+    "project_id": "PRJ041",
+    "project_name": "증권 거래 시스템",
+    "client_industry": "Finance",
+    "status": "completed",
+    "period": {
+      "start": "2023-06-01",
+      "end": "2023-11-28",
+      "duration_months": 6
+    },
+    "budget_scale": "Large",
+    "description": "Finance 분야 증권 거래 시스템",
     "tech_stack": {
       "backend": [
         "Java",
@@ -2561,15 +2312,16 @@
     }
   },
   {
-    "project_id": "PRJ047",
+    "project_id": "PRJ042",
     "project_name": "품질 관리 시스템",
     "client_industry": "Manufacturing",
+    "status": "completed",
     "period": {
-      "start": "2023-06-01",
-      "end": "2024-05-26",
-      "duration_months": 12
+      "start": "2023-10-01",
+      "end": "2025-02-22",
+      "duration_months": 17
     },
-    "budget_scale": "Enterprise",
+    "budget_scale": "Small",
     "description": "Manufacturing 분야 품질 관리 시스템",
     "tech_stack": {
       "backend": [
@@ -2600,20 +2352,288 @@
     ],
     "team_composition": {
       "AI/ML Engineer": [
-        "U_147",
-        "U_087"
+        "U_147"
       ],
       "Backend Developer": [
-        "U_262"
+        "U_087"
       ],
       "Data Engineer": [
-        "U_012"
+        "U_262"
       ],
       "IoT Engineer": [
-        "U_268",
+        "U_012"
+      ]
+    }
+  },
+  {
+    "project_id": "PRJ043",
+    "project_name": "원격 진료 플랫폼",
+    "client_industry": "Healthcare",
+    "status": "completed",
+    "period": {
+      "start": "2022-06-01",
+      "end": "2023-04-27",
+      "duration_months": 11
+    },
+    "budget_scale": "Large",
+    "description": "Healthcare 분야 원격 진료 플랫폼",
+    "tech_stack": {
+      "backend": [
+        "Python",
+        "Java",
+        "Spring Boot"
+      ],
+      "frontend": [
+        "React",
+        "Angular"
+      ],
+      "data": [
+        "PostgreSQL",
+        "MongoDB"
+      ],
+      "infra": [
+        "AWS",
+        "Docker"
+      ]
+    },
+    "requirements": [
+      "HIPAA 준수",
+      "데이터 보안",
+      "실시간 분석",
+      "EMR 연동"
+    ],
+    "team_composition": {
+      "Backend Developer": [
+        "U_147"
+      ],
+      "Security Engineer": [
+        "U_168"
+      ],
+      "Data Scientist": [
+        "U_249"
+      ],
+      "Full Stack Developer": [
+        "U_047"
+      ]
+    }
+  },
+  {
+    "project_id": "PRJ044",
+    "project_name": "환자 관리 시스템",
+    "client_industry": "Healthcare",
+    "status": "completed",
+    "period": {
+      "start": "2022-03-01",
+      "end": "2022-09-27",
+      "duration_months": 7
+    },
+    "budget_scale": "Large",
+    "description": "Healthcare 분야 환자 관리 시스템",
+    "tech_stack": {
+      "backend": [
+        "Python",
+        "Java",
+        "Spring Boot"
+      ],
+      "frontend": [
+        "React",
+        "Angular"
+      ],
+      "data": [
+        "PostgreSQL",
+        "MongoDB"
+      ],
+      "infra": [
+        "AWS",
+        "Docker"
+      ]
+    },
+    "requirements": [
+      "HIPAA 준수",
+      "데이터 보안",
+      "실시간 분석",
+      "EMR 연동"
+    ],
+    "team_composition": {
+      "Backend Developer": [
+        "U_147"
+      ],
+      "Security Engineer": [
+        "U_168"
+      ],
+      "Data Scientist": [
+        "U_249"
+      ],
+      "Full Stack Developer": [
+        "U_047"
+      ]
+    }
+  },
+  {
+    "project_id": "PRJ045",
+    "project_name": "옴니채널 커머스",
+    "client_industry": "E-commerce",
+    "status": "completed",
+    "period": {
+      "start": "2023-11-01",
+      "end": "2025-03-25",
+      "duration_months": 17
+    },
+    "budget_scale": "Large",
+    "description": "E-commerce 분야 옴니채널 커머스",
+    "tech_stack": {
+      "backend": [
+        "Node.js",
+        "Express",
+        "Java",
+        "Spring Boot"
+      ],
+      "frontend": [
+        "React",
+        "Vue.js",
+        "Next.js"
+      ],
+      "data": [
+        "MongoDB",
+        "Redis",
+        "Elasticsearch"
+      ],
+      "infra": [
+        "AWS",
+        "Docker",
+        "Kubernetes"
+      ]
+    },
+    "requirements": [
+      "결제 시스템",
+      "재고 관리",
+      "추천 시스템",
+      "실시간 처리"
+    ],
+    "team_composition": {
+      "Full Stack Developer": [
+        "U_221"
+      ],
+      "Backend Developer": [
+        "U_052"
+      ],
+      "Frontend Developer": [
+        "U_045"
+      ],
+      "DevOps Engineer": [
+        "U_188",
+        "U_226"
+      ]
+    }
+  },
+  {
+    "project_id": "PRJ046",
+    "project_name": "금융 플랫폼 구축",
+    "client_industry": "Finance",
+    "status": "completed",
+    "period": {
+      "start": "2023-04-01",
+      "end": "2024-02-25",
+      "duration_months": 11
+    },
+    "budget_scale": "Medium",
+    "description": "Finance 분야 금융 플랫폼 구축",
+    "tech_stack": {
+      "backend": [
+        "Java",
+        "Spring Boot",
+        "Oracle",
+        "MSA"
+      ],
+      "frontend": [
+        "React",
+        "TypeScript",
+        "Angular"
+      ],
+      "data": [
+        "Oracle",
+        "Redis",
+        "PostgreSQL"
+      ],
+      "infra": [
+        "AWS",
+        "Docker",
+        "Kubernetes",
+        "Terraform"
+      ]
+    },
+    "requirements": [
+      "보안",
+      "고가용성",
+      "확장성",
+      "컴플라이언스"
+    ],
+    "team_composition": {
+      "Backend Developer": [
+        "U_008"
+      ],
+      "System Architect": [
+        "U_009"
+      ],
+      "Security Engineer": [
+        "U_044"
+      ],
+      "DevOps Engineer": [
+        "U_003"
+      ]
+    }
+  },
+  {
+    "project_id": "PRJ047",
+    "project_name": "원격 진료 플랫폼",
+    "client_industry": "Healthcare",
+    "status": "completed",
+    "period": {
+      "start": "2023-04-01",
+      "end": "2024-07-24",
+      "duration_months": 16
+    },
+    "budget_scale": "Enterprise",
+    "description": "Healthcare 분야 원격 진료 플랫폼",
+    "tech_stack": {
+      "backend": [
+        "Python",
+        "Java",
+        "Spring Boot"
+      ],
+      "frontend": [
+        "React",
+        "Angular"
+      ],
+      "data": [
+        "PostgreSQL",
+        "MongoDB"
+      ],
+      "infra": [
+        "AWS",
+        "Docker"
+      ]
+    },
+    "requirements": [
+      "HIPAA 준수",
+      "데이터 보안",
+      "실시간 분석",
+      "EMR 연동"
+    ],
+    "team_composition": {
+      "Backend Developer": [
+        "U_147"
+      ],
+      "Security Engineer": [
+        "U_168"
+      ],
+      "Data Scientist": [
+        "U_249"
+      ],
+      "Full Stack Developer": [
+        "U_047",
         "U_285",
-        "U_103",
-        "U_116"
+        "U_044"
       ]
     }
   },
@@ -2621,9 +2641,10 @@
     "project_id": "PRJ048",
     "project_name": "모바일 뱅킹 앱",
     "client_industry": "Finance",
+    "status": "completed",
     "period": {
-      "start": "2022-08-01",
-      "end": "2023-07-27",
+      "start": "2023-10-01",
+      "end": "2024-09-25",
       "duration_months": 12
     },
     "budget_scale": "Small",
@@ -2675,15 +2696,191 @@
   },
   {
     "project_id": "PRJ049",
-    "project_name": "의료 데이터 분석",
-    "client_industry": "Healthcare",
+    "project_name": "E-commerce 플랫폼",
+    "client_industry": "E-commerce",
+    "status": "completed",
     "period": {
-      "start": "2023-03-01",
-      "end": "2024-04-24",
-      "duration_months": 14
+      "start": "2022-11-01",
+      "end": "2023-08-28",
+      "duration_months": 10
     },
     "budget_scale": "Small",
-    "description": "Healthcare 분야 의료 데이터 분석",
+    "description": "E-commerce 분야 E-commerce 플랫폼",
+    "tech_stack": {
+      "backend": [
+        "Node.js",
+        "Express",
+        "Java",
+        "Spring Boot"
+      ],
+      "frontend": [
+        "React",
+        "Vue.js",
+        "Next.js"
+      ],
+      "data": [
+        "MongoDB",
+        "Redis",
+        "Elasticsearch"
+      ],
+      "infra": [
+        "AWS",
+        "Docker",
+        "Kubernetes"
+      ]
+    },
+    "requirements": [
+      "결제 시스템",
+      "재고 관리",
+      "추천 시스템",
+      "실시간 처리"
+    ],
+    "team_composition": {
+      "Full Stack Developer": [
+        "U_221",
+        "U_052"
+      ],
+      "Backend Developer": [
+        "U_045"
+      ],
+      "Frontend Developer": [
+        "U_188"
+      ],
+      "DevOps Engineer": [
+        "U_226",
+        "U_085",
+        "U_061",
+        "U_044"
+      ]
+    }
+  },
+  {
+    "project_id": "PRJ050",
+    "project_name": "증권 거래 시스템",
+    "client_industry": "Finance",
+    "status": "completed",
+    "period": {
+      "start": "2023-04-01",
+      "end": "2023-09-28",
+      "duration_months": 6
+    },
+    "budget_scale": "Small",
+    "description": "Finance 분야 증권 거래 시스템",
+    "tech_stack": {
+      "backend": [
+        "Java",
+        "Spring Boot",
+        "Oracle",
+        "MSA"
+      ],
+      "frontend": [
+        "React",
+        "TypeScript",
+        "Angular"
+      ],
+      "data": [
+        "Oracle",
+        "Redis",
+        "PostgreSQL"
+      ],
+      "infra": [
+        "AWS",
+        "Docker",
+        "Kubernetes",
+        "Terraform"
+      ]
+    },
+    "requirements": [
+      "보안",
+      "고가용성",
+      "확장성",
+      "컴플라이언스"
+    ],
+    "team_composition": {
+      "Backend Developer": [
+        "U_008"
+      ],
+      "System Architect": [
+        "U_009"
+      ],
+      "Security Engineer": [
+        "U_044"
+      ],
+      "DevOps Engineer": [
+        "U_003",
+        "U_030",
+        "U_103",
+        "U_235",
+        "U_246"
+      ]
+    }
+  },
+  {
+    "project_id": "PRJ051",
+    "project_name": "예지 보전 시스템",
+    "client_industry": "Manufacturing",
+    "status": "in-progress",
+    "period": {
+      "start": "2024-05-01",
+      "end": "2026-02-20",
+      "duration_months": 22
+    },
+    "budget_scale": "Large",
+    "description": "Manufacturing 분야 예지 보전 시스템",
+    "tech_stack": {
+      "backend": [
+        "Python",
+        "Django",
+        "FastAPI"
+      ],
+      "frontend": [
+        "React",
+        "Vue.js"
+      ],
+      "data": [
+        "PostgreSQL",
+        "MongoDB",
+        "Time Series DB"
+      ],
+      "infra": [
+        "AWS",
+        "Docker",
+        "Edge Computing"
+      ]
+    },
+    "requirements": [
+      "IoT 연동",
+      "실시간 모니터링",
+      "예지 보전",
+      "품질 관리"
+    ],
+    "team_composition": {
+      "AI/ML Engineer": [
+        "U_147"
+      ],
+      "Backend Developer": [
+        "U_087"
+      ],
+      "Data Engineer": [
+        "U_262"
+      ],
+      "IoT Engineer": [
+        "U_012"
+      ]
+    }
+  },
+  {
+    "project_id": "PRJ052",
+    "project_name": "환자 관리 시스템",
+    "client_industry": "Healthcare",
+    "status": "in-progress",
+    "period": {
+      "start": "2023-03-01",
+      "end": "2024-06-23",
+      "duration_months": 16
+    },
+    "budget_scale": "Large",
+    "description": "Healthcare 분야 환자 관리 시스템",
     "tech_stack": {
       "backend": [
         "Python",
@@ -2720,21 +2917,193 @@
         "U_249"
       ],
       "Full Stack Developer": [
-        "U_047"
+        "U_047",
+        "U_285",
+        "U_044",
+        "U_108"
       ]
     }
   },
   {
-    "project_id": "PRJ050",
-    "project_name": "증권 거래 시스템",
-    "client_industry": "Finance",
+    "project_id": "PRJ053",
+    "project_name": "스마트 팩토리 MES",
+    "client_industry": "Manufacturing",
+    "status": "in-progress",
     "period": {
-      "start": "2023-04-01",
-      "end": "2023-10-28",
-      "duration_months": 7
+      "start": "2024-07-01",
+      "end": "2025-07-26",
+      "duration_months": 13
     },
     "budget_scale": "Medium",
-    "description": "Finance 분야 증권 거래 시스템",
+    "description": "Manufacturing 분야 스마트 팩토리 MES",
+    "tech_stack": {
+      "backend": [
+        "Python",
+        "Django",
+        "FastAPI"
+      ],
+      "frontend": [
+        "React",
+        "Vue.js"
+      ],
+      "data": [
+        "PostgreSQL",
+        "MongoDB",
+        "Time Series DB"
+      ],
+      "infra": [
+        "AWS",
+        "Docker",
+        "Edge Computing"
+      ]
+    },
+    "requirements": [
+      "IoT 연동",
+      "실시간 모니터링",
+      "예지 보전",
+      "품질 관리"
+    ],
+    "team_composition": {
+      "AI/ML Engineer": [
+        "U_147"
+      ],
+      "Backend Developer": [
+        "U_087"
+      ],
+      "Data Engineer": [
+        "U_262"
+      ],
+      "IoT Engineer": [
+        "U_012",
+        "U_268"
+      ]
+    }
+  },
+  {
+    "project_id": "PRJ054",
+    "project_name": "스마트 팩토리 MES",
+    "client_industry": "Manufacturing",
+    "status": "in-progress",
+    "period": {
+      "start": "2024-10-01",
+      "end": "2025-11-25",
+      "duration_months": 14
+    },
+    "budget_scale": "Small",
+    "description": "Manufacturing 분야 스마트 팩토리 MES",
+    "tech_stack": {
+      "backend": [
+        "Python",
+        "Django",
+        "FastAPI"
+      ],
+      "frontend": [
+        "React",
+        "Vue.js"
+      ],
+      "data": [
+        "PostgreSQL",
+        "MongoDB",
+        "Time Series DB"
+      ],
+      "infra": [
+        "AWS",
+        "Docker",
+        "Edge Computing"
+      ]
+    },
+    "requirements": [
+      "IoT 연동",
+      "실시간 모니터링",
+      "예지 보전",
+      "품질 관리"
+    ],
+    "team_composition": {
+      "AI/ML Engineer": [
+        "U_147"
+      ],
+      "Backend Developer": [
+        "U_087"
+      ],
+      "Data Engineer": [
+        "U_262"
+      ],
+      "IoT Engineer": [
+        "U_012",
+        "U_268",
+        "U_285",
+        "U_103"
+      ]
+    }
+  },
+  {
+    "project_id": "PRJ055",
+    "project_name": "IoT 플랫폼 구축",
+    "client_industry": "Manufacturing",
+    "status": "in-progress",
+    "period": {
+      "start": "2024-06-01",
+      "end": "2025-12-23",
+      "duration_months": 19
+    },
+    "budget_scale": "Small",
+    "description": "Manufacturing 분야 IoT 플랫폼 구축",
+    "tech_stack": {
+      "backend": [
+        "Python",
+        "Django",
+        "FastAPI"
+      ],
+      "frontend": [
+        "React",
+        "Vue.js"
+      ],
+      "data": [
+        "PostgreSQL",
+        "MongoDB",
+        "Time Series DB"
+      ],
+      "infra": [
+        "AWS",
+        "Docker",
+        "Edge Computing"
+      ]
+    },
+    "requirements": [
+      "IoT 연동",
+      "실시간 모니터링",
+      "예지 보전",
+      "품질 관리"
+    ],
+    "team_composition": {
+      "AI/ML Engineer": [
+        "U_147"
+      ],
+      "Backend Developer": [
+        "U_087"
+      ],
+      "Data Engineer": [
+        "U_262"
+      ],
+      "IoT Engineer": [
+        "U_012",
+        "U_268",
+        "U_285"
+      ]
+    }
+  },
+  {
+    "project_id": "PRJ056",
+    "project_name": "모바일 뱅킹 앱",
+    "client_industry": "Finance",
+    "status": "in-progress",
+    "period": {
+      "start": "2024-04-01",
+      "end": "2025-11-22",
+      "duration_months": 20
+    },
+    "budget_scale": "Large",
+    "description": "Finance 분야 모바일 뱅킹 앱",
     "tech_stack": {
       "backend": [
         "Java",
@@ -2781,126 +3150,914 @@
     }
   },
   {
-    "project_id": "PRJ051",
-    "project_name": "옴니채널 커머스",
+    "project_id": "PRJ057",
+    "project_name": "품질 관리 시스템",
+    "client_industry": "Manufacturing",
+    "status": "in-progress",
+    "period": {
+      "start": "2024-02-01",
+      "end": "2025-09-23",
+      "duration_months": 20
+    },
+    "budget_scale": "Enterprise",
+    "description": "Manufacturing 분야 품질 관리 시스템",
+    "tech_stack": {
+      "backend": [
+        "Python",
+        "Django",
+        "FastAPI"
+      ],
+      "frontend": [
+        "React",
+        "Vue.js"
+      ],
+      "data": [
+        "PostgreSQL",
+        "MongoDB",
+        "Time Series DB"
+      ],
+      "infra": [
+        "AWS",
+        "Docker",
+        "Edge Computing"
+      ]
+    },
+    "requirements": [
+      "IoT 연동",
+      "실시간 모니터링",
+      "예지 보전",
+      "품질 관리"
+    ],
+    "team_composition": {
+      "AI/ML Engineer": [
+        "U_147"
+      ],
+      "Backend Developer": [
+        "U_087"
+      ],
+      "Data Engineer": [
+        "U_262"
+      ],
+      "IoT Engineer": [
+        "U_012"
+      ]
+    }
+  },
+  {
+    "project_id": "PRJ058",
+    "project_name": "금융 플랫폼 구축",
+    "client_industry": "Finance",
+    "status": "in-progress",
+    "period": {
+      "start": "2024-07-01",
+      "end": "2025-11-23",
+      "duration_months": 17
+    },
+    "budget_scale": "Medium",
+    "description": "Finance 분야 금융 플랫폼 구축",
+    "tech_stack": {
+      "backend": [
+        "Java",
+        "Spring Boot",
+        "Oracle",
+        "MSA"
+      ],
+      "frontend": [
+        "React",
+        "TypeScript",
+        "Angular"
+      ],
+      "data": [
+        "Oracle",
+        "Redis",
+        "PostgreSQL"
+      ],
+      "infra": [
+        "AWS",
+        "Docker",
+        "Kubernetes",
+        "Terraform"
+      ]
+    },
+    "requirements": [
+      "보안",
+      "고가용성",
+      "확장성",
+      "컴플라이언스"
+    ],
+    "team_composition": {
+      "Backend Developer": [
+        "U_008"
+      ],
+      "System Architect": [
+        "U_009"
+      ],
+      "Security Engineer": [
+        "U_044"
+      ],
+      "DevOps Engineer": [
+        "U_003",
+        "U_030"
+      ]
+    }
+  },
+  {
+    "project_id": "PRJ059",
+    "project_name": "모바일 뱅킹 앱",
+    "client_industry": "Finance",
+    "status": "in-progress",
+    "period": {
+      "start": "2023-07-01",
+      "end": "2025-06-20",
+      "duration_months": 24
+    },
+    "budget_scale": "Large",
+    "description": "Finance 분야 모바일 뱅킹 앱",
+    "tech_stack": {
+      "backend": [
+        "Java",
+        "Spring Boot",
+        "Oracle",
+        "MSA"
+      ],
+      "frontend": [
+        "React",
+        "TypeScript",
+        "Angular"
+      ],
+      "data": [
+        "Oracle",
+        "Redis",
+        "PostgreSQL"
+      ],
+      "infra": [
+        "AWS",
+        "Docker",
+        "Kubernetes",
+        "Terraform"
+      ]
+    },
+    "requirements": [
+      "보안",
+      "고가용성",
+      "확장성",
+      "컴플라이언스"
+    ],
+    "team_composition": {
+      "Backend Developer": [
+        "U_008"
+      ],
+      "System Architect": [
+        "U_009"
+      ],
+      "Security Engineer": [
+        "U_044"
+      ],
+      "DevOps Engineer": [
+        "U_003",
+        "U_030",
+        "U_103",
+        "U_235",
+        "U_246"
+      ]
+    }
+  },
+  {
+    "project_id": "PRJ060",
+    "project_name": "온라인 쇼핑몰 구축",
     "client_industry": "E-commerce",
+    "status": "in-progress",
+    "period": {
+      "start": "2024-04-01",
+      "end": "2025-09-23",
+      "duration_months": 18
+    },
+    "budget_scale": "Enterprise",
+    "description": "E-commerce 분야 온라인 쇼핑몰 구축",
+    "tech_stack": {
+      "backend": [
+        "Node.js",
+        "Express",
+        "Java",
+        "Spring Boot"
+      ],
+      "frontend": [
+        "React",
+        "Vue.js",
+        "Next.js"
+      ],
+      "data": [
+        "MongoDB",
+        "Redis",
+        "Elasticsearch"
+      ],
+      "infra": [
+        "AWS",
+        "Docker",
+        "Kubernetes"
+      ]
+    },
+    "requirements": [
+      "결제 시스템",
+      "재고 관리",
+      "추천 시스템",
+      "실시간 처리"
+    ],
+    "team_composition": {
+      "Full Stack Developer": [
+        "U_221"
+      ],
+      "Backend Developer": [
+        "U_052"
+      ],
+      "Frontend Developer": [
+        "U_045"
+      ],
+      "DevOps Engineer": [
+        "U_188"
+      ]
+    }
+  },
+  {
+    "project_id": "PRJ061",
+    "project_name": "온라인 쇼핑몰 구축",
+    "client_industry": "E-commerce",
+    "status": "in-progress",
+    "period": {
+      "start": "2023-10-01",
+      "end": "2025-03-24",
+      "duration_months": 18
+    },
+    "budget_scale": "Enterprise",
+    "description": "E-commerce 분야 온라인 쇼핑몰 구축",
+    "tech_stack": {
+      "backend": [
+        "Node.js",
+        "Express",
+        "Java",
+        "Spring Boot"
+      ],
+      "frontend": [
+        "React",
+        "Vue.js",
+        "Next.js"
+      ],
+      "data": [
+        "MongoDB",
+        "Redis",
+        "Elasticsearch"
+      ],
+      "infra": [
+        "AWS",
+        "Docker",
+        "Kubernetes"
+      ]
+    },
+    "requirements": [
+      "결제 시스템",
+      "재고 관리",
+      "추천 시스템",
+      "실시간 처리"
+    ],
+    "team_composition": {
+      "Full Stack Developer": [
+        "U_221"
+      ],
+      "Backend Developer": [
+        "U_052"
+      ],
+      "Frontend Developer": [
+        "U_045"
+      ],
+      "DevOps Engineer": [
+        "U_188"
+      ]
+    }
+  },
+  {
+    "project_id": "PRJ062",
+    "project_name": "모바일 뱅킹 앱",
+    "client_industry": "Finance",
+    "status": "in-progress",
+    "period": {
+      "start": "2024-10-01",
+      "end": "2026-06-23",
+      "duration_months": 21
+    },
+    "budget_scale": "Small",
+    "description": "Finance 분야 모바일 뱅킹 앱",
+    "tech_stack": {
+      "backend": [
+        "Java",
+        "Spring Boot",
+        "Oracle",
+        "MSA"
+      ],
+      "frontend": [
+        "React",
+        "TypeScript",
+        "Angular"
+      ],
+      "data": [
+        "Oracle",
+        "Redis",
+        "PostgreSQL"
+      ],
+      "infra": [
+        "AWS",
+        "Docker",
+        "Kubernetes",
+        "Terraform"
+      ]
+    },
+    "requirements": [
+      "보안",
+      "고가용성",
+      "확장성",
+      "컴플라이언스"
+    ],
+    "team_composition": {
+      "Backend Developer": [
+        "U_008"
+      ],
+      "System Architect": [
+        "U_009"
+      ],
+      "Security Engineer": [
+        "U_044"
+      ],
+      "DevOps Engineer": [
+        "U_003"
+      ]
+    }
+  },
+  {
+    "project_id": "PRJ063",
+    "project_name": "스마트 팩토리 MES",
+    "client_industry": "Manufacturing",
+    "status": "in-progress",
+    "period": {
+      "start": "2023-09-01",
+      "end": "2024-11-24",
+      "duration_months": 15
+    },
+    "budget_scale": "Enterprise",
+    "description": "Manufacturing 분야 스마트 팩토리 MES",
+    "tech_stack": {
+      "backend": [
+        "Python",
+        "Django",
+        "FastAPI"
+      ],
+      "frontend": [
+        "React",
+        "Vue.js"
+      ],
+      "data": [
+        "PostgreSQL",
+        "MongoDB",
+        "Time Series DB"
+      ],
+      "infra": [
+        "AWS",
+        "Docker",
+        "Edge Computing"
+      ]
+    },
+    "requirements": [
+      "IoT 연동",
+      "실시간 모니터링",
+      "예지 보전",
+      "품질 관리"
+    ],
+    "team_composition": {
+      "AI/ML Engineer": [
+        "U_147"
+      ],
+      "Backend Developer": [
+        "U_087"
+      ],
+      "Data Engineer": [
+        "U_262"
+      ],
+      "IoT Engineer": [
+        "U_012",
+        "U_268"
+      ]
+    }
+  },
+  {
+    "project_id": "PRJ064",
+    "project_name": "의료 데이터 분석",
+    "client_industry": "Healthcare",
+    "status": "in-progress",
+    "period": {
+      "start": "2023-04-01",
+      "end": "2024-11-21",
+      "duration_months": 20
+    },
+    "budget_scale": "Large",
+    "description": "Healthcare 분야 의료 데이터 분석",
+    "tech_stack": {
+      "backend": [
+        "Python",
+        "Java",
+        "Spring Boot"
+      ],
+      "frontend": [
+        "React",
+        "Angular"
+      ],
+      "data": [
+        "PostgreSQL",
+        "MongoDB"
+      ],
+      "infra": [
+        "AWS",
+        "Docker"
+      ]
+    },
+    "requirements": [
+      "HIPAA 준수",
+      "데이터 보안",
+      "실시간 분석",
+      "EMR 연동"
+    ],
+    "team_composition": {
+      "Backend Developer": [
+        "U_147"
+      ],
+      "Security Engineer": [
+        "U_168"
+      ],
+      "Data Scientist": [
+        "U_249"
+      ],
+      "Full Stack Developer": [
+        "U_047",
+        "U_285"
+      ]
+    }
+  },
+  {
+    "project_id": "PRJ065",
+    "project_name": "EMR 시스템 구축",
+    "client_industry": "Healthcare",
+    "status": "in-progress",
+    "period": {
+      "start": "2024-06-01",
+      "end": "2025-09-24",
+      "duration_months": 16
+    },
+    "budget_scale": "Small",
+    "description": "Healthcare 분야 EMR 시스템 구축",
+    "tech_stack": {
+      "backend": [
+        "Python",
+        "Java",
+        "Spring Boot"
+      ],
+      "frontend": [
+        "React",
+        "Angular"
+      ],
+      "data": [
+        "PostgreSQL",
+        "MongoDB"
+      ],
+      "infra": [
+        "AWS",
+        "Docker"
+      ]
+    },
+    "requirements": [
+      "HIPAA 준수",
+      "데이터 보안",
+      "실시간 분석",
+      "EMR 연동"
+    ],
+    "team_composition": {
+      "Backend Developer": [
+        "U_147"
+      ],
+      "Security Engineer": [
+        "U_168"
+      ],
+      "Data Scientist": [
+        "U_249"
+      ],
+      "Full Stack Developer": [
+        "U_047",
+        "U_285"
+      ]
+    }
+  },
+  {
+    "project_id": "PRJ066",
+    "project_name": "품질 관리 시스템",
+    "client_industry": "Manufacturing",
+    "status": "in-progress",
+    "period": {
+      "start": "2024-10-01",
+      "end": "2026-04-24",
+      "duration_months": 19
+    },
+    "budget_scale": "Small",
+    "description": "Manufacturing 분야 품질 관리 시스템",
+    "tech_stack": {
+      "backend": [
+        "Python",
+        "Django",
+        "FastAPI"
+      ],
+      "frontend": [
+        "React",
+        "Vue.js"
+      ],
+      "data": [
+        "PostgreSQL",
+        "MongoDB",
+        "Time Series DB"
+      ],
+      "infra": [
+        "AWS",
+        "Docker",
+        "Edge Computing"
+      ]
+    },
+    "requirements": [
+      "IoT 연동",
+      "실시간 모니터링",
+      "예지 보전",
+      "품질 관리"
+    ],
+    "team_composition": {
+      "AI/ML Engineer": [
+        "U_147"
+      ],
+      "Backend Developer": [
+        "U_087"
+      ],
+      "Data Engineer": [
+        "U_262"
+      ],
+      "IoT Engineer": [
+        "U_012",
+        "U_268",
+        "U_285",
+        "U_103",
+        "U_116"
+      ]
+    }
+  },
+  {
+    "project_id": "PRJ067",
+    "project_name": "모바일 뱅킹 앱",
+    "client_industry": "Finance",
+    "status": "in-progress",
+    "period": {
+      "start": "2024-08-01",
+      "end": "2026-04-23",
+      "duration_months": 21
+    },
+    "budget_scale": "Enterprise",
+    "description": "Finance 분야 모바일 뱅킹 앱",
+    "tech_stack": {
+      "backend": [
+        "Java",
+        "Spring Boot",
+        "Oracle",
+        "MSA"
+      ],
+      "frontend": [
+        "React",
+        "TypeScript",
+        "Angular"
+      ],
+      "data": [
+        "Oracle",
+        "Redis",
+        "PostgreSQL"
+      ],
+      "infra": [
+        "AWS",
+        "Docker",
+        "Kubernetes",
+        "Terraform"
+      ]
+    },
+    "requirements": [
+      "보안",
+      "고가용성",
+      "확장성",
+      "컴플라이언스"
+    ],
+    "team_composition": {
+      "Backend Developer": [
+        "U_008"
+      ],
+      "System Architect": [
+        "U_009"
+      ],
+      "Security Engineer": [
+        "U_044"
+      ],
+      "DevOps Engineer": [
+        "U_003"
+      ]
+    }
+  },
+  {
+    "project_id": "PRJ068",
+    "project_name": "IoT 플랫폼 구축",
+    "client_industry": "Manufacturing",
+    "status": "in-progress",
+    "period": {
+      "start": "2024-11-01",
+      "end": "2026-10-22",
+      "duration_months": 24
+    },
+    "budget_scale": "Medium",
+    "description": "Manufacturing 분야 IoT 플랫폼 구축",
+    "tech_stack": {
+      "backend": [
+        "Python",
+        "Django",
+        "FastAPI"
+      ],
+      "frontend": [
+        "React",
+        "Vue.js"
+      ],
+      "data": [
+        "PostgreSQL",
+        "MongoDB",
+        "Time Series DB"
+      ],
+      "infra": [
+        "AWS",
+        "Docker",
+        "Edge Computing"
+      ]
+    },
+    "requirements": [
+      "IoT 연동",
+      "실시간 모니터링",
+      "예지 보전",
+      "품질 관리"
+    ],
+    "team_composition": {
+      "AI/ML Engineer": [
+        "U_147"
+      ],
+      "Backend Developer": [
+        "U_087"
+      ],
+      "Data Engineer": [
+        "U_262"
+      ],
+      "IoT Engineer": [
+        "U_012"
+      ]
+    }
+  },
+  {
+    "project_id": "PRJ069",
+    "project_name": "증권 거래 시스템",
+    "client_industry": "Finance",
+    "status": "in-progress",
+    "period": {
+      "start": "2024-01-01",
+      "end": "2025-12-21",
+      "duration_months": 24
+    },
+    "budget_scale": "Enterprise",
+    "description": "Finance 분야 증권 거래 시스템",
+    "tech_stack": {
+      "backend": [
+        "Java",
+        "Spring Boot",
+        "Oracle",
+        "MSA"
+      ],
+      "frontend": [
+        "React",
+        "TypeScript",
+        "Angular"
+      ],
+      "data": [
+        "Oracle",
+        "Redis",
+        "PostgreSQL"
+      ],
+      "infra": [
+        "AWS",
+        "Docker",
+        "Kubernetes",
+        "Terraform"
+      ]
+    },
+    "requirements": [
+      "보안",
+      "고가용성",
+      "확장성",
+      "컴플라이언스"
+    ],
+    "team_composition": {
+      "Backend Developer": [
+        "U_008"
+      ],
+      "System Architect": [
+        "U_009"
+      ],
+      "Security Engineer": [
+        "U_044"
+      ],
+      "DevOps Engineer": [
+        "U_003",
+        "U_030",
+        "U_103",
+        "U_235"
+      ]
+    }
+  },
+  {
+    "project_id": "PRJ070",
+    "project_name": "금융 플랫폼 구축",
+    "client_industry": "Finance",
+    "status": "in-progress",
     "period": {
       "start": "2024-07-01",
       "end": "2026-02-21",
       "duration_months": 20
     },
-    "budget_scale": "Small",
-    "description": "E-commerce 분야 옴니채널 커머스",
+    "budget_scale": "Large",
+    "description": "Finance 분야 금융 플랫폼 구축",
     "tech_stack": {
       "backend": [
-        "Node.js",
-        "Express",
         "Java",
-        "Spring Boot"
+        "Spring Boot",
+        "Oracle",
+        "MSA"
       ],
       "frontend": [
         "React",
-        "Vue.js",
-        "Next.js"
+        "TypeScript",
+        "Angular"
       ],
       "data": [
-        "MongoDB",
+        "Oracle",
         "Redis",
-        "Elasticsearch"
+        "PostgreSQL"
       ],
       "infra": [
         "AWS",
         "Docker",
-        "Kubernetes"
+        "Kubernetes",
+        "Terraform"
       ]
     },
     "requirements": [
-      "결제 시스템",
-      "재고 관리",
-      "추천 시스템",
-      "실시간 처리"
+      "보안",
+      "고가용성",
+      "확장성",
+      "컴플라이언스"
     ],
     "team_composition": {
-      "Full Stack Developer": [
-        "U_221"
-      ],
       "Backend Developer": [
-        "U_052"
+        "U_008"
       ],
-      "Frontend Developer": [
-        "U_045"
+      "System Architect": [
+        "U_009"
+      ],
+      "Security Engineer": [
+        "U_044"
       ],
       "DevOps Engineer": [
-        "U_188"
+        "U_003"
       ]
     }
   },
   {
-    "project_id": "PRJ052",
-    "project_name": "옴니채널 커머스",
-    "client_industry": "E-commerce",
+    "project_id": "PRJ071",
+    "project_name": "IoT 플랫폼 구축",
+    "client_industry": "Manufacturing",
+    "status": "in-progress",
     "period": {
-      "start": "2024-08-01",
-      "end": "2025-09-25",
-      "duration_months": 14
+      "start": "2023-04-01",
+      "end": "2024-07-24",
+      "duration_months": 16
     },
     "budget_scale": "Large",
-    "description": "E-commerce 분야 옴니채널 커머스",
+    "description": "Manufacturing 분야 IoT 플랫폼 구축",
     "tech_stack": {
       "backend": [
-        "Node.js",
-        "Express",
-        "Java",
-        "Spring Boot"
+        "Python",
+        "Django",
+        "FastAPI"
       ],
       "frontend": [
         "React",
-        "Vue.js",
-        "Next.js"
+        "Vue.js"
       ],
       "data": [
+        "PostgreSQL",
         "MongoDB",
-        "Redis",
-        "Elasticsearch"
+        "Time Series DB"
       ],
       "infra": [
         "AWS",
         "Docker",
-        "Kubernetes"
+        "Edge Computing"
       ]
     },
     "requirements": [
-      "결제 시스템",
-      "재고 관리",
-      "추천 시스템",
-      "실시간 처리"
+      "IoT 연동",
+      "실시간 모니터링",
+      "예지 보전",
+      "품질 관리"
     ],
     "team_composition": {
-      "Full Stack Developer": [
-        "U_221"
+      "AI/ML Engineer": [
+        "U_147"
       ],
       "Backend Developer": [
-        "U_052"
+        "U_087"
       ],
-      "Frontend Developer": [
-        "U_045"
+      "Data Engineer": [
+        "U_262"
       ],
-      "DevOps Engineer": [
-        "U_188"
+      "IoT Engineer": [
+        "U_012"
       ]
     }
   },
   {
-    "project_id": "PRJ053",
-    "project_name": "E-commerce 플랫폼",
-    "client_industry": "E-commerce",
+    "project_id": "PRJ072",
+    "project_name": "IoT 플랫폼 구축",
+    "client_industry": "Manufacturing",
+    "status": "in-progress",
     "period": {
-      "start": "2023-01-01",
-      "end": "2024-08-23",
-      "duration_months": 20
+      "start": "2024-01-01",
+      "end": "2025-07-24",
+      "duration_months": 19
     },
     "budget_scale": "Small",
-    "description": "E-commerce 분야 E-commerce 플랫폼",
+    "description": "Manufacturing 분야 IoT 플랫폼 구축",
+    "tech_stack": {
+      "backend": [
+        "Python",
+        "Django",
+        "FastAPI"
+      ],
+      "frontend": [
+        "React",
+        "Vue.js"
+      ],
+      "data": [
+        "PostgreSQL",
+        "MongoDB",
+        "Time Series DB"
+      ],
+      "infra": [
+        "AWS",
+        "Docker",
+        "Edge Computing"
+      ]
+    },
+    "requirements": [
+      "IoT 연동",
+      "실시간 모니터링",
+      "예지 보전",
+      "품질 관리"
+    ],
+    "team_composition": {
+      "AI/ML Engineer": [
+        "U_147"
+      ],
+      "Backend Developer": [
+        "U_087"
+      ],
+      "Data Engineer": [
+        "U_262"
+      ],
+      "IoT Engineer": [
+        "U_012"
+      ]
+    }
+  },
+  {
+    "project_id": "PRJ073",
+    "project_name": "AI 추천 시스템",
+    "client_industry": "E-commerce",
+    "status": "in-progress",
+    "period": {
+      "start": "2024-10-01",
+      "end": "2025-11-25",
+      "duration_months": 14
+    },
+    "budget_scale": "Medium",
+    "description": "E-commerce 분야 AI 추천 시스템",
     "tech_stack": {
       "backend": [
         "Node.js",
@@ -2950,16 +4107,938 @@
     }
   },
   {
-    "project_id": "PRJ054",
-    "project_name": "IoT 플랫폼 구축",
-    "client_industry": "Manufacturing",
+    "project_id": "PRJ074",
+    "project_name": "온라인 쇼핑몰 구축",
+    "client_industry": "E-commerce",
+    "status": "in-progress",
     "period": {
-      "start": "2024-11-01",
-      "end": "2026-08-23",
+      "start": "2024-04-01",
+      "end": "2025-05-26",
+      "duration_months": 14
+    },
+    "budget_scale": "Enterprise",
+    "description": "E-commerce 분야 온라인 쇼핑몰 구축",
+    "tech_stack": {
+      "backend": [
+        "Node.js",
+        "Express",
+        "Java",
+        "Spring Boot"
+      ],
+      "frontend": [
+        "React",
+        "Vue.js",
+        "Next.js"
+      ],
+      "data": [
+        "MongoDB",
+        "Redis",
+        "Elasticsearch"
+      ],
+      "infra": [
+        "AWS",
+        "Docker",
+        "Kubernetes"
+      ]
+    },
+    "requirements": [
+      "결제 시스템",
+      "재고 관리",
+      "추천 시스템",
+      "실시간 처리"
+    ],
+    "team_composition": {
+      "Full Stack Developer": [
+        "U_221"
+      ],
+      "Backend Developer": [
+        "U_052"
+      ],
+      "Frontend Developer": [
+        "U_045"
+      ],
+      "DevOps Engineer": [
+        "U_188",
+        "U_226",
+        "U_085",
+        "U_061"
+      ]
+    }
+  },
+  {
+    "project_id": "PRJ075",
+    "project_name": "온라인 쇼핑몰 구축",
+    "client_industry": "E-commerce",
+    "status": "in-progress",
+    "period": {
+      "start": "2024-02-01",
+      "end": "2026-01-21",
+      "duration_months": 24
+    },
+    "budget_scale": "Enterprise",
+    "description": "E-commerce 분야 온라인 쇼핑몰 구축",
+    "tech_stack": {
+      "backend": [
+        "Node.js",
+        "Express",
+        "Java",
+        "Spring Boot"
+      ],
+      "frontend": [
+        "React",
+        "Vue.js",
+        "Next.js"
+      ],
+      "data": [
+        "MongoDB",
+        "Redis",
+        "Elasticsearch"
+      ],
+      "infra": [
+        "AWS",
+        "Docker",
+        "Kubernetes"
+      ]
+    },
+    "requirements": [
+      "결제 시스템",
+      "재고 관리",
+      "추천 시스템",
+      "실시간 처리"
+    ],
+    "team_composition": {
+      "Full Stack Developer": [
+        "U_221"
+      ],
+      "Backend Developer": [
+        "U_052"
+      ],
+      "Frontend Developer": [
+        "U_045"
+      ],
+      "DevOps Engineer": [
+        "U_188",
+        "U_226",
+        "U_085"
+      ]
+    }
+  },
+  {
+    "project_id": "PRJ076",
+    "project_name": "EMR 시스템 구축",
+    "client_industry": "Healthcare",
+    "status": "in-progress",
+    "period": {
+      "start": "2024-05-01",
+      "end": "2025-08-24",
+      "duration_months": 16
+    },
+    "budget_scale": "Medium",
+    "description": "Healthcare 분야 EMR 시스템 구축",
+    "tech_stack": {
+      "backend": [
+        "Python",
+        "Java",
+        "Spring Boot"
+      ],
+      "frontend": [
+        "React",
+        "Angular"
+      ],
+      "data": [
+        "PostgreSQL",
+        "MongoDB"
+      ],
+      "infra": [
+        "AWS",
+        "Docker"
+      ]
+    },
+    "requirements": [
+      "HIPAA 준수",
+      "데이터 보안",
+      "실시간 분석",
+      "EMR 연동"
+    ],
+    "team_composition": {
+      "Backend Developer": [
+        "U_147"
+      ],
+      "Security Engineer": [
+        "U_168"
+      ],
+      "Data Scientist": [
+        "U_249"
+      ],
+      "Full Stack Developer": [
+        "U_047",
+        "U_285",
+        "U_044",
+        "U_108"
+      ]
+    }
+  },
+  {
+    "project_id": "PRJ077",
+    "project_name": "예지 보전 시스템",
+    "client_industry": "Manufacturing",
+    "status": "in-progress",
+    "period": {
+      "start": "2024-08-01",
+      "end": "2025-11-24",
+      "duration_months": 16
+    },
+    "budget_scale": "Enterprise",
+    "description": "Manufacturing 분야 예지 보전 시스템",
+    "tech_stack": {
+      "backend": [
+        "Python",
+        "Django",
+        "FastAPI"
+      ],
+      "frontend": [
+        "React",
+        "Vue.js"
+      ],
+      "data": [
+        "PostgreSQL",
+        "MongoDB",
+        "Time Series DB"
+      ],
+      "infra": [
+        "AWS",
+        "Docker",
+        "Edge Computing"
+      ]
+    },
+    "requirements": [
+      "IoT 연동",
+      "실시간 모니터링",
+      "예지 보전",
+      "품질 관리"
+    ],
+    "team_composition": {
+      "AI/ML Engineer": [
+        "U_147",
+        "U_087"
+      ],
+      "Backend Developer": [
+        "U_262"
+      ],
+      "Data Engineer": [
+        "U_012"
+      ],
+      "IoT Engineer": [
+        "U_268",
+        "U_285",
+        "U_103",
+        "U_116"
+      ]
+    }
+  },
+  {
+    "project_id": "PRJ078",
+    "project_name": "온라인 쇼핑몰 구축",
+    "client_industry": "E-commerce",
+    "status": "in-progress",
+    "period": {
+      "start": "2024-01-01",
+      "end": "2025-02-24",
+      "duration_months": 14
+    },
+    "budget_scale": "Medium",
+    "description": "E-commerce 분야 온라인 쇼핑몰 구축",
+    "tech_stack": {
+      "backend": [
+        "Node.js",
+        "Express",
+        "Java",
+        "Spring Boot"
+      ],
+      "frontend": [
+        "React",
+        "Vue.js",
+        "Next.js"
+      ],
+      "data": [
+        "MongoDB",
+        "Redis",
+        "Elasticsearch"
+      ],
+      "infra": [
+        "AWS",
+        "Docker",
+        "Kubernetes"
+      ]
+    },
+    "requirements": [
+      "결제 시스템",
+      "재고 관리",
+      "추천 시스템",
+      "실시간 처리"
+    ],
+    "team_composition": {
+      "Full Stack Developer": [
+        "U_221"
+      ],
+      "Backend Developer": [
+        "U_052"
+      ],
+      "Frontend Developer": [
+        "U_045"
+      ],
+      "DevOps Engineer": [
+        "U_188"
+      ]
+    }
+  },
+  {
+    "project_id": "PRJ079",
+    "project_name": "원격 진료 플랫폼",
+    "client_industry": "Healthcare",
+    "status": "in-progress",
+    "period": {
+      "start": "2024-10-01",
+      "end": "2026-05-24",
+      "duration_months": 20
+    },
+    "budget_scale": "Medium",
+    "description": "Healthcare 분야 원격 진료 플랫폼",
+    "tech_stack": {
+      "backend": [
+        "Python",
+        "Java",
+        "Spring Boot"
+      ],
+      "frontend": [
+        "React",
+        "Angular"
+      ],
+      "data": [
+        "PostgreSQL",
+        "MongoDB"
+      ],
+      "infra": [
+        "AWS",
+        "Docker"
+      ]
+    },
+    "requirements": [
+      "HIPAA 준수",
+      "데이터 보안",
+      "실시간 분석",
+      "EMR 연동"
+    ],
+    "team_composition": {
+      "Backend Developer": [
+        "U_147"
+      ],
+      "Security Engineer": [
+        "U_168"
+      ],
+      "Data Scientist": [
+        "U_249"
+      ],
+      "Full Stack Developer": [
+        "U_047",
+        "U_285",
+        "U_044",
+        "U_108",
+        "U_185"
+      ]
+    }
+  },
+  {
+    "project_id": "PRJ080",
+    "project_name": "E-commerce 플랫폼",
+    "client_industry": "E-commerce",
+    "status": "in-progress",
+    "period": {
+      "start": "2024-03-01",
+      "end": "2026-02-19",
+      "duration_months": 24
+    },
+    "budget_scale": "Medium",
+    "description": "E-commerce 분야 E-commerce 플랫폼",
+    "tech_stack": {
+      "backend": [
+        "Node.js",
+        "Express",
+        "Java",
+        "Spring Boot"
+      ],
+      "frontend": [
+        "React",
+        "Vue.js",
+        "Next.js"
+      ],
+      "data": [
+        "MongoDB",
+        "Redis",
+        "Elasticsearch"
+      ],
+      "infra": [
+        "AWS",
+        "Docker",
+        "Kubernetes"
+      ]
+    },
+    "requirements": [
+      "결제 시스템",
+      "재고 관리",
+      "추천 시스템",
+      "실시간 처리"
+    ],
+    "team_composition": {
+      "Full Stack Developer": [
+        "U_221"
+      ],
+      "Backend Developer": [
+        "U_052"
+      ],
+      "Frontend Developer": [
+        "U_045"
+      ],
+      "DevOps Engineer": [
+        "U_188",
+        "U_226"
+      ]
+    }
+  },
+  {
+    "project_id": "PRJ081",
+    "project_name": "E-commerce 플랫폼",
+    "client_industry": "E-commerce",
+    "status": "in-progress",
+    "period": {
+      "start": "2024-09-01",
+      "end": "2025-10-26",
+      "duration_months": 14
+    },
+    "budget_scale": "Enterprise",
+    "description": "E-commerce 분야 E-commerce 플랫폼",
+    "tech_stack": {
+      "backend": [
+        "Node.js",
+        "Express",
+        "Java",
+        "Spring Boot"
+      ],
+      "frontend": [
+        "React",
+        "Vue.js",
+        "Next.js"
+      ],
+      "data": [
+        "MongoDB",
+        "Redis",
+        "Elasticsearch"
+      ],
+      "infra": [
+        "AWS",
+        "Docker",
+        "Kubernetes"
+      ]
+    },
+    "requirements": [
+      "결제 시스템",
+      "재고 관리",
+      "추천 시스템",
+      "실시간 처리"
+    ],
+    "team_composition": {
+      "Full Stack Developer": [
+        "U_221"
+      ],
+      "Backend Developer": [
+        "U_052"
+      ],
+      "Frontend Developer": [
+        "U_045"
+      ],
+      "DevOps Engineer": [
+        "U_188",
+        "U_226"
+      ]
+    }
+  },
+  {
+    "project_id": "PRJ082",
+    "project_name": "금융 플랫폼 구축",
+    "client_industry": "Finance",
+    "status": "in-progress",
+    "period": {
+      "start": "2023-10-01",
+      "end": "2025-06-22",
+      "duration_months": 21
+    },
+    "budget_scale": "Medium",
+    "description": "Finance 분야 금융 플랫폼 구축",
+    "tech_stack": {
+      "backend": [
+        "Java",
+        "Spring Boot",
+        "Oracle",
+        "MSA"
+      ],
+      "frontend": [
+        "React",
+        "TypeScript",
+        "Angular"
+      ],
+      "data": [
+        "Oracle",
+        "Redis",
+        "PostgreSQL"
+      ],
+      "infra": [
+        "AWS",
+        "Docker",
+        "Kubernetes",
+        "Terraform"
+      ]
+    },
+    "requirements": [
+      "보안",
+      "고가용성",
+      "확장성",
+      "컴플라이언스"
+    ],
+    "team_composition": {
+      "Backend Developer": [
+        "U_008"
+      ],
+      "System Architect": [
+        "U_009"
+      ],
+      "Security Engineer": [
+        "U_044"
+      ],
+      "DevOps Engineer": [
+        "U_003",
+        "U_030",
+        "U_103",
+        "U_235"
+      ]
+    }
+  },
+  {
+    "project_id": "PRJ083",
+    "project_name": "EMR 시스템 구축",
+    "client_industry": "Healthcare",
+    "status": "in-progress",
+    "period": {
+      "start": "2024-06-01",
+      "end": "2025-09-24",
+      "duration_months": 16
+    },
+    "budget_scale": "Enterprise",
+    "description": "Healthcare 분야 EMR 시스템 구축",
+    "tech_stack": {
+      "backend": [
+        "Python",
+        "Java",
+        "Spring Boot"
+      ],
+      "frontend": [
+        "React",
+        "Angular"
+      ],
+      "data": [
+        "PostgreSQL",
+        "MongoDB"
+      ],
+      "infra": [
+        "AWS",
+        "Docker"
+      ]
+    },
+    "requirements": [
+      "HIPAA 준수",
+      "데이터 보안",
+      "실시간 분석",
+      "EMR 연동"
+    ],
+    "team_composition": {
+      "Backend Developer": [
+        "U_147"
+      ],
+      "Security Engineer": [
+        "U_168"
+      ],
+      "Data Scientist": [
+        "U_249"
+      ],
+      "Full Stack Developer": [
+        "U_047"
+      ]
+    }
+  },
+  {
+    "project_id": "PRJ084",
+    "project_name": "금융 플랫폼 구축",
+    "client_industry": "Finance",
+    "status": "in-progress",
+    "period": {
+      "start": "2023-03-01",
+      "end": "2024-12-20",
       "duration_months": 22
     },
+    "budget_scale": "Enterprise",
+    "description": "Finance 분야 금융 플랫폼 구축",
+    "tech_stack": {
+      "backend": [
+        "Java",
+        "Spring Boot",
+        "Oracle",
+        "MSA"
+      ],
+      "frontend": [
+        "React",
+        "TypeScript",
+        "Angular"
+      ],
+      "data": [
+        "Oracle",
+        "Redis",
+        "PostgreSQL"
+      ],
+      "infra": [
+        "AWS",
+        "Docker",
+        "Kubernetes",
+        "Terraform"
+      ]
+    },
+    "requirements": [
+      "보안",
+      "고가용성",
+      "확장성",
+      "컴플라이언스"
+    ],
+    "team_composition": {
+      "Backend Developer": [
+        "U_008"
+      ],
+      "System Architect": [
+        "U_009"
+      ],
+      "Security Engineer": [
+        "U_044"
+      ],
+      "DevOps Engineer": [
+        "U_003",
+        "U_030",
+        "U_103"
+      ]
+    }
+  },
+  {
+    "project_id": "PRJ085",
+    "project_name": "온라인 쇼핑몰 구축",
+    "client_industry": "E-commerce",
+    "status": "in-progress",
+    "period": {
+      "start": "2024-01-01",
+      "end": "2025-08-23",
+      "duration_months": 20
+    },
     "budget_scale": "Small",
-    "description": "Manufacturing 분야 IoT 플랫폼 구축",
+    "description": "E-commerce 분야 온라인 쇼핑몰 구축",
+    "tech_stack": {
+      "backend": [
+        "Node.js",
+        "Express",
+        "Java",
+        "Spring Boot"
+      ],
+      "frontend": [
+        "React",
+        "Vue.js",
+        "Next.js"
+      ],
+      "data": [
+        "MongoDB",
+        "Redis",
+        "Elasticsearch"
+      ],
+      "infra": [
+        "AWS",
+        "Docker",
+        "Kubernetes"
+      ]
+    },
+    "requirements": [
+      "결제 시스템",
+      "재고 관리",
+      "추천 시스템",
+      "실시간 처리"
+    ],
+    "team_composition": {
+      "Full Stack Developer": [
+        "U_221"
+      ],
+      "Backend Developer": [
+        "U_052"
+      ],
+      "Frontend Developer": [
+        "U_045"
+      ],
+      "DevOps Engineer": [
+        "U_188",
+        "U_226",
+        "U_085",
+        "U_061"
+      ]
+    }
+  },
+  {
+    "project_id": "PRJ086",
+    "project_name": "차세대 코어뱅킹 시스템",
+    "client_industry": "Finance",
+    "status": "in-progress",
+    "period": {
+      "start": "2024-04-01",
+      "end": "2025-08-24",
+      "duration_months": 17
+    },
+    "budget_scale": "Enterprise",
+    "description": "Finance 분야 차세대 코어뱅킹 시스템",
+    "tech_stack": {
+      "backend": [
+        "Java",
+        "Spring Boot",
+        "Oracle",
+        "MSA"
+      ],
+      "frontend": [
+        "React",
+        "TypeScript",
+        "Angular"
+      ],
+      "data": [
+        "Oracle",
+        "Redis",
+        "PostgreSQL"
+      ],
+      "infra": [
+        "AWS",
+        "Docker",
+        "Kubernetes",
+        "Terraform"
+      ]
+    },
+    "requirements": [
+      "보안",
+      "고가용성",
+      "확장성",
+      "컴플라이언스"
+    ],
+    "team_composition": {
+      "Backend Developer": [
+        "U_008"
+      ],
+      "System Architect": [
+        "U_009"
+      ],
+      "Security Engineer": [
+        "U_044"
+      ],
+      "DevOps Engineer": [
+        "U_003",
+        "U_030",
+        "U_103",
+        "U_235",
+        "U_246"
+      ]
+    }
+  },
+  {
+    "project_id": "PRJ087",
+    "project_name": "옴니채널 커머스",
+    "client_industry": "E-commerce",
+    "status": "in-progress",
+    "period": {
+      "start": "2024-01-01",
+      "end": "2025-09-22",
+      "duration_months": 21
+    },
+    "budget_scale": "Enterprise",
+    "description": "E-commerce 분야 옴니채널 커머스",
+    "tech_stack": {
+      "backend": [
+        "Node.js",
+        "Express",
+        "Java",
+        "Spring Boot"
+      ],
+      "frontend": [
+        "React",
+        "Vue.js",
+        "Next.js"
+      ],
+      "data": [
+        "MongoDB",
+        "Redis",
+        "Elasticsearch"
+      ],
+      "infra": [
+        "AWS",
+        "Docker",
+        "Kubernetes"
+      ]
+    },
+    "requirements": [
+      "결제 시스템",
+      "재고 관리",
+      "추천 시스템",
+      "실시간 처리"
+    ],
+    "team_composition": {
+      "Full Stack Developer": [
+        "U_221"
+      ],
+      "Backend Developer": [
+        "U_052"
+      ],
+      "Frontend Developer": [
+        "U_045"
+      ],
+      "DevOps Engineer": [
+        "U_188",
+        "U_226",
+        "U_085"
+      ]
+    }
+  },
+  {
+    "project_id": "PRJ088",
+    "project_name": "스마트 팩토리 MES",
+    "client_industry": "Manufacturing",
+    "status": "in-progress",
+    "period": {
+      "start": "2024-10-01",
+      "end": "2026-06-23",
+      "duration_months": 21
+    },
+    "budget_scale": "Enterprise",
+    "description": "Manufacturing 분야 스마트 팩토리 MES",
+    "tech_stack": {
+      "backend": [
+        "Python",
+        "Django",
+        "FastAPI"
+      ],
+      "frontend": [
+        "React",
+        "Vue.js"
+      ],
+      "data": [
+        "PostgreSQL",
+        "MongoDB",
+        "Time Series DB"
+      ],
+      "infra": [
+        "AWS",
+        "Docker",
+        "Edge Computing"
+      ]
+    },
+    "requirements": [
+      "IoT 연동",
+      "실시간 모니터링",
+      "예지 보전",
+      "품질 관리"
+    ],
+    "team_composition": {
+      "AI/ML Engineer": [
+        "U_147",
+        "U_087"
+      ],
+      "Backend Developer": [
+        "U_262"
+      ],
+      "Data Engineer": [
+        "U_012"
+      ],
+      "IoT Engineer": [
+        "U_268",
+        "U_285",
+        "U_103",
+        "U_116"
+      ]
+    }
+  },
+  {
+    "project_id": "PRJ089",
+    "project_name": "증권 거래 시스템",
+    "client_industry": "Finance",
+    "status": "in-progress",
+    "period": {
+      "start": "2024-01-01",
+      "end": "2024-12-26",
+      "duration_months": 12
+    },
+    "budget_scale": "Medium",
+    "description": "Finance 분야 증권 거래 시스템",
+    "tech_stack": {
+      "backend": [
+        "Java",
+        "Spring Boot",
+        "Oracle",
+        "MSA"
+      ],
+      "frontend": [
+        "React",
+        "TypeScript",
+        "Angular"
+      ],
+      "data": [
+        "Oracle",
+        "Redis",
+        "PostgreSQL"
+      ],
+      "infra": [
+        "AWS",
+        "Docker",
+        "Kubernetes",
+        "Terraform"
+      ]
+    },
+    "requirements": [
+      "보안",
+      "고가용성",
+      "확장성",
+      "컴플라이언스"
+    ],
+    "team_composition": {
+      "Backend Developer": [
+        "U_008"
+      ],
+      "System Architect": [
+        "U_009"
+      ],
+      "Security Engineer": [
+        "U_044"
+      ],
+      "DevOps Engineer": [
+        "U_003",
+        "U_030"
+      ]
+    }
+  },
+  {
+    "project_id": "PRJ090",
+    "project_name": "스마트 팩토리 MES",
+    "client_industry": "Manufacturing",
+    "status": "in-progress",
+    "period": {
+      "start": "2024-07-01",
+      "end": "2026-02-21",
+      "duration_months": 20
+    },
+    "budget_scale": "Small",
+    "description": "Manufacturing 분야 스마트 팩토리 MES",
     "tech_stack": {
       "backend": [
         "Python",
@@ -2999,21 +5078,196 @@
       ],
       "IoT Engineer": [
         "U_012",
-        "U_268"
+        "U_268",
+        "U_285",
+        "U_103",
+        "U_116"
       ]
     }
   },
   {
-    "project_id": "PRJ055",
-    "project_name": "증권 거래 시스템",
-    "client_industry": "Finance",
+    "project_id": "PRJ091",
+    "project_name": "옴니채널 커머스",
+    "client_industry": "E-commerce",
+    "status": "in-progress",
     "period": {
-      "start": "2024-10-01",
-      "end": "2026-09-21",
-      "duration_months": 24
+      "start": "2024-06-01",
+      "end": "2025-07-26",
+      "duration_months": 14
+    },
+    "budget_scale": "Enterprise",
+    "description": "E-commerce 분야 옴니채널 커머스",
+    "tech_stack": {
+      "backend": [
+        "Node.js",
+        "Express",
+        "Java",
+        "Spring Boot"
+      ],
+      "frontend": [
+        "React",
+        "Vue.js",
+        "Next.js"
+      ],
+      "data": [
+        "MongoDB",
+        "Redis",
+        "Elasticsearch"
+      ],
+      "infra": [
+        "AWS",
+        "Docker",
+        "Kubernetes"
+      ]
+    },
+    "requirements": [
+      "결제 시스템",
+      "재고 관리",
+      "추천 시스템",
+      "실시간 처리"
+    ],
+    "team_composition": {
+      "Full Stack Developer": [
+        "U_221"
+      ],
+      "Backend Developer": [
+        "U_052"
+      ],
+      "Frontend Developer": [
+        "U_045"
+      ],
+      "DevOps Engineer": [
+        "U_188",
+        "U_226",
+        "U_085",
+        "U_061",
+        "U_044"
+      ]
+    }
+  },
+  {
+    "project_id": "PRJ092",
+    "project_name": "의료 데이터 분석",
+    "client_industry": "Healthcare",
+    "status": "in-progress",
+    "period": {
+      "start": "2024-05-01",
+      "end": "2025-11-22",
+      "duration_months": 19
+    },
+    "budget_scale": "Medium",
+    "description": "Healthcare 분야 의료 데이터 분석",
+    "tech_stack": {
+      "backend": [
+        "Python",
+        "Java",
+        "Spring Boot"
+      ],
+      "frontend": [
+        "React",
+        "Angular"
+      ],
+      "data": [
+        "PostgreSQL",
+        "MongoDB"
+      ],
+      "infra": [
+        "AWS",
+        "Docker"
+      ]
+    },
+    "requirements": [
+      "HIPAA 준수",
+      "데이터 보안",
+      "실시간 분석",
+      "EMR 연동"
+    ],
+    "team_composition": {
+      "Backend Developer": [
+        "U_147"
+      ],
+      "Security Engineer": [
+        "U_168"
+      ],
+      "Data Scientist": [
+        "U_249"
+      ],
+      "Full Stack Developer": [
+        "U_047"
+      ]
+    }
+  },
+  {
+    "project_id": "PRJ093",
+    "project_name": "AI 추천 시스템",
+    "client_industry": "E-commerce",
+    "status": "in-progress",
+    "period": {
+      "start": "2024-06-01",
+      "end": "2026-01-22",
+      "duration_months": 20
+    },
+    "budget_scale": "Large",
+    "description": "E-commerce 분야 AI 추천 시스템",
+    "tech_stack": {
+      "backend": [
+        "Node.js",
+        "Express",
+        "Java",
+        "Spring Boot"
+      ],
+      "frontend": [
+        "React",
+        "Vue.js",
+        "Next.js"
+      ],
+      "data": [
+        "MongoDB",
+        "Redis",
+        "Elasticsearch"
+      ],
+      "infra": [
+        "AWS",
+        "Docker",
+        "Kubernetes"
+      ]
+    },
+    "requirements": [
+      "결제 시스템",
+      "재고 관리",
+      "추천 시스템",
+      "실시간 처리"
+    ],
+    "team_composition": {
+      "Full Stack Developer": [
+        "U_221"
+      ],
+      "Backend Developer": [
+        "U_052"
+      ],
+      "Frontend Developer": [
+        "U_045"
+      ],
+      "DevOps Engineer": [
+        "U_188",
+        "U_226",
+        "U_085",
+        "U_061"
+      ]
+    }
+  },
+  {
+    "project_id": "PRJ094",
+    "project_name": "금융 플랫폼 구축",
+    "client_industry": "Finance",
+    "status": "in-progress",
+    "period": {
+      "start": "2024-05-01",
+      "end": "2025-10-23",
+      "duration_months": 18
     },
     "budget_scale": "Small",
-    "description": "Finance 분야 증권 거래 시스템",
+    "description": "Finance 분야 금융 플랫폼 구축",
     "tech_stack": {
       "backend": [
         "Java",
@@ -3060,68 +5314,66 @@
     }
   },
   {
-    "project_id": "PRJ056",
-    "project_name": "IoT 플랫폼 구축",
-    "client_industry": "Manufacturing",
+    "project_id": "PRJ095",
+    "project_name": "의료 데이터 분석",
+    "client_industry": "Healthcare",
+    "status": "in-progress",
     "period": {
       "start": "2024-03-01",
-      "end": "2026-02-19",
-      "duration_months": 24
+      "end": "2025-08-23",
+      "duration_months": 18
     },
-    "budget_scale": "Medium",
-    "description": "Manufacturing 분야 IoT 플랫폼 구축",
+    "budget_scale": "Large",
+    "description": "Healthcare 분야 의료 데이터 분석",
     "tech_stack": {
       "backend": [
         "Python",
-        "Django",
-        "FastAPI"
+        "Java",
+        "Spring Boot"
       ],
       "frontend": [
         "React",
-        "Vue.js"
+        "Angular"
       ],
       "data": [
         "PostgreSQL",
-        "MongoDB",
-        "Time Series DB"
+        "MongoDB"
       ],
       "infra": [
         "AWS",
-        "Docker",
-        "Edge Computing"
+        "Docker"
       ]
     },
     "requirements": [
-      "IoT 연동",
-      "실시간 모니터링",
-      "예지 보전",
-      "품질 관리"
+      "HIPAA 준수",
+      "데이터 보안",
+      "실시간 분석",
+      "EMR 연동"
     ],
     "team_composition": {
-      "AI/ML Engineer": [
+      "Backend Developer": [
         "U_147"
       ],
-      "Backend Developer": [
-        "U_087"
+      "Security Engineer": [
+        "U_168"
       ],
-      "Data Engineer": [
-        "U_262"
+      "Data Scientist": [
+        "U_249"
       ],
-      "IoT Engineer": [
-        "U_012",
-        "U_268",
-        "U_285"
+      "Full Stack Developer": [
+        "U_047"
       ]
     }
   },
   {
-    "project_id": "PRJ057",
+    "project_id": "PRJ096",
     "project_name": "온라인 쇼핑몰 구축",
     "client_industry": "E-commerce",
+    "status": "in-progress",
     "period": {
-      "start": "2024-03-01",
-      "end": "2026-02-19",
-      "duration_months": 24
+      "start": "2023-02-01",
+      "end": "2024-12-22",
+      "duration_months": 23
     },
     "budget_scale": "Medium",
     "description": "E-commerce 분야 온라인 쇼핑몰 구축",
@@ -3173,944 +5425,13 @@
     }
   },
   {
-    "project_id": "PRJ058",
-    "project_name": "원격 진료 플랫폼",
-    "client_industry": "Healthcare",
-    "period": {
-      "start": "2024-01-01",
-      "end": "2025-04-25",
-      "duration_months": 16
-    },
-    "budget_scale": "Small",
-    "description": "Healthcare 분야 원격 진료 플랫폼",
-    "tech_stack": {
-      "backend": [
-        "Python",
-        "Java",
-        "Spring Boot"
-      ],
-      "frontend": [
-        "React",
-        "Angular"
-      ],
-      "data": [
-        "PostgreSQL",
-        "MongoDB"
-      ],
-      "infra": [
-        "AWS",
-        "Docker"
-      ]
-    },
-    "requirements": [
-      "HIPAA 준수",
-      "데이터 보안",
-      "실시간 분석",
-      "EMR 연동"
-    ],
-    "team_composition": {
-      "Backend Developer": [
-        "U_147"
-      ],
-      "Security Engineer": [
-        "U_168"
-      ],
-      "Data Scientist": [
-        "U_249"
-      ],
-      "Full Stack Developer": [
-        "U_047",
-        "U_285",
-        "U_044",
-        "U_108"
-      ]
-    }
-  },
-  {
-    "project_id": "PRJ059",
-    "project_name": "AI 추천 시스템",
-    "client_industry": "E-commerce",
-    "period": {
-      "start": "2024-09-01",
-      "end": "2026-06-23",
-      "duration_months": 22
-    },
-    "budget_scale": "Large",
-    "description": "E-commerce 분야 AI 추천 시스템",
-    "tech_stack": {
-      "backend": [
-        "Node.js",
-        "Express",
-        "Java",
-        "Spring Boot"
-      ],
-      "frontend": [
-        "React",
-        "Vue.js",
-        "Next.js"
-      ],
-      "data": [
-        "MongoDB",
-        "Redis",
-        "Elasticsearch"
-      ],
-      "infra": [
-        "AWS",
-        "Docker",
-        "Kubernetes"
-      ]
-    },
-    "requirements": [
-      "결제 시스템",
-      "재고 관리",
-      "추천 시스템",
-      "실시간 처리"
-    ],
-    "team_composition": {
-      "Full Stack Developer": [
-        "U_221"
-      ],
-      "Backend Developer": [
-        "U_052"
-      ],
-      "Frontend Developer": [
-        "U_045"
-      ],
-      "DevOps Engineer": [
-        "U_188"
-      ]
-    }
-  },
-  {
-    "project_id": "PRJ060",
-    "project_name": "원격 진료 플랫폼",
-    "client_industry": "Healthcare",
-    "period": {
-      "start": "2023-07-01",
-      "end": "2024-09-23",
-      "duration_months": 15
-    },
-    "budget_scale": "Small",
-    "description": "Healthcare 분야 원격 진료 플랫폼",
-    "tech_stack": {
-      "backend": [
-        "Python",
-        "Java",
-        "Spring Boot"
-      ],
-      "frontend": [
-        "React",
-        "Angular"
-      ],
-      "data": [
-        "PostgreSQL",
-        "MongoDB"
-      ],
-      "infra": [
-        "AWS",
-        "Docker"
-      ]
-    },
-    "requirements": [
-      "HIPAA 준수",
-      "데이터 보안",
-      "실시간 분석",
-      "EMR 연동"
-    ],
-    "team_composition": {
-      "Backend Developer": [
-        "U_147"
-      ],
-      "Security Engineer": [
-        "U_168"
-      ],
-      "Data Scientist": [
-        "U_249"
-      ],
-      "Full Stack Developer": [
-        "U_047",
-        "U_285"
-      ]
-    }
-  },
-  {
-    "project_id": "PRJ061",
-    "project_name": "옴니채널 커머스",
-    "client_industry": "E-commerce",
-    "period": {
-      "start": "2024-07-01",
-      "end": "2026-04-22",
-      "duration_months": 22
-    },
-    "budget_scale": "Large",
-    "description": "E-commerce 분야 옴니채널 커머스",
-    "tech_stack": {
-      "backend": [
-        "Node.js",
-        "Express",
-        "Java",
-        "Spring Boot"
-      ],
-      "frontend": [
-        "React",
-        "Vue.js",
-        "Next.js"
-      ],
-      "data": [
-        "MongoDB",
-        "Redis",
-        "Elasticsearch"
-      ],
-      "infra": [
-        "AWS",
-        "Docker",
-        "Kubernetes"
-      ]
-    },
-    "requirements": [
-      "결제 시스템",
-      "재고 관리",
-      "추천 시스템",
-      "실시간 처리"
-    ],
-    "team_composition": {
-      "Full Stack Developer": [
-        "U_221"
-      ],
-      "Backend Developer": [
-        "U_052"
-      ],
-      "Frontend Developer": [
-        "U_045"
-      ],
-      "DevOps Engineer": [
-        "U_188"
-      ]
-    }
-  },
-  {
-    "project_id": "PRJ062",
-    "project_name": "차세대 코어뱅킹 시스템",
-    "client_industry": "Finance",
-    "period": {
-      "start": "2024-03-01",
-      "end": "2025-12-21",
-      "duration_months": 22
-    },
-    "budget_scale": "Large",
-    "description": "Finance 분야 차세대 코어뱅킹 시스템",
-    "tech_stack": {
-      "backend": [
-        "Java",
-        "Spring Boot",
-        "Oracle",
-        "MSA"
-      ],
-      "frontend": [
-        "React",
-        "TypeScript",
-        "Angular"
-      ],
-      "data": [
-        "Oracle",
-        "Redis",
-        "PostgreSQL"
-      ],
-      "infra": [
-        "AWS",
-        "Docker",
-        "Kubernetes",
-        "Terraform"
-      ]
-    },
-    "requirements": [
-      "보안",
-      "고가용성",
-      "확장성",
-      "컴플라이언스"
-    ],
-    "team_composition": {
-      "Backend Developer": [
-        "U_008"
-      ],
-      "System Architect": [
-        "U_009"
-      ],
-      "Security Engineer": [
-        "U_044"
-      ],
-      "DevOps Engineer": [
-        "U_003",
-        "U_030"
-      ]
-    }
-  },
-  {
-    "project_id": "PRJ063",
-    "project_name": "스마트 팩토리 MES",
-    "client_industry": "Manufacturing",
-    "period": {
-      "start": "2024-10-01",
-      "end": "2026-05-24",
-      "duration_months": 20
-    },
-    "budget_scale": "Medium",
-    "description": "Manufacturing 분야 스마트 팩토리 MES",
-    "tech_stack": {
-      "backend": [
-        "Python",
-        "Django",
-        "FastAPI"
-      ],
-      "frontend": [
-        "React",
-        "Vue.js"
-      ],
-      "data": [
-        "PostgreSQL",
-        "MongoDB",
-        "Time Series DB"
-      ],
-      "infra": [
-        "AWS",
-        "Docker",
-        "Edge Computing"
-      ]
-    },
-    "requirements": [
-      "IoT 연동",
-      "실시간 모니터링",
-      "예지 보전",
-      "품질 관리"
-    ],
-    "team_composition": {
-      "AI/ML Engineer": [
-        "U_147"
-      ],
-      "Backend Developer": [
-        "U_087"
-      ],
-      "Data Engineer": [
-        "U_262"
-      ],
-      "IoT Engineer": [
-        "U_012",
-        "U_268"
-      ]
-    }
-  },
-  {
-    "project_id": "PRJ064",
-    "project_name": "옴니채널 커머스",
-    "client_industry": "E-commerce",
-    "period": {
-      "start": "2023-05-01",
-      "end": "2024-09-22",
-      "duration_months": 17
-    },
-    "budget_scale": "Small",
-    "description": "E-commerce 분야 옴니채널 커머스",
-    "tech_stack": {
-      "backend": [
-        "Node.js",
-        "Express",
-        "Java",
-        "Spring Boot"
-      ],
-      "frontend": [
-        "React",
-        "Vue.js",
-        "Next.js"
-      ],
-      "data": [
-        "MongoDB",
-        "Redis",
-        "Elasticsearch"
-      ],
-      "infra": [
-        "AWS",
-        "Docker",
-        "Kubernetes"
-      ]
-    },
-    "requirements": [
-      "결제 시스템",
-      "재고 관리",
-      "추천 시스템",
-      "실시간 처리"
-    ],
-    "team_composition": {
-      "Full Stack Developer": [
-        "U_221"
-      ],
-      "Backend Developer": [
-        "U_052"
-      ],
-      "Frontend Developer": [
-        "U_045"
-      ],
-      "DevOps Engineer": [
-        "U_188",
-        "U_226"
-      ]
-    }
-  },
-  {
-    "project_id": "PRJ065",
-    "project_name": "의료 데이터 분석",
-    "client_industry": "Healthcare",
-    "period": {
-      "start": "2024-05-01",
-      "end": "2026-02-20",
-      "duration_months": 22
-    },
-    "budget_scale": "Medium",
-    "description": "Healthcare 분야 의료 데이터 분석",
-    "tech_stack": {
-      "backend": [
-        "Python",
-        "Java",
-        "Spring Boot"
-      ],
-      "frontend": [
-        "React",
-        "Angular"
-      ],
-      "data": [
-        "PostgreSQL",
-        "MongoDB"
-      ],
-      "infra": [
-        "AWS",
-        "Docker"
-      ]
-    },
-    "requirements": [
-      "HIPAA 준수",
-      "데이터 보안",
-      "실시간 분석",
-      "EMR 연동"
-    ],
-    "team_composition": {
-      "Backend Developer": [
-        "U_147"
-      ],
-      "Security Engineer": [
-        "U_168"
-      ],
-      "Data Scientist": [
-        "U_249"
-      ],
-      "Full Stack Developer": [
-        "U_047",
-        "U_285",
-        "U_044",
-        "U_108"
-      ]
-    }
-  },
-  {
-    "project_id": "PRJ066",
-    "project_name": "의료 데이터 분석",
-    "client_industry": "Healthcare",
-    "period": {
-      "start": "2024-01-01",
-      "end": "2025-11-21",
-      "duration_months": 23
-    },
-    "budget_scale": "Small",
-    "description": "Healthcare 분야 의료 데이터 분석",
-    "tech_stack": {
-      "backend": [
-        "Python",
-        "Java",
-        "Spring Boot"
-      ],
-      "frontend": [
-        "React",
-        "Angular"
-      ],
-      "data": [
-        "PostgreSQL",
-        "MongoDB"
-      ],
-      "infra": [
-        "AWS",
-        "Docker"
-      ]
-    },
-    "requirements": [
-      "HIPAA 준수",
-      "데이터 보안",
-      "실시간 분석",
-      "EMR 연동"
-    ],
-    "team_composition": {
-      "Backend Developer": [
-        "U_147"
-      ],
-      "Security Engineer": [
-        "U_168"
-      ],
-      "Data Scientist": [
-        "U_249"
-      ],
-      "Full Stack Developer": [
-        "U_047",
-        "U_285",
-        "U_044",
-        "U_108",
-        "U_185"
-      ]
-    }
-  },
-  {
-    "project_id": "PRJ067",
-    "project_name": "AI 추천 시스템",
-    "client_industry": "E-commerce",
-    "period": {
-      "start": "2024-07-01",
-      "end": "2025-08-25",
-      "duration_months": 14
-    },
-    "budget_scale": "Medium",
-    "description": "E-commerce 분야 AI 추천 시스템",
-    "tech_stack": {
-      "backend": [
-        "Node.js",
-        "Express",
-        "Java",
-        "Spring Boot"
-      ],
-      "frontend": [
-        "React",
-        "Vue.js",
-        "Next.js"
-      ],
-      "data": [
-        "MongoDB",
-        "Redis",
-        "Elasticsearch"
-      ],
-      "infra": [
-        "AWS",
-        "Docker",
-        "Kubernetes"
-      ]
-    },
-    "requirements": [
-      "결제 시스템",
-      "재고 관리",
-      "추천 시스템",
-      "실시간 처리"
-    ],
-    "team_composition": {
-      "Full Stack Developer": [
-        "U_221"
-      ],
-      "Backend Developer": [
-        "U_052"
-      ],
-      "Frontend Developer": [
-        "U_045"
-      ],
-      "DevOps Engineer": [
-        "U_188"
-      ]
-    }
-  },
-  {
-    "project_id": "PRJ068",
-    "project_name": "예지 보전 시스템",
-    "client_industry": "Manufacturing",
-    "period": {
-      "start": "2023-03-01",
-      "end": "2025-02-18",
-      "duration_months": 24
-    },
-    "budget_scale": "Enterprise",
-    "description": "Manufacturing 분야 예지 보전 시스템",
-    "tech_stack": {
-      "backend": [
-        "Python",
-        "Django",
-        "FastAPI"
-      ],
-      "frontend": [
-        "React",
-        "Vue.js"
-      ],
-      "data": [
-        "PostgreSQL",
-        "MongoDB",
-        "Time Series DB"
-      ],
-      "infra": [
-        "AWS",
-        "Docker",
-        "Edge Computing"
-      ]
-    },
-    "requirements": [
-      "IoT 연동",
-      "실시간 모니터링",
-      "예지 보전",
-      "품질 관리"
-    ],
-    "team_composition": {
-      "AI/ML Engineer": [
-        "U_147"
-      ],
-      "Backend Developer": [
-        "U_087"
-      ],
-      "Data Engineer": [
-        "U_262"
-      ],
-      "IoT Engineer": [
-        "U_012"
-      ]
-    }
-  },
-  {
-    "project_id": "PRJ069",
-    "project_name": "금융 플랫폼 구축",
-    "client_industry": "Finance",
-    "period": {
-      "start": "2024-06-01",
-      "end": "2026-03-23",
-      "duration_months": 22
-    },
-    "budget_scale": "Medium",
-    "description": "Finance 분야 금융 플랫폼 구축",
-    "tech_stack": {
-      "backend": [
-        "Java",
-        "Spring Boot",
-        "Oracle",
-        "MSA"
-      ],
-      "frontend": [
-        "React",
-        "TypeScript",
-        "Angular"
-      ],
-      "data": [
-        "Oracle",
-        "Redis",
-        "PostgreSQL"
-      ],
-      "infra": [
-        "AWS",
-        "Docker",
-        "Kubernetes",
-        "Terraform"
-      ]
-    },
-    "requirements": [
-      "보안",
-      "고가용성",
-      "확장성",
-      "컴플라이언스"
-    ],
-    "team_composition": {
-      "Backend Developer": [
-        "U_008"
-      ],
-      "System Architect": [
-        "U_009"
-      ],
-      "Security Engineer": [
-        "U_044"
-      ],
-      "DevOps Engineer": [
-        "U_003",
-        "U_030",
-        "U_103"
-      ]
-    }
-  },
-  {
-    "project_id": "PRJ070",
-    "project_name": "E-commerce 플랫폼",
-    "client_industry": "E-commerce",
-    "period": {
-      "start": "2024-01-01",
-      "end": "2025-01-25",
-      "duration_months": 13
-    },
-    "budget_scale": "Enterprise",
-    "description": "E-commerce 분야 E-commerce 플랫폼",
-    "tech_stack": {
-      "backend": [
-        "Node.js",
-        "Express",
-        "Java",
-        "Spring Boot"
-      ],
-      "frontend": [
-        "React",
-        "Vue.js",
-        "Next.js"
-      ],
-      "data": [
-        "MongoDB",
-        "Redis",
-        "Elasticsearch"
-      ],
-      "infra": [
-        "AWS",
-        "Docker",
-        "Kubernetes"
-      ]
-    },
-    "requirements": [
-      "결제 시스템",
-      "재고 관리",
-      "추천 시스템",
-      "실시간 처리"
-    ],
-    "team_composition": {
-      "Full Stack Developer": [
-        "U_221"
-      ],
-      "Backend Developer": [
-        "U_052"
-      ],
-      "Frontend Developer": [
-        "U_045"
-      ],
-      "DevOps Engineer": [
-        "U_188",
-        "U_226"
-      ]
-    }
-  },
-  {
-    "project_id": "PRJ071",
-    "project_name": "예지 보전 시스템",
-    "client_industry": "Manufacturing",
-    "period": {
-      "start": "2023-02-01",
-      "end": "2024-09-23",
-      "duration_months": 20
-    },
-    "budget_scale": "Large",
-    "description": "Manufacturing 분야 예지 보전 시스템",
-    "tech_stack": {
-      "backend": [
-        "Python",
-        "Django",
-        "FastAPI"
-      ],
-      "frontend": [
-        "React",
-        "Vue.js"
-      ],
-      "data": [
-        "PostgreSQL",
-        "MongoDB",
-        "Time Series DB"
-      ],
-      "infra": [
-        "AWS",
-        "Docker",
-        "Edge Computing"
-      ]
-    },
-    "requirements": [
-      "IoT 연동",
-      "실시간 모니터링",
-      "예지 보전",
-      "품질 관리"
-    ],
-    "team_composition": {
-      "AI/ML Engineer": [
-        "U_147"
-      ],
-      "Backend Developer": [
-        "U_087"
-      ],
-      "Data Engineer": [
-        "U_262"
-      ],
-      "IoT Engineer": [
-        "U_012"
-      ]
-    }
-  },
-  {
-    "project_id": "PRJ072",
-    "project_name": "온라인 쇼핑몰 구축",
-    "client_industry": "E-commerce",
-    "period": {
-      "start": "2024-03-01",
-      "end": "2026-02-19",
-      "duration_months": 24
-    },
-    "budget_scale": "Medium",
-    "description": "E-commerce 분야 온라인 쇼핑몰 구축",
-    "tech_stack": {
-      "backend": [
-        "Node.js",
-        "Express",
-        "Java",
-        "Spring Boot"
-      ],
-      "frontend": [
-        "React",
-        "Vue.js",
-        "Next.js"
-      ],
-      "data": [
-        "MongoDB",
-        "Redis",
-        "Elasticsearch"
-      ],
-      "infra": [
-        "AWS",
-        "Docker",
-        "Kubernetes"
-      ]
-    },
-    "requirements": [
-      "결제 시스템",
-      "재고 관리",
-      "추천 시스템",
-      "실시간 처리"
-    ],
-    "team_composition": {
-      "Full Stack Developer": [
-        "U_221"
-      ],
-      "Backend Developer": [
-        "U_052"
-      ],
-      "Frontend Developer": [
-        "U_045"
-      ],
-      "DevOps Engineer": [
-        "U_188"
-      ]
-    }
-  },
-  {
-    "project_id": "PRJ073",
-    "project_name": "AI 추천 시스템",
-    "client_industry": "E-commerce",
-    "period": {
-      "start": "2023-07-01",
-      "end": "2025-02-20",
-      "duration_months": 20
-    },
-    "budget_scale": "Medium",
-    "description": "E-commerce 분야 AI 추천 시스템",
-    "tech_stack": {
-      "backend": [
-        "Node.js",
-        "Express",
-        "Java",
-        "Spring Boot"
-      ],
-      "frontend": [
-        "React",
-        "Vue.js",
-        "Next.js"
-      ],
-      "data": [
-        "MongoDB",
-        "Redis",
-        "Elasticsearch"
-      ],
-      "infra": [
-        "AWS",
-        "Docker",
-        "Kubernetes"
-      ]
-    },
-    "requirements": [
-      "결제 시스템",
-      "재고 관리",
-      "추천 시스템",
-      "실시간 처리"
-    ],
-    "team_composition": {
-      "Full Stack Developer": [
-        "U_221"
-      ],
-      "Backend Developer": [
-        "U_052"
-      ],
-      "Frontend Developer": [
-        "U_045"
-      ],
-      "DevOps Engineer": [
-        "U_188"
-      ]
-    }
-  },
-  {
-    "project_id": "PRJ074",
+    "project_id": "PRJ097",
     "project_name": "품질 관리 시스템",
     "client_industry": "Manufacturing",
+    "status": "in-progress",
     "period": {
-      "start": "2024-03-01",
-      "end": "2025-05-25",
-      "duration_months": 15
-    },
-    "budget_scale": "Medium",
-    "description": "Manufacturing 분야 품질 관리 시스템",
-    "tech_stack": {
-      "backend": [
-        "Python",
-        "Django",
-        "FastAPI"
-      ],
-      "frontend": [
-        "React",
-        "Vue.js"
-      ],
-      "data": [
-        "PostgreSQL",
-        "MongoDB",
-        "Time Series DB"
-      ],
-      "infra": [
-        "AWS",
-        "Docker",
-        "Edge Computing"
-      ]
-    },
-    "requirements": [
-      "IoT 연동",
-      "실시간 모니터링",
-      "예지 보전",
-      "품질 관리"
-    ],
-    "team_composition": {
-      "AI/ML Engineer": [
-        "U_147"
-      ],
-      "Backend Developer": [
-        "U_087"
-      ],
-      "Data Engineer": [
-        "U_262"
-      ],
-      "IoT Engineer": [
-        "U_012",
-        "U_268",
-        "U_285"
-      ]
-    }
-  },
-  {
-    "project_id": "PRJ075",
-    "project_name": "품질 관리 시스템",
-    "client_industry": "Manufacturing",
-    "period": {
-      "start": "2024-05-01",
-      "end": "2025-12-22",
+      "start": "2024-11-01",
+      "end": "2026-06-24",
       "duration_months": 20
     },
     "budget_scale": "Large",
@@ -4162,788 +5483,17 @@
     }
   },
   {
-    "project_id": "PRJ076",
-    "project_name": "증권 거래 시스템",
-    "client_industry": "Finance",
-    "period": {
-      "start": "2024-10-01",
-      "end": "2025-11-25",
-      "duration_months": 14
-    },
-    "budget_scale": "Large",
-    "description": "Finance 분야 증권 거래 시스템",
-    "tech_stack": {
-      "backend": [
-        "Java",
-        "Spring Boot",
-        "Oracle",
-        "MSA"
-      ],
-      "frontend": [
-        "React",
-        "TypeScript",
-        "Angular"
-      ],
-      "data": [
-        "Oracle",
-        "Redis",
-        "PostgreSQL"
-      ],
-      "infra": [
-        "AWS",
-        "Docker",
-        "Kubernetes",
-        "Terraform"
-      ]
-    },
-    "requirements": [
-      "보안",
-      "고가용성",
-      "확장성",
-      "컴플라이언스"
-    ],
-    "team_composition": {
-      "Backend Developer": [
-        "U_008"
-      ],
-      "System Architect": [
-        "U_009"
-      ],
-      "Security Engineer": [
-        "U_044"
-      ],
-      "DevOps Engineer": [
-        "U_003",
-        "U_030",
-        "U_103",
-        "U_235"
-      ]
-    }
-  },
-  {
-    "project_id": "PRJ077",
-    "project_name": "원격 진료 플랫폼",
-    "client_industry": "Healthcare",
-    "period": {
-      "start": "2023-10-01",
-      "end": "2025-01-23",
-      "duration_months": 16
-    },
-    "budget_scale": "Enterprise",
-    "description": "Healthcare 분야 원격 진료 플랫폼",
-    "tech_stack": {
-      "backend": [
-        "Python",
-        "Java",
-        "Spring Boot"
-      ],
-      "frontend": [
-        "React",
-        "Angular"
-      ],
-      "data": [
-        "PostgreSQL",
-        "MongoDB"
-      ],
-      "infra": [
-        "AWS",
-        "Docker"
-      ]
-    },
-    "requirements": [
-      "HIPAA 준수",
-      "데이터 보안",
-      "실시간 분석",
-      "EMR 연동"
-    ],
-    "team_composition": {
-      "Backend Developer": [
-        "U_147"
-      ],
-      "Security Engineer": [
-        "U_168"
-      ],
-      "Data Scientist": [
-        "U_249"
-      ],
-      "Full Stack Developer": [
-        "U_047",
-        "U_285",
-        "U_044",
-        "U_108"
-      ]
-    }
-  },
-  {
-    "project_id": "PRJ078",
-    "project_name": "예지 보전 시스템",
+    "project_id": "PRJ098",
+    "project_name": "스마트 팩토리 MES",
     "client_industry": "Manufacturing",
-    "period": {
-      "start": "2023-07-01",
-      "end": "2024-08-24",
-      "duration_months": 14
-    },
-    "budget_scale": "Small",
-    "description": "Manufacturing 분야 예지 보전 시스템",
-    "tech_stack": {
-      "backend": [
-        "Python",
-        "Django",
-        "FastAPI"
-      ],
-      "frontend": [
-        "React",
-        "Vue.js"
-      ],
-      "data": [
-        "PostgreSQL",
-        "MongoDB",
-        "Time Series DB"
-      ],
-      "infra": [
-        "AWS",
-        "Docker",
-        "Edge Computing"
-      ]
-    },
-    "requirements": [
-      "IoT 연동",
-      "실시간 모니터링",
-      "예지 보전",
-      "품질 관리"
-    ],
-    "team_composition": {
-      "AI/ML Engineer": [
-        "U_147"
-      ],
-      "Backend Developer": [
-        "U_087"
-      ],
-      "Data Engineer": [
-        "U_262"
-      ],
-      "IoT Engineer": [
-        "U_012"
-      ]
-    }
-  },
-  {
-    "project_id": "PRJ079",
-    "project_name": "증권 거래 시스템",
-    "client_industry": "Finance",
-    "period": {
-      "start": "2024-10-01",
-      "end": "2025-11-25",
-      "duration_months": 14
-    },
-    "budget_scale": "Large",
-    "description": "Finance 분야 증권 거래 시스템",
-    "tech_stack": {
-      "backend": [
-        "Java",
-        "Spring Boot",
-        "Oracle",
-        "MSA"
-      ],
-      "frontend": [
-        "React",
-        "TypeScript",
-        "Angular"
-      ],
-      "data": [
-        "Oracle",
-        "Redis",
-        "PostgreSQL"
-      ],
-      "infra": [
-        "AWS",
-        "Docker",
-        "Kubernetes",
-        "Terraform"
-      ]
-    },
-    "requirements": [
-      "보안",
-      "고가용성",
-      "확장성",
-      "컴플라이언스"
-    ],
-    "team_composition": {
-      "Backend Developer": [
-        "U_008"
-      ],
-      "System Architect": [
-        "U_009"
-      ],
-      "Security Engineer": [
-        "U_044"
-      ],
-      "DevOps Engineer": [
-        "U_003",
-        "U_030",
-        "U_103",
-        "U_235"
-      ]
-    }
-  },
-  {
-    "project_id": "PRJ080",
-    "project_name": "환자 관리 시스템",
-    "client_industry": "Healthcare",
-    "period": {
-      "start": "2023-01-01",
-      "end": "2024-11-21",
-      "duration_months": 23
-    },
-    "budget_scale": "Large",
-    "description": "Healthcare 분야 환자 관리 시스템",
-    "tech_stack": {
-      "backend": [
-        "Python",
-        "Java",
-        "Spring Boot"
-      ],
-      "frontend": [
-        "React",
-        "Angular"
-      ],
-      "data": [
-        "PostgreSQL",
-        "MongoDB"
-      ],
-      "infra": [
-        "AWS",
-        "Docker"
-      ]
-    },
-    "requirements": [
-      "HIPAA 준수",
-      "데이터 보안",
-      "실시간 분석",
-      "EMR 연동"
-    ],
-    "team_composition": {
-      "Backend Developer": [
-        "U_147"
-      ],
-      "Security Engineer": [
-        "U_168"
-      ],
-      "Data Scientist": [
-        "U_249"
-      ],
-      "Full Stack Developer": [
-        "U_047",
-        "U_285"
-      ]
-    }
-  },
-  {
-    "project_id": "PRJ081",
-    "project_name": "증권 거래 시스템",
-    "client_industry": "Finance",
-    "period": {
-      "start": "2024-03-01",
-      "end": "2025-09-22",
-      "duration_months": 19
-    },
-    "budget_scale": "Large",
-    "description": "Finance 분야 증권 거래 시스템",
-    "tech_stack": {
-      "backend": [
-        "Java",
-        "Spring Boot",
-        "Oracle",
-        "MSA"
-      ],
-      "frontend": [
-        "React",
-        "TypeScript",
-        "Angular"
-      ],
-      "data": [
-        "Oracle",
-        "Redis",
-        "PostgreSQL"
-      ],
-      "infra": [
-        "AWS",
-        "Docker",
-        "Kubernetes",
-        "Terraform"
-      ]
-    },
-    "requirements": [
-      "보안",
-      "고가용성",
-      "확장성",
-      "컴플라이언스"
-    ],
-    "team_composition": {
-      "Backend Developer": [
-        "U_008"
-      ],
-      "System Architect": [
-        "U_009"
-      ],
-      "Security Engineer": [
-        "U_044"
-      ],
-      "DevOps Engineer": [
-        "U_003"
-      ]
-    }
-  },
-  {
-    "project_id": "PRJ082",
-    "project_name": "원격 진료 플랫폼",
-    "client_industry": "Healthcare",
-    "period": {
-      "start": "2023-05-01",
-      "end": "2024-12-21",
-      "duration_months": 20
-    },
-    "budget_scale": "Medium",
-    "description": "Healthcare 분야 원격 진료 플랫폼",
-    "tech_stack": {
-      "backend": [
-        "Python",
-        "Java",
-        "Spring Boot"
-      ],
-      "frontend": [
-        "React",
-        "Angular"
-      ],
-      "data": [
-        "PostgreSQL",
-        "MongoDB"
-      ],
-      "infra": [
-        "AWS",
-        "Docker"
-      ]
-    },
-    "requirements": [
-      "HIPAA 준수",
-      "데이터 보안",
-      "실시간 분석",
-      "EMR 연동"
-    ],
-    "team_composition": {
-      "Backend Developer": [
-        "U_147"
-      ],
-      "Security Engineer": [
-        "U_168"
-      ],
-      "Data Scientist": [
-        "U_249"
-      ],
-      "Full Stack Developer": [
-        "U_047"
-      ]
-    }
-  },
-  {
-    "project_id": "PRJ083",
-    "project_name": "EMR 시스템 구축",
-    "client_industry": "Healthcare",
-    "period": {
-      "start": "2024-05-01",
-      "end": "2026-02-20",
-      "duration_months": 22
-    },
-    "budget_scale": "Enterprise",
-    "description": "Healthcare 분야 EMR 시스템 구축",
-    "tech_stack": {
-      "backend": [
-        "Python",
-        "Java",
-        "Spring Boot"
-      ],
-      "frontend": [
-        "React",
-        "Angular"
-      ],
-      "data": [
-        "PostgreSQL",
-        "MongoDB"
-      ],
-      "infra": [
-        "AWS",
-        "Docker"
-      ]
-    },
-    "requirements": [
-      "HIPAA 준수",
-      "데이터 보안",
-      "실시간 분석",
-      "EMR 연동"
-    ],
-    "team_composition": {
-      "Backend Developer": [
-        "U_147"
-      ],
-      "Security Engineer": [
-        "U_168"
-      ],
-      "Data Scientist": [
-        "U_249"
-      ],
-      "Full Stack Developer": [
-        "U_047",
-        "U_285",
-        "U_044"
-      ]
-    }
-  },
-  {
-    "project_id": "PRJ084",
-    "project_name": "금융 플랫폼 구축",
-    "client_industry": "Finance",
-    "period": {
-      "start": "2024-05-01",
-      "end": "2025-07-25",
-      "duration_months": 15
-    },
-    "budget_scale": "Small",
-    "description": "Finance 분야 금융 플랫폼 구축",
-    "tech_stack": {
-      "backend": [
-        "Java",
-        "Spring Boot",
-        "Oracle",
-        "MSA"
-      ],
-      "frontend": [
-        "React",
-        "TypeScript",
-        "Angular"
-      ],
-      "data": [
-        "Oracle",
-        "Redis",
-        "PostgreSQL"
-      ],
-      "infra": [
-        "AWS",
-        "Docker",
-        "Kubernetes",
-        "Terraform"
-      ]
-    },
-    "requirements": [
-      "보안",
-      "고가용성",
-      "확장성",
-      "컴플라이언스"
-    ],
-    "team_composition": {
-      "Backend Developer": [
-        "U_008",
-        "U_009"
-      ],
-      "System Architect": [
-        "U_044"
-      ],
-      "Security Engineer": [
-        "U_003"
-      ],
-      "DevOps Engineer": [
-        "U_030",
-        "U_103",
-        "U_235",
-        "U_246"
-      ]
-    }
-  },
-  {
-    "project_id": "PRJ085",
-    "project_name": "원격 진료 플랫폼",
-    "client_industry": "Healthcare",
-    "period": {
-      "start": "2024-01-01",
-      "end": "2025-11-21",
-      "duration_months": 23
-    },
-    "budget_scale": "Enterprise",
-    "description": "Healthcare 분야 원격 진료 플랫폼",
-    "tech_stack": {
-      "backend": [
-        "Python",
-        "Java",
-        "Spring Boot"
-      ],
-      "frontend": [
-        "React",
-        "Angular"
-      ],
-      "data": [
-        "PostgreSQL",
-        "MongoDB"
-      ],
-      "infra": [
-        "AWS",
-        "Docker"
-      ]
-    },
-    "requirements": [
-      "HIPAA 준수",
-      "데이터 보안",
-      "실시간 분석",
-      "EMR 연동"
-    ],
-    "team_composition": {
-      "Backend Developer": [
-        "U_147"
-      ],
-      "Security Engineer": [
-        "U_168"
-      ],
-      "Data Scientist": [
-        "U_249"
-      ],
-      "Full Stack Developer": [
-        "U_047"
-      ]
-    }
-  },
-  {
-    "project_id": "PRJ086",
-    "project_name": "온라인 쇼핑몰 구축",
-    "client_industry": "E-commerce",
-    "period": {
-      "start": "2024-04-01",
-      "end": "2026-03-22",
-      "duration_months": 24
-    },
-    "budget_scale": "Small",
-    "description": "E-commerce 분야 온라인 쇼핑몰 구축",
-    "tech_stack": {
-      "backend": [
-        "Node.js",
-        "Express",
-        "Java",
-        "Spring Boot"
-      ],
-      "frontend": [
-        "React",
-        "Vue.js",
-        "Next.js"
-      ],
-      "data": [
-        "MongoDB",
-        "Redis",
-        "Elasticsearch"
-      ],
-      "infra": [
-        "AWS",
-        "Docker",
-        "Kubernetes"
-      ]
-    },
-    "requirements": [
-      "결제 시스템",
-      "재고 관리",
-      "추천 시스템",
-      "실시간 처리"
-    ],
-    "team_composition": {
-      "Full Stack Developer": [
-        "U_221"
-      ],
-      "Backend Developer": [
-        "U_052"
-      ],
-      "Frontend Developer": [
-        "U_045"
-      ],
-      "DevOps Engineer": [
-        "U_188"
-      ]
-    }
-  },
-  {
-    "project_id": "PRJ087",
-    "project_name": "IoT 플랫폼 구축",
-    "client_industry": "Manufacturing",
-    "period": {
-      "start": "2024-06-01",
-      "end": "2025-11-23",
-      "duration_months": 18
-    },
-    "budget_scale": "Large",
-    "description": "Manufacturing 분야 IoT 플랫폼 구축",
-    "tech_stack": {
-      "backend": [
-        "Python",
-        "Django",
-        "FastAPI"
-      ],
-      "frontend": [
-        "React",
-        "Vue.js"
-      ],
-      "data": [
-        "PostgreSQL",
-        "MongoDB",
-        "Time Series DB"
-      ],
-      "infra": [
-        "AWS",
-        "Docker",
-        "Edge Computing"
-      ]
-    },
-    "requirements": [
-      "IoT 연동",
-      "실시간 모니터링",
-      "예지 보전",
-      "품질 관리"
-    ],
-    "team_composition": {
-      "AI/ML Engineer": [
-        "U_147"
-      ],
-      "Backend Developer": [
-        "U_087"
-      ],
-      "Data Engineer": [
-        "U_262"
-      ],
-      "IoT Engineer": [
-        "U_012",
-        "U_268"
-      ]
-    }
-  },
-  {
-    "project_id": "PRJ088",
-    "project_name": "차세대 코어뱅킹 시스템",
-    "client_industry": "Finance",
-    "period": {
-      "start": "2024-06-01",
-      "end": "2026-04-22",
-      "duration_months": 23
-    },
-    "budget_scale": "Enterprise",
-    "description": "Finance 분야 차세대 코어뱅킹 시스템",
-    "tech_stack": {
-      "backend": [
-        "Java",
-        "Spring Boot",
-        "Oracle",
-        "MSA"
-      ],
-      "frontend": [
-        "React",
-        "TypeScript",
-        "Angular"
-      ],
-      "data": [
-        "Oracle",
-        "Redis",
-        "PostgreSQL"
-      ],
-      "infra": [
-        "AWS",
-        "Docker",
-        "Kubernetes",
-        "Terraform"
-      ]
-    },
-    "requirements": [
-      "보안",
-      "고가용성",
-      "확장성",
-      "컴플라이언스"
-    ],
-    "team_composition": {
-      "Backend Developer": [
-        "U_008"
-      ],
-      "System Architect": [
-        "U_009"
-      ],
-      "Security Engineer": [
-        "U_044"
-      ],
-      "DevOps Engineer": [
-        "U_003"
-      ]
-    }
-  },
-  {
-    "project_id": "PRJ089",
-    "project_name": "E-commerce 플랫폼",
-    "client_industry": "E-commerce",
+    "status": "in-progress",
     "period": {
       "start": "2024-07-01",
-      "end": "2025-06-26",
-      "duration_months": 12
+      "end": "2025-08-25",
+      "duration_months": 14
     },
-    "budget_scale": "Small",
-    "description": "E-commerce 분야 E-commerce 플랫폼",
-    "tech_stack": {
-      "backend": [
-        "Node.js",
-        "Express",
-        "Java",
-        "Spring Boot"
-      ],
-      "frontend": [
-        "React",
-        "Vue.js",
-        "Next.js"
-      ],
-      "data": [
-        "MongoDB",
-        "Redis",
-        "Elasticsearch"
-      ],
-      "infra": [
-        "AWS",
-        "Docker",
-        "Kubernetes"
-      ]
-    },
-    "requirements": [
-      "결제 시스템",
-      "재고 관리",
-      "추천 시스템",
-      "실시간 처리"
-    ],
-    "team_composition": {
-      "Full Stack Developer": [
-        "U_221"
-      ],
-      "Backend Developer": [
-        "U_052"
-      ],
-      "Frontend Developer": [
-        "U_045"
-      ],
-      "DevOps Engineer": [
-        "U_188",
-        "U_226",
-        "U_085",
-        "U_061",
-        "U_044"
-      ]
-    }
-  },
-  {
-    "project_id": "PRJ090",
-    "project_name": "품질 관리 시스템",
-    "client_industry": "Manufacturing",
-    "period": {
-      "start": "2024-01-01",
-      "end": "2025-08-23",
-      "duration_months": 20
-    },
-    "budget_scale": "Medium",
-    "description": "Manufacturing 분야 품질 관리 시스템",
+    "budget_scale": "Large",
+    "description": "Manufacturing 분야 스마트 팩토리 MES",
     "tech_stack": {
       "backend": [
         "Python",
@@ -4990,15 +5540,16 @@
     }
   },
   {
-    "project_id": "PRJ091",
+    "project_id": "PRJ099",
     "project_name": "IoT 플랫폼 구축",
     "client_industry": "Manufacturing",
+    "status": "in-progress",
     "period": {
-      "start": "2024-06-01",
-      "end": "2026-01-22",
+      "start": "2023-09-01",
+      "end": "2025-04-23",
       "duration_months": 20
     },
-    "budget_scale": "Large",
+    "budget_scale": "Enterprise",
     "description": "Manufacturing 분야 IoT 플랫폼 구축",
     "tech_stack": {
       "backend": [
@@ -5029,511 +5580,81 @@
     ],
     "team_composition": {
       "AI/ML Engineer": [
-        "U_147"
-      ],
-      "Backend Developer": [
+        "U_147",
         "U_087"
       ],
-      "Data Engineer": [
+      "Backend Developer": [
         "U_262"
       ],
+      "Data Engineer": [
+        "U_012"
+      ],
       "IoT Engineer": [
-        "U_012",
         "U_268",
-        "U_285"
-      ]
-    }
-  },
-  {
-    "project_id": "PRJ092",
-    "project_name": "금융 플랫폼 구축",
-    "client_industry": "Finance",
-    "period": {
-      "start": "2024-01-01",
-      "end": "2025-09-22",
-      "duration_months": 21
-    },
-    "budget_scale": "Small",
-    "description": "Finance 분야 금융 플랫폼 구축",
-    "tech_stack": {
-      "backend": [
-        "Java",
-        "Spring Boot",
-        "Oracle",
-        "MSA"
-      ],
-      "frontend": [
-        "React",
-        "TypeScript",
-        "Angular"
-      ],
-      "data": [
-        "Oracle",
-        "Redis",
-        "PostgreSQL"
-      ],
-      "infra": [
-        "AWS",
-        "Docker",
-        "Kubernetes",
-        "Terraform"
-      ]
-    },
-    "requirements": [
-      "보안",
-      "고가용성",
-      "확장성",
-      "컴플라이언스"
-    ],
-    "team_composition": {
-      "Backend Developer": [
-        "U_008"
-      ],
-      "System Architect": [
-        "U_009"
-      ],
-      "Security Engineer": [
-        "U_044"
-      ],
-      "DevOps Engineer": [
-        "U_003"
-      ]
-    }
-  },
-  {
-    "project_id": "PRJ093",
-    "project_name": "AI 추천 시스템",
-    "client_industry": "E-commerce",
-    "period": {
-      "start": "2024-06-01",
-      "end": "2026-02-21",
-      "duration_months": 21
-    },
-    "budget_scale": "Small",
-    "description": "E-commerce 분야 AI 추천 시스템",
-    "tech_stack": {
-      "backend": [
-        "Node.js",
-        "Express",
-        "Java",
-        "Spring Boot"
-      ],
-      "frontend": [
-        "React",
-        "Vue.js",
-        "Next.js"
-      ],
-      "data": [
-        "MongoDB",
-        "Redis",
-        "Elasticsearch"
-      ],
-      "infra": [
-        "AWS",
-        "Docker",
-        "Kubernetes"
-      ]
-    },
-    "requirements": [
-      "결제 시스템",
-      "재고 관리",
-      "추천 시스템",
-      "실시간 처리"
-    ],
-    "team_composition": {
-      "Full Stack Developer": [
-        "U_221"
-      ],
-      "Backend Developer": [
-        "U_052"
-      ],
-      "Frontend Developer": [
-        "U_045"
-      ],
-      "DevOps Engineer": [
-        "U_188"
-      ]
-    }
-  },
-  {
-    "project_id": "PRJ094",
-    "project_name": "옴니채널 커머스",
-    "client_industry": "E-commerce",
-    "period": {
-      "start": "2024-06-01",
-      "end": "2026-02-21",
-      "duration_months": 21
-    },
-    "budget_scale": "Medium",
-    "description": "E-commerce 분야 옴니채널 커머스",
-    "tech_stack": {
-      "backend": [
-        "Node.js",
-        "Express",
-        "Java",
-        "Spring Boot"
-      ],
-      "frontend": [
-        "React",
-        "Vue.js",
-        "Next.js"
-      ],
-      "data": [
-        "MongoDB",
-        "Redis",
-        "Elasticsearch"
-      ],
-      "infra": [
-        "AWS",
-        "Docker",
-        "Kubernetes"
-      ]
-    },
-    "requirements": [
-      "결제 시스템",
-      "재고 관리",
-      "추천 시스템",
-      "실시간 처리"
-    ],
-    "team_composition": {
-      "Full Stack Developer": [
-        "U_221"
-      ],
-      "Backend Developer": [
-        "U_052"
-      ],
-      "Frontend Developer": [
-        "U_045"
-      ],
-      "DevOps Engineer": [
-        "U_188",
-        "U_226",
-        "U_085"
-      ]
-    }
-  },
-  {
-    "project_id": "PRJ095",
-    "project_name": "의료 데이터 분석",
-    "client_industry": "Healthcare",
-    "period": {
-      "start": "2023-10-01",
-      "end": "2024-12-24",
-      "duration_months": 15
-    },
-    "budget_scale": "Enterprise",
-    "description": "Healthcare 분야 의료 데이터 분석",
-    "tech_stack": {
-      "backend": [
-        "Python",
-        "Java",
-        "Spring Boot"
-      ],
-      "frontend": [
-        "React",
-        "Angular"
-      ],
-      "data": [
-        "PostgreSQL",
-        "MongoDB"
-      ],
-      "infra": [
-        "AWS",
-        "Docker"
-      ]
-    },
-    "requirements": [
-      "HIPAA 준수",
-      "데이터 보안",
-      "실시간 분석",
-      "EMR 연동"
-    ],
-    "team_composition": {
-      "Backend Developer": [
-        "U_147"
-      ],
-      "Security Engineer": [
-        "U_168"
-      ],
-      "Data Scientist": [
-        "U_249"
-      ],
-      "Full Stack Developer": [
-        "U_047"
-      ]
-    }
-  },
-  {
-    "project_id": "PRJ096",
-    "project_name": "옴니채널 커머스",
-    "client_industry": "E-commerce",
-    "period": {
-      "start": "2024-05-01",
-      "end": "2025-09-23",
-      "duration_months": 17
-    },
-    "budget_scale": "Small",
-    "description": "E-commerce 분야 옴니채널 커머스",
-    "tech_stack": {
-      "backend": [
-        "Node.js",
-        "Express",
-        "Java",
-        "Spring Boot"
-      ],
-      "frontend": [
-        "React",
-        "Vue.js",
-        "Next.js"
-      ],
-      "data": [
-        "MongoDB",
-        "Redis",
-        "Elasticsearch"
-      ],
-      "infra": [
-        "AWS",
-        "Docker",
-        "Kubernetes"
-      ]
-    },
-    "requirements": [
-      "결제 시스템",
-      "재고 관리",
-      "추천 시스템",
-      "실시간 처리"
-    ],
-    "team_composition": {
-      "Full Stack Developer": [
-        "U_221"
-      ],
-      "Backend Developer": [
-        "U_052"
-      ],
-      "Frontend Developer": [
-        "U_045"
-      ],
-      "DevOps Engineer": [
-        "U_188",
-        "U_226",
-        "U_085"
-      ]
-    }
-  },
-  {
-    "project_id": "PRJ097",
-    "project_name": "금융 플랫폼 구축",
-    "client_industry": "Finance",
-    "period": {
-      "start": "2023-11-01",
-      "end": "2024-12-25",
-      "duration_months": 14
-    },
-    "budget_scale": "Small",
-    "description": "Finance 분야 금융 플랫폼 구축",
-    "tech_stack": {
-      "backend": [
-        "Java",
-        "Spring Boot",
-        "Oracle",
-        "MSA"
-      ],
-      "frontend": [
-        "React",
-        "TypeScript",
-        "Angular"
-      ],
-      "data": [
-        "Oracle",
-        "Redis",
-        "PostgreSQL"
-      ],
-      "infra": [
-        "AWS",
-        "Docker",
-        "Kubernetes",
-        "Terraform"
-      ]
-    },
-    "requirements": [
-      "보안",
-      "고가용성",
-      "확장성",
-      "컴플라이언스"
-    ],
-    "team_composition": {
-      "Backend Developer": [
-        "U_008"
-      ],
-      "System Architect": [
-        "U_009"
-      ],
-      "Security Engineer": [
-        "U_044"
-      ],
-      "DevOps Engineer": [
-        "U_003"
-      ]
-    }
-  },
-  {
-    "project_id": "PRJ098",
-    "project_name": "품질 관리 시스템",
-    "client_industry": "Manufacturing",
-    "period": {
-      "start": "2024-02-01",
-      "end": "2025-12-22",
-      "duration_months": 23
-    },
-    "budget_scale": "Small",
-    "description": "Manufacturing 분야 품질 관리 시스템",
-    "tech_stack": {
-      "backend": [
-        "Python",
-        "Django",
-        "FastAPI"
-      ],
-      "frontend": [
-        "React",
-        "Vue.js"
-      ],
-      "data": [
-        "PostgreSQL",
-        "MongoDB",
-        "Time Series DB"
-      ],
-      "infra": [
-        "AWS",
-        "Docker",
-        "Edge Computing"
-      ]
-    },
-    "requirements": [
-      "IoT 연동",
-      "실시간 모니터링",
-      "예지 보전",
-      "품질 관리"
-    ],
-    "team_composition": {
-      "AI/ML Engineer": [
-        "U_147"
-      ],
-      "Backend Developer": [
-        "U_087"
-      ],
-      "Data Engineer": [
-        "U_262"
-      ],
-      "IoT Engineer": [
-        "U_012"
-      ]
-    }
-  },
-  {
-    "project_id": "PRJ099",
-    "project_name": "예지 보전 시스템",
-    "client_industry": "Manufacturing",
-    "period": {
-      "start": "2024-01-01",
-      "end": "2025-01-25",
-      "duration_months": 13
-    },
-    "budget_scale": "Enterprise",
-    "description": "Manufacturing 분야 예지 보전 시스템",
-    "tech_stack": {
-      "backend": [
-        "Python",
-        "Django",
-        "FastAPI"
-      ],
-      "frontend": [
-        "React",
-        "Vue.js"
-      ],
-      "data": [
-        "PostgreSQL",
-        "MongoDB",
-        "Time Series DB"
-      ],
-      "infra": [
-        "AWS",
-        "Docker",
-        "Edge Computing"
-      ]
-    },
-    "requirements": [
-      "IoT 연동",
-      "실시간 모니터링",
-      "예지 보전",
-      "품질 관리"
-    ],
-    "team_composition": {
-      "AI/ML Engineer": [
-        "U_147"
-      ],
-      "Backend Developer": [
-        "U_087"
-      ],
-      "Data Engineer": [
-        "U_262"
-      ],
-      "IoT Engineer": [
-        "U_012"
+        "U_285",
+        "U_103",
+        "U_116"
       ]
     }
   },
   {
     "project_id": "PRJ100",
-    "project_name": "원격 진료 플랫폼",
-    "client_industry": "Healthcare",
+    "project_name": "차세대 코어뱅킹 시스템",
+    "client_industry": "Finance",
+    "status": "in-progress",
     "period": {
-      "start": "2024-04-01",
-      "end": "2026-03-22",
-      "duration_months": 24
+      "start": "2024-06-01",
+      "end": "2025-08-25",
+      "duration_months": 15
     },
-    "budget_scale": "Large",
-    "description": "Healthcare 분야 원격 진료 플랫폼",
+    "budget_scale": "Medium",
+    "description": "Finance 분야 차세대 코어뱅킹 시스템",
     "tech_stack": {
       "backend": [
-        "Python",
         "Java",
-        "Spring Boot"
+        "Spring Boot",
+        "Oracle",
+        "MSA"
       ],
       "frontend": [
         "React",
+        "TypeScript",
         "Angular"
       ],
       "data": [
-        "PostgreSQL",
-        "MongoDB"
+        "Oracle",
+        "Redis",
+        "PostgreSQL"
       ],
       "infra": [
         "AWS",
-        "Docker"
+        "Docker",
+        "Kubernetes",
+        "Terraform"
       ]
     },
     "requirements": [
-      "HIPAA 준수",
-      "데이터 보안",
-      "실시간 분석",
-      "EMR 연동"
+      "보안",
+      "고가용성",
+      "확장성",
+      "컴플라이언스"
     ],
     "team_composition": {
       "Backend Developer": [
-        "U_147"
+        "U_008",
+        "U_009"
+      ],
+      "System Architect": [
+        "U_044"
       ],
       "Security Engineer": [
-        "U_168"
+        "U_003"
       ],
-      "Data Scientist": [
-        "U_249"
-      ],
-      "Full Stack Developer": [
-        "U_047",
-        "U_285",
-        "U_044",
-        "U_108",
-        "U_185"
+      "DevOps Engineer": [
+        "U_030",
+        "U_103",
+        "U_235",
+        "U_246"
       ]
     }
   }

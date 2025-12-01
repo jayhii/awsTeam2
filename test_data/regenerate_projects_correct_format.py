@@ -111,18 +111,20 @@ def find_best_employees_for_project(required_techs, required_roles, num_needed, 
     return candidates[:num_needed]
 
 def generate_project(project_id, project_name, industry_key, is_ongoing=False):
-    """프로젝트 생성 (load_test_data.py 형식)"""
+    """프로젝트 생성 (load_test_data.py 형식 + status 추가)"""
     industry_info = industry_tech_map[industry_key]
     
-    # 프로젝트 기간
+    # 프로젝트 기간 및 상태
     if is_ongoing:
         start_year = random.choice([2024, 2024, 2024, 2023])
         start_month = random.randint(1, 11)
         duration_months = random.randint(12, 24)
+        status = "in-progress"  # 진행중
     else:
         start_year = random.randint(2022, 2023)
         start_month = random.randint(1, 12)
         duration_months = random.randint(6, 18)
+        status = "completed"  # 완료
     
     start_date = f"{start_year}-{start_month:02d}-01"
     end_datetime = datetime(start_year, start_month, 1) + timedelta(days=duration_months*30)
@@ -161,11 +163,12 @@ def generate_project(project_id, project_name, industry_key, is_ongoing=False):
                 assigned_team[role].append(candidate['user_id'])
                 candidate_idx += 1
     
-    # load_test_data.py 형식에 맞춘 프로젝트 객체
+    # load_test_data.py 형식에 맞춘 프로젝트 객체 (status 추가)
     project = {
         "project_id": project_id,
         "project_name": project_name,
         "client_industry": industry_key,
+        "status": status,  # 추가: "in-progress" 또는 "completed"
         "period": {
             "start": start_date,
             "end": end_date,
