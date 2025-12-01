@@ -40,22 +40,28 @@ export function ProjectManagement() {
         const transformedData: Project[] = response.projects.map((proj: APIProject) => {
           // 상태 매핑
           let status: 'planning' | 'in-progress' | 'completed' = 'planning';
-          if (proj.status === 'active' || proj.status === 'in-progress') {
+          const projStatus = proj.status?.toLowerCase();
+          if (projStatus === '진행중' || projStatus === 'active' || projStatus === 'in-progress') {
             status = 'in-progress';
-          } else if (proj.status === 'completed') {
+          } else if (projStatus === '완료' || projStatus === 'completed') {
             status = 'completed';
           }
+
+          // 팀원 수 계산
+          const teamMembers = (proj as any).team_members || [];
+          const assignedMembers = Array.isArray(teamMembers) ? teamMembers.length : ((proj as any).team_size || 0);
+          const requiredMembers = (proj as any).team_size || assignedMembers || 5;
 
           return {
             id: proj.project_id,
             name: proj.project_name,
-            client: '고객사', // 기본값 (DB에 없는 경우)
+            client: (proj as any).client_name || (proj as any).client_industry || '고객사',
             status,
             requiredSkills: proj.required_skills || [],
-            assignedMembers: 0, // 기본값 (DB에 없는 경우)
-            requiredMembers: 5, // 기본값
+            assignedMembers: assignedMembers,
+            requiredMembers: requiredMembers,
             startDate: proj.start_date || '미정',
-            endDate: '미정', // 기본값
+            endDate: (proj as any).end_date || proj.start_date || '미정',
             matchRate: undefined,
           };
         });
@@ -111,22 +117,27 @@ export function ProjectManagement() {
       const response = await api.getProjects();
       const transformedData: Project[] = response.projects.map((proj: APIProject) => {
         let status: 'planning' | 'in-progress' | 'completed' = 'planning';
-        if (proj.status === 'active' || proj.status === 'in-progress') {
+        const projStatus = proj.status?.toLowerCase();
+        if (projStatus === '진행중' || projStatus === 'active' || projStatus === 'in-progress') {
           status = 'in-progress';
-        } else if (proj.status === 'completed') {
+        } else if (projStatus === '완료' || projStatus === 'completed') {
           status = 'completed';
         }
+
+        const teamMembers = (proj as any).team_members || [];
+        const assignedMembers = Array.isArray(teamMembers) ? teamMembers.length : ((proj as any).team_size || 0);
+        const requiredMembers = (proj as any).team_size || assignedMembers || 5;
 
         return {
           id: proj.project_id,
           name: proj.project_name,
-          client: '고객사',
+          client: (proj as any).client_name || (proj as any).client_industry || '고객사',
           status,
           requiredSkills: proj.required_skills || [],
-          assignedMembers: 0,
-          requiredMembers: 5,
+          assignedMembers: assignedMembers,
+          requiredMembers: requiredMembers,
           startDate: proj.start_date || '미정',
-          endDate: '미정',
+          endDate: (proj as any).end_date || proj.start_date || '미정',
           matchRate: undefined,
         };
       });

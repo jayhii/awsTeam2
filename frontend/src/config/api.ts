@@ -5,7 +5,7 @@
 /// <reference types="vite/client" />
 
 // API Gateway URL
-export const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'https://xoc7x1m6p8.execute-api.us-east-2.amazonaws.com/prod';
+export const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'https://ifeniowvpb.execute-api.us-east-2.amazonaws.com/prod';
 
 // API 엔드포인트
 export const API_ENDPOINTS = {

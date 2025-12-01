@@ -89,17 +89,26 @@ def fetch_all_projects() -> List[Dict[str, Any]]:
         response = table.scan()
         
         projects = []
-        for item in response.get('Items', []):
-            # period 정보 추출
+        items = response.get('Items', [])
+        
+        # 페이지네이션 처리
+        while 'LastEvaluatedKey' in response:
+            response = table.scan(ExclusiveStartKey=response['LastEvaluatedKey'])
+            items.extend(response.get('Items', []))
+        
+        for item in items:
+            # period 객체에서 날짜 추출
             period = item.get('period', {})
-            start_date = ''
-            end_date = ''
-            
             if isinstance(period, dict):
                 start_date = period.get('start', '')
                 end_date = period.get('end', '')
+                duration_months = period.get('duration_months', 0)
+            else:
+                start_date = item.get('start_date', '')
+                end_date = item.get('end_date', '')
+                duration_months = 0
             
-            # tech_stack에서 필요 스킬 추출
+            # tech_stack에서 required_skills 추출
             required_skills = []
             tech_stack = item.get('tech_stack', {})
             if isinstance(tech_stack, dict):
@@ -107,25 +116,62 @@ def fetch_all_projects() -> List[Dict[str, Any]]:
                     if isinstance(skills, list):
                         required_skills.extend([str(skill) for skill in skills])
             
-            # 필요한 정보만 추출
+            # requirements도 추가
+            requirements = item.get('requirements', [])
+            if isinstance(requirements, list):
+                required_skills.extend([str(req) for req in requirements])
+            
+            # 팀원 정보 추출 (두 가지 형식 지원)
+            team_members = []
+            team_size = 0
+            
+            # 형식 1: team_members (이전 형식 - 상세 정보 포함)
+            if 'team_members' in item and item['team_members']:
+                team_members = item['team_members']
+                team_size = len(team_members) if isinstance(team_members, list) else 0
+            
+            # 형식 2: team_composition (새 형식 - user_id만 포함)
+            elif 'team_composition' in item:
+                team_composition = item.get('team_composition', {})
+                if isinstance(team_composition, dict):
+                    for role, members in team_composition.items():
+                        if isinstance(members, list):
+                            team_size += len(members)
+                            # 각 멤버 ID를 팀원 정보로 변환
+                            for member_id in members:
+                                team_members.append({
+                                    'user_id': member_id,
+                                    'role': role
+                                })
+                        elif isinstance(members, int):
+                            team_size += members
+            
+            # 프로젝트 객체 생성
             project = {
                 'project_id': item.get('project_id'),
                 'project_name': item.get('project_name', ''),
-                'status': 'active',  # 기본값
+                'status': item.get('status', 'active'),
                 'start_date': start_date,
                 'end_date': end_date,
-                'required_skills': required_skills,
+                'duration_months': duration_months,
+                'required_skills': list(set(required_skills)),  # 중복 제거
                 'description': item.get('description', ''),
-                'client_industry': item.get('client_industry', '')
+                'client_industry': item.get('client_industry', ''),
+                'budget_scale': item.get('budget_scale', ''),
+                'team_members': team_members,
+                'team_size': team_size,
+                'tech_stack': tech_stack,
+                'requirements': requirements
             }
             
             projects.append(project)
         
         logger.info(f"총 {len(projects)}개의 프로젝트 조회 완료")
+        
         return projects
         
     except Exception as e:
-        logger.error(f"프로젝트 데이터 조회 실패: {str(e)}")
+        logger.error(f"프로젝트 데이터 조회 실패: {str(e)}", exc_info=True)
         raise
 
 
