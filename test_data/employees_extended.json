@@ -178,5 +178,81 @@
       "university": "Korea University"
     },
     "certifications": ["AWS Certified Data Analytics"]
+  },
+  {
+    "user_id": "U_008",
+    "basic_info": {
+      "name": "김준호",
+      "role": "Senior System Architect",
+      "years_of_experience": 13,
+      "email": "jh.kim@architect.com"
+    },
+    "self_introduction": "클라우드 네이티브 아키텍처 설계 전문가입니다. AWS 기반 MSA 전환 프로젝트를 다수 수행하였으며, 대규모 트래픽 처리 경험이 풍부합니다.",
+    "skills": [
+      {"name": "Java", "level": "Expert", "years": 13},
+      {"name": "Spring Framework", "level": "Expert", "years": 12},
+      {"name": "AWS", "level": "Expert", "years": 8},
+      {"name": "Kubernetes", "level": "Expert", "years": 6},
+      {"name": "MSA", "level": "Expert", "years": 7},
+      {"name": "Docker", "level": "Expert", "years": 7},
+      {"name": "Terraform", "level": "Advanced", "years": 5}
+    ],
+    "work_experience": [
+      {
+        "project_id": "P_004",
+        "project_name": "이커머스 플랫폼 MSA 전환",
+        "role": "Lead Architect",
+        "period": "2023-03 ~ 2024-12",
+        "main_tasks": [
+          "모놀리식 아키텍처를 MSA로 전환",
+          "AWS EKS 기반 컨테이너 오케스트레이션",
+          "API Gateway 및 서비스 메시 구축"
+        ],
+        "performance_result": "시스템 확장성 300% 향상 및 배포 시간 80% 단축"
+      }
+    ],
+    "education": {
+      "degree": "Computer Science, MS",
+      "university": "KAIST"
+    },
+    "certifications": ["AWS Solutions Architect Professional", "CKA", "CKAD"]
+  },
+  {
+    "user_id": "U_009",
+    "basic_info": {
+      "name": "최서연",
+      "role": "System Architect",
+      "years_of_experience": 9,
+      "email": "sy.choi@systems.com"
+    },
+    "self_introduction": "금융 시스템 아키텍처 설계 및 성능 최적화 전문가입니다. 대용량 트랜잭션 처리와 실시간 데이터 분석 시스템 구축 경험이 있습니다.",
+    "skills": [
+      {"name": "Java", "level": "Expert", "years": 9},
+      {"name": "Spring Framework", "level": "Expert", "years": 8},
+      {"name": "Oracle", "level": "Expert", "years": 9},
+      {"name": "Redis", "level": "Advanced", "years": 5},
+      {"name": "Kafka", "level": "Advanced", "years": 4},
+      {"name": "Kubernetes", "level": "Advanced", "years": 4},
+      {"name": "AWS", "level": "Advanced", "years": 5}
+    ],
+    "work_experience": [
+      {
+        "project_id": "P_005",
+        "project_name": "증권사 실시간 거래 시스템",
+        "role": "System Architect",
+        "period": "2022-06 ~ 2024-03",
+        "main_tasks": [
+          "고가용성 아키텍처 설계",
+          "실시간 데이터 처리 파이프라인 구축",
+          "성능 튜닝 및 모니터링 시스템 구축"
+        ],
+        "performance_result": "초당 10만 건 트랜잭션 처리 달성"
+      }
+    ],
+    "education": {
+      "degree": "Computer Engineering, BS",
+      "university": "Seoul National University"
+    },
+    "certifications": ["AWS Solutions Architect Professional", "OCP"]
   }
 ]

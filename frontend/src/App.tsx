@@ -42,8 +42,8 @@ export default function App() {
                 <Users className="w-6 h-6 text-white" />
               </motion.div>
               <div>
-                <h1 className="text-gray-900 bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">인력 관리 시스템</h1>
-                <p className="text-sm text-gray-500">AI 기반 팀 배치 및 프로젝트 추천</p>
+                <h1 className="text-gray-900 bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">매치마인드</h1>
+                <p className="text-sm text-gray-500">AI 기반 역량 관리 및 프로젝트 추천</p>
               </div>
             </div>
             <motion.button 

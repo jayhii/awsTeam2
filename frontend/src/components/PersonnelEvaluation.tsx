@@ -32,6 +32,22 @@ interface EvaluationResult {
     market_comparison: string;
   };
   ai_recommendation: string;
+  skill_gap_analysis?: {
+    missing_skills: Array<{
+      name: string;
+      percentage: number;
+      count: number;
+      total: number;
+    }>;
+    recommended_skills: Array<{
+      name: string;
+      percentage: number;
+      count: number;
+      total: number;
+    }>;
+    peer_comparison: string;
+    peer_count: number;
+  };
   project_history: any[];
   skills: any[];
   experience_years: number;
@@ -261,9 +277,11 @@ export function PersonnelEvaluation() {
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                       {employees.map((employee, idx) => {
                         const name = employee.name || employee.employeeName || employee.basic_info?.name || '이름 없음';
-                        const position = employee.position || employee.role || '직책 미정';
-                        const experience = employee.experienceYears || employee.experience_years || 0;
-                        const employeeId = employee.employeeId || employee.employee_id || employee.id || idx;
+                        // role 필드를 직책으로 사용
+                        const position = employee.position || employee.role || employee.basic_info?.role || '직책 미정';
+                        // 경력 년수 추출
+                        const experience = employee.experienceYears || employee.experience_years || employee.basic_info?.years_of_experience || 0;
+                        const employeeId = employee.user_id || employee.employeeId || employee.employee_id || employee.id || idx;
                         
                         return (
                           <motion.div
@@ -525,6 +543,80 @@ export function PersonnelEvaluation() {
               </Card>
             </div>
 
+            {/* 기술 격차 분석 */}
+            {evaluationResult.skill_gap_analysis && evaluationResult.skill_gap_analysis.peer_count > 0 && (
+              <Card className="border-2 border-purple-200 bg-purple-50">
+                <CardContent className="p-6">
+                  <div className="flex items-center gap-2 mb-4">
+                    <Users className="w-5 h-5 text-purple-600" />
+                    <h4 className="font-semibold text-gray-900">동료 대비 기술 격차 분석</h4>
+                  </div>
+                  <p className="text-sm text-gray-600 mb-4">
+                    {evaluationResult.skill_gap_analysis.peer_comparison}
+                  </p>
+
+                  {/* 필수 기술 (50% 이상의 동료가 보유) */}
+                  {evaluationResult.skill_gap_analysis.missing_skills && 
+                   evaluationResult.skill_gap_analysis.missing_skills.length > 0 && (
+                    <div className="mb-4">
+                      <h5 className="font-semibold text-red-700 mb-2 flex items-center gap-2">
+                        <AlertCircle className="w-4 h-4" />
+                        필수 기술 (동료의 50% 이상 보유)
+                      </h5>
+                      <div className="space-y-2">
+                        {evaluationResult.skill_gap_analysis.missing_skills.map((skill, idx) => (
+                          <div key={idx} className="bg-white rounded-lg p-3 border border-red-200">
+                            <div className="flex items-center justify-between mb-1">
+                              <span className="font-medium text-gray-900">{skill.name}</span>
+                              <Badge className="bg-red-100 text-red-700">
+                                {skill.percentage}% ({skill.count}/{skill.total}명)
+                              </Badge>
+                            </div>
+                            <Progress value={skill.percentage} className="h-2" />
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+
+                  {/* 추천 기술 (30-50%의 동료가 보유) */}
+                  {evaluationResult.skill_gap_analysis.recommended_skills && 
+                   evaluationResult.skill_gap_analysis.recommended_skills.length > 0 && (
+                    <div>
+                      <h5 className="font-semibold text-blue-700 mb-2 flex items-center gap-2">
+                        <TrendingUp className="w-4 h-4" />
+                        경쟁력 향상 추천 기술 (동료의 30-50% 보유)
+                      </h5>
+                      <div className="space-y-2">
+                        {evaluationResult.skill_gap_analysis.recommended_skills.map((skill, idx) => (
+                          <div key={idx} className="bg-white rounded-lg p-3 border border-blue-200">
+                            <div className="flex items-center justify-between mb-1">
+                              <span className="font-medium text-gray-900">{skill.name}</span>
+                              <Badge className="bg-blue-100 text-blue-700">
+                                {skill.percentage}% ({skill.count}/{skill.total}명)
+                              </Badge>
+                            </div>
+                            <Progress value={skill.percentage} className="h-2" />
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+
+                  {/* 데이터 부족 메시지 */}
+                  {(!evaluationResult.skill_gap_analysis.missing_skills || 
+                    evaluationResult.skill_gap_analysis.missing_skills.length === 0) &&
+                   (!evaluationResult.skill_gap_analysis.recommended_skills || 
+                    evaluationResult.skill_gap_analysis.recommended_skills.length === 0) && (
+                    <div className="text-center py-4 text-gray-600">
+                      <p>동료들과 비교했을 때 기술 스택이 우수합니다!</p>
+                      <p className="text-sm mt-1">지속적인 학습으로 경쟁력을 유지하세요.</p>
+                    </div>
+                  )}
+                </CardContent>
+              </Card>
+            )}
+
             {/* AI 추천 의견 */}
             <Card className="bg-gradient-to-r from-blue-50 to-indigo-50 border-2 border-blue-200">
               <CardContent className="p-6">
@@ -568,15 +660,17 @@ export function PersonnelEvaluation() {
       </AnimatePresence>
 
       {/* 이력서 업로드 모달 */}
-      {isUploadModalOpen && (
-        <ResumeUploadModal
-          onClose={() => setIsUploadModalOpen(false)}
-          onSuccess={() => {
-            setIsUploadModalOpen(false);
-            toast.success('이력서가 업로드되었습니다. 분석이 완료되면 결과가 표시됩니다.');
-          }}
-        />
-      )}
+      <ResumeUploadModal
+        isOpen={isUploadModalOpen}
+        onClose={() => setIsUploadModalOpen(false)}
+        onUploadSuccess={(fileKey) => {
+          console.log('이력서 업로드 완료:', fileKey);
+          setIsUploadModalOpen(false);
+          toast.success('이력서가 업로드되었습니다!', {
+            description: '분석이 완료되면 결과가 표시됩니다.',
+          });
+        }}
+      />
     </div>
   );
 }

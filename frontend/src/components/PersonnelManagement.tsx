@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Search, Filter, UserPlus } from 'lucide-react';
+import { Search, Filter, UserPlus, Upload } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { Card, CardContent } from './ui/card';
 import { Badge } from './ui/badge';
@@ -8,6 +8,7 @@ import { Input } from './ui/input';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from './ui/dialog';
 import { api, Employee } from '../config/api';
 import { EmployeeRegistrationModal } from './EmployeeRegistrationModal';
+import { ResumeUploadModal } from './ResumeUploadModal';
 import { toast } from 'sonner';
 
 interface Personnel {
@@ -27,6 +28,7 @@ export function PersonnelManagement() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isResumeUploadOpen, setIsResumeUploadOpen] = useState(false);
 
   // DB에서 직원 목록 가져오기
   const fetchEmployees = async () => {
@@ -99,15 +101,27 @@ export function PersonnelManagement() {
           <h2 className="text-gray-900 mb-2 bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">인력 관리</h2>
           <p className="text-gray-600">전체 인력 정보를 확인하고 관리하세요 (총 {personnel.length}명)</p>
         </div>
-        <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-          <Button 
-            onClick={() => setIsModalOpen(true)}
-            className="gap-2 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 shadow-lg shadow-blue-500/30"
-          >
-            <UserPlus className="w-4 h-4" />
-            신규 인력 등록
-          </Button>
-        </motion.div>
+        <div className="flex gap-3">
+          <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+            <Button 
+              onClick={() => setIsResumeUploadOpen(true)}
+              variant="outline"
+              className="gap-2 border-blue-200 text-blue-600 hover:bg-blue-50"
+            >
+              <Upload className="w-4 h-4" />
+              이력서 업로드
+            </Button>
+          </motion.div>
+          <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+            <Button 
+              onClick={() => setIsModalOpen(true)}
+              className="gap-2 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 shadow-lg shadow-blue-500/30"
+            >
+              <UserPlus className="w-4 h-4" />
+              신규 인력 등록
+            </Button>
+          </motion.div>
+        </div>
       </motion.div>
 
       {/* 로딩 및 에러 상태 */}
@@ -322,6 +336,20 @@ export function PersonnelManagement() {
             // 에러는 모달 컴포넌트에서 처리됨
             throw error;
           }
+        }}
+      />
+
+      {/* 이력서 업로드 모달 */}
+      <ResumeUploadModal
+        isOpen={isResumeUploadOpen}
+        onClose={() => setIsResumeUploadOpen(false)}
+        onUploadSuccess={(fileKey) => {
+          console.log('이력서 업로드 완료:', fileKey);
+          toast.success('이력서 업로드 완료!', {
+            description: '이력서 파싱이 시작되었습니다. 잠시 후 평가 현황에서 확인하실 수 있습니다.',
+          });
+          // 직원 목록 새로고침
+          fetchEmployees();
         }}
       />
     </div>

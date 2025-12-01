@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이력서 - 김소연</title>
+    <style>
+        @page {
+            size: A4;
+            margin: 2cm;
+        }
+        
+        body {
+            font-family: 'Malgun Gothic', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        h1 {
+            color: #2c3e50;
+            border-bottom: 3px solid #e74c3c;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        
+        h2 {
+            color: #c0392b;
+            border-bottom: 2px solid #ecf0f1;
+            padding-bottom: 5px;
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+        
+        h3 {
+            color: #34495e;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .contact-info {
+            text-align: center;
+            color: #7f8c8d;
+            margin-bottom: 20px;
+        }
+        
+        .section {
+            margin-bottom: 25px;
+        }
+        
+        .skill-item {
+            display: inline-block;
+            background: #fadbd8;
+            padding: 5px 15px;
+            margin: 5px;
+            border-radius: 20px;
+            font-size: 14px;
+        }
+        
+        .project {
+            background: #fef5e7;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-left: 4px solid #e74c3c;
+        }
+        
+        .project-title {
+            font-weight: bold;
+            color: #2c3e50;
+            font-size: 16px;
+        }
+        
+        .project-period {
+            color: #7f8c8d;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+        
+        ul {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        
+        li {
+            margin-bottom: 8px;
+        }
+        
+        .certification {
+            background: #d5f4e6;
+            padding: 8px 15px;
+            margin: 5px 0;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>김소연 (Kim So-yeon)</h1>
+        <div class="contact-info">
+            <p>Senior Backend Developer | 경력 6년</p>
+            <p>📧 sy.kim@dev-career.com | 📱 010-9876-5432</p>
+            <p>🔗 GitHub: github.com/soyeon-kim | LinkedIn: linkedin.com/in/soyeon-kim</p>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>자기소개</h2>
+        <p>
+            비즈니스 임팩트를 창출하는 데 집중하는 문제 해결 중심의 풀스택 개발자입니다. 
+            급격한 트래픽 변화에도 유연하게 대처할 수 있는 탄력적인 시스템 설계를 선호하며, 
+            새로운 언어나 프레임워크(Kotlin, GraphQL 등)를 습득하여 실무 효율을 높이는 데 주저함이 없습니다. 
+            기획 단계부터 적극적으로 참여하여 사용자 경험(UX)을 기술적으로 개선하는 제안을 자주 하는 편입니다.
+        </p>
+    </div>
+
+    <div class="section">
+        <h2>핵심 기술</h2>
+        <div>
+            <span class="skill-item">Kotlin (3년, Advanced)</span>
+            <span class="skill-item">Java (6년, Advanced)</span>
+            <span class="skill-item">Spring Boot (5년, Advanced)</span>
+            <span class="skill-item">Elasticsearch (2년, Intermediate)</span>
+            <span class="skill-item">AWS EKS (4년, Intermediate)</span>
+            <span class="skill-item">AWS Lambda</span>
+            <span class="skill-item">GraphQL</span>
+            <span class="skill-item">React</span>
+            <span class="skill-item">TypeScript</span>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>프로젝트 경험</h2>
+        
+        <div class="project">
+            <div class="project-title">대형 유통사 온/오프라인 통합 옴니채널 커머스 플랫폼</div>
+            <div class="project-period">2023년 9월 ~ 2024년 5월 | Core Backend Developer</div>
+            
+            <h3>주요 업무</h3>
+            <ul>
+                <li>블랙 프라이데이 등 대규모 이벤트 대응을 위한 AWS EKS 오토스케일링 정책 설계 및 구현</li>
+                <li>기존 RDB 기반의 상품 검색을 Elasticsearch로 이관하여 검색 엔진 고도화</li>
+                <li>온/오프라인 재고 데이터 정합성을 위한 분산 락(Distributed Lock) 적용</li>
+                <li>Kotlin + Spring Boot 기반 RESTful API 개발</li>
+                <li>Redis를 활용한 실시간 재고 캐싱 시스템 구축</li>
+            </ul>
+            
+            <h3>성과</h3>
+            <p>
+                동시 접속자 10만 명 상황에서도 서버 다운타임 없이 안정적으로 운영하였으며, 
+                검색 쿼리 성능을 1.2초에서 0.2초로 단축하여 구매 전환율을 15% 상승시키는 데 기여함.
+            </p>
+        </div>
+
+        <div class="project">
+            <div class="project-title">핀테크 스타트업 모바일 뱅킹 앱 백엔드 개발</div>
+            <div class="project-period">2022년 1월 ~ 2023년 8월 | Backend Developer</div>
+            
+            <h3>주요 업무</h3>
+            <ul>
+                <li>GraphQL API 설계 및 구현으로 모바일 앱 데이터 페칭 최적화</li>
+                <li>AWS Lambda를 활용한 서버리스 아키텍처 구축</li>
+                <li>JWT 기반 인증/인가 시스템 구현</li>
+                <li>PostgreSQL 데이터베이스 설계 및 쿼리 최적화</li>
+                <li>GitHub Actions를 활용한 CI/CD 파이프라인 구축</li>
+            </ul>
+            
+            <h3>성과</h3>
+            <p>
+                GraphQL 도입으로 모바일 앱의 API 호출 횟수를 평균 40% 감소시켜 데이터 사용량 절감 및 앱 성능 개선. 
+                서버리스 아키텍처로 인프라 비용을 월 300만원에서 150만원으로 50% 절감.
+            </p>
+        </div>
+
+        <div class="project">
+            <div class="project-title">소셜 미디어 플랫폼 실시간 알림 시스템 구축</div>
+            <div class="project-period">2020년 6월 ~ 2021년 12월 | Junior Backend Developer</div>
+            
+            <h3>주요 업무</h3>
+            <ul>
+                <li>WebSocket 기반 실시간 알림 시스템 개발</li>
+                <li>Apache Kafka를 활용한 이벤트 스트리밍 파이프라인 구축</li>
+                <li>MongoDB를 활용한 알림 데이터 저장 및 조회 시스템 개발</li>
+                <li>Spring Boot + Java 기반 마이크로서비스 개발</li>
+            </ul>
+            
+            <h3>성과</h3>
+            <p>
+                실시간 알림 전송 성공률 99.5% 달성. 
+                Kafka를 통한 비동기 처리로 알림 발송 지연 시간을 평균 5초에서 0.5초로 단축.
+            </p>
+        </div>
+
+        <div class="project">
+            <div class="project-title">이커머스 관리자 대시보드 풀스택 개발</div>
+            <div class="project-period">2019년 3월 ~ 2020년 5월 | Full-stack Developer</div>
+            
+            <h3>주요 업무</h3>
+            <ul>
+                <li>React + TypeScript 기반 관리자 대시보드 프론트엔드 개발</li>
+                <li>Spring Boot 기반 RESTful API 백엔드 개발</li>
+                <li>MySQL 데이터베이스 설계 및 구현</li>
+                <li>Chart.js를 활용한 실시간 매출 통계 시각화</li>
+            </ul>
+            
+            <h3>성과</h3>
+            <p>
+                관리자의 업무 효율성을 30% 향상시키는 직관적인 UI/UX 구현. 
+                실시간 데이터 업데이트로 의사결정 속도 개선.
+            </p>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>학력</h2>
+        <p><strong>홍익대학교 (Hongik University)</strong></p>
+        <p>소프트웨어공학과 학사 (Software Engineering, BS) | 2015년 - 2019년</p>
+        <p>학점: 4.1 / 4.5 (전공 4.3 / 4.5)</p>
+    </div>
+
+    <div class="section">
+        <h2>자격증</h2>
+        <div class="certification">CKA (Certified Kubernetes Administrator) - 2023년 취득</div>
+        <div class="certification">SQLD (SQL 개발자) - 2021년 취득</div>
+        <div class="certification">정보처리기사 - 2019년 취득</div>
+    </div>
+
+    <div class="section">
+        <h2>기술 스택 상세</h2>
+        <h3>Backend</h3>
+        <ul>
+            <li><strong>Languages:</strong> Kotlin, Java, Python</li>
+            <li><strong>Frameworks:</strong> Spring Boot, Spring WebFlux, Ktor</li>
+            <li><strong>Database:</strong> PostgreSQL, MySQL, MongoDB, Redis</li>
+            <li><strong>Search:</strong> Elasticsearch, OpenSearch</li>
+            <li><strong>Messaging:</strong> Apache Kafka, RabbitMQ, AWS SQS</li>
+            <li><strong>API:</strong> RESTful API, GraphQL, gRPC</li>
+        </ul>
+        
+        <h3>Frontend</h3>
+        <ul>
+            <li><strong>Languages:</strong> TypeScript, JavaScript</li>
+            <li><strong>Frameworks:</strong> React, Next.js</li>
+            <li><strong>State Management:</strong> Redux, Zustand</li>
+            <li><strong>Styling:</strong> Tailwind CSS, Styled-components</li>
+        </ul>
+        
+        <h3>DevOps & Cloud</h3>
+        <ul>
+            <li><strong>Cloud:</strong> AWS (EKS, Lambda, EC2, RDS, S3, CloudWatch)</li>
+            <li><strong>Container:</strong> Docker, Kubernetes</li>
+            <li><strong>CI/CD:</strong> GitHub Actions, Jenkins, ArgoCD</li>
+            <li><strong>Monitoring:</strong> Prometheus, Grafana, Datadog</li>
+            <li><strong>IaC:</strong> Terraform, AWS CloudFormation</li>
+        </ul>
+        
+        <h3>Testing</h3>
+        <ul>
+            <li>JUnit 5, Mockito, Kotest</li>
+            <li>Jest, React Testing Library</li>
+            <li>Postman, K6 (부하 테스트)</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>오픈소스 기여 & 개인 프로젝트</h2>
+        <h3>오픈소스 기여</h3>
+        <ul>
+            <li><strong>Spring Boot:</strong> 문서 오타 수정 및 예제 코드 개선 (2건의 PR 머지)</li>
+            <li><strong>Kotlin Coroutines:</strong> 이슈 리포팅 및 테스트 케이스 작성</li>
+        </ul>
+        
+        <h3>개인 프로젝트</h3>
+        <ul>
+            <li><strong>개발자 커뮤니티 플랫폼:</strong> Kotlin + Spring Boot + React로 개발한 기술 블로그 공유 플랫폼 (GitHub Stars 150+)</li>
+            <li><strong>실시간 코딩 테스트 플랫폼:</strong> WebSocket + Redis를 활용한 실시간 협업 코딩 환경 구축</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>언어</h2>
+        <ul>
+            <li><strong>한국어:</strong> 모국어</li>
+            <li><strong>영어:</strong> 중상급 (기술 문서 읽기/쓰기 가능, 영어 회의 참여 가능)</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>기타 활동</h2>
+        <ul>
+            <li><strong>기술 블로그 운영:</strong> Medium에서 Kotlin, Spring Boot 관련 기술 아티클 작성 (월 평균 조회수 5,000+)</li>
+            <li><strong>컨퍼런스 발표:</strong> "Kotlin Coroutines를 활용한 비동기 프로그래밍" - 2023 Spring Camp</li>
+            <li><strong>스터디 리더:</strong> 주니어 개발자 대상 Kotlin 스터디 그룹 운영 (2022-2023)</li>
+        </ul>
+    </div>
+</body>
+</html>

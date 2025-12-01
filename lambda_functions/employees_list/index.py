@@ -79,14 +79,24 @@ def fetch_all_employees() -> List[Dict[str, Any]]:
         employees = []
         for item in response.get('Items', []):
             # 필요한 정보만 추출
+            basic_info = item.get('basic_info', {})
+            role = basic_info.get('role', '')
+            years_of_experience = float(basic_info.get('years_of_experience', 0))
+            
             employee = {
                 'user_id': item.get('user_id'),
                 'basic_info': {
-                    'name': item.get('basic_info', {}).get('name', ''),
-                    'role': item.get('basic_info', {}).get('role', ''),
-                    'email': item.get('basic_info', {}).get('email', ''),
-                    'years_of_experience': float(item.get('basic_info', {}).get('years_of_experience', 0))
+                    'name': basic_info.get('name', ''),
+                    'role': role,
+                    'email': basic_info.get('email', ''),
+                    'years_of_experience': years_of_experience
                 },
+                # 프론트엔드 호환성을 위한 추가 필드
+                'name': basic_info.get('name', ''),
+                'position': role,  # role을 position으로도 제공
+                'role': role,
+                'experienceYears': years_of_experience,
+                'experience_years': years_of_experience,
                 'skills': [],
                 'certifications': item.get('certifications', []),
                 'work_experience': item.get('work_experience', [])
