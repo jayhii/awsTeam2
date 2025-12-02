@@ -164,9 +164,13 @@ def fetch_all_projects() -> List[Dict[str, Any]]:
                 team_size = len(team_members) if isinstance(team_members, list) else 0
             
             # 형식 2: team_composition (새 형식 - user_id만 포함, 캐시에서 조회)
-            elif 'team_composition' in item:
+            if 'team_composition' in item:
                 team_composition = item.get('team_composition', {})
                 if isinstance(team_composition, dict):
+                    # team_members 초기화 (기존 데이터 덮어쓰기)
+                    team_members = []
+                    team_size = 0
+                    
                     for role, members in team_composition.items():
                         if isinstance(members, list):
                             team_size += len(members)
