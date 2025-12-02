@@ -47,21 +47,21 @@ export function ProjectManagement() {
             status = 'completed';
           }
 
-          // 팀원 수 계산
-          const teamMembers = (proj as any).team_members || [];
-          const assignedMembers = Array.isArray(teamMembers) ? teamMembers.length : ((proj as any).team_size || 0);
-          const requiredMembers = (proj as any).team_size || assignedMembers || 5;
+          // 팀원 수 계산 (타입 안전하게)
+          const teamMembers = proj.team_members || [];
+          const assignedMembers = teamMembers.length;
+          const requiredMembers = proj.team_size || assignedMembers || 5;
 
           return {
             id: proj.project_id,
             name: proj.project_name,
-            client: (proj as any).client_name || (proj as any).client_industry || '고객사',
+            client: proj.client_industry || '고객사',
             status,
             requiredSkills: proj.required_skills || [],
             assignedMembers: assignedMembers,
             requiredMembers: requiredMembers,
             startDate: proj.start_date || '미정',
-            endDate: (proj as any).end_date || proj.start_date || '미정',
+            endDate: proj.end_date || '미정',
             matchRate: undefined,
           };
         });
@@ -124,20 +124,20 @@ export function ProjectManagement() {
           status = 'completed';
         }
 
-        const teamMembers = (proj as any).team_members || [];
-        const assignedMembers = Array.isArray(teamMembers) ? teamMembers.length : ((proj as any).team_size || 0);
-        const requiredMembers = (proj as any).team_size || assignedMembers || 5;
+        const teamMembers = proj.team_members || [];
+        const assignedMembers = teamMembers.length;
+        const requiredMembers = proj.team_size || assignedMembers || 5;
 
         return {
           id: proj.project_id,
           name: proj.project_name,
-          client: (proj as any).client_name || (proj as any).client_industry || '고객사',
+          client: proj.client_industry || '고객사',
           status,
           requiredSkills: proj.required_skills || [],
           assignedMembers: assignedMembers,
           requiredMembers: requiredMembers,
           startDate: proj.start_date || '미정',
-          endDate: (proj as any).end_date || proj.start_date || '미정',
+          endDate: proj.end_date || '미정',
           matchRate: undefined,
         };
       });

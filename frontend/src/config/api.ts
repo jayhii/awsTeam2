@@ -192,13 +192,35 @@ export interface EmployeesListResponse {
   count: number;
 }
 
+// 팀원 정보 타입
+export interface TeamMember {
+  user_id: string;
+  name: string;
+  role: string;
+  employee_role: string;
+}
+
 // 프로젝트 목록 응답 타입
 export interface Project {
   project_id: string;
   project_name: string;
   status: string;
   start_date: string;
+  end_date: string;
+  duration_months: number;
   required_skills: string[];
+  description: string;
+  client_industry: string;
+  budget_scale: string;
+  team_members: TeamMember[];
+  team_size: number;
+  tech_stack: {
+    backend?: string[];
+    frontend?: string[];
+    data?: string[];
+    infra?: string[];
+  };
+  requirements: string[];
 }
 
 export interface ProjectsListResponse {

@@ -96,6 +96,39 @@ def fetch_all_projects() -> List[Dict[str, Any]]:
             response = table.scan(ExclusiveStartKey=response['LastEvaluatedKey'])
             items.extend(response.get('Items', []))
         
+        # 모든 프로젝트의 user_id 수집 (배치 조회용)
+        all_user_ids = set()
+        for item in items:
+            team_composition = item.get('team_composition', {})
+            if isinstance(team_composition, dict):
+                for role, members in team_composition.items():
+                    if isinstance(members, list):
+                        all_user_ids.update(members)
+        
+        # 직원 정보 조회 (간단한 방식)
+        employees_cache = {}
+        if all_user_ids:
+            try:
+                employees_table = dynamodb.Table('Employees')
+                # 개별 조회 (간단하지만 느릴 수 있음)
+                for user_id in list(all_user_ids)[:50]:  # 최대 50명만 조회 (성능 고려)
+                    try:
+                        response = employees_table.get_item(Key={'user_id': user_id})
+                        if 'Item' in response:
+                            emp = response['Item']
+                            basic_info = emp.get('basic_info', {})
+                            employees_cache[user_id] = {
+                                'name': basic_info.get('name', 'Unknown'),
+                                'role': basic_info.get('role', 'Unknown')
+                            }
+                    except:
+                        pass
+                
+                logger.info(f"직원 정보 캐시: {len(employees_cache)}명")
+            except Exception as e:
+                logger.error(f"직원 정보 조회 실패: {str(e)}", exc_info=True)
+        
+        # 프로젝트 데이터 처리
         for item in items:
             # period 객체에서 날짜 추출
             period = item.get('period', {})
@@ -130,18 +163,21 @@ def fetch_all_projects() -> List[Dict[str, Any]]:
                 team_members = item['team_members']
                 team_size = len(team_members) if isinstance(team_members, list) else 0
             
-            # 형식 2: team_composition (새 형식 - user_id만 포함)
+            # 형식 2: team_composition (새 형식 - user_id만 포함, 캐시에서 조회)
             elif 'team_composition' in item:
                 team_composition = item.get('team_composition', {})
                 if isinstance(team_composition, dict):
                     for role, members in team_composition.items():
                         if isinstance(members, list):
                             team_size += len(members)
-                            # 각 멤버 ID를 팀원 정보로 변환
+                            # 캐시에서 직원 정보 조회
                             for member_id in members:
+                                emp_info = employees_cache.get(member_id, {'name': 'Unknown', 'role': 'Unknown'})
                                 team_members.append({
                                     'user_id': member_id,
-                                    'role': role
+                                    'name': emp_info['name'],
+                                    'role': role,
+                                    'employee_role': emp_info['role']
                                 })
                         elif isinstance(members, int):
                             team_size += members
