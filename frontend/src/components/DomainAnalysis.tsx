@@ -1,6 +1,6 @@
-import { useState } from 'react';
-import { TrendingUp, Users, Lightbulb, ArrowRight, Search, AlertCircle, CheckCircle, Target, Zap } from 'lucide-react';
-import { motion } from 'framer-motion';
+import { useState, useEffect } from 'react';
+import { TrendingUp, Users, Lightbulb, ArrowRight, Search, AlertCircle, CheckCircle, Target, Zap, BarChart3, PieChart, Activity, RefreshCw, Database, Briefcase } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { Card, CardContent, CardHeader, CardTitle } from './ui/card';
 import { Badge } from './ui/badge';
 import { Button } from './ui/button';
@@ -24,6 +24,28 @@ interface DomainAnalysisResult {
   identified_domains: IdentifiedDomain[];
   total_projects_analyzed: number;
   total_employees: number;
+  domain_info?: Record<string, {
+    project_count: number;
+    tech_stack: string[];
+  }>;
+}
+
+interface DomainPortfolio {
+  domain_name: string;
+  project_count: number;
+  expert_count: number;
+  maturity_level: string;
+  tech_domains?: string[];
+}
+
+interface TechTrend {
+  tech_name: string;
+  category: string;
+  trend_score: number;
+  demand_score: number;
+  growth_rate: number;
+  market_share: number;
+  related_domains: string[];
 }
 
 export function DomainAnalysis() {
@@ -31,6 +53,27 @@ export function DomainAnalysis() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [domainData, setDomainData] = useState<DomainAnalysisResult | null>(null);
+  const [activeTab, setActiveTab] = useState<'analysis' | 'portfolio' | 'trends'>('analysis');
+  const [portfolioData, setPortfolioData] = useState<DomainPortfolio[]>([]);
+  const [trendData, setTrendData] = useState<TechTrend[]>([]);
+  const [autoRefresh, setAutoRefresh] = useState(false);
+
+  // 초기 데이터 로드
+  useEffect(() => {
+    loadPortfolioData();
+    loadTrendData();
+  }, []);
+
+  // 자동 새로고침
+  useEffect(() => {
+    if (autoRefresh) {
+      const interval = setInterval(() => {
+        loadPortfolioData();
+        loadTrendData();
+      }, 30000); // 30초마다
+      return () => clearInterval(interval);
+    }
+  }, [autoRefresh]);
 
   const handleDomainAnalysis = async () => {
     setLoading(true);
@@ -44,6 +87,72 @@ export function DomainAnalysis() {
       setError(err instanceof Error ? err.message : '도메인 분석 실패');
     } finally {
       setLoading(false);
+    }
+  };
+
+  const loadPortfolioData = async () => {
+    try {
+      // 프로젝트 데이터에서 도메인 포트폴리오 생성
+      const projects = await api.getProjects();
+      const employees = await api.getEmployees();
+      
+      // 도메인별 집계
+      const domainMap = new Map<string, DomainPortfolio>();
+      
+      projects.projects.forEach(project => {
+        const domain = (project as any).knowledge_domain || 'General';
+        const existing = domainMap.get(domain) || {
+          domain_name: domain,
+          project_count: 0,
+          expert_count: 0,
+          maturity_level: 'Developing',
+          tech_domains: []
+        };
+        
+        existing.project_count++;
+        if ((project as any).tech_domains) {
+          existing.tech_domains = Array.from(new Set([
+            ...(existing.tech_domains || []),
+            ...(project as any).tech_domains
+          ]));
+        }
+        
+        domainMap.set(domain, existing);
+      });
+      
+      // 직원 도메인 경험 집계
+      employees.employees.forEach(employee => {
+        const domainExp = (employee as any).domain_experience;
+        if (domainExp?.knowledge_domains) {
+          domainExp.knowledge_domains.forEach((kd: any) => {
+            const domain = kd.domain;
+            const existing = domainMap.get(domain);
+            if (existing) {
+              existing.expert_count++;
+            }
+          });
+        }
+      });
+      
+      setPortfolioData(Array.from(domainMap.values()));
+    } catch (err) {
+      console.error('포트폴리오 데이터 로드 실패:', err);
+    }
+  };
+
+  const loadTrendData = async () => {
+    try {
+      // TechTrends 데이터는 별도 API가 필요하지만, 임시로 목업 데이터 사용
+      const mockTrends: TechTrend[] = [
+        { tech_name: 'Python', category: 'Backend', trend_score: 95, demand_score: 95, growth_rate: 12.8, market_share: 28.3, related_domains: ['Healthcare', 'E-commerce'] },
+        { tech_name: 'AWS', category: 'Cloud', trend_score: 94, demand_score: 96, growth_rate: 11.2, market_share: 52.3, related_domains: ['Finance', 'Healthcare'] },
+        { tech_name: 'React', category: 'Frontend', trend_score: 92, demand_score: 93, growth_rate: 10.2, market_share: 42.8, related_domains: ['E-commerce', 'Education'] },
+        { tech_name: 'PyTorch', category: 'AI_ML', trend_score: 92, demand_score: 87, growth_rate: 16.8, market_share: 32.8, related_domains: ['Healthcare', 'Aviation'] },
+        { tech_name: 'Kubernetes', category: 'Cloud', trend_score: 91, demand_score: 89, growth_rate: 14.5, market_share: 38.7, related_domains: ['Telecommunications', 'Finance'] },
+      ];
+      setTrendData(mockTrends);
+    } catch (err) {
+      console.error('트렌드 데이터 로드 실패:', err);
     }
   };
 
@@ -85,19 +194,141 @@ export function DomainAnalysis() {
       <motion.div
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
+        className="flex items-center justify-between"
       >
-        <h2 className="text-3xl font-bold text-gray-900 mb-2 bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
-          도메인 분석
-        </h2>
-        <p className="text-gray-600">인력 이력을 기반으로 신규 도메인 진출 가능성을 분석합니다</p>
+        <div>
+          <h2 className="text-3xl font-bold text-gray-900 mb-2 bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
+            도메인 분석 & 관리
+          </h2>
+          <p className="text-gray-600">인력 이력과 기술 트렌드를 기반으로 도메인 포트폴리오를 관리합니다</p>
+        </div>
+        
+        {/* 자동 새로고침 토글 */}
+        <div className="flex items-center gap-3">
+          <Button
+            variant="outline"
+            size="sm"
+            onClick={() => {
+              loadPortfolioData();
+              loadTrendData();
+              if (domainData) handleDomainAnalysis();
+            }}
+            className="gap-2"
+          >
+            <RefreshCw className="w-4 h-4" />
+            새로고침
+          </Button>
+          <label className="flex items-center gap-2 cursor-pointer">
+            <input
+              type="checkbox"
+              checked={autoRefresh}
+              onChange={(e) => setAutoRefresh(e.target.checked)}
+              className="rounded"
+            />
+            <span className="text-sm text-gray-600">자동 새로고침</span>
+          </label>
+        </div>
       </motion.div>
 
-      {/* 분석 실행 섹션 */}
+      {/* 탭 네비게이션 */}
       <motion.div
-        initial={{ opacity: 0, scale: 0.95 }}
-        animate={{ opacity: 1, scale: 1 }}
+        initial={{ opacity: 0, y: -10 }}
+        animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.1 }}
+        className="flex gap-2 border-b border-gray-200"
       >
+        <button
+          onClick={() => setActiveTab('analysis')}
+          className={`px-6 py-3 font-medium transition-all ${
+            activeTab === 'analysis'
+              ? 'text-blue-600 border-b-2 border-blue-600'
+              : 'text-gray-600 hover:text-gray-900'
+          }`}
+        >
+          <div className="flex items-center gap-2">
+            <Target className="w-4 h-4" />
+            신규 도메인 분석
+          </div>
+        </button>
+        <button
+          onClick={() => setActiveTab('portfolio')}
+          className={`px-6 py-3 font-medium transition-all ${
+            activeTab === 'portfolio'
+              ? 'text-blue-600 border-b-2 border-blue-600'
+              : 'text-gray-600 hover:text-gray-900'
+          }`}
+        >
+          <div className="flex items-center gap-2">
+            <Briefcase className="w-4 h-4" />
+            도메인 포트폴리오
+          </div>
+        </button>
+        <button
+          onClick={() => setActiveTab('trends')}
+          className={`px-6 py-3 font-medium transition-all ${
+            activeTab === 'trends'
+              ? 'text-blue-600 border-b-2 border-blue-600'
+              : 'text-gray-600 hover:text-gray-900'
+          }`}
+        >
+          <div className="flex items-center gap-2">
+            <Activity className="w-4 h-4" />
+            기술 트렌드
+          </div>
+        </button>
+      </motion.div>
+
+      {/* 탭 컨텐츠 */}
+      <AnimatePresence mode="wait">
+        {activeTab === 'analysis' && (
+          <motion.div
+            key="analysis"
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: 20 }}
+            transition={{ duration: 0.3 }}
+          >
+            {renderAnalysisTab()}
+          </motion.div>
+        )}
+        
+        {activeTab === 'portfolio' && (
+          <motion.div
+            key="portfolio"
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: 20 }}
+            transition={{ duration: 0.3 }}
+          >
+            {renderPortfolioTab()}
+          </motion.div>
+        )}
+        
+        {activeTab === 'trends' && (
+          <motion.div
+            key="trends"
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: 20 }}
+            transition={{ duration: 0.3 }}
+          >
+            {renderTrendsTab()}
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </div>
+  );
+
+  // 신규 도메인 분석 탭
+  function renderAnalysisTab() {
+    return (
+      <div className="space-y-6">
+        {/* 분석 실행 섹션 */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.95 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ delay: 0.1 }}
+        >
         <Card className="bg-white/80 backdrop-blur-sm border-0 shadow-lg overflow-hidden">
           <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-br from-blue-500/10 to-indigo-500/10 rounded-full blur-3xl pointer-events-none" />
           <CardHeader>

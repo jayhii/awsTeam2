@@ -170,7 +170,7 @@ def classify_project_domains(projects: List[Dict[str, Any]]) -> Dict[str, Any]:
     """
     프로젝트 도메인 분류
     
-    Requirements: 4.1 - Claude를 사용한 도메인 분류
+    Requirements: 4.1 - 실제 프로젝트 데이터 기반 도메인 분류
     
     Args:
         projects: 프로젝트 목록
@@ -179,47 +179,62 @@ def classify_project_domains(projects: List[Dict[str, Any]]) -> Dict[str, Any]:
         dict: 도메인 분류 결과
     """
     try:
-        # 프로젝트 정보 요약
-        project_summaries = []
-        for project in projects[:20]:  # 최대 20개 프로젝트 분석
-            summary = {
-                'name': project.get('project_name', ''),
-                'industry': project.get('client_industry', ''),
-                'tech_stack': project.get('tech_stack', {})
+        # 프로젝트에서 도메인 추출
+        domain_counts = {}
+        domain_tech_stacks = {}
+        
+        for project in projects:
+            # knowledge_domain 필드 사용
+            domain = project.get('knowledge_domain')
+            if not domain:
+                # 없으면 client_industry에서 추출
+                industry = project.get('client_industry', '')
+                if 'Finance' in industry or 'Banking' in industry:
+                    domain = 'Finance'
+                elif 'Healthcare' in industry or 'Medical' in industry:
+                    domain = 'Healthcare'
+                elif 'E-commerce' in industry or 'Retail' in industry:
+                    domain = 'E-commerce'
+                elif 'Manufacturing' in industry:
+                    domain = 'Manufacturing'
+                elif 'Aviation' in industry or 'Aerospace' in industry:
+                    domain = 'Aviation'
+                elif 'Education' in industry or 'E-Learning' in industry:
+                    domain = 'Education'
+                elif 'Logistics' in industry or 'Transportation' in industry:
+                    domain = 'Logistics'
+                elif 'Telecommunications' in industry:
+                    domain = 'Telecommunications'
+                else:
+                    domain = 'General'
+            
+            # 도메인 카운트
+            domain_counts[domain] = domain_counts.get(domain, 0) + 1
+            
+            # 기술 스택 수집
+            if domain not in domain_tech_stacks:
+                domain_tech_stacks[domain] = set()
+            
+            tech_stack = project.get('tech_stack', {})
+            for category, techs in tech_stack.items():
+                if isinstance(techs, list):
+                    domain_tech_stacks[domain].update(techs)
+        
+        # 현재 보유 도메인 (프로젝트가 있는 도메인)
+        current_domains = [d for d, count in domain_counts.items() if count > 0 and d != 'General']
+        
+        # 도메인별 정보
+        domain_info = {}
+        for domain in current_domains:
+            domain_info[domain] = {
+                'project_count': domain_counts[domain],
+                'tech_stack': list(domain_tech_stacks.get(domain, []))[:10]  # 상위 10개
             }
-            project_summaries.append(summary)
-        
-        # Claude를 사용한 도메인 분류
-        prompt = f"""다음 프로젝트들을 분석하여 도메인을 분류해주세요:
-
-프로젝트 목록:
-{json.dumps(project_summaries, ensure_ascii=False, indent=2)}
-
-다음 형식으로 응답해주세요:
-1. 현재 보유 도메인 목록 (예: Finance, Healthcare, E-commerce)
-2. 각 도메인별 주요 기술 스택
-3. 각 도메인별 프로젝트 수
-
-JSON 형식으로 응답해주세요."""
-
-        response = bedrock_runtime.invoke_model(
-            modelId='anthropic.claude-v2',
-            body=json.dumps({
-                'prompt': f"\n\nHuman: {prompt}\n\nAssistant:",
-                'max_tokens_to_sample': 1000,
-                'temperature': 0.5
-            })
-        )
-        
-        response_body = json.loads(response['body'].read())
-        classification_text = response_body.get('completion', '').strip()
-        
-        # 간단한 파싱 (실제로는 더 정교한 파싱 필요)
-        current_domains = extract_domains_from_text(classification_text)
         
         return {
-            'current_domains': current_domains,
-            'classification_text': classification_text
+            'current_domains': sorted(current_domains),
+            'domain_info': domain_info,
+            'total_domains': len(current_domains)
         }
         
     except Exception as e:
@@ -227,7 +242,8 @@ JSON 형식으로 응답해주세요."""
         # 기본 도메인 반환
         return {
             'current_domains': ['Finance', 'Healthcare', 'E-commerce'],
-            'classification_text': ''
+            'domain_info': {},
+            'total_domains': 3
         }
 
 

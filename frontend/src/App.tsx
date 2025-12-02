@@ -5,7 +5,7 @@ import { Dashboard } from './components/Dashboard';
 import { PersonnelManagement } from './components/PersonnelManagement';
 import { ProjectManagement } from './components/ProjectManagement';
 import { PersonnelRecommendation } from './components/PersonnelRecommendation';
-import { DomainAnalysis } from './components/DomainAnalysis';
+import { DomainAnalysisEnhanced as DomainAnalysis } from './components/DomainAnalysisEnhanced';
 import { PersonnelEvaluation } from './components/PersonnelEvaluation';
 
 type Tab = 'dashboard' | 'personnel' | 'projects' | 'recommendation' | 'domain' | 'evaluation';
