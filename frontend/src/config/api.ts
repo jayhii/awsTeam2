@@ -7,6 +7,9 @@
 // API Gateway URL
 export const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'https://ifeniowvpb.execute-api.us-east-2.amazonaws.com/prod';
 
+// 현재 사용 중인 API URL 로그
+console.log('API Base URL:', API_BASE_URL);
+
 // API 엔드포인트
 export const API_ENDPOINTS = {
   // 인력 추천

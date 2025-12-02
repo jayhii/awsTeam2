@@ -31,6 +31,18 @@ def handler(event, context):
     Returns:
         dict: API Gateway 응답
     """
+    # CORS preflight 요청 처리
+    if event.get('httpMethod') == 'OPTIONS':
+        return {
+            'statusCode': 200,
+            'headers': {
+                'Access-Control-Allow-Origin': '*',
+                'Access-Control-Allow-Headers': 'Content-Type,Authorization',
+                'Access-Control-Allow-Methods': 'GET,POST,PUT,DELETE,OPTIONS'
+            },
+            'body': ''
+        }
+    
     try:
         logger.info("직원 목록 조회 요청 수신")
         
