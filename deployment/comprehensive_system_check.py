@@ -83,7 +83,7 @@ required_lambdas = [
     'ProjectsList',
     'EmployeesList',
     'RecommendationEngine',
-    'DomainAnalysis',
+    'DomainAnalysisEngine',
     'QuantitativeAnalysis',
     'QualitativeAnalysis'
 ]

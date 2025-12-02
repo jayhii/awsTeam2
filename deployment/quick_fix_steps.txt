@@ -1,0 +1,41 @@
+========================================
+도메인 분석 엔드포인트 빠른 복구
+========================================
+
+문제: /domain-analysis 엔드포인트에서 403 오류 발생
+
+원인: Lambda 통합 누락 또는 API 미배포
+
+해결 (AWS Console):
+
+1. AWS Console → API Gateway → HR-Resource-Optimization-API
+
+2. Resources → /domain-analysis → POST 메서드
+
+3. Integration Request 설정:
+   - Type: Lambda Function
+   - Lambda: DomainAnalysisEngine
+   - Region: us-east-2
+   - Proxy integration: 체크
+
+4. CORS 활성화:
+   - Actions → Enable CORS
+   - Enable CORS and replace existing CORS headers
+
+5. API 배포 (필수!):
+   - Actions → Deploy API
+   - Stage: prod
+   - Deploy
+
+6. 검증:
+   python deployment/test_all_endpoints.py
+
+========================================
+동일하게 복구할 엔드포인트:
+========================================
+
+/recommendations → ProjectRecommendationEngine
+/quantitative-analysis → QuantitativeAnalysis
+/qualitative-analysis → QualitativeAnalysis
+
+========================================
